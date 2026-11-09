@@ -41,3 +41,7 @@ latar hitam berasap, figur siluet hitam dengan outline neon merah, lantai neon d
 pip install skia-python scipy numpy   # skia butuh libegl1
 ./build.sh
 ```
+
+## Video 2: one-shot otak 3D
+`out/pmo_brain3d_oneshot.mp4` (83 s, 1080x1920): otak 3D realistis yang terus berputar, ilustrasi per kalimat di kiri/kanan/atas,
+kamera instan (zoom/pan/tilt), SFX baru di 50% volume voice, area atas/bawah frame kosong untuk teks manual. Build: `./build_b3d.sh`.

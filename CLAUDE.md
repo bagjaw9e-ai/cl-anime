@@ -40,3 +40,16 @@ Tanyakan/ikuti adjustment dari user; kalau tidak disebut, pakai setelan video te
 6. Commit + push ke branch yang ditentukan.
 
 Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`.
+
+## Format kedua: one-shot otak 3D (video ke-2, `out/pmo_brain3d_oneshot.mp4`)
+- Kode: `src/b3d_mesh.py` (mesh otak realistis: korteks fsaverage5 dari paket nilearn + cerebellum/batang otak
+  dari volume MNI152 via marching cubes, cache `assets/brain_mesh.npz`; renderer painter's-algorithm skia
+  dengan shading per-vertex), `src/b3d_video.py` (timeline `BEATS` per kalimat/koma, kamera instan
+  zoom/pan/tilt + motion blur, state otak: highlight PFC, penyusutan, retak, pecah, rewire; ilustrasi di
+  kiri/kanan/atas otak), `src/b3d_sfx.py` (palet SFX FM/tonal/granular + mix), build: `./build_b3d.sh`.
+- Otak selalu berputar pelan ke samping (`YAW_SPEED` deg/s; `choose_yaw()` memilih sudut awal supaya lobus
+  frontal menghadap kamera di beat PFC). Satu shot tanpa cut.
+- Area atas & bawah frame dibiarkan kosong (user mengisi teks manual): semua konten di pita y≈560–1360.
+- Neon tidak berlebihan: bloom lebih rendah (`bloom(amt1=.55, amt2=.42)`).
+- SFX = 50% volume voice: mix mengukur LUFS (pyloudnorm) dan menaruh bus SFX −6 dB di bawah voice, lalu
+  seluruh mix dinormalkan ke −14 LUFS. Dependensi tambahan: `pip install nilearn scikit-image pyloudnorm`.
