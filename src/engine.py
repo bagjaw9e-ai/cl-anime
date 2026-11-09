@@ -399,12 +399,14 @@ def phone(cv, x, y, w, h, glow=1.0, ang=0.0, beam=0.0, f=1, img=None, flick=0):
     body = rrect(-w / 2, -h / 2, w, h, w * .18)
     neon(cv, body, RED, max(w * .07, 2.5))
     scr = rrect(-w / 2 + w * .1, -h / 2 + h * .08, w * .8, h * .84, w * .1)
-    if img is not None:
+    if isinstance(img, str):
+        cv.drawPath(scr, FP((0, 0, 0), 1))
+    elif img is not None:
         cv.save()
         cv.clipPath(scr, doAntiAlias=True)
         iw, ih = img.width(), img.height()
         sw, sh2 = w * .8, h * .84
-        sc = sw * .92 / (iw * .40)
+        sc = sw * .9 / (iw * .37)
         cv.drawImageRect(img, skia.Rect.MakeXYWH(-iw * sc / 2, -ih * sc / 2, iw * sc, ih * sc),
                          skia.SamplingOptions(skia.FilterMode.kLinear), skia.Paint(Color=C(WHT, glow)))
         cv.restore()

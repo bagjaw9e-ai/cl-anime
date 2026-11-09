@@ -6,11 +6,11 @@ from engine import *
 AUDIO_LEN = 68.21
 # scene boundaries aligned to pauses in the voice-over
 B = [0.0, 4.50, 8.12, 14.05, 17.80, 22.15, 28.12, 33.55, 38.39, 45.33, 48.50, 51.52, 57.01, 61.20, 63.10, AUDIO_LEN]
-TRANS = ['zoom', 'wipe', 'zoom', 'slide', 'glitch', 'zoom', 'spin', 'wipe', 'flash', 'zoom', 'slide', 'spin',
-         'flash', 'zoom']
-TR = 0.56
+TRANS = ['fade'] * 14
+TR = 0.6
 
 PMO_IMG = None
+CTA_SCREEN = {}
 
 
 def limb(cv, pts, w=20, c=RED, a=1.0, ol=5):
@@ -804,7 +804,8 @@ def s_cta(cv, u, D):
     py = lerp(2400, 900, k)
     radial(cv, 540, py, 700, RED, .45 * k)
     pulse = .85 + .15 * math.sin(u * 4)
-    phone(cv, 540, py, 560, 1020, pulse, img=PMO_IMG)
+    phone(cv, 540, py, 560, 1020, pulse, img='blank')
+    CTA_SCREEN['py'] = py
     # arrow up to bio
     aa = sm(prog(u, 1.0, 1.4))
     if aa > 0:

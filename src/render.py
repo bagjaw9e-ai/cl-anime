@@ -11,6 +11,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 
 _surf = None
+CTA_POST = []
+_alpha = [1.0]
 _small = None
 
 
@@ -39,6 +41,8 @@ def draw_scene(cv, i, u):
     cv.scale(z, z)
     cv.translate(-W / 2, -H * .55)
     cv.drawPicture(pic)
+    if fn is S.s_cta and 'py' in S.CTA_SCREEN:
+        CTA_POST.append((cv.getTotalMatrix(), S.CTA_SCREEN['py'], _alpha[-1]))
     if has_floor:
         cv.save()
         cv.clipRect(skia.Rect(-W, FLOOR + 2, 2 * W, 2 * H))
@@ -62,6 +66,7 @@ def layer(cv, i, u, tf, alpha):
     if alpha <= 0.003:
         return
     cv.saveLayerAlpha(None, int(clamp(alpha) * 255))
+    _alpha.append(alpha)
     cv.translate(W / 2 + dx, H / 2 + dy)
     cv.rotate(rot)
     cv.scale(sc, sc)
@@ -69,6 +74,7 @@ def layer(cv, i, u, tf, alpha):
     # scene drawn with its own black so it occludes the outgoing one
     cv.drawRect(skia.Rect(-W, -H, 2 * W, 2 * H), E.FP((4, 1, 2), 0))
     draw_scene(cv, i, u)
+    _alpha.pop()
     cv.restore()
 
 
@@ -85,6 +91,8 @@ def shake_at(t):
 
 def frame(t):
     cv = _surf.getCanvas()
+    CTA_POST.clear()
+    S.CTA_SCREEN.clear()
     E.background(cv, t)
     sx, sy = shake_at(t)
     cv.save()
@@ -106,7 +114,10 @@ def frame(t):
         e = eio(p)
         mode = S.TRANS[k - 1]
         uo, ui = t - B[k - 1], t - B[k]
-        if mode == 'zoom':
+        if mode == 'fade':
+            layer(cv, k - 1, uo, (0, 0, 1 + .035 * e, 0), 1 - sm(p))
+            layer(cv, k, ui, (0, 0, 1.035 - .035 * e, 0), sm(p))
+        elif mode == 'zoom':
             layer(cv, k - 1, uo, (0, 0, 1 + .6 * e, 0), 1 - sm(p * 1.1))
             layer(cv, k, ui, (0, 0, .7 + .3 * e, 0), sm(p * 1.2 - .1))
             post['blur'] = math.sin(p * math.pi) * .8
@@ -159,6 +170,21 @@ def frame(t):
     if fade < 1:
         cv.drawRect(skia.Rect(0, 0, W, H), E.FP((0, 0, 0), 1 - fade))
     bloom(cv)
+    for (m, py, al) in CTA_POST:
+        cv.save()
+        cv.setMatrix(m)
+        w, h = 560, 1020
+        scr = E.rrect(540 - w / 2 + w * .1, py - h / 2 + h * .08, w * .8, h * .84, w * .1)
+        cv.clipPath(scr, doAntiAlias=True)
+        img = S.PMO_IMG
+        iw, ih = img.width(), img.height()
+        sc = w * .8 * .9 / (iw * .37)
+        dst = skia.Rect.MakeXYWH(540 - iw * sc / 2, py - ih * sc / 2, iw * sc, ih * sc)
+        lin = skia.SamplingOptions(skia.FilterMode.kLinear)
+        cv.drawImageRect(img, dst, lin, skia.Paint(Color=C(WHT, .7 * al), BlendMode=skia.BlendMode.kPlus,
+                                                   ImageFilter=skia.ImageFilters.Blur(14, 14)))
+        cv.drawImageRect(img, dst, lin, skia.Paint(Color=C(WHT, al), BlendMode=skia.BlendMode.kLighten))
+        cv.restore()
     if fl > 0:
         cv.drawRect(skia.Rect(0, 0, W, H), E.FP((255, 40, 50), clamp(fl * .45)))
         cv.drawRect(skia.Rect(0, 0, W, H), E.FP(WHT, clamp(fl * .25)))

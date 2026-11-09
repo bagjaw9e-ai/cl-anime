@@ -229,7 +229,10 @@ def build():
     for k in range(1, len(B) - 1):
         mode = S.TRANS[k - 1]
         b = B[k]
-        if mode in ('zoom', 'spin'):
+        if mode == 'fade':
+            put(b - .45, whoosh(.8, 250, 3500), .3)
+            put(b - .05, boom(.9, 90, 40), .12)
+        elif mode in ('zoom', 'spin'):
             put(b - .45, whoosh(.75, 250, 5000), .32)
             put(b - .05, boom(.9, 90, 40), .18)
         elif mode == 'slide':

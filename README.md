@@ -13,7 +13,7 @@ latar hitam berasap, figur siluet hitam dengan outline neon merah, lantai neon d
 |---|---|
 | `src/engine.py` | engine gambar neon (skia): rig stickman pria/wanita, ekspresi wajah, props, otak, bloom bg |
 | `src/scenes.py` | 15 scene + timing per kalimat, jenis transisi, event shake/flash/glitch |
-| `src/render.py` | compositor: transisi (zoom, spin, slide, wipe, flash, glitch), pantulan lantai, bloom → ffmpeg |
+| `src/render.py` | compositor: transisi crossfade halus, pantulan lantai, bloom, logo CTA tajam → ffmpeg |
 | `src/sfx.py` | SFX sintetis (whoosh, boom, klik kunci, ketukan, flush, zap, heartbeat, shatter, chime, dll) |
 | `build.sh` | render + mix audio → `out/pmo_savior_neon_stickman.mp4` |
 
