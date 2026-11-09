@@ -435,36 +435,7 @@ def build():
     put(78.55, marimba(1568, 1.2), .35, .4)
     put(79.65, arcs(3.3), .14)
     put(79.7, shimmer(2.8, 1200), .2)
-    # pop entrances / glitch exits of the illustrations
-    for t0, pan in POP_IN_T:
-        put(t0, pop_in(), .22, pan)
-    for t0, pan in GLITCH_OUT_T:
-        put(t0, glitch_out(), .2, pan)
     return np.stack([L, R], 1)
-
-
-POP_IN_T = [(.35, .4), (8.55, .4), (14.25, -.4), (16.85, -.4), (21.5, -.4), (26.95, .4), (31.05, -.4),
-            (34.65, .3), (44.55, -.4), (46.85, .4), (49.05, 0), (51.72, .4), (54.65, -.4), (57.05, -.4),
-            (59.3, .4), (70.0, .4), (76.9, .4), (77.5, .3)]
-GLITCH_OUT_T = [(3.85, .4), (7.6, 0), (8.45, 0), (11.15, .4), (16.85, -.4), (19.8, -.4), (21.45, 0),
-                (26.95, -.4), (31.05, .4), (34.65, -.4), (37.75, .3), (41.8, 0), (46.85, -.4), (49.05, .4),
-                (51.72, 0), (54.65, .4), (57.05, -.4), (59.3, -.4), (64.25, .4), (71.0, 0), (72.35, .4)]
-
-
-def pop_in():
-    t = T(.14)
-    x = np.sin(2 * np.pi * np.cumsum(260 + 900 * (t / .14) ** .5) / SR) * np.exp(-t * 22)
-    x[:200] += rng.standard_normal(200) * np.linspace(.6, 0, 200)
-    return x
-
-
-def glitch_out(d=.36):
-    t = T(d)
-    f = np.where((t * 40).astype(int) % 3 == 0, 1800, np.where((t * 40).astype(int) % 3 == 1, 600, 3200))
-    s = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR))
-    gate = (rng.random(len(t) // 700 + 1) > .35).repeat(700)[:len(t)]
-    s = np.round(s * gate * 3) / 3
-    return filt(s, 'band', [300, 6000]) * np.exp(-t * 5) * .6
 
 
 def clampf(x, a, b):
