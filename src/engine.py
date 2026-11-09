@@ -221,7 +221,7 @@ def hp(J, fx, uy):
 
 
 def fig(cv, x, y, pose, s=1.0, f=1, kind='man', expr='neutral', ground=None, a=1.0, c=RED,
-        u=0.0, eyeglow=0.0, fill=BLACK, phone=None, child=False):
+        u=0.0, eyeglow=0.0, fill=BLACK, phone=None, child=False, curvy=False):
     J = joints(x, y, pose, s, f)
     tw = (30 if kind == 'man' else 22) * s
     lw = (18 if kind == 'man' else 15) * s
@@ -239,7 +239,13 @@ def fig(cv, x, y, pose, s=1.0, f=1, kind='man', expr='neutral', ground=None, a=1
     pieces = []  # (kind, data, width)
     # back limbs first ... order irrelevant due to two-pass
     for i in ('1', '2'):
+        if curvy:
+            pieces.append(('pl', [J['hip'], add(J['hip'], (J['kn' + i][0] - J['hip'][0], J['kn' + i][1] - J['hip'][1]), .55)], lw * 2.3))
+            pieces.append(('pl', [J['hip'], J['kn' + i]], lw * 1.5))
+            pieces.append(('pl', [J['kn' + i], J['an' + i], J['ft' + i]], lw * 1.05))
+            continue
         pieces.append(('pl', [J['hip'], J['kn' + i], J['an' + i], J['ft' + i]], lw))
+    for i in ('1', '2'):
         pieces.append(('pl', [J['sh'], J['el' + i], J['ha' + i]], lw * .92))
         pieces.append(('c', J['ha' + i], 11 * s))
     pieces.append(('pl', [J['hip'], J['neck']], tw))
@@ -264,7 +270,20 @@ def fig(cv, x, y, pose, s=1.0, f=1, kind='man', expr='neutral', ground=None, a=1
         sw = 62 * s
         dress = [add(ch, un, 13 * s), add(add(hip, un, 30 * s), up, 10 * s), add(bot, nv, sw),
                  add(bot, nv, -sw), add(add(hip, un, -30 * s), up, 10 * s), add(ch, un, -13 * s)]
-        pieces.append(('path', poly(dress), 0))
+        if curvy:
+            fT = (-up[1] * f, up[0] * f)
+            wst = add(hip, up, LEN['T'] * s * .38)
+            bot = add(hip, dv, LEN['TH'] * s * .36)
+            dress = [add(ch, un, 15 * s), add(wst, un, 10 * s), add(add(hip, un, 34 * s), up, -4 * s),
+                     add(bot, nv, 40 * s), add(bot, nv, -40 * s), add(add(hip, un, -34 * s), up, -4 * s),
+                     add(wst, un, -10 * s), add(ch, un, -15 * s)]
+            pieces.append(('path', poly(dress), 0))
+            bust = add(add(hip, up, LEN['T'] * s * .66), fT, 15 * s)
+            pieces.append(('c', bust, 22 * s))
+            pieces.append(('c', add(bust, up, -6 * s), 19 * s))
+            J['bust'], J['bot'], J['nv'], J['fT'], J['ch'] = bust, bot, nv, fT, ch
+        else:
+            pieces.append(('path', poly(dress), 0))
     for pas in (0, 1):
         col = c if pas == 0 else fill
         for k, d, wd in pieces:
@@ -285,6 +304,18 @@ def fig(cv, x, y, pose, s=1.0, f=1, kind='man', expr='neutral', ground=None, a=1
         fr.moveTo(*a1)
         fr.quadTo(*hp(J, .1, .2), *hp(J, -.35, .55))
         cv.drawPath(fr, SP(c, 3.2 * s))
+    if curvy:
+        # lingerie details: neckline, straps, lace hem
+        b = J['bust']
+        nl = skia.Path()
+        nl.moveTo(*add(J['ch'], J['up'], -2 * s))
+        nl.quadTo(*add(b, J['up'], -30 * s), *add(b, J['fT'], 16 * s))
+        cv.drawPath(nl, SP(c, 3 * s))
+        cv.drawPath(poly([J['sh'], add(b, J['up'], 18 * s)], False), SP(c, 2.6 * s))
+        bt, nv = J['bot'], J['nv']
+        for k in range(-3, 4):
+            p = add(bt, nv, k * 12 * s)
+            dot(cv, p[0], p[1], 3.2 * s, c)
     face(cv, J, expr, u, c, eyeglow)
     if phone is not None:
         draw_phone_hand(cv, J, phone, s)

@@ -35,11 +35,12 @@ def draw_scene(cv, i, u):
     fn(c2, u, D)
     pic = rec.finishRecordingAsPicture()
     # gentle push-in camera
-    z = 1 + .045 * clamp(u / D)
+    fx, fy, fz = S.FOCUS[i]
+    z = fz * (1 + .045 * clamp(u / D))
     cv.save()
-    cv.translate(W / 2, H * .55)
+    cv.translate(W / 2, H / 2)
     cv.scale(z, z)
-    cv.translate(-W / 2, -H * .55)
+    cv.translate(-fx, -fy)
     cv.drawPicture(pic)
     if fn is S.s_cta and 'py' in S.CTA_SCREEN:
         CTA_POST.append((cv.getTotalMatrix(), S.CTA_SCREEN['py'], _alpha[-1]))

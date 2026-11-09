@@ -19,6 +19,43 @@ def limb(cv, pts, w=20, c=RED, a=1.0, ol=5):
     cv.drawPath(p, SP(BLACK, w, 1))
 
 
+FANT = dict(t=-8, hd=-10, a1=160, f1=265, a2=-35, f2=40, h1=-3, k1=4, h2=16, k2=-8)
+
+
+def fant_pose(u, k=1.0):
+    sw = math.sin(u * 2.6) * k
+    return dict(FANT, t=-8 + 6 * sw, hd=-10 - 6 * sw, h1=-3 - 6 * sw, h2=16 + 5 * sw, a2=-35 + 10 * sw)
+
+
+def screen_girl(cv, x, y, w, h, u, c=RED, fill=(40, 0, 6), a=1.0):
+    cv.save()
+    cv.clipPath(rrect(x - w * .4, y - h * .42, w * .8, h * .84, w * .1), doAntiAlias=True)
+    s_ = h * .78 / 600
+    fig(cv, x - 10 * s_, y, fant_pose(u), s_, 1, 'woman', 'none', ground=y + h * .40, c=c, fill=fill, a=a,
+        curvy=True)
+    cv.restore()
+
+
+def banana(cv, x, y, s, droop, a=1.0):
+    pts = []
+    ang = math.radians(-78)
+    px, py = x, y
+    for i in range(14):
+        t = i / 13
+        pts.append((px, py, (30 - 16 * t) * s))
+        ang += math.radians((6 + droop * 26) * (.4 + t))
+        px += math.cos(ang) * 14 * s
+        py += math.sin(ang) * 14 * s
+    for pas in (0, 1):
+        for i in range(len(pts) - 1):
+            x0, y0, w0 = pts[i]
+            x1, y1, _ = pts[i + 1]
+            cv.drawLine(x0, y0, x1, y1, SP(WHT if pas == 0 else (70, 0, 8), w0 + (10 * s if pas == 0 else 0), a))
+    tx, ty, _ = pts[-1]
+    dot(cv, tx, ty, 7 * s, (40, 0, 4), a)
+    cv.drawLine(x, y, x - 8 * s, y + 22 * s, SP(WHT, 9 * s, a))
+
+
 KNEEL = dict(t=18, hd=30, a1=40, f1=130, a2=30, f2=125, h1=78, k1=-96, h2=72, k2=-100)
 HUG = dict(t=26, hd=36, a1=55, f1=105, a2=48, f2=100, h1=132, k1=10, h2=124, k2=4)
 
@@ -46,8 +83,7 @@ def s_crowd(cv, u, D):
     cv.drawPath(poly([(400, 790), (680, 790), (1100, 1480), (-20, 1480)]), skia.Paint(AntiAlias=True, Shader=sh))
     radial(cv, 540, 520, 520, RED, .35 + .15 * fl)
     phone(cv, 540, 520, 300, 520, glow=.85, flick=fl)
-    tri = poly([(505, 450), (505, 590), (615, 520)])
-    neon(cv, tri, RED, 6, 1, (90, 0, 6))
+    screen_girl(cv, 540, 520, 300, 520, u)
     # rows
     rnd = random.Random(4)
     for row, (gy, sc, n) in enumerate(((1190, .3, 9), (1310, .44, 6))):
@@ -166,7 +202,7 @@ def s_bed(cv, u, D):
     reach = eio(prog(u, .3, 1.2)) * (1 - eio(prog(u, 3.2, 3.9)))
     wpose = dict(t=-38, hd=10, h1=86, k1=92, h2=82, k2=88, a1=40, f1=60,
                  a2=lerp(30, 82, reach), f2=lerp(60, 92, reach))
-    fig(cv, 300, 1290, wpose, .95, 1, 'woman', 'sad' if u < 3.4 else 'cry', u=u)
+    fig(cv, 300, 1290, wpose, .95, 1, 'woman', 'sad' if u < 3.4 else 'cry', u=u, curvy=True)
     # thought bubble
     ba = sm(prog(u, 2.0, 2.6))
     tug = eio(prog(u, 3.2, 3.6))
@@ -188,7 +224,7 @@ def s_bed(cv, u, D):
         # curvy silhouette (fantasy)
         sway = math.sin(u * 2.5) * 6
         fp = dict(t=-8 + sway * .4, hd=-10, a1=160, f1=265, a2=-35, f2=40, h1=-3, k1=4, h2=16, k2=-8)
-        fig(cv, bx - 5, by + 70, fp, .56, 1, 'woman', 'none', c=WHT, fill=(70, 0, 8), a=ba)
+        fig(cv, bx - 5, by + 70, fant_pose(u), .6, 1, 'woman', 'none', c=WHT, fill=(70, 0, 8), a=ba, curvy=True)
         glow_dot(cv, bx, by, 150, RED, .25 * ba)
     if tug > 0:
         hx, hy = J['head']
@@ -215,7 +251,7 @@ def s_cry(cv, u, D):
     pillow(cv, 200, 1270)
     sob = math.sin(u * 9) * 3
     pose = dict(t=8 + sob, hd=34 + sob, a1=70, f1=150, a2=62, f2=145, h1=122, k1=12, h2=116, k2=6)
-    J = fig(cv, 300, 1296, pose, 1.0, 1, 'woman', 'cry', u=u)
+    J = fig(cv, 300, 1296, pose, 1.0, 1, 'woman', 'cry', u=u, curvy=True)
     cx_, cy_ = (J['ha1'][0] + J['kn1'][0]) / 2 + 6, (J['ha1'][1] + J['kn1'][1]) / 2 + 4
     pillow(cv, cx_, cy_, 120, 150, 1, 8 + sob)
     limb(cv, [J['el1'], J['ha1']], 14, ol=4)
@@ -239,6 +275,19 @@ def s_toilet(cv, u, D):
     body = spline([(330, 1080), (545, 1060), (770, 1075), (770, 1160), (700, 1270), (690, FLOOR - 4),
                    (480, FLOOR - 4), (470, 1270), (360, 1170)])
     neon(cv, body, RED, 6)
+    # tissue box on the tank + crumpled tissues on the floor
+    rnd_t = random.Random(21)
+    for k in range(8):
+        tx, ty = rnd_t.choice((rnd_t.uniform(220, 450), rnd_t.uniform(780, 860))), FLOOR - 24
+        gone = prog(u, 1.0 + k * .2, 1.6 + k * .2)
+        if gone >= 1:
+            continue
+        cx2, cy2 = 545, 1075
+        x_ = lerp(tx, cx2, eio(gone))
+        y_ = lerp(ty, cy2, eio(gone)) - math.sin(gone * math.pi) * 200
+        pts_ = [(x_ + math.cos(j * .9) * (26 + (j % 3) * 6), y_ + math.sin(j * .9) * (22 + (j % 2) * 7))
+                for j in range(7)]
+        neon(cv, spline(pts_), WHT, 3.5, 1 - gone * .5, (50, 0, 6))
     # bowl opening (3/4 view) with vortex
     cx, cy, rx, ry = 545, 1075, 205, 60
     ov = skia.Path()
@@ -276,7 +325,7 @@ def s_toilet(cv, u, D):
     ga = sm(prog(u, 2.1, 2.6)) * (1 - prog(u, 3.3, 4.1))
     if ga > 0:
         fp = dict(t=-8, hd=-10, a1=160, f1=265, a2=-35, f2=40, h1=-3, k1=4, h2=16, k2=-8)
-        fig(cv, 300, 900, fp, .78, 1, 'woman', 'none', c=WHT, fill=(60, 0, 8), a=ga * .9)
+        fig(cv, 300, 900, fant_pose(u), .78, 1, 'woman', 'none', c=WHT, fill=(60, 0, 8), a=ga * .9, curvy=True)
     dis = prog(u, 3.0, 4.2)
     if dis > 0:
         rnd = random.Random(5)
@@ -345,24 +394,9 @@ def s_medical(cv, u, D):
                 pts.append((x, y))
             cv.drawPath(poly(pts, False), SP(WHT, 4, 1))
         radial(cv, hip[0], hip[1], 160, RED, .6 * (1 - zap))
-    # wilting arrow at pelvis
+    # drooping banana at pelvis (ED symbol)
     bend = eio(prog(u, 3.0, 4.0))
-    ax, ay = hip[0] + 40, hip[1] + 10
-    pts = []
-    for i in range(12):
-        t = i / 11
-        ang = math.radians(-60 + bend * 140 * t * t)
-        if i == 0:
-            x, y = ax, ay
-        else:
-            x += math.cos(ang) * 13
-            y += math.sin(ang) * 13
-        pts.append((x, y))
-    cv.drawPath(poly(pts, False), SP(WHT, 7, 1))
-    ex, ey = pts[-1]
-    a_ = math.atan2(pts[-1][1] - pts[-2][1], pts[-1][0] - pts[-2][0])
-    for s_ in (2.5, -2.5):
-        cv.drawLine(ex, ey, ex - math.cos(a_ + s_ * .2 * 2) * 26, ey - math.sin(a_ + s_ * .2 * 2) * 26, SP(WHT, 7))
+    banana(cv, hip[0] + 40, hip[1] + 18, 1.35, bend)
     # scanline
     sy = 250 + ((u * 520) % 1300)
     sh = skia.GradientShader.MakeLinear([skia.Point(0, sy - 60), skia.Point(0, sy)], [C(RED, 0), C(RED, .35)])
@@ -422,6 +456,7 @@ def s_brainstim(cv, u, D):
         sh = skia.GradientShader.MakeLinear([skia.Point(px, py), skia.Point(*eye)], [C(WHT, .55 * fl), C(RED, .15 * fl)])
         cv.drawPath(poly([(px - 20, py - 110), (px - 20, py + 110), eye]), skia.Paint(AntiAlias=True, Shader=sh))
     phone(cv, px, py, 70, 240, 1, 0, beam=fl * 1.2, flick=fl)
+    screen_girl(cv, px, py, 70, 240, u)
     # signal particles eye -> visual cortex & striatum
     targets = [(cx - 30 * s + -200 * .78 * s, cy - 160 * s + -20 * .78 * s),
                (cx - 30 * s + -20 * .78 * s, cy - 160 * s + 25 * .78 * s)]
@@ -442,7 +477,7 @@ def s_dopamine(cv, u, D):
     floor_line(cv)
     sway = math.sin(u * 2.2) * 4
     wpose = dict(t=-6 + sway * .3, hd=-8, a1=160, f1=268, a2=-38, f2=38, h1=-3, k1=4, h2=15, k2=-7)
-    fig(cv, 300, FLOOR, wpose, 1.05, 1, 'woman', 'happy', ground=FLOOR)
+    fig(cv, 300, FLOOR, wpose, 1.05, 1, 'woman', 'happy', ground=FLOOR, curvy=True)
     rnd = random.Random(2)
     for i in range(14):
         x, y = 300 + rnd.uniform(-200, 200), FLOOR - rnd.uniform(80, 700)
@@ -505,6 +540,13 @@ def s_split(cv, u, D):
         jit = rnd.uniform(-5, 5)
         J = fig(cv, 520 + jit, 1800, dict(t=28, hd=18, a1=75, f1=150, a2=65, f2=145, h1=20, k1=-20, h2=-10, k2=-30),
                 1.0, 1, 'man', 'crazy', ground=1800, eyeglow=.8, phone=dict(glow=1, beam=1.0, w=50, h=84))
+        ph_ = ((J['ha1'][0] + J['ha2'][0]) / 2, (J['ha1'][1] + J['ha2'][1]) / 2)
+        sh = skia.GradientShader.MakeLinear([skia.Point(*ph_), skia.Point(ph_[0] + 260, 1300)],
+                                            [C(WHT, .35), C(RED, .05)])
+        cv.drawPath(poly([ph_, (ph_[0] + 160, 1080), (ph_[0] + 400, 1080), (ph_[0] + 300, 1700)]),
+                    skia.Paint(AntiAlias=True, Shader=sh))
+        fig(cv, ph_[0] + 270, 1500, fant_pose(u * 1.6, 1.4), .62, -1, 'woman', 'none', ground=1640, c=WHT,
+            fill=(70, 0, 8), a=.85 + .15 * math.sin(u * 30), curvy=True)
         for i in range(7):
             ang = rnd.uniform(0, 6.28)
             x, y = J['head'][0] + math.cos(ang) * 110, J['head'][1] + math.sin(ang) * 110
@@ -645,7 +687,7 @@ def s_heart(cv, u, D):
     # heart: close-up -> chest
     hs = lerp(15, 2.2, z)
     hx = lerp(540, chest[0], z)
-    hy = lerp(880, chest[1], z)
+    hy = lerp(1110, chest[1], z)
     beat_rate = lerp(1.6, .6, cold)
     bt = (u * beat_rate) % 1
     beat = 1 + .08 * math.exp(-bt * 10) * (1 - cold * .7)
@@ -835,6 +877,10 @@ def s_cta(cv, u, D):
             ground=1800, a=ma)
         cv.drawLine(0, 1800, 330, 1800, SP(RED, 4, ma))
 
+
+FOCUS = [(540, 1000, 1.0), (590, 1080, 1.12), (540, 960, 1.04), (480, 1180, 1.3), (600, 1100, 1.14),
+         (540, 1120, 1.08), (600, 960, 1.04), (600, 1180, 1.14), (540, 960, 1.0), (540, 920, 1.0),
+         (500, 1180, 1.24), (540, 1180, 1.12), (520, 1220, 1.24), (540, 960, 1.0), (540, 930, 1.0)]
 
 SCENES = [(s_crowd, True), (s_door, True), (s_bed, True), (s_cry, True), (s_toilet, True), (s_medical, False),
           (s_brainstim, False), (s_dopamine, True), (s_split, False), (s_pfc, False), (s_crown, True),
