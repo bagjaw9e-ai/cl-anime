@@ -270,7 +270,19 @@ def fig(cv, x, y, pose, s=1.0, f=1, kind='man', expr='neutral', ground=None, a=1
         sw = 62 * s
         dress = [add(ch, un, 13 * s), add(add(hip, un, 30 * s), up, 10 * s), add(bot, nv, sw),
                  add(bot, nv, -sw), add(add(hip, un, -30 * s), up, 10 * s), add(ch, un, -13 * s)]
-        if curvy:
+        if curvy == 2:
+            fT = (-up[1] * f, up[0] * f)
+            wst = add(hip, up, LEN['T'] * s * .40)
+            crt = add(hip, dv, LEN['TH'] * s * .2)
+            body = [add(ch, un, 16 * s), add(wst, un, 10 * s), add(add(hip, un, 36 * s), up, 2 * s),
+                    add(crt, nv, 18 * s), add(crt, nv, -18 * s), add(add(hip, un, -36 * s), up, 2 * s),
+                    add(wst, un, -10 * s), add(ch, un, -16 * s)]
+            pieces.append(('path', spline(body, tension=.5), 0))
+            bust = add(add(hip, up, LEN['T'] * s * .66), fT, 17 * s)
+            pieces.append(('c', bust, 25 * s))
+            pieces.append(('c', add(bust, up, -7 * s), 22 * s))
+            J['bust'], J['crt'], J['nv'], J['fT'], J['ch'], J['un'], J['wst'] = bust, crt, nv, fT, ch, un, wst
+        elif curvy:
             fT = (-up[1] * f, up[0] * f)
             wst = add(hip, up, LEN['T'] * s * .38)
             bot = add(hip, dv, LEN['TH'] * s * .36)
@@ -304,7 +316,35 @@ def fig(cv, x, y, pose, s=1.0, f=1, kind='man', expr='neutral', ground=None, a=1
         fr.moveTo(*a1)
         fr.quadTo(*hp(J, .1, .2), *hp(J, -.35, .55))
         cv.drawPath(fr, SP(c, 3.2 * s))
-    if curvy:
+    if curvy == 2:
+        # bikini / lingerie set: cups, straps, under-band, low-cut briefs, stocking bands
+        b, up_, fT, un = J['bust'], J['up'], J['fT'], J['un']
+        for off in (0, -14):
+            cup = skia.Path()
+            p0 = add(add(b, up_, 20 * s), fT, (-14 + off * .3) * s)
+            cup.moveTo(*p0)
+            cup.quadTo(*add(add(b, fT, 34 * s), up_, (4 + off * .2) * s), *add(add(b, up_, -20 * s), fT, 6 * s))
+            cv.drawPath(cup, SP(c, 3 * s))
+        cv.drawPath(poly([J['sh'], add(add(b, up_, 20 * s), fT, -6 * s)], False), SP(c, 2.6 * s))
+        cv.drawPath(poly([add(add(b, up_, -22 * s), fT, 8 * s), add(add(b, up_, -22 * s), fT, -24 * s)], False),
+                    SP(c, 2.6 * s))
+        hip, crt = J['hip'], J['crt']
+        br = skia.Path()
+        br.moveTo(*add(add(hip, un, 34 * s), up_, 8 * s))
+        br.quadTo(*add(crt, up_, 14 * s), *crt)
+        br.quadTo(*add(crt, up_, 14 * s), *add(add(hip, un, -34 * s), up_, 8 * s))
+        cv.drawPath(br, SP(c, 3 * s))
+        cv.drawPath(poly([add(add(hip, un, 34 * s), up_, 8 * s), add(add(hip, un, -34 * s), up_, 8 * s)], False),
+                    SP(c, 2.4 * s))
+        for i in ('1', '2'):
+            k_, h_ = J['kn' + i], J['hip']
+            m = (lerp(h_[0], k_[0], .72), lerp(h_[1], k_[1], .72))
+            d = (k_[0] - h_[0], k_[1] - h_[1])
+            L = math.hypot(*d) + 1e-6
+            n_ = (-d[1] / L, d[0] / L)
+            cv.drawLine(m[0] - n_[0] * 15 * s, m[1] - n_[1] * 15 * s, m[0] + n_[0] * 15 * s, m[1] + n_[1] * 15 * s,
+                        SP(c, 3.4 * s))
+    elif curvy:
         # lingerie details: neckline, straps, lace hem
         b = J['bust']
         nl = skia.Path()

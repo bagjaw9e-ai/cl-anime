@@ -17,8 +17,9 @@ di-approve user. Video baru harus mengikuti gaya yang dikunci di bawah.
 4. **Fokus objek di tengah**: tiap scene punya framing kamera `FOCUS = (cx, cy, zoom)` di `src/scenes.py`
    sehingga subjek utama ada di tengah frame 9:16 (jangan menumpuk di bawah).
 5. **Ilustrasi eksplisit (sugestif, tanpa ketelanjangan/adegan seks)**: siluet wanita berlekuk berlingerie
-   (`fig(..., curvy=True)`), penari di layar HP (`screen_girl`), hologram dari HP, tisu remas, pisang layu
-   sebagai simbol DE, dll. Tetap aman untuk TikTok/IG.
+   (`fig(..., curvy=True)`), versi lebih eksplisit siluet bikini/lingerie minim (`curvy=2`, pose sensual
+   `SEXY`/`sexy_screen` di `src/b3d_video.py`), ikon bibir/peach, penari di layar HP (`screen_girl`), hologram
+   dari HP, kotak tisu & tisu remas, pisang layu sebagai simbol DE, dll. Tetap aman untuk TikTok/IG.
 6. **Tanpa teks / caption** (selain logo CTA), **tanpa BGM**: hanya voice-over + SFX.
 7. **Ganti ilustrasi per kalimat / titik** sesuai transkrip; 9:16, 1080x1920, 30 fps, durasi = durasi audio.
 

@@ -373,7 +373,7 @@ def laptop(cv, u, a=1.0, girl=False, glitch=0.0):
         cv.restore()
         cv.save()
         cv.clipPath(scr, doAntiAlias=True)
-        SC.screen_girl(cv, 0, -10, 175, 170, u * 1.4, WHT, (90, 0, 10), a)
+        sexy_screen(cv, 0, 6, 200, 200, u, None, WHT, (90, 0, 10), a)
     else:
         for k in range(5):
             cv.drawLine(-86, -56 + k * 22, -86 + (150 if k % 2 else 110), -56 + k * 22, SP(HOT, 4, a * .7))
@@ -386,10 +386,79 @@ def laptop(cv, u, a=1.0, girl=False, glitch=0.0):
                         FP(mix(RED, WHT, rnd.random()), a * glitch * .7))
 
 
-def phone_girl(cv, u, a=1.0, w=150, h=270):
-    radial(cv, 0, 0, h * .9, RED, .35 * a)
+SEXY = [dict(t=-8, hd=-10, a1=160, f1=265, a2=-35, f2=40, h1=-3, k1=4, h2=16, k2=-8),      # hand behind head, hip pop
+        dict(t=-14, hd=-16, a1=165, f1=268, a2=172, f2=262, h1=-6, k1=2, h2=14, k2=-10),  # arched, both hands up
+        dict(t=-10, hd=-15, a1=165, f1=268, a2=-30, f2=30, h1=5, k1=-95, h2=-5, k2=-90)]  # kneeling, arched
+
+
+def sexy_pose(u, idx=None):
+    i = int(u / .8) % len(SEXY) if idx is None else idx
+    sw = math.sin(u * 3.2)
+    p = dict(SEXY[i])
+    p['t'] += 6 * sw
+    p['hd'] -= 5 * sw
+    if p['k1'] > -50:
+        p['h1'] -= 6 * sw
+        p['h2'] += 5 * sw
+    return p
+
+
+def sexy_screen(cv, x, y, w, h, u, idx=None, c=RED, fill=(40, 0, 6), a=1.0):
+    cv.save()
+    cv.clipPath(rrect(x - w * .4, y - h * .42, w * .8, h * .84, w * .1), doAntiAlias=True)
+    s_ = h * .8 / 600
+    E.fig(cv, x - 8 * s_, y, sexy_pose(u, idx), s_, 1, 'woman', 'none', ground=y + h * .41, c=c, fill=fill, a=a,
+          curvy=2)
+    cv.restore()
+
+
+def lips(cv, s=1.0, a=1.0):
+    up = skia.Path()
+    up.moveTo(-48 * s, 0)
+    up.cubicTo(-30 * s, -26 * s, -12 * s, -24 * s, 0, -12 * s)
+    up.cubicTo(12 * s, -24 * s, 30 * s, -26 * s, 48 * s, 0)
+    up.cubicTo(20 * s, 6 * s, -20 * s, 6 * s, -48 * s, 0)
+    lo = skia.Path()
+    lo.moveTo(-48 * s, 2 * s)
+    lo.cubicTo(-20 * s, 10 * s, 20 * s, 10 * s, 48 * s, 2 * s)
+    lo.cubicTo(30 * s, 34 * s, -30 * s, 34 * s, -48 * s, 2 * s)
+    neon(cv, up, HOT, 3.5 * s, a, RED, .9)
+    neon(cv, lo, HOT, 3.5 * s, a, RED, .9)
+    cv.drawPath(poly([(-20 * s, 18 * s), (-6 * s, 22 * s)], False), SP(WHT, 3 * s, a * .7))
+
+
+def peach(cv, s=1.0, a=1.0):
+    p = skia.Path()
+    p.moveTo(0, -30 * s)
+    p.cubicTo(-46 * s, -44 * s, -58 * s, 20 * s, -14 * s, 38 * s)
+    p.cubicTo(-6 * s, 42 * s, 6 * s, 42 * s, 14 * s, 38 * s)
+    p.cubicTo(58 * s, 20 * s, 46 * s, -44 * s, 0, -30 * s)
+    neon(cv, p, HOT, 3.5 * s, a, RED, .85)
+    cv.drawPath(spline([(0, -26 * s), (-4 * s, 4 * s), (0, 34 * s)], False), SP((60, 0, 8), 3.5 * s, a))
+    leaf = skia.Path()
+    leaf.moveTo(0, -30 * s)
+    leaf.quadTo(16 * s, -56 * s, 34 * s, -44 * s)
+    leaf.quadTo(20 * s, -30 * s, 0, -30 * s)
+    neon(cv, leaf, RED, 3 * s, a, (60, 0, 8))
+
+
+def tissues(cv, u, n=3, a=1.0):
+    neon(cv, rrect(-62, -24, 124, 48, 8), RED, 4, a, (20, 0, 4))
+    tp = spline([(-26, -22), (-36, -44), (-22, -66), (0, -58), (20, -74), (38, -52), (30, -22)], closed=True,
+                tension=.8)
+    neon(cv, tp, HOT, 3, a, (60, 0, 6))
+    cv.drawPath(poly([(-12, -26), (-8, -52)], False), SP(HOT, 2, a * .7))
+    cv.drawPath(poly([(14, -26), (16, -50)], False), SP(HOT, 2, a * .7))
+    for k in range(n):
+        x, y = -100 + k * 70 + (k % 2) * 12, 34 + (k % 2) * 8
+        pts = [(x + math.cos(j * .9) * (17 + (j % 3) * 5), y + math.sin(j * .9) * (14 + (j % 2) * 5)) for j in range(7)]
+        neon(cv, spline(pts), HOT, 3, a, (50, 0, 6))
+
+
+def phone_girl(cv, u, a=1.0, w=170, h=310):
+    radial(cv, 0, 0, h * .9, RED, .4 * a)
     E.phone(cv, 0, 0, w, h, a, 0, 0, 1, None, .4)
-    SC.screen_girl(cv, 0, 0, w, h, u * 1.3, RED, (40, 0, 6), a)
+    sexy_screen(cv, 0, 0, w, h, u, None, RED, (40, 0, 6), a)
 
 
 def eeg(cv, u, flat, a=1.0):
@@ -452,15 +521,19 @@ def stopwatch(cv, u, level, a=1.0):
     dot(cv, 0, 0, 7, WHT, a)
 
 
-def notif(cv, kind, a=1.0):
-    neon(cv, rrect(-46, -32, 92, 64, 18), RED, 4, a, (40, 0, 6))
+def notif(cv, kind, a=1.0, u=0.0):
+    neon(cv, rrect(-50, -36, 100, 72, 18), RED, 4, a, (40, 0, 6))
     if kind == 0:
-        cv.drawPath(E.heart_path(0, 2, 1.3), FP(WHT, a))
+        lips(cv, .62, a)
     elif kind == 1:
-        cv.drawPath(poly([(-10, -14), (-10, 14), (14, 0)]), FP(WHT, a))
+        peach(cv, .62, a)
     else:
-        cv.drawPath(E.flame_path(0, 6, .2, 0), FP(WHT, a))
-    dot(cv, 40, -26, 9, HOT, a)
+        cv.save()
+        cv.clipPath(rrect(-46, -32, 92, 64, 14), doAntiAlias=True)
+        E.fig(cv, 0, 0, sexy_pose(u + kind), .1, 1, 'woman', 'none', ground=32, c=WHT, fill=(90, 0, 10),
+              curvy=2)
+        cv.restore()
+    dot(cv, 44, -30, 9, HOT, a)
 
 
 def hourglass(cv, u, a=1.0):
@@ -719,9 +792,23 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
         particles3d(cv, R, t, 40, 'rain', sm((t - 11.8) / .4) * (1 - prog(t, 13.6, 14.2)), True, jit, 2)
 
     # ---- beat 1: phone with dancer beams into PFC (right)
-    with Pop(cv, RX, 920, t, .35, 3.85) as c:
+    with Pop(cv, RX, 900, t, .35, 3.85) as c:
         if c:
             phone_girl(c, t)
+    with Pop(cv, RX, 1150, t, .9, 3.85, .85) as c:
+        if c:
+            tissues(c, t, 3)
+    a_ = win(t, 1.2, 3.85)
+    if a_ > 0:
+        for k in range(3):
+            ph = ((t - 1.2) * .55 + k / 3) % 1
+            x = lerp(RX - 60, pfc[0], eio(ph))
+            y = lerp(860, pfc[1], eio(ph)) - math.sin(ph * math.pi) * 90
+            cv.save()
+            cv.translate(x, y)
+            cv.scale(.55, .55)
+            lips(cv, 1, a_ * (1 - ph * .6))
+            cv.restore()
     a = win(t, .35, 3.85)
     if a > 0:
         sh = skia.GradientShader.MakeLinear([skia.Point(RX - 60, 920), skia.Point(pfc[0], pfc[1])],
@@ -739,12 +826,35 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                     fl = 1 if snap == 0 else (.3 + .7 * (int(t * 18) % 2))
                     fn(c, t, fl)
     # ---- beat 3: laptop with dancer (right), reward centre pulses
-    with Pop(cv, RX, 950, t, 8.55, 11.15) as c:
+    with Pop(cv, RX - 10, 950, t, 8.55, 11.15, 1.15) as c:
         if c:
             laptop(c, t, 1, girl=True)
+            for k in range(2):
+                ph = (t * 1.1 + k * .5) % 1
+                c.save()
+                c.translate(-60 + k * 120, -120 - ph * 90)
+                c.scale(.45, .45)
+                (lips if k == 0 else peach)(c, 1, 1 - ph)
+                c.restore()
+    with Pop(cv, RX + 10, 1130, t, 9.0, 11.15, .8) as c:
+        if c:
+            tissues(c, t, 3)
     a = win(t, 8.7, 11.1)
     if a > 0:
         callout(cv, (rew[0], rew[1]), (RX - 130, 950), a, eo(prog(t, 8.7, 9.1)))
+    if 11.1 < t < 14.2:
+        al = 1 - prog(t, 13.6, 14.2)
+        for k in range(8):
+            an = k / 8 * 2 * math.pi + .3
+            q = eo(prog(t, 11.1 + k * .05, 12.3 + k * .05))
+            x = BX + math.cos(an) * (60 + q * 330)
+            y = clamp(BY + math.sin(an) * (40 + q * 300), 640, 1280)
+            cv.save()
+            cv.translate(x, y)
+            cv.scale(.5 + .2 * q, .5 + .2 * q)
+            cv.rotate(math.sin(t * 3 + k) * 15)
+            (lips if k % 2 == 0 else peach)(cv, 1, al * sm(q * 3))
+            cv.restore()
     # ---- beat 5: hypofrontality scan ring + medical icon (left)
     a = win(t, 14.15, 16.85)
     if a > 0:
@@ -776,6 +886,12 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                 dot(cv, x, y, 5, WHT, a)
             else:
                 circ(cv, x, y, 7, DRED, 2, a, None)
+    with Pop(cv, LX + 10, 950, t, 19.85, 21.45, .8) as c:
+        if c:
+            phone_girl(c, t)
+    a_ = win(t, 20.0, 21.45)
+    if a_ > 0:
+        E.chain(cv, (LX + 85, 950), (BX - 120, BY - 10), 30, a_, 4.5, sag=40 * math.sin(t * 3))
     # ---- beat 8: grey matter gauge (left) + inward chevrons on PFC
     with Pop(cv, LX, 960, t, 21.5, 26.95) as c:
         if c:
@@ -856,7 +972,7 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
             y = BY + rnd.uniform(-260, 260)
             with Pop(cv, x, y, t, t0, 41.8, .9) as c:
                 if c:
-                    notif(c, k % 3)
+                    notif(c, k % 3, 1, t)
         rnd2 = random.Random(int(t * 15))
         for k in range(6):
             pth = B.wires[rnd2.randrange(len(B.wires))]
@@ -903,8 +1019,9 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                 c.save()
                 c.clipRect(skia.Rect(-200, y0, 200, y0 + 70))
                 c.translate(rnd.uniform(-14, 14) if rnd.random() < .5 else 0, 0)
-                E.fig(c, 0, 120, SC.fant_pose(t * 1.4, 1.2), .62, 1, 'woman', 'none', ground=130, c=WHT,
-                      fill=(70, 0, 8), curvy=True)
+                for gx, ga in ((-46, .35), (46, .35), (0, 1.0)):
+                    E.fig(c, gx, 120, sexy_pose(t + gx * .01), .7, 1, 'woman', 'none', ground=130, c=WHT,
+                          fill=(70, 0, 8), curvy=2, a=ga)
                 c.restore()
             for k in range(30):
                 dot(c, rnd.uniform(-110, 110), rnd.uniform(-260, 130), 2, WHT, rnd.random() * .6)
