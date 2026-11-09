@@ -127,7 +127,7 @@ class Brain:
         self.temp_pts = [o(-42, 4, -22), o(42, 4, -22)]
         self.reward_pt = o(0, 12, 2)
         k = np.clip((np.clip(S, -1.6, 1.6) + 1.6) / 3.2, 0, 1)
-        self.base = np.stack([.66 - .50 * k, .13 - .10 * k, .15 - .11 * k], 1)
+        self.base = np.stack([.72 - .64 * k, .075 - .065 * k, .09 - .078 * k], 1)
         self.base[P == 1] *= np.array([.85, .9, .9])
         # explode clusters (k-means on face centroids), split vertices per cluster
         rng = np.random.default_rng(3)
@@ -224,13 +224,12 @@ def brain_draw(cv, t, st, pitch_off, jit):
     dim = st['pfc_dim']
     if dim > 0:
         w = (B.w_pfc * dim)[:, None]
-        grey = base.mean(1, keepdims=True) * np.array([[1.0, .82, .84]])
-        base = base * (1 - w) + grey * w * .7
+        base = base * (1 - .75 * w)                 # frontal goes dark (charred), stays red/black
     dark = st['dark']
     base *= (1 - .55 * dark)
     if st['freeze'] > 0:
         f = st['freeze']
-        base = base * (1 - .6 * f) + base.mean(1, keepdims=True) * np.array([[.75, .82, .95]]) * .9 * f
+        base = base * (1 - .6 * f)
     hot = st['pfc_hot']
     if hot > 0:
         emis += (B.w_pfc * hot)[:, None] * np.array([1.0, .3, .25]) * .75
@@ -241,7 +240,7 @@ def brain_draw(cv, t, st, pitch_off, jit):
         pul = .5 + .5 * math.sin(t * 22)
         emis += (B.w_temp * st['amyg'] * pul)[:, None] * np.array([1.0, .25, .2]) * 1.2
     if st['heal'] > 0:
-        emis += (B.w_pfc * st['heal'] * (.35 + .1 * math.sin(t * 4)))[:, None] * np.array([1, .55, .5])
+        emis += (B.w_pfc * st['heal'] * (.35 + .1 * math.sin(t * 4)))[:, None] * np.array([1, .14, .12])
     light = 1.0 - .3 * dark + .25 * st['final']
     rim = .5 + .15 * st['final'] - .2 * dark
     cols = M.shade(Vv, Nv, base, emis, light, rim)
@@ -292,29 +291,82 @@ def win(t, a, b, fi=.28, fo=.3):
     return sm((t - a) / fi) * (1 - sm((t - b) / fo))
 
 
-def popk(t, a):
-    return lerp(.55, 1, bo(prog(t, a, a + .35)))
+POP_IN = .34    # pop entrance duration
+GLITCH_OUT = .42  # glitch exit duration
 
 
 class Pop:
-    def __init__(self, cv, x, y, t, a, b, s=1.0):
-        self.cv, self.al = cv, win(t, a, b)
-        self.k = popk(t, a) * s
-        self.x, self.y = x, y
+    """Illustration wrapper: POP entrance (scale 0 -> overshoot -> 1) and GLITCH exit
+    (sliced horizontal offsets, red channel split, flicker, collapse to a line).
+    world=True: draw in world coords, (x, y) is only the anchor for the animation."""
+
+    def __init__(self, cv, x, y, t, a, b, s=1.0, world=False, pop=True, seed=None):
+        self.cv, self.x, self.y, self.t, self.a, self.b, self.s = cv, x, y, t, a, b, s
+        self.world, self.pop = world, pop
+        self.on = a <= t < b + GLITCH_OUT
+        self.seed = seed if seed is not None else int(a * 1000 + x * 7 + y * 3)
 
     def __enter__(self):
-        if self.al <= .003:
+        if not self.on:
             return None
-        self.cv.save()
-        self.cv.saveLayerAlpha(None, int(self.al * 255))
-        self.cv.translate(self.x, self.y)
-        self.cv.scale(self.k, self.k)
-        return self.cv
+        self.rec = skia.PictureRecorder()
+        c = self.rec.beginRecording(skia.Rect(-3000, -3000, 3000, 3000))
+        if self.world:
+            c.translate(-self.x, -self.y)
+        return c
 
-    def __exit__(self, *a):
-        if self.al > .003:
-            self.cv.restore()
-            self.cv.restore()
+    def __exit__(self, *e):
+        if not self.on:
+            return
+        pic = self.rec.finishRecordingAsPicture()
+        cv, t = self.cv, self.t
+        if t < self.b:
+            k = bo(prog(t, self.a, self.a + POP_IN)) if self.pop else 1.0
+            al = sm((t - self.a) / .1)
+            if k <= .002 or al <= .003:
+                return
+            cv.save()
+            cv.translate(self.x, self.y)
+            cv.scale(k * self.s, k * self.s)
+            cv.saveLayerAlpha(None, int(al * 255))
+            cv.drawPicture(pic)
+            cv.restore()
+            cv.restore()
+            return
+        g = clamp((t - self.b) / GLITCH_OUT)
+        rnd = random.Random(self.seed * 131 + int(t * FPS))
+        if g > .12 and rnd.random() < .22 + .45 * g:
+            return                                   # flicker off
+        sx = 1 + .3 * g
+        sy = max(1 - g ** 1.6 * .96, .03)            # collapse to a thin line
+        ext = 900 if self.world else 340
+        cv.save()
+        cv.translate(self.x, self.y)
+        cv.scale(self.s * sx, self.s * sy)
+        # red split ghost
+        tint = skia.Paint(ColorFilter=skia.ColorFilters.Blend(C(RED), skia.BlendMode.kSrcIn))
+        tint.setAlphaf(.75 * (1 - g * .5))
+        cv.saveLayer(None, tint)
+        cv.translate(18 * (.4 + g) * (1 if rnd.random() < .5 else -1), 0)
+        cv.drawPicture(pic)
+        cv.restore()
+        # sliced copy
+        y = -ext
+        while y < ext:
+            hgt = rnd.uniform(.04, .16) * ext
+            dx = 0 if rnd.random() < .45 else rnd.uniform(-1, 1) * (40 + 120 * g) * (ext / 340)
+            cv.save()
+            cv.clipRect(skia.Rect(-ext * 3, y, ext * 3, y + hgt))
+            cv.translate(dx, 0)
+            cv.drawPicture(pic)
+            cv.restore()
+            y += hgt
+        # digital blocks
+        for _ in range(int(3 + 5 * g)):
+            bx, by = rnd.uniform(-170, 120), rnd.uniform(-150, 150)
+            cv.drawRect(skia.Rect.MakeXYWH(bx, by, rnd.uniform(15, 90), rnd.uniform(3, 12)),
+                        FP(RED if rnd.random() < .7 else BLACK, .8))
+        cv.restore()
 
 
 def callout(cv, p0, p1, a=1.0, prog_=1.0):
@@ -358,7 +410,7 @@ def shield(cv, u, a=1.0):
     p.cubicTo(-45, -48, -30, -50, 0, -62)
     p.close()
     neon(cv, p, RED, 5, a, (20, 0, 4))
-    cv.drawPath(poly([(-22, 2), (-6, 20), (24, -16)], False), SP(WHT, 6, a))
+    cv.drawPath(poly([(-22, 2), (-6, 20), (24, -16)], False), SP(HOT, 6, a))
 
 
 def laptop(cv, u, a=1.0, girl=False, glitch=0.0):
@@ -373,7 +425,7 @@ def laptop(cv, u, a=1.0, girl=False, glitch=0.0):
         cv.restore()
         cv.save()
         cv.clipPath(scr, doAntiAlias=True)
-        SC.screen_girl(cv, 0, -10, 175, 170, u * 1.4, WHT, (90, 0, 10), a)
+        SC.screen_girl(cv, 0, -10, 175, 170, u * 1.4, HOT, (60, 0, 8), a)
     else:
         for k in range(5):
             cv.drawLine(-86, -56 + k * 22, -86 + (150 if k % 2 else 110), -56 + k * 22, SP(HOT, 4, a * .7))
@@ -665,9 +717,9 @@ def particles3d(cv, R, t, n, mode, a, front, jit, seed=1):
 def illus_back(cv, t, st, R, jit):
     if st['cage'] > 0 or 0 < st['cage_fly'] < 1:
         cage3d(cv, R, t, max(st['cage'], 1 - st['cage_fly']), st['cage_fly'], False, jit)
-    ca = win(t, 19.9, 21.5, .35, .4)
-    if ca > 0:
-        chains3d(cv, R, t, ca, False, jit)
+    with Pop(cv, BX, BY, t, 19.9, 21.45, world=True, seed=77) as c:
+        if c:
+            chains3d(c, R, t, 1, False, jit)
     if 11.1 < t < 14.2:
         particles3d(cv, R, t, 70, 'burst', 1 - prog(t, 13.6, 14.2), False, jit)
         particles3d(cv, R, t, 40, 'rain', sm((t - 11.8) / .4) * (1 - prog(t, 13.6, 14.2)), False, jit, 2)
@@ -704,16 +756,17 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
             fr = clamp(st['rewire'] * 1.6 - (k % 10) * .06)
             if fr <= 0:
                 continue
-            path_draw(cv, P2, Nv, pth, fr, WHT if k % 3 else HOT, 1.5, al * .6, glow=True)
+            path_draw(cv, P2, Nv, pth, fr, RED, 3.2, al * .35)
+            path_draw(cv, P2, Nv, pth, fr, HOT, 1.3, al * .7)
             head = pth[max(0, int(len(pth) * fr) - 1)]
             if Nv[head, 2] > .12 and fr < 1:
-                glow_dot(cv, P2[head][0], P2[head][1], 7, WHT, al)
+                glow_dot(cv, P2[head][0], P2[head][1], 7, HOT, al)
     # front 3D props
     if st['cage'] > 0 or 0 < st['cage_fly'] < 1:
         cage3d(cv, R, t, max(st['cage'], 1 - st['cage_fly']), st['cage_fly'], True, jit)
-    ca = win(t, 19.9, 21.5, .35, .4)
-    if ca > 0:
-        chains3d(cv, R, t, ca, True, jit)
+    with Pop(cv, BX, BY, t, 19.9, 21.45, world=True, seed=77) as c:
+        if c:
+            chains3d(c, R, t, 1, True, jit)
     if 11.1 < t < 14.2:
         particles3d(cv, R, t, 70, 'burst', 1 - prog(t, 13.6, 14.2), True, jit)
         particles3d(cv, R, t, 40, 'rain', sm((t - 11.8) / .4) * (1 - prog(t, 13.6, 14.2)), True, jit, 2)
@@ -722,32 +775,32 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
     with Pop(cv, RX, 920, t, .35, 3.85) as c:
         if c:
             phone_girl(c, t)
-    a = win(t, .35, 3.85)
-    if a > 0:
-        sh = skia.GradientShader.MakeLinear([skia.Point(RX - 60, 920), skia.Point(pfc[0], pfc[1])],
-                                            [C(WHT, .35 * a), C(RED, .12 * a)])
-        cv.drawPath(poly([(RX - 70, 820), (RX - 70, 1020), (pfc[0], pfc[1])]), skia.Paint(AntiAlias=True, Shader=sh))
+    with Pop(cv, RX - 70, 920, t, .45, 3.85, world=True) as c:
+        if c:
+            sh = skia.GradientShader.MakeLinear([skia.Point(RX - 60, 920), skia.Point(pfc[0], pfc[1])],
+                                                [C(HOT, .4), C(RED, .12)])
+            c.drawPath(poly([(RX - 70, 820), (RX - 70, 1020), (pfc[0], pfc[1])]), skia.Paint(AntiAlias=True, Shader=sh))
     # ---- beat 2: focus / logic / discipline linked to PFC (top arc)
     for k, (x, y, fn, t0) in enumerate(((330, 650, crosshair, 5.6), (540, 590, gear, 6.3), (750, 650, shield, 6.9))):
-        a = win(t, t0, 8.45)
-        if a > 0:
-            snap = prog(t, 7.6 + k * .12, 7.9 + k * .12)
-            if snap < 1:
-                callout(cv, (pfc[0], pfc[1]), (x, y + 40), a * (1 - snap), eo(prog(t, t0, t0 + .4)))
-            with Pop(cv, x, y, t, t0, 8.45) as c:
-                if c:
-                    fl = 1 if snap == 0 else (.3 + .7 * (int(t * 18) % 2))
-                    fn(c, t, fl)
+        snap_t = 7.6 + k * .12
+        with Pop(cv, x, y + 40, t, t0, snap_t, world=True, pop=False) as c:
+            if c:
+                callout(c, (pfc[0], pfc[1]), (x, y + 40), 1, eo(prog(t, t0, t0 + .4)))
+        with Pop(cv, x, y, t, t0, 8.45) as c:
+            if c:
+                fl = 1 if t < snap_t else (.3 + .7 * (int(t * 18) % 2))
+                fn(c, t, fl)
     # ---- beat 3: laptop with dancer (right), reward centre pulses
     with Pop(cv, RX, 950, t, 8.55, 11.15) as c:
         if c:
             laptop(c, t, 1, girl=True)
-    a = win(t, 8.7, 11.1)
-    if a > 0:
-        callout(cv, (rew[0], rew[1]), (RX - 130, 950), a, eo(prog(t, 8.7, 9.1)))
+    with Pop(cv, RX - 130, 950, t, 8.7, 11.15, world=True, pop=False) as c:
+        if c:
+            callout(c, (rew[0], rew[1]), (RX - 130, 950), 1, eo(prog(t, 8.7, 9.1)))
     # ---- beat 5: hypofrontality scan ring + medical icon (left)
-    a = win(t, 14.15, 16.85)
-    if a > 0:
+    with Pop(cv, BX, BY, t, 14.15, 16.85, world=True) as c:
+      if c:
+        a = 1
         ph = (t - 14.15) / 1.3
         zc = math.cos(ph * math.pi) * 80
         ring = ring3d(R, 118 * math.sqrt(max(1 - (zc / 95) ** 2, .05)), 128 * math.sqrt(max(1 - (zc / 95) ** 2, .05)), zc)
@@ -755,7 +808,7 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
         for k in range(len(pts)):
             x, y, d = pts[k]
             x2, y2, _ = pts[(k + 1) % len(pts)]
-            cv.drawLine(x, y, x2, y2, SP(WHT if d > 0 else RED, 3 if d > 0 else 2, a * (.9 if d > 0 else .4)))
+            c.drawLine(x, y, x2, y2, SP(HOT if d > 0 else RED, 3 if d > 0 else 2, a * (.9 if d > 0 else .4)))
     with Pop(cv, LX, 960, t, 14.25, 16.85) as c:
         if c:
             E.med_cross(c, 0, 0, 1.15, 1)
@@ -764,34 +817,35 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
     with Pop(cv, LX + 20, 960, t, 16.85, 19.8) as c:
         if c:
             eeg(c, t, eio(prog(t, 17.0, 19.5)))
-    a = win(t, 16.85, 19.8)
-    if a > 0:
+    with Pop(cv, BX, BY, t, 16.85, 19.8, world=True, pop=False) as c:
+      if c:
+        a = 1
         for k, v in enumerate(B.nodes):
             if Nv[v, 2] < .15:
                 continue
             off = t > 17.1 + k * .17
             x, y = P2[v]
             if not off:
-                glow_dot(cv, x, y, 12, WHT, a)
-                dot(cv, x, y, 5, WHT, a)
+                glow_dot(c, x, y, 12, HOT, a)
+                dot(c, x, y, 5, HOT, a)
             else:
-                circ(cv, x, y, 7, DRED, 2, a, None)
+                circ(c, x, y, 7, DRED, 2, a, None)
     # ---- beat 8: grey matter gauge (left) + inward chevrons on PFC
     with Pop(cv, LX, 960, t, 21.5, 26.95) as c:
         if c:
             lv = 1 - .6 * eio(prog(t, 22.0, 26.5))
             gauge(c, lv)
-    a = win(t, 21.6, 26.9)
-    if a > 0:
-        for k in range(3):
-            an = -math.pi / 2 + (k - 1) * .9
-            d = 120 + 25 * math.sin(t * 7)
-            x, y = pfc[0] + math.cos(an) * d, pfc[1] + math.sin(an) * d
-            cv.save()
-            cv.translate(x, y)
-            cv.rotate(math.degrees(an) + 180)
-            cv.drawPath(poly([(-16, -24), (8, 0), (-16, 24)], False), SP(WHT, 6, a))
-            cv.restore()
+    with Pop(cv, pfc[0], pfc[1], t, 21.6, 26.95, world=True) as c:
+        if c:
+            for k in range(3):
+                an = -math.pi / 2 + (k - 1) * .9
+                d = 120 + 25 * math.sin(t * 7)
+                x, y = pfc[0] + math.cos(an) * d, pfc[1] + math.sin(an) * d
+                c.save()
+                c.translate(x, y)
+                c.rotate(math.degrees(an) + 180)
+                c.drawPath(poly([(-16, -24), (8, 0), (-16, 24)], False), SP(HOT, 6, 1))
+                c.restore()
     # ---- beat 9: brake failure (right) + impulses through brain
     with Pop(cv, RX + 30, 960, t, 26.95, 31.05, .9) as c:
         if c:
@@ -805,9 +859,10 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                     r0 = 100
                     L = rnd.uniform(20, 70)
                     c.drawLine(math.cos(an) * r0, math.sin(an) * r0, math.cos(an) * (r0 + L), math.sin(an) * (r0 + L),
-                               SP(WHT if k % 2 else HOT, 3, 1))
-    a = win(t, 28.1, 31.0)
-    if a > 0:
+                               SP(RED if k % 2 else HOT, 3, 1))
+    with Pop(cv, BX, BY, t, 28.1, 31.05, world=True) as cl:
+      if cl:
+        a = 1
         rnd = random.Random(int(t * 12))
         for k in range(3):
             x, y = BX - 240 + rnd.uniform(0, 80), BY + rnd.uniform(-150, 120)
@@ -817,8 +872,8 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                 y += rnd.uniform(-40, 40)
                 pts.append((x, y))
             p = poly(pts, False)
-            cv.drawPath(p, SP(RED, 6, a * .5))
-            cv.drawPath(p, SP(WHT, 2.4, a))
+            cl.drawPath(p, SP(RED, 6, a * .5))
+            cl.drawPath(p, SP(HOT, 2.4, a))
     # ---- beat 10: laptop work stuck (left)
     with Pop(cv, LX + 10, 960, t, 31.05, 34.65) as c:
         if c:
@@ -831,23 +886,24 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
     with Pop(cv, 800, 660, t, 34.65, 37.75) as c:
         if c:
             stopwatch(c, t, 1 - eio(prog(t, 34.9, 37.2)))
-    a = win(t, 34.7, 37.7)
-    if a > 0:
+    with Pop(cv, pfc[0], pfc[1], t, 34.7, 37.75, world=True) as c:
+      if c:
+        a = 1
         sc_ = prog(t, 35.6, 37.4)
         rnd = random.Random(4)
         for k in range(16):
             an = rnd.uniform(0, 6.28)
             d = 20 + eo(sc_) * rnd.uniform(80, 240)
-            dot(cv, pfc[0] + math.cos(an) * d, pfc[1] + math.sin(an) * d, 4, WHT, a * (1 - sc_ * .7))
+            dot(c, pfc[0] + math.cos(an) * d, pfc[1] + math.sin(an) * d, 4, HOT, a * (1 - sc_ * .7))
         crosshair_a = a * (1 - sc_)
         if crosshair_a > 0:
-            cv.save()
-            cv.translate(pfc[0], pfc[1])
-            cv.scale(.7, .7)
-            crosshair(cv, t, crosshair_a)
-            cv.restore()
+            c.save()
+            c.translate(pfc[0], pfc[1])
+            c.scale(.7, .7)
+            crosshair(c, t, crosshair_a)
+            c.restore()
     # ---- beat 12: notifications popping around (instant stimulation)
-    if 37.7 < t < 42.0:
+    if 37.7 < t < 42.3:
         rnd = random.Random(7)
         for k in range(14):
             t0 = 37.85 + k * .26
@@ -857,10 +913,12 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
             with Pop(cv, x, y, t, t0, 41.8, .9) as c:
                 if c:
                     notif(c, k % 3)
-        rnd2 = random.Random(int(t * 15))
-        for k in range(6):
-            pth = B.wires[rnd2.randrange(len(B.wires))]
-            path_draw(cv, P2, Nv, pth, 1, HOT, 1.6, .7 * win(t, 37.8, 41.7), glow=True)
+        with Pop(cv, BX, BY, t, 37.8, 41.8, world=True, pop=False) as c:
+            if c:
+                rnd2 = random.Random(int(t * 15))
+                for k in range(6):
+                    pth = B.wires[rnd2.randrange(len(B.wires))]
+                    path_draw(c, P2, Nv, pth, 1, HOT, 1.6, .7, glow=True)
     # ---- beat 14: hourglass + piling tasks (left)
     with Pop(cv, LX + 5, 930, t, 44.55, 46.85) as c:
         if c:
@@ -884,8 +942,9 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
     with Pop(cv, LX + 10, 900, t, 54.65, 57.05) as c:
         if c:
             E.battery(c, 0, 0, 1.0, 1 - eio(prog(t, 54.9, 56.8)) * .92, 1, 1 if int(t * 5) % 2 or t < 56 else .3)
-    a = win(t, 54.7, 59.2)
-    if a > 0:
+    with Pop(cv, BX, BY, t, 54.7, 59.3, world=True, pop=False) as c:
+      if c:
+        a = 1
         tgt = (LX + 20, 900) if t < 57 else (LX + 30, 1000)
         rnd = random.Random(2)
         for k in range(26):
@@ -893,7 +952,7 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
             sx_, sy_ = BX + rnd.uniform(-120, 120), BY + rnd.uniform(-120, 100)
             x = lerp(sx_, tgt[0], eio(ph))
             y = lerp(sy_, tgt[1], eio(ph)) - math.sin(ph * math.pi) * 60
-            glow_dot(cv, x, y, 8, HOT, a * (1 - ph * .5))
+            glow_dot(c, x, y, 8, HOT, a * (1 - ph * .5))
     # ---- beat 19: glitchy fake silhouette (left)
     with Pop(cv, LX + 30, 1000, t, 57.05, 59.3) as c:
         if c:
@@ -903,17 +962,17 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                 c.save()
                 c.clipRect(skia.Rect(-200, y0, 200, y0 + 70))
                 c.translate(rnd.uniform(-14, 14) if rnd.random() < .5 else 0, 0)
-                E.fig(c, 0, 120, SC.fant_pose(t * 1.4, 1.2), .62, 1, 'woman', 'none', ground=130, c=WHT,
+                E.fig(c, 0, 120, SC.fant_pose(t * 1.4, 1.2), .62, 1, 'woman', 'none', ground=130, c=HOT,
                       fill=(70, 0, 8), curvy=True)
                 c.restore()
             for k in range(30):
-                dot(c, rnd.uniform(-110, 110), rnd.uniform(-260, 130), 2, WHT, rnd.random() * .6)
+                dot(c, rnd.uniform(-110, 110), rnd.uniform(-260, 130), 2, HOT, rnd.random() * .6)
     # ---- beat 20: calendar flipping (right), no repair
     with Pop(cv, RX, 950, t, 59.3, 64.25) as c:
         if c:
             calendar(c, t)
     # ---- beat 22: thousands of plans (bulbs)
-    if 67.3 < t < 72.4:
+    if 67.3 < t < 72.8:
         rnd = random.Random(9)
         for k in range(14):
             an = math.radians(-180 + (k + .5) / 14 * 180) if k % 2 == 0 else math.radians(-180 + (k + .5) / 14 * 180 + 6)
@@ -933,24 +992,27 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                             d = 30 + 50 * brk
                             c.drawPath(poly([(math.cos(an2) * d, math.sin(an2) * d - 10),
                                              (math.cos(an2) * d + 8, math.sin(an2) * d - 2),
-                                             (math.cos(an2) * d - 3, math.sin(an2) * d + 6)]), FP(WHT, 1 - brk * .4))
+                                             (math.cos(an2) * d - 3, math.sin(an2) * d + 6)]), FP(HOT, 1 - brk * .4))
     # ---- beat 23: crash graph (right)
     with Pop(cv, RX - 10, 980, t, 70.0, 72.35) as c:
         if c:
             graph_crash(c, t, eio(prog(t, 70.4, 71.4)))
     # ---- CTA: phone with PMO Savior logo (right), arrow up, tap
-    a = win(t, 76.9, 99)
-    if a > 0:
-        k = bo(prog(t, 76.9, 77.5))
-        px, py = CTA_X, CTA_Y + (1 - k) * 700
-        radial(cv, px, py, 420, RED, .3 * a)
-        E.phone(cv, px, py, CTA_W, CTA_H, a, img='blank')
+    if t >= 76.9:
+        px, py = CTA_X, CTA_Y
+        k = bo(prog(t, 76.9, 76.9 + POP_IN))
+        a = sm((t - 76.9) / .1)
+        radial(cv, px, py, 420, RED, .3 * a * min(k, 1))
+        with Pop(cv, px, py, t, 76.9, 999) as c:
+            if c:
+                E.phone(c, 0, 0, CTA_W, CTA_H, 1, img='blank')
         CTA_STATE['py'] = py
         CTA_STATE['a'] = a
-        aa = win(t, 77.6, 99)
-        if aa > 0:
-            bounce = abs(math.sin(t * 5)) * 26
-            E.arrow_up(cv, px, py - CTA_H / 2 - 95 - bounce, .6, aa)
+        CTA_STATE['k'] = k
+        bounce = abs(math.sin(t * 5)) * 26
+        with Pop(cv, px, py - CTA_H / 2 - 95 - bounce, t, 77.5, 999) as c:
+            if c:
+                E.arrow_up(c, 0, 0, .6, 1, HOT)
         ta = eio(prog(t, 77.9, 78.4)) * (1 - eio(prog(t, 79.2, 79.6)))
         if ta > 0:
             tap = prog(t, 78.45, 78.65)
@@ -963,10 +1025,11 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
             if 0 < tr < 1:
                 for r in range(3):
                     q = clamp(tr * 1.3 - r * .15)
-                    circ(cv, hx, hy, 16 + q * 150, WHT, 4, 1 - q, None)
+                    circ(cv, hx, hy, 16 + q * 150, HOT, 4, 1 - q, None)
     # ---- final: lightning connecting phone to brain
-    a = win(t, 79.65, 99)
-    if a > 0:
+    with Pop(cv, CTA_X - CTA_W / 2, CTA_Y, t, 79.65, 999, world=True) as cl:
+      if cl:
+        a = 1
         rnd = random.Random(int(t * 14))
         for k in range(3):
             x0, y0 = CTA_X - CTA_W / 2, CTA_Y + rnd.uniform(-160, 160)
@@ -977,9 +1040,10 @@ def illus_front(cv, t, st, R, Vv, Nv, P2, jit):
                 pts.append((lerp(x0, pfc[0], q) + rnd.uniform(-18, 18),
                             lerp(y0, pfc[1], q) + rnd.uniform(-30, 30)))
             p = poly(pts, False)
-            cv.drawPath(p, SP(RED, 6, a * .5))
-            cv.drawPath(p, SP(WHT, 2.2, a))
-        additive_glow(cv, pfc[0], pfc[1], 160, HOT, .3 * a)
+            cl.drawPath(p, SP(RED, 6, a * .5))
+            cl.drawPath(p, SP(HOT, 2.2, a))
+    if t > 79.65:
+        additive_glow(cv, pfc[0], pfc[1], 160, RED, .35 * sm((t - 79.65) / .3))
 
 
 CTA_X, CTA_Y, CTA_W, CTA_H = 905, 960, 300, 540
@@ -1069,6 +1133,10 @@ def frame(t):
         cv.save()
         cv.setMatrix(mat)
         py, al = CTA_STATE['py'], CTA_STATE['a'] * fade
+        kk = max(min(CTA_STATE['k'], 1.2), .001)
+        cv.translate(CTA_X, py)
+        cv.scale(kk, kk)
+        cv.translate(-CTA_X, -py)
         w, h = CTA_W, CTA_H
         scr = rrect(CTA_X - w / 2 + w * .1, py - h / 2 + h * .08, w * .8, h * .84, w * .1)
         cv.clipPath(scr, doAntiAlias=True)

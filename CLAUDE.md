@@ -51,5 +51,11 @@ Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`
   frontal menghadap kamera di beat PFC). Satu shot tanpa cut.
 - Area atas & bawah frame dibiarkan kosong (user mengisi teks manual): semua konten di pita y≈560–1360.
 - Neon tidak berlebihan: bloom lebih rendah (`bloom(amt1=.55, amt2=.42)`).
+- Animasi ilustrasi: **entrance = pop** (skala 0 → overshoot → 1), **exit = glitch** (irisan bergeser, ghost merah,
+  kedip, kolaps jadi garis). Semua ilustrasi dibungkus `Pop(...)` di `src/b3d_video.py`
+  (`world=True` untuk overlay di koordinat dunia seperti callout/sorotan/petir). SFX pop/glitch: `POP_IN_T`/`GLITCH_OUT_T`
+  di `src/b3d_sfx.py`.
+- Colour tone wajib **merah neon + hitam** (sama seperti video pertama): otak merah tua dengan sulkus hitam,
+  kerusakan = menggelap (bukan abu-abu/biru), aksen ilustrasi pakai `RED`/`HOT`, hindari putih/biru dominan.
 - SFX = 50% volume voice: mix mengukur LUFS (pyloudnorm) dan menaruh bus SFX −6 dB di bawah voice, lalu
   seluruh mix dinormalkan ke −14 LUFS. Dependensi tambahan: `pip install nilearn scikit-image pyloudnorm`.

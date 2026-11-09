@@ -107,7 +107,7 @@ def shade(Vv, Nv, base, emis, light=1.0, rim=.55, spec=.35):
     ndv = np.clip(Nv @ Vd, 0, 1)
     fr = (1 - ndv) ** 3
     col = base * (.16 + .95 * d1[:, None] * light + .25 * d2[:, None] * np.array([1, .3, .3]))
-    col += sp[:, None] * spec * light * np.array([1, .85, .85])
+    col += sp[:, None] * spec * light * np.array([1, .42, .4])
     col += fr[:, None] * rim * np.array([1, .16, .2])
     col += emis
     return np.clip(col * 255, 0, 255)
