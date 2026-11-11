@@ -80,4 +80,4 @@ Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`
   dengan warna menyatu dengan badan (`BODY` fill + gradasi neon lembut).
 - Objek realistis bila narasi membahas objek: otak 3D mesh (`brain3d()` memakai renderer video 2), jantung anatomis
   (`anat_heart`), cincin berlian, HP/laptop/rumah/mobil/sofa/ranjang detail. Stickman tidak selalu objek utama.
-- Transisi pan kamera kiri/kanan + zoom + tilt (`src/render5.py`), SFX hanya animasi (`src/sfx5.py`). Build: `./build_v5.sh`.
+- Transisi: crossfade saja (`TRW=0.7`, `src/render5.py`), SFX hanya animasi (`src/sfx5.py`). Build: `./build_v5.sh`.

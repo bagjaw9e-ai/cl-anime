@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Video 5 compositor (same as video 4): red-neon smoke background, camera-pan transitions (incoming scene enters from the
+"""Video 5 compositor (crossfade transitions): red-neon smoke background, camera-pan transitions (incoming scene enters from the
 right or left with zoom + tilt), fixed ground line, crisp CTA logo."""
 import math, os, sys, subprocess, random
 import numpy as np
@@ -45,28 +45,27 @@ def background(cv, t):
     cv.drawRect(skia.Rect(0, 0, W, H), skia.Paint(Shader=sh))
 
 
-def scene(cv, i, u, xoff):
+def scene(cv, i, u, xoff, alpha=1.0):
+    if alpha <= .003:
+        return
     D = S.B[i + 1] - S.B[i]
     z = 1 + .035 * clamp(u / D)
-    cv.save()
+    cv.saveLayerAlpha(None, int(clamp(alpha) * 255))
     cv.translate(xoff + W / 2, S.FLOOR)
     cv.scale(z, z)
     cv.translate(-W / 2, -S.FLOOR)
     S.SCENES[i](cv, u, D)
     if i == len(S.SCENES) - 1 and 'pos' in S.CTA:
         S.CTA['mat'] = cv.getTotalMatrix()
-        S.CTA['alpha'] = 1.0
+        S.CTA['alpha'] = alpha
     cv.restore()
 
 
 def cam(t):
-    """returns (camera x, zoom, tilt deg, dy, transition index or None)"""
+    """static camera; returns (0, 1, 0, 0, crossfade index or None)"""
     for b in range(1, len(S.SCENES)):
         if abs(t - S.B[b]) < S.TRW / 2:
-            p = (t - (S.B[b] - S.TRW / 2)) / S.TRW
-            d = 1 if b % 2 == 1 else -1
-            s_ = math.sin(math.pi * p)
-            return eio(p) * d * W, 1 - .17 * s_, 2.5 * d * s_, -40 * s_, b
+            return 0.0, 1.0, 0.0, 0.0, b
     return 0.0, 1.0, 0.0, 0.0, None
 
 
@@ -106,9 +105,9 @@ def frame(t):
         i = min(max(j for j in range(n) if B[j] <= t + 1e-9), n - 1)
         scene(cv, i, t - B[i], 0)
     else:
-        d = 1 if k % 2 == 1 else -1
-        scene(cv, k - 1, t - B[k - 1], 0)
-        scene(cv, k, t - B[k], d * W)
+        p = (t - (B[k] - S.TRW / 2)) / S.TRW          # crossfade only
+        scene(cv, k - 1, t - B[k - 1], 0, 1 - sm(p))
+        scene(cv, k, t - B[k], 0, sm(p))
     cv.restore()
     fade = clamp(t / .4) * clamp((S.AUDIO_LEN - t) / .5)
     if fade < 1:
