@@ -72,3 +72,12 @@ Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`
 - Transisi: kamera pan dinamis, scene baru masuk bergantian dari kanan/kiri + zoom-out/in + tilt + motion blur (`cam()`).
 - SFX hanya pada animasi (tidak ada SFX transisi), relevan dengan aksinya (`src/sfx4.py`), −6 dB LUFS dari voice.
   Build: `./build_v4.sh`.
+
+## Format kelima: revisi video 4 (video ke-5, `out/pmo_stickman_v5_red.mp4`) — setelan terbaru gaya merah
+- Beat baru di setiap titik/koma/jeda (26 beat, `B` di `src/scenes5.py`; cari jeda dengan
+  `silencedetect=noise=-30dB:d=0.07`).
+- Stickman hidup: gerak sekunder (napas, goyang, lengan lentur, kepala mengangguk) via `alive()`; kepala tanpa wajah
+  dengan warna menyatu dengan badan (`BODY` fill + gradasi neon lembut).
+- Objek realistis bila narasi membahas objek: otak 3D mesh (`brain3d()` memakai renderer video 2), jantung anatomis
+  (`anat_heart`), cincin berlian, HP/laptop/rumah/mobil/sofa/ranjang detail. Stickman tidak selalu objek utama.
+- Transisi pan kamera kiri/kanan + zoom + tilt (`src/render5.py`), SFX hanya animasi (`src/sfx5.py`). Build: `./build_v5.sh`.
