@@ -63,3 +63,12 @@ Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`
 - Area atas & bawah tanpa ilustrasi tapi tidak kosong: kunang-kunang/bara bergerak pelan + nyala api lembut di dasar
   (`background()` di `src/render3.py`).
 - Transisi crossfade (`TR=0.6`), SFX hanya angin (`src/sfx3.py`) di −6 dB LUFS dari voice. Build: `./build_v3.sh`.
+
+## Format keempat: video 3 versi merah neon (video ke-4, `out/pmo_stickman_v4_red.mp4`)
+- Skrip/audio sama dengan video 3 (`assets/voiceover_v3.mp3`), referensi warna/objek/subjek = video grok (merah neon,
+  figur hitam ber-outline merah, asap). Figur tanpa wajah dengan kepala penuh neon (`person()` di `src/scenes4.py`).
+- Ilustrasi jelas (tidak abstrak) per kalimat, tanah tetap `FLOOR=1330`, objek di tengah, atas/bawah sepi dengan asap
+  bergerak pelan (`background()` di `src/render4.py`).
+- Transisi: kamera pan dinamis, scene baru masuk bergantian dari kanan/kiri + zoom-out/in + tilt + motion blur (`cam()`).
+- SFX hanya pada animasi (tidak ada SFX transisi), relevan dengan aksinya (`src/sfx4.py`), −6 dB LUFS dari voice.
+  Build: `./build_v4.sh`.
