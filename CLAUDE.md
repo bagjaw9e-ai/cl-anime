@@ -54,3 +54,12 @@ Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`
 - Neon tidak berlebihan: bloom lebih rendah (`bloom(amt1=.55, amt2=.42)`).
 - SFX = 50% volume voice: mix mengukur LUFS (pyloudnorm) dan menaruh bus SFX −6 dB di bawah voice, lalu
   seluruh mix dinormalkan ke −14 LUFS. Dependensi tambahan: `pip install nilearn scikit-image pyloudnorm`.
+
+## Format ketiga: stickman neon oranye tanpa wajah (video ke-3, `out/pmo_stickman_v3.mp4`)
+- Referensi warna: video lv_0 (hitam kecoklatan, neon oranye-merah hangat, inti garis putih-krem). Palet di
+  `src/scenes3.py`: `CORE/ORG/DEEP/EMB/DARK`.
+- Stickman garis menyala tanpa wajah/ekspresi, kepala bulat penuh cahaya (`stick()`); wanita = rambut + dress merah.
+- Garis tanah tetap `FLOOR=1330` sepanjang video, ilustrasi di tengah (pita y≈560–1330).
+- Area atas & bawah tanpa ilustrasi tapi tidak kosong: kunang-kunang/bara bergerak pelan + nyala api lembut di dasar
+  (`background()` di `src/render3.py`).
+- Transisi crossfade (`TR=0.6`), SFX hanya angin (`src/sfx3.py`) di −6 dB LUFS dari voice. Build: `./build_v3.sh`.
