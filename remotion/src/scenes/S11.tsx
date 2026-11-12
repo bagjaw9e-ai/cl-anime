@@ -26,7 +26,7 @@ export const S11: React.FC<SceneProps> = () => {
   const pts = TARGET.map((p, i) => {
     const tx = 540 + (rand(i * 3.1) - 0.5) * 520 + Math.sin(f * 0.3 + i) * 18 * (1 - t);
     const ty = 960 + (rand(i * 5.7) - 0.5) * 520 + Math.cos(f * 0.27 + i) * 18 * (1 - t);
-    const ti = ease(f, 4 + i * 0.8, 24 + i * 0.8);
+    const ti = ease(f, 2 + i * 1.6, 10 + i * 1.6); // node nyambung berurutan (SFX pop tiap node)
     return {x: tx + (p.x - tx) * ti, y: ty + (p.y - ty) * ti};
   });
   let scribble = `M ${pts[0].x} ${pts[0].y}`;

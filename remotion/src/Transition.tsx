@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
 import {H, W} from './theme';
 
-export type TT = 'cut' | 'whipL' | 'whipR' | 'zoom' | 'circle' | 'diamond' | 'slideUp';
+export type TT = 'cut' | 'whipL' | 'whipR' | 'zoom' | 'circle' | 'diamond' | 'slideUp' | 'fade';
 export const TR = 9; // 8-10 frame
 
 const e = (v: number) => interpolate(v, [0, 1], [0, 1], {easing: Easing.inOut(Easing.cubic), extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -18,6 +18,7 @@ export const TransitionLayer: React.FC<{enter: TT; exit?: TT; len: number; child
     if (enter === 'whipR') { tx = -(1 - ein) * W; blur = (1 - ein) * 28; }
     if (enter === 'slideUp') { ty = (1 - ein) * H; blur = (1 - ein) * 20; }
     if (enter === 'zoom') { sc = 0.55 + 0.45 * ein; op = ein; }
+    if (enter === 'fade') op = ein;
     if (enter === 'circle') clip = `circle(${ein * 120}% at 50% 50%)`;
     if (enter === 'diamond') {
       const k = ein * 110;

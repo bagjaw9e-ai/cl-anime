@@ -38,6 +38,7 @@ import {S35} from './S35';
 import {S36} from './S36';
 import {S37} from './S37';
 import {S38} from './S38';
+import {S39} from './S39';
 export const SCENES: React.FC<SceneProps>[] = [
   S01,
   S02,
@@ -77,4 +78,5 @@ export const SCENES: React.FC<SceneProps>[] = [
   S36,
   S37,
   S38,
+  S39,
 ];

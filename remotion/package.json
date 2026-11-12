@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render src/index.ts Main out/video.mp4"
+    "sfx": "python3 scripts/make_sfx.py && node scripts/export_cues.mjs && python3 scripts/mix_sfx.py",
+    "render": "npm run sfx && remotion render src/index.ts Main out/video_v2.mp4 --codec=h264 --audio-codec=aac --crf=18"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.300",

@@ -8,10 +8,10 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const pos = parseFloat(process.argv[2] ?? '0.65');
 const only = process.argv.slice(3).map(Number);
 const src = fs.readFileSync(path.join(root, 'src/timeline.ts'), 'utf8');
-const re = /id: (\d+),.*?start: ([\d.]+), end: ([\w.]+)/g;
+const re = /id: (\d+),.*?start: ([\w.]+), end: ([\w.]+)/g;
 const cuts = [];
 let m;
-while ((m = re.exec(src))) cuts.push({id: +m[1], s: +m[2], e: m[3] === 'VO_DURATION' ? 75.37 : +m[3]});
+while ((m = re.exec(src))) cuts.push({id: +m[1], s: m[2] === 'VO_DURATION' ? 75.37 : +m[2], e: m[3] === 'VO_DURATION' ? 75.37 : m[3] === 'END_DURATION' ? 77.37 : +m[3]});
 const browserExecutable = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 const serveUrl = await bundle({entryPoint: path.join(root, 'src/index.ts')});
 const composition = await selectComposition({serveUrl, id: 'Main', browserExecutable});

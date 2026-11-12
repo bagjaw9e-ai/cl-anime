@@ -1,0 +1,142 @@
+SFX MAP (bus: public/sfx/sfx_bus.wav) | voiceover -14.7 LUFS | 99 SFX | maks bunyi barengan: 2
+SFX biasa -20 dB, penting (★) -11 dB relatif voice; variasi pitch/volume utk SFX berulang. loudness SFX/voice terburuk (K-weighted, jendela 0.4 s) saat narasi: -5.3 dB @ 49.4s
+Ducking otomatis: saat narasi, SFX ditekan supaya <= voice - 6 dB (penurunan terbesar -5.9 dB). Hum neon fade out selama end card.
+
+scene | sfx                    | frame |   waktu | rel dB | pitch | durasi | catatan
+---  1. Pornografi itu
+    1 | phone_hum              |     0 | 00:00.00 |  -20.0 |  1.00 |  1.30s | 
+    1 | notif_soft             |    10 | 00:00.33 |  -20.0 |  1.00 |  1.50s | 
+---  2. beneran bikin otak lo makin bodoh.
+    2 | bass_hit ★             |    66 | 00:02.20 |  -11.0 |  1.00 |  1.60s | 
+    2 | deflate ★              |    66 | 00:02.20 |  -11.0 |  1.00 |  1.20s | 
+---  3. Ini bukan sekadar ceramah moral,
+    3 | whoosh_fast            |   117 | 00:03.90 |  -20.0 |  1.00 |  0.50s | 
+---  4. tapi fakta medis
+    4 | monitor_beep           |   133 | 00:04.43 |  -20.0 |  1.00 |  1.28s | ekor dipotong@scene berikut; 
+---  5. soal gimana fungsi otak lo dipreteli pelan-pelan.
+    5 | puzzle_click           |   172 | 00:05.73 |  -20.1 |  1.03 |  0.21s | 
+    5 | puzzle_click           |   186 | 00:06.20 |  -19.7 |  1.04 |  0.21s | 
+    5 | puzzle_click           |   202 | 00:06.73 |  -19.2 |  0.95 |  0.23s | 
+    5 | puzzle_click           |   208 | 00:06.93 |  -19.5 |  1.03 |  0.21s | 
+    5 | puzzle_click           |   214 | 00:07.13 |  -20.1 |  0.96 |  0.23s | 
+    5 | puzzle_click           |   220 | 00:07.33 |  -19.3 |  0.98 |  0.22s | 
+    5 | puzzle_click           |   226 | 00:07.53 |  -19.5 |  1.02 |  0.22s | 
+    5 | puzzle_click           |   232 | 00:07.73 |  -20.4 |  0.99 |  0.22s | 
+    5 | puzzle_click           |   238 | 00:07.93 |  -20.7 |  1.01 |  0.22s | 
+    5 | puzzle_click           |   244 | 00:08.13 |  -19.8 |  1.04 |  0.05s | ekor dipotong@scene berikut; 
+---  6. Hasil scan otak nunjukin
+    6 | whoosh_trans           |   246 | 00:08.20 |  -26.2 |  1.03 |  0.37s | 
+    6 | mri_hum_rise           |   248 | 00:08.27 |  -20.0 |  1.00 |  1.80s | 
+---  7. kalau pecandu pornografi ngalamin kondisi yang namanya hypofrontality,
+    7 | whoosh_soft            |   331 | 00:11.03 |  -20.0 |  1.00 |  0.60s | 
+    7 | alert_glitch ★         |   378 | 00:12.60 |  -11.0 |  1.00 |  0.90s | 
+---  8. alias menurunnya fungsi prefrontal cortex.
+    8 | power_down             |   415 | 00:13.83 |  -20.0 |  1.00 |  1.40s | 
+    8 | elec_flicker           |   450 | 00:15.00 |  -20.0 |  1.00 |  0.80s | 
+---  9. Padahal, bagian otak depan ini
+    9 | whoosh_trans           |   484 | 00:16.13 |  -25.4 |  1.06 |  0.36s | 
+    9 | chime_soft             |   511 | 00:17.03 |  -20.0 |  1.00 |  0.98s | ekor dipotong@scene berikut; 
+--- 10. adalah mesin utama kepintaran lo
+   10 | gear_spin              |   541 | 00:18.03 |  -20.0 |  1.00 |  1.90s | 
+   10 | bulb_ding              |   563 | 00:18.77 |  -20.0 |  1.00 |  1.61s | ekor dipotong@scene berikut; 
+--- 11. tempat lo mikir kompleks,
+   11 | node_pop               |   612 | 00:20.40 |  -20.5 |  1.03 |  0.09s | 
+   11 | node_pop               |   614 | 00:20.47 |  -20.7 |  1.00 |  0.09s | 
+   11 | node_pop               |   615 | 00:20.50 |  -19.7 |  0.96 |  0.09s | 
+   11 | node_pop               |   617 | 00:20.57 |  -19.3 |  1.03 |  0.09s | 
+   11 | node_pop               |   618 | 00:20.60 |  -20.2 |  0.98 |  0.09s | 
+   11 | node_pop               |   620 | 00:20.67 |  -20.5 |  1.00 |  0.09s | 
+   11 | node_pop               |   622 | 00:20.73 |  -20.0 |  0.96 |  0.09s | 
+   11 | node_pop               |   623 | 00:20.77 |  -19.7 |  0.97 |  0.09s | 
+   11 | node_pop               |   625 | 00:20.83 |  -19.5 |  0.99 |  0.09s | 
+   11 | node_pop               |   626 | 00:20.87 |  -20.3 |  1.02 |  0.09s | 
+   11 | node_pop               |   628 | 00:20.93 |  -19.5 |  1.04 |  0.09s | 
+   11 | node_pop               |   630 | 00:21.00 |  -20.3 |  0.99 |  0.09s | 
+   11 | node_pop               |   631 | 00:21.03 |  -20.6 |  1.02 |  0.09s | 
+--- 12. nyusun strategi,
+   12 | whoosh_trans           |   642 | 00:21.40 |  -26.8 |  0.96 |  0.39s | 
+   12 | chess_tap              |   648 | 00:21.60 |  -23.7 |  1.03 |  0.24s | 
+   12 | chess_tap              |   664 | 00:22.13 |  -19.6 |  1.02 |  0.24s | 
+   12 | chess_tap              |   674 | 00:22.47 |  -19.9 |  1.00 |  0.08s | ekor dipotong@scene berikut; 
+--- 13. ngerencanain masa depan,
+   13 | warm_swell             |   677 | 00:22.57 |  -20.0 |  1.00 |  1.61s | ekor dipotong@scene berikut; 
+--- 14. nyerap teori rumit,
+   14 | suck_swoosh            |   726 | 00:24.20 |  -20.0 |  1.00 |  1.00s | 
+--- 15. sampai ngerem kelakuan buruk.
+   15 | pedal_stomp            |   759 | 00:25.30 |  -20.0 |  1.00 |  0.50s | 
+--- 16. Masalahnya, kita juga punya yang namanya otak tengah.
+   16 | dive_whoosh            |   801 | 00:26.70 |  -20.0 |  1.00 |  1.00s | 
+   16 | low_rumble             |   825 | 00:27.50 |  -20.0 |  1.00 |  2.21s | ekor dipotong@scene berikut; 
+--- 17. Bagian ini lebih kuno,
+   17 | stone_rumble           |   892 | 00:29.73 |  -20.0 |  1.00 |  1.48s | ekor dipotong@scene berikut; 
+--- 18. mirip struktur otak hewan,
+   18 | whoosh_trans           |   937 | 00:31.23 |  -26.6 |  0.96 |  0.30s | dipotong krn monkey_chatter; 
+   18 | lizard_hiss            |   939 | 00:31.30 |  -20.0 |  1.00 |  0.70s | 
+   18 | monkey_chatter         |   946 | 00:31.53 |  -23.0 |  1.00 |  0.70s | 
+--- 19. dan cuma ngurusin insting dasar kayak makan dan berkembang biak.
+   19 | pop_soft               |  1024 | 00:34.13 |  -20.0 |  1.02 |  0.16s | 
+   19 | bird_chirp             |  1049 | 00:34.97 |  -20.0 |  1.00 |  1.60s | 
+--- 20. Karena otak tengah ini nggak pinter-pinter amat,
+   20 | bonk ★                 |  1115 | 00:37.17 |  -11.0 |  1.00 |  0.80s | 
+   20 | twinkle_stars ★        |  1118 | 00:37.27 |  -11.0 |  1.00 |  1.11s | ekor dipotong@scene berikut; 
+--- 21. dia ketipu sama layar dua dimensi
+   21 | whoosh_trans           |  1152 | 00:38.40 |  -25.6 |  1.01 |  0.38s | 
+   21 | hmm_cartoon            |  1158 | 00:38.60 |  -20.0 |  1.00 |  0.55s | 
+   21 | pop_soft               |  1182 | 00:39.40 |  -19.9 |  1.02 |  0.16s | 
+--- 22. dan ngira bokep itu pasangan sungguhan.
+   22 | boing                  |  1252 | 00:41.73 |  -20.0 |  1.00 |  0.80s | 
+   22 | paper_flap             |  1256 | 00:41.87 |  -20.0 |  1.00 |  0.50s | 
+--- 23. Makin sering lo konsumsi pornografi,
+   23 | clock_fast             |  1288 | 00:42.93 |  -20.0 |  1.00 |  2.08s | ekor dipotong@scene berikut; 
+--- 24. otak tengah lo makin dominan
+   24 | rumble_rise            |  1351 | 00:45.03 |  -20.0 |  1.00 |  1.60s | 
+   24 | heartbeat_heavy        |  1355 | 00:45.17 |  -20.0 |  1.00 |  1.68s | ekor dipotong@scene berikut; 
+--- 25. dan fungsi prefrontal cortex lo makin lemah.
+   25 | fall_whoosh            |  1406 | 00:46.87 |  -20.0 |  1.00 |  0.40s | 
+   25 | thud ★                 |  1416 | 00:47.20 |  -11.0 |  1.00 |  1.00s | 
+--- 26. Efeknya, rem di otak lo blong.
+   26 | brake_snap ★           |  1485 | 00:49.50 |  -11.0 |  1.00 |  1.30s | 
+   26 | engine_roar            |  1500 | 00:50.00 |  -20.0 |  1.00 |  0.85s | ekor dipotong@scene berikut; 
+--- 27. Lo jadi kompulsif
+   27 | wheel_creak            |  1526 | 00:50.87 |  -20.0 |  1.00 |  1.30s | 
+--- 28. atau terus-terusan ngulangin kebiasaan itu
+   28 | tape_rewind            |  1571 | 00:52.37 |  -20.3 |  1.01 |  0.77s | 
+   28 | tape_rewind            |  1592 | 00:53.07 |  -20.1 |  0.94 |  0.83s | 
+--- 29. padahal lo nggak mau.
+   29 | string_zip             |  1619 | 00:53.97 |  -20.1 |  0.97 |  0.36s | 
+   29 | string_zip             |  1628 | 00:54.27 |  -20.4 |  1.04 |  0.34s | 
+   29 | string_zip             |  1638 | 00:54.60 |  -20.3 |  0.95 |  0.37s | 
+   29 | string_zip             |  1648 | 00:54.93 |  -19.7 |  0.98 |  0.36s | 
+--- 30. Lo jadi impulsif,
+   30 | thunder_crack ★        |  1662 | 00:55.40 |  -10.5 |  1.01 |  1.05s | ekor dipotong@scene berikut; 
+   30 | thunder_crack ★        |  1675 | 00:55.83 |  -15.1 |  1.02 |  0.61s | ekor dipotong@scene berikut; 
+--- 31. gampang lepas kontrol sama emosi atau hawa nafsu,
+   31 | steam_hiss             |  1694 | 00:56.47 |  -20.0 |  1.00 |  2.50s | 
+   31 | rope_snap              |  1747 | 00:58.23 |  -20.0 |  1.00 |  0.60s | 
+--- 32. dan otak lo jadi tumpul pas harus mikir strategi atau masa depan.
+   32 | piece_fall             |  1785 | 00:59.50 |  -20.5 |  1.04 |  0.31s | 
+   32 | piece_fall             |  1793 | 00:59.77 |  -20.7 |  0.94 |  0.34s | 
+   32 | piece_fall             |  1801 | 01:00.03 |  -20.1 |  1.03 |  0.31s | 
+   32 | piece_fall             |  1809 | 01:00.30 |  -20.0 |  0.96 |  0.33s | 
+   32 | piece_fall             |  1815 | 01:00.50 |  -19.7 |  0.96 |  0.33s | 
+   32 | wind_soft              |  1820 | 01:00.67 |  -20.0 |  1.00 |  1.30s | 
+   32 | gear_jam               |  1861 | 01:02.03 |  -20.0 |  1.00 |  0.91s | ekor dipotong@scene berikut; 
+--- 33. Tapi kabar baiknya,
+   33 | shimmer_rise ★         |  1889 | 01:02.97 |  -11.0 |  1.00 |  1.65s | ekor dipotong@scene berikut; 
+--- 34. kerusakan fungsi ini nggak permanen.
+   34 | crystal_ting           |  1939 | 01:04.63 |  -20.2 |  0.99 |  1.65s | ekor dipotong@scene berikut; 
+   34 | crystal_ting           |  1951 | 01:05.03 |  -19.8 |  1.09 |  1.25s | ekor dipotong@scene berikut; 
+--- 35. Lewat mekanisme neuroplasticity,
+   35 | grow_soft              |  1989 | 01:06.30 |  -20.0 |  1.00 |  1.40s | 
+   35 | sparkle                |  2007 | 01:06.90 |  -20.0 |  1.00 |  1.18s | ekor dipotong@scene berikut; 
+--- 36. otak lo bisa pulih dan benerin dirinya sendiri.
+   36 | whoosh_trans           |  2043 | 01:08.10 |  -26.7 |  0.98 |  0.39s | 
+   36 | swell_positive         |  2045 | 01:08.17 |  -20.0 |  1.00 |  2.00s | 
+   36 | confident_stomp        |  2078 | 01:09.27 |  -20.0 |  1.00 |  0.50s | 
+--- 37. Lo bisa miliki konsepnya lewat link di bio
+   37 | neon_click ★           |  2132 | 01:11.07 |  -10.3 |  0.95 |  0.29s | 
+   37 | neon_click ★           |  2137 | 01:11.23 |  -10.7 |  1.05 |  0.17s | dipotong krn neon_hum; 
+   37 | neon_click ★           |  2142 | 01:11.40 |  -10.2 |  0.97 |  0.29s | 
+   37 | neon_hum               |  2142 | 01:11.40 |  -22.0 |  1.00 |  6.40s | 
+--- 38. buat lepas dari adiksi PMO.
+   38 | chain_break_sparkle ★  |  2202 | 01:13.40 |  -11.0 |  1.00 |  2.00s | 
