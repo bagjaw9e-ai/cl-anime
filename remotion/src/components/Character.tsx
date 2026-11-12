@@ -22,7 +22,8 @@ export type Expression =
 export type PoseName =
   | 'standing_relaxed' | 'arms_crossed' | 'holding_phone' | 'head_in_hands'
   | 'sitting_desk' | 'pointing_up' | 'shaking_head' | 'walking'
-  | 'running' | 'hand_chin' | 'stop_hand' | 'reaching' | 'arms_up' | 'lying';
+  | 'running' | 'hand_chin' | 'stop_hand' | 'reaching' | 'arms_up' | 'lying'
+  | 'puppet' | 'puppet2' | 'reins';
 
 type Limb = {a: number; b: number}; // a = sendi pangkal, b = sendi tengah (relatif)
 type Pose = {
@@ -65,7 +66,25 @@ export const POSES: Record<PoseName, Pose> = {
   stop_hand: mk({armL: {a: 62, b: 62}, armR: {a: 10, b: -6}, lean: -4, headTilt: -6}),
   reaching: mk({armL: {a: 70, b: -10}, lean: 5, headTilt: 4}),
   arms_up: mk({armR: {a: 150, b: 18}, armL: {a: 150, b: 18}, headTilt: 0}),
+  puppet: mk({shake: 1, armR: {a: 128, b: 22}, armL: {a: 118, b: 30}, pitch: 0.15, headTilt: 4}),
+  puppet2: mk({shake: 1, armR: {a: 112, b: 30}, armL: {a: 134, b: 18}, pitch: 0.15, headTilt: -4}),
+  reins: mk({armR: {a: 34, b: -70}, armL: {a: 44, b: -48}, lean: -5, headTilt: -4}),
   lying: mk({armR: {a: 6, b: 0}, armL: {a: 6, b: 0}, legR: {a: 2, b: 0}, legL: {a: 2, b: 0}}),
+};
+
+// Posisi tangan di koordinat dunia (tanpa gerak idle) untuk menyambung tali/tali kekang.
+export const handWorld = (pose: PoseName, side: -1 | 1, x: number, y: number, scale: number) => {
+  const P = POSES[pose];
+  const l = side === -1 ? P.armR : P.armL;
+  const th = 178 * P.torsoSY;
+  const rot = (P.lean * Math.PI) / 180;
+  const a1 = side * l.a, a2 = a1 + side * l.b;
+  const d = (g: number) => [Math.sin((g * Math.PI) / 180), Math.cos((g * Math.PI) / 180)];
+  const hx = side * 66 + d(a1)[0] * 84 + d(a2)[0] * 78;
+  const hy = -th + 22 + d(a1)[1] * 84 + d(a2)[1] * 78;
+  const rx = hx * Math.cos(rot) - hy * Math.sin(rot);
+  const ry = hx * Math.sin(rot) + hy * Math.cos(rot);
+  return {x: x + rx * scale, y: y + (ry - P.pelvisY) * scale};
 };
 
 /* ---------------- ekspresi ---------------- */
