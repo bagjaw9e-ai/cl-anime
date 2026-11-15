@@ -43,8 +43,10 @@ export const moodAt = (f: number): Mood => {
     m = {...m, glowOp: m.glowOp + 0.2 * k, top: mix(m.top, '#C2205A', 0.35 * k)};
   }
   // beat 39: cahaya meredup
-  if (f >= beatF(39) && f < partStart('F')) {
-    const k = Math.min(1, (f - beatF(39)) / 30);
+  if (f >= beatF(39)) {
+    // meredup di beat 39, lalu pulih halus bersamaan transisi ke bagian F
+    const rel = Math.min(1, Math.max(0, (f - (partStart('F') - TRANS_PRE)) / TRANS_LEN));
+    const k = Math.min(1, (f - beatF(39)) / 30) * (1 - rel * rel * (3 - 2 * rel));
     m = {...m, top: mix(m.top, '#5A4650', 0.6 * k), bottom: mix(m.bottom, '#3A2A30', 0.6 * k), glowOp: m.glowOp * (1 - 0.7 * k)};
   }
   return m;
