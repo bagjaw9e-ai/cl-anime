@@ -17,7 +17,7 @@ export const CAM0: Cam = {x: 0, y: -500, z: 0.78, r: 0}; // wide shot pembuka
 export const MOVES: Move[] = [
   // A
   {f: B(1, 4), d: 34, to: {x: 0, y: -640, z: 1.05}, kind: 'push-in'},
-  {f: B(2, 2), d: 13, to: {x: 0, y: -1120, z: 1.65}, kind: 'quick zoom', e: FAST},
+  {f: B(2, 2), d: 13, to: {x: -110, y: -1000, z: 1.35}, kind: 'quick zoom', e: FAST},
   {f: B(3), d: 30, to: {x: 270, y: -700, z: 1.3}, kind: 'pan'},
   {f: B(4), d: 22, to: M, kind: 'pull-out'},
   {f: B(5), d: 22, to: {x: 0, y: -160, z: 1.25}, kind: 'tilt-down'},

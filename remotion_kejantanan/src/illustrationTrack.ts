@@ -1,7 +1,7 @@
 // Jadwal ilustrasi: slot di world, frame masuk & keluar. Ilustrasi lama keluar saat yang baru masuk.
 import {beatF} from './timeline';
 
-export type Slot = 'top' | 'left' | 'right' | 'floor' | 'top3' | 'behind' | 'hand' | 'logo' | 'offR';
+export type Slot = 'top' | 'left' | 'right' | 'floor' | 'top3' | 'behind' | 'hand' | 'logo' | 'offR' | 'upL';
 // pusat slot di world (karakter berdiri di (0,0), skala 1.25, kepala ~y-655, puncak kepala ~y-820)
 export const SLOT: Record<Slot, {x: number; y: number; w: number; h: number}> = {
   top: {x: 0, y: -1150, w: 440, h: 330},
@@ -13,6 +13,7 @@ export const SLOT: Record<Slot, {x: number; y: number; w: number; h: number}> = 
   hand: {x: 52, y: -500, w: 160, h: 160},
   logo: {x: 0, y: -1180, w: 620, h: 420},
   offR: {x: 520, y: -1000, w: 160, h: 160},
+  upL: {x: -310, y: -930, w: 200, h: 300},
 };
 
 export type Ill = {key: string; beat: number; slot: Slot; in: number; out: number; label: string};
@@ -21,7 +22,7 @@ const END = 99999;
 
 export const ILLS: Ill[] = [
   {key: 'shield', beat: 1, slot: 'top', in: B(1, 6), out: B(6), label: 'perisai emas (retak di #2)'},
-  {key: 'phoneRed', beat: 2, slot: 'left', in: B(2, 2), out: B(3, 6), label: 'HP glow merah'},
+  {key: 'phoneRed', beat: 2, slot: 'upL', in: B(2, 14), out: B(3, 6), label: 'HP glow merah'},
   {key: 'hourglass', beat: 3, slot: 'right', in: B(3, 4), out: B(4, 30), label: 'jam pasir merah'},
   {key: 'calendar', beat: 4, slot: 'left', in: B(4, 3), out: B(5, 20), label: 'kalender HARI INI ✓'},
   {key: 'shadow', beat: 5, slot: 'floor', in: B(5, 4), out: B(6), label: 'bayangan retak & layu'},

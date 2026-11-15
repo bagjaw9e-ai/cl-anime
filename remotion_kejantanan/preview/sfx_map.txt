@@ -1,0 +1,256 @@
+SFX MAP — video kejantanan | voiceover -14.5 LUFS | master -15.2 LUFS, true-peak -1.12 dBFS (limit -1)
+145 SFX terpasang (20 dibuang oleh aturan) | maks bunyi barengan: 3 (kamera maks 1)
+Level relatif voice: penting -9 dB, ilustrasi -18 dB, keluar -23 dB, kamera -28 dB (low-pass 2.5 kHz)
+Ducking 3.5 dB saat narasi + batas dinamis SFX <= voice-5 dB (penurunan terbesar -12.3 dB). Loudness SFX/voice terburuk saat narasi: -5.2 dB @ 43.4s
+
+beat | jenis      | sfx                | frame |    waktu |     dB |   dur | keterangan
+--- beat 1: Secara kejantanan,
+   1 | kamera     | cam_swell          |     4 | 00:00.13 |  -28.0 | 1.28s | DIBUANG kamera: push-in — dimatikan (barengan imp_glass_crack)
+   1 | ilustrasi  | warm_swell         |     6 | 00:00.20 |  -18.0 | 1.17s | perisai muncul (hum hangat) — di-fade (sunyi pra-impact)
+   1 | ilustrasi  | chime_soft         |    14 | 00:00.47 |  -18.1 | 0.90s | kilau perisai — di-fade (sunyi pra-impact)
+--- beat 2 ★: pornografi membunuhmu
+   2 | kamera     | cam_whoosh         |    41 | 00:01.37 |  -28.0 | 0.58s | DIBUANG kamera: quick zoom — dimatikan (barengan imp_glass_crack)
+   2 | PENTING    | imp_glass_crack    |    45 | 00:01.50 |   -9.0 | 2.40s | perisai retak + impact bass
+   2 | ilustrasi  | phone_hum          |    53 | 00:01.77 |  -18.0 | 1.30s | HP glow muncul
+--- beat 3: secara perlahan.
+   3 | kamera     | cam_air            |    81 | 00:02.70 |  -28.0 | 0.13s | kamera: pan — dipotong krn sand_flow (maks 3)
+   3 | ilustrasi  | sand_flow          |    85 | 00:02.83 |  -18.0 | 1.60s | pasir mengalir
+--- beat 2 ★: pornografi membunuhmu
+   2 | keluar     | pop_out            |    91 | 00:03.03 |  -22.7 | 0.17s | DIBUANG phoneRed keluar — digeser +2 frame (maks 3); digeser +2 frame (maks 3); dibuang (maks 3 barengan)
+--- beat 4: Efeknya memang tidak (terasa) hari ini,
+   4 | kamera     | cam_air            |   114 | 00:03.80 |  -28.0 | 0.88s | kamera: pull-out
+   4 | ilustrasi  | pop_soft           |   117 | 00:03.90 |  -17.2 | 0.17s | kalender pop
+   4 | ilustrasi  | check_tick         |   130 | 00:04.33 |  -17.5 | 0.34s | centang hijau
+--- beat 3: secara perlahan.
+   3 | keluar     | pop_out            |   144 | 00:04.80 |  -23.1 | 0.19s | hourglass keluar
+--- beat 5: namun kamu tidak sadari.
+   5 | kamera     | cam_air            |   163 | 00:05.43 |  -28.0 | 0.67s | kamera: tilt-down — dipotong krn pop_out (maks 3)
+   5 | ilustrasi  | whistle            |   165 | 00:05.50 |  -18.0 | 1.20s | siulan cuek
+   5 | ilustrasi  | crack_soft         |   175 | 00:05.83 |  -18.0 | 0.60s | bayangan retak
+--- beat 4: Efeknya memang tidak (terasa) hari ini,
+   4 | keluar     | pop_out            |   183 | 00:06.10 |  -22.3 | 0.18s | calendar keluar
+--- beat 1: Secara kejantanan,
+   1 | keluar     | pop_out            |   206 | 00:06.87 |  -22.5 | 0.18s | shield keluar
+--- beat 5: namun kamu tidak sadari.
+   5 | keluar     | whoosh_trans       |   206 | 00:06.87 |  -23.4 | 0.38s | shadow keluar
+--- beat 6: Padahal menurut sains,
+   6 | kamera     | cam_air            |   206 | 00:06.87 |  -28.0 | 0.13s | kamera: tilt-up — dipotong krn holo_blip (maks 3)
+   6 | ilustrasi  | holo_blip          |   210 | 00:07.00 |  -18.0 | 1.50s | hologram nyala
+--- beat 7: otak manusia itu dirancang menyukai tiga hal alami:
+   7 | kamera     | cam_swell          |   254 | 00:08.47 |  -28.0 | 0.88s | kamera: zoom-out
+   7 | ilustrasi  | chess_tap          |   260 | 00:08.67 |  -17.9 | 0.25s | slot 1 muncul (ketukan)
+   7 | ilustrasi  | chess_tap          |   266 | 00:08.87 |  -18.7 | 0.22s | slot 2 muncul (ketukan)
+   7 | ilustrasi  | chess_tap          |   272 | 00:09.07 |  -17.5 | 0.20s | slot 3 muncul (ketukan)
+   7 | ilustrasi  | pop_soft           |   279 | 00:09.30 |  -17.8 | 0.13s | badge 3
+--- beat 8: sesuatu yang baru ditemui,
+   8 | kamera     | cam_swell          |   347 | 00:11.57 |  -28.0 | 0.65s | kamera: push
+   8 | ilustrasi  | sparkle            |   351 | 00:11.70 |  -18.2 | 1.55s | kado NEW
+--- beat 9: hal menyenangkan di hati,
+   9 | kamera     | cam_air            |   392 | 00:13.07 |  -28.0 | 0.62s | kamera: pan
+   9 | ilustrasi  | pop_soft           |   396 | 00:13.20 |  -17.4 | 0.15s | hati senyum
+   9 | ilustrasi  | bulb_ding          |   398 | 00:13.27 |  -18.0 | 1.90s | ding
+--- beat 10: dan urusan reproduksi.
+  10 | kamera     | cam_air            |   433 | 00:14.43 |  -28.0 | 0.62s | kamera: pan
+  10 | ilustrasi  | molecule_whoosh    |   437 | 00:14.57 |  -18.0 | 0.90s | heliks DNA
+--- beat 11: Celakanya, tontonan pornografi
+  11 | kamera     | cam_air            |   472 | 00:15.73 |  -28.0 | 1.02s | kamera: pull-out
+  11 | ilustrasi  | dark_hum           |   476 | 00:15.87 |  -18.0 | 1.90s | HP besar, dengung gelap
+--- beat 12: menggabungkan ketiganya sekaligus
+  12 | kamera     | cam_whoosh         |   533 | 00:17.77 |  -28.0 | 0.55s | kamera: whip
+  12 | ilustrasi  | suction            |   535 | 00:17.83 |  -18.0 | 0.90s | 3 bola tersedot
+  12 | ilustrasi  | merge_pop          |   559 | 00:18.63 |  -18.0 | 0.73s | menyatu di HP — di-fade (sunyi pra-impact)
+--- beat 13 ★: dalam satu kali aksi.
+  13 | kamera     | cam_whoosh         |   583 | 00:19.43 |  -28.0 | 0.55s | DIBUANG kamera: punch-in — dimatikan (barengan imp_flash)
+  13 | PENTING    | imp_flash          |   585 | 00:19.50 |   -9.0 | 1.10s | HP flash + impact — di-fade (sunyi pra-impact)
+  13 | ilustrasi  | pop_soft           |   591 | 00:19.70 |  -17.6 | 0.19s | badge 3 IN 1
+--- beat 14 ★: Otak melepaskan dopamin berlebihan,
+  14 | kamera     | cam_swell          |   620 | 00:20.67 |  -28.0 | 0.68s | DIBUANG kamera: zoom — dimatikan (barengan imp_flash)
+  14 | PENTING    | imp_dopamine       |   622 | 00:20.73 |   -9.0 | 2.70s | semburan dopamin + bubbling + bass swell
+--- beat 6: Padahal menurut sains,
+   6 | keluar     | pop_out            |   625 | 00:20.83 |  -23.1 | 0.19s | holoBrain keluar — digeser +5 frame (sunyi pra-impact)
+--- beat 11: Celakanya, tontonan pornografi
+  11 | keluar     | pop_out            |   625 | 00:20.83 |  -23.6 | 0.19s | phoneBig keluar — digeser +5 frame (sunyi pra-impact)
+--- beat 15: hormon yang memicu rasa ketagihan.
+  15 | kamera     | cam_air            |   680 | 00:22.67 |  -28.0 | 0.20s | kamera: tracking — dipotong krn string_zip (maks 3)
+  15 | ilustrasi  | reel               |   682 | 00:22.73 |  -18.0 | 0.90s | reel pancing
+  15 | ilustrasi  | string_zip         |   686 | 00:22.87 |  -18.0 | 0.35s | tarikan kail di kerah
+--- beat 16: Membuat kita ingin mengulanginya terus-terusan.
+  16 | ilustrasi  | tap_tap            |   735 | 00:24.50 |  -18.0 | 2.10s | tap-tap berirama
+  16 | ilustrasi  | loop_whoosh        |   739 | 00:24.63 |  -18.0 | 1.20s | panah loop orbit
+--- beat 15: hormon yang memicu rasa ketagihan.
+  15 | keluar     | pop_out            |   745 | 00:24.83 |  -22.6 | 0.18s | hook keluar
+--- beat 14 ★: Otak melepaskan dopamin berlebihan,
+  14 | keluar     | pop_out            |   802 | 00:26.73 |  -23.3 | 0.17s | dopamine keluar
+--- beat 17: Masalahnya, internet menyediakan stimulus
+  17 | kamera     | cam_air            |   802 | 00:26.73 |  -28.0 | 0.82s | kamera: tilt-up
+  17 | ilustrasi  | digital_signal     |   806 | 00:26.87 |  -18.0 | 1.20s | sinyal wifi
+--- beat 16: Membuat kita ingin mengulanginya terus-terusan.
+  16 | keluar     | whoosh_trans       |   812 | 00:27.07 |  -23.0 | 0.39s | loop keluar
+--- beat 18: tanpa batasan.
+  18 | kamera     | cam_air            |   878 | 00:29.27 |  -28.0 | 0.65s | kamera: pan
+  18 | ilustrasi  | scroll_fast        |   880 | 00:29.33 |  -18.0 | 1.30s | scroll tanpa henti + ∞
+--- beat 17: Masalahnya, internet menyediakan stimulus
+  17 | keluar     | pop_out            |   914 | 00:30.47 |  -23.6 | 0.19s | wifi keluar
+--- beat 19: Hanya dengan satu klik di tangan,
+  19 | kamera     | cam_whoosh         |   914 | 00:30.47 |  -28.0 | 0.68s | kamera: extreme zoom
+  19 | ilustrasi  | click_sharp        |   920 | 00:30.67 |  -18.0 | 0.70s | klik jempol + riak
+--- beat 18: tanpa batasan.
+  18 | keluar     | pop_out            |   964 | 00:32.13 |  -23.4 | 0.18s | scroll keluar
+--- beat 20: langsung muncul ratusan video
+  20 | kamera     | cam_air            |   964 | 00:32.13 |  -28.0 | 0.62s | kamera: pull-out
+  20 | ilustrasi  | card_burst         |   966 | 00:32.20 |  -18.0 | 1.20s | ledakan kartu
+--- beat 19: Hanya dengan satu klik di tangan,
+  19 | keluar     | pop_out            |   970 | 00:32.33 |  -23.1 | 0.18s | tap keluar
+--- beat 21 ★: dengan ribuan pilihan.
+  21 | kamera     | cam_rumble         |  1009 | 00:33.63 |  -28.0 | 1.15s | DIBUANG kamera: pull-out jauh — dimatikan (barengan imp_digital_boom)
+  21 | PENTING    | imp_digital_boom   |  1015 | 00:33.83 |   -9.0 | 2.80s | riuh digital menumpuk + boom
+--- beat 20: langsung muncul ratusan video
+  20 | keluar     | whoosh_trans       |  1019 | 00:33.97 |  -22.7 | 0.37s | cards keluar
+--- beat 21 ★: dengan ribuan pilihan.
+  21 | ilustrasi  | pop_soft           |  1031 | 00:34.37 |  -18.3 | 0.20s | tag 1000+
+--- beat 22: Akibatnya, otak mengalami desensitisasi
+  22 | kamera     | cam_swell          |  1053 | 00:35.10 |  -28.0 | 0.33s | kamera: push-in — dipotong krn whoosh_trans (maks 3)
+  22 | ilustrasi  | ice_freeze         |  1057 | 00:35.23 |  -18.0 | 2.10s | es membeku
+--- beat 21 ★: dengan ribuan pilihan.
+  21 | keluar     | whoosh_trans       |  1063 | 00:35.43 |  -22.5 | 0.37s | wall keluar
+--- beat 23: atau mati rasa.
+  23 | kamera     | cam_air            |  1129 | 00:37.63 |  -28.0 | 0.68s | kamera: pan
+  23 | ilustrasi  | knob_turn          |  1132 | 00:37.73 |  -18.0 | 1.00s | kenop diputar
+  23 | ilustrasi  | muffle_down        |  1138 | 00:37.93 |  -18.0 | 1.40s | suara meredup (low-pass)
+--- beat 24: Perlahan kehilangan sensitivitas alaminya.
+  24 | kamera     | cam_air            |  1169 | 00:38.97 |  -28.0 | 1.35s | kamera: pan lambat
+  24 | ilustrasi  | wilt               |  1173 | 00:39.10 |  -18.0 | 1.40s | bunga layu
+--- beat 23: atau mati rasa.
+  23 | keluar     | pop_out            |  1199 | 00:39.97 |  -23.3 | 0.18s | knob keluar
+--- beat 22: Akibatnya, otak mengalami desensitisasi
+  22 | keluar     | pop_out            |  1246 | 00:41.53 |  -23.6 | 0.18s | frozenBrain keluar
+--- beat 24: Perlahan kehilangan sensitivitas alaminya.
+  24 | keluar     | pop_out            |  1246 | 00:41.53 |  -23.8 | 0.19s | flower keluar
+--- beat 25: Apa yang dulu terlihat menggoda,
+  25 | kamera     | cam_air            |  1246 | 00:41.53 |  -28.0 | 0.13s | kamera: tilt-up — dipotong krn sparkle (maks 3)
+  25 | ilustrasi  | sparkle            |  1250 | 00:41.67 |  -17.5 | 1.39s | bintang berkilau
+--- beat 26 ★: sekarang terasa hambar dan biasa saja.
+  26 | kamera     | cam_air            |  1299 | 00:43.30 |  -28.0 | 0.75s | DIBUANG kamera: pan — dimatikan (barengan imp_deflate)
+  26 | PENTING    | imp_deflate        |  1303 | 00:43.43 |   -9.0 | 2.30s | bintang jadi abu, deflate berat
+  26 | ilustrasi  | yawn               |  1315 | 00:43.83 |  -18.0 | 1.40s | menguap
+--- beat 27: Akhirnya, seseorang butuh durasi yang makin lama,
+  27 | kamera     | cam_air            |  1372 | 00:45.73 |  -28.0 | 0.82s | kamera: pan
+  27 | ilustrasi  | clock_fast         |  1376 | 00:45.87 |  -18.0 | 2.30s | tik-tok dipercepat
+--- beat 25: Apa yang dulu terlihat menggoda,
+  25 | keluar     | pop_out            |  1392 | 00:46.40 |  -22.7 | 0.18s | star keluar
+--- beat 27: Akhirnya, seseorang butuh durasi yang makin lama,
+  27 | kamera     | cam_air            |  1414 | 00:47.13 |  -28.0 | 1.35s | kamera: pan
+--- beat 28: serta mencari konten yang jauh lebih ekstrem
+  28 | kamera     | cam_air            |  1459 | 00:48.63 |  -28.0 | 0.68s | kamera: tilt-up
+  28 | ilustrasi  | gauge_rise         |  1463 | 00:48.77 |  -18.0 | 1.00s | jarum gauge naik
+--- beat 27: Akhirnya, seseorang butuh durasi yang makin lama,
+  27 | keluar     | pop_out            |  1479 | 00:49.30 |  -23.1 | 0.17s | clock keluar
+--- beat 28: serta mencari konten yang jauh lebih ekstrem
+  28 | ilustrasi  | alarm_soft         |  1489 | 00:49.63 |  -18.0 | 1.00s | zona merah + api
+--- beat 29 ★: dan gila,
+  29 | kamera     | cam_whoosh         |  1522 | 00:50.73 |  -28.0 | 0.55s | DIBUANG kamera: dutch tilt — dimatikan (barengan imp_warp)
+  29 | PENTING    | imp_warp           |  1524 | 00:50.80 |   -9.0 | 2.40s | spiral, wobble/warp + impact
+--- beat 28: serta mencari konten yang jauh lebih ekstrem
+  28 | keluar     | pop_out            |  1532 | 00:51.07 |  -23.6 | 0.18s | gauge keluar
+--- beat 30: hanya demi mengejar sensasi kenikmatan yang sama.
+  30 | ilustrasi  | treadmill_run      |  1549 | 00:51.63 |  -18.0 | 2.60s | lari di treadmill
+  30 | kamera     | cam_air            |  1549 | 00:51.63 |  -28.0 | 0.68s | DIBUANG kamera: tracking — dimatikan (barengan imp_warp)
+--- beat 29 ★: dan gila,
+  29 | keluar     | whoosh_trans       |  1557 | 00:51.90 |  -22.7 | 0.40s | spiral keluar
+--- beat 30: hanya demi mengejar sensasi kenikmatan yang sama.
+  30 | kamera     | cam_air            |  1579 | 00:52.63 |  -28.0 | 1.60s | kamera: tracking — dipotong (kamera berikutnya)
+--- beat 31: Tiap kali lo gabut
+  31 | kamera     | cam_air            |  1627 | 00:54.23 |  -28.0 | 0.95s | kamera: pull-out
+  31 | ilustrasi  | wind_soft          |  1629 | 00:54.30 |  -18.0 | 1.30s | angin sepi + tumbleweed
+--- beat 30: hanya demi mengejar sensasi kenikmatan yang sama.
+  30 | keluar     | whoosh_trans       |  1635 | 00:54.50 |  -22.9 | 0.38s | treadmill keluar
+--- beat 32: dan tidak ada distraksi,
+  32 | kamera     | cam_air            |  1657 | 00:55.23 |  -28.0 | 0.97s | kamera: pan — dipotong (kamera berikutnya)
+  32 | ilustrasi  | crickets           |  1659 | 00:55.30 |  -18.0 | 1.80s | jangkrik
+  32 | ilustrasi  | pop_out            |  1669 | 00:55.63 |  -17.6 | 0.18s | ikon stik game hilang
+  32 | ilustrasi  | pop_out            |  1676 | 00:55.87 |  -17.8 | 0.16s | ikon buku hilang
+  32 | ilustrasi  | pop_out            |  1683 | 00:56.10 |  -17.9 | 0.15s | ikon chat hilang
+--- beat 33: pikiran lo langsung lari ke arah fantasi.
+  33 | kamera     | cam_air            |  1686 | 00:56.20 |  -28.0 | 0.33s | kamera: tilt-up — dipotong krn pop_out (maks 3)
+  33 | ilustrasi  | bubble_pop         |  1690 | 00:56.33 |  -18.0 | 0.80s | thought bubble muncul
+--- beat 32: dan tidak ada distraksi,
+  32 | keluar     | pop_out            |  1696 | 00:56.53 |  -23.3 | 0.18s | icons keluar
+--- beat 33: pikiran lo langsung lari ke arah fantasi.
+  33 | ilustrasi  | whoosh_soft        |  1720 | 00:57.33 |  -18.0 | 0.60s | bubble kabur ke atas
+  33 | kamera     | cam_air            |  1722 | 00:57.40 |  -28.0 | 1.33s | kamera: tilt-up — dipotong (kamera berikutnya)
+--- beat 31: Tiap kali lo gabut
+  31 | keluar     | whoosh_trans       |  1762 | 00:58.73 |  -23.1 | 0.40s | room keluar
+--- beat 34: Tangan otomatis gerak nyari kepuasan sendiri.
+  34 | kamera     | cam_air            |  1762 | 00:58.73 |  -28.0 | 0.75s | kamera: tracking
+  34 | ilustrasi  | servo              |  1766 | 00:58.87 |  -18.0 | 1.30s | servo mekanis tangan autopilot
+  34 | ilustrasi  | pop_soft           |  1776 | 00:59.20 |  -18.5 | 0.18s | badge AUTOPILOT
+--- beat 35: Padahal badan lo sebenernya lagi nggak pengen
+  35 | kamera     | cam_air            |  1831 | 01:01.03 |  -28.0 | 0.75s | kamera: pan
+  35 | ilustrasi  | blip_nope          |  1837 | 01:01.23 |  -18.0 | 0.60s | baterai hijau, blip nope
+--- beat 34: Tangan otomatis gerak nyari kepuasan sendiri.
+  34 | keluar     | pop_out            |  1841 | 01:01.37 |  -22.4 | 0.18s | autopilot keluar
+--- beat 36 ★: ejakulasi.
+  36 | kamera     | cam_swell          |  1894 | 01:03.13 |  -28.0 | 0.62s | DIBUANG kamera: zoom — dimatikan (barengan imp_drain)
+  36 | PENTING    | imp_drain          |  1896 | 01:03.20 |   -9.0 | 2.30s | baterai terkuras + bass drop
+--- beat 37: Di dunia medis, ini namanya boredom intolerance tingkat tinggi.
+  37 | kamera     | cam_air            |  1921 | 01:04.03 |  -28.0 | 0.82s | DIBUANG kamera: pan — dimatikan (barengan imp_drain)
+  37 | ilustrasi  | monitor_beep       |  1925 | 01:04.17 |  -18.0 | 1.60s | papan medis
+--- beat 35: Padahal badan lo sebenernya lagi nggak pengen
+  35 | keluar     | pop_out            |  1931 | 01:04.37 |  -23.7 | 0.07s | battery keluar — dipotong krn level_rise (maks 3)
+--- beat 37: Di dunia medis, ini namanya boredom intolerance tingkat tinggi.
+  37 | ilustrasi  | level_rise         |  1933 | 01:04.43 |  -18.0 | 1.40s | meteran naik mentok
+--- beat 38 ★: Sebuah kondisi pas otak lo panik
+  38 | kamera     | cam_swell          |  2026 | 01:07.53 |  -28.0 | 0.62s | DIBUANG kamera: push-in — dimatikan (barengan imp_panic)
+  38 | PENTING    | imp_panic          |  2028 | 01:07.60 |   -9.0 | 1.73s | alarm panik + detak jantung — di-fade (sunyi pra-impact)
+--- beat 39 ★: ngadepin sepi tanpa stimulasi.
+  39 | kamera     | cam_rumble         |  2080 | 01:09.33 |  -28.0 | 1.48s | DIBUANG kamera: pull-out jauh — dimatikan (barengan imp_flatline)
+  39 | PENTING    | imp_flatline       |  2084 | 01:09.47 |   -9.0 | 1.60s | flatline (sunyi sebelumnya) — di-fade (sunyi pra-impact)
+--- beat 37: Di dunia medis, ini namanya boredom intolerance tingkat tinggi.
+  37 | keluar     | pop_out            |  2087 | 01:09.57 |  -23.3 | 0.18s | chart keluar — digeser +7 frame (sunyi pra-impact)
+--- beat 38 ★: Sebuah kondisi pas otak lo panik
+  38 | keluar     | pop_out            |  2100 | 01:10.00 |  -22.9 | 0.18s | panicBrain keluar
+--- beat 40 ★: Kalau lo pria sejati
+  40 | PENTING    | imp_spotlight      |  2136 | 01:11.20 |   -9.0 | 3.00s | spotlight thunk + swell hangat
+  40 | kamera     | cam_swell          |  2136 | 01:11.20 |  -28.0 | 0.88s | DIBUANG kamera: hero low angle — dimatikan (barengan imp_spotlight)
+--- beat 39 ★: ngadepin sepi tanpa stimulasi.
+  39 | keluar     | pop_out            |  2146 | 01:11.53 |  -22.7 | 0.17s | flatline keluar
+--- beat 41: yang mau berhenti jadi pecundang
+  41 | kamera     | cam_whoosh         |  2178 | 01:12.60 |  -28.0 | 0.53s | kamera: follow lemparan — dipotong (kamera berikutnya)
+  41 | ilustrasi  | whoosh_throw       |  2180 | 01:12.67 |  -18.0 | 0.50s | HP dilempar
+  41 | kamera     | cam_air            |  2194 | 01:13.13 |  -28.0 | 0.53s | kamera: balik — dipotong krn zip_jacket (maks 3)
+  41 | ilustrasi  | phone_far          |  2206 | 01:13.53 |  -18.0 | 1.20s | HP jatuh jauh
+--- beat 42: dan siap berbenah,
+  42 | ilustrasi  | zip_jacket         |  2210 | 01:13.67 |  -18.0 | 0.50s | zip jaket (fixing collar)
+  42 | kamera     | cam_air            |  2218 | 01:13.93 |  -28.0 | 0.68s | DIBUANG kamera: medium — digeser +2 frame (maks 3); digeser +2 frame (maks 3); dibuang (maks 3 barengan)
+  42 | ilustrasi  | check_tick         |  2225 | 01:14.17 |  -18.1 | 0.35s | centang 1 — digeser +2 frame (maks 3)
+  42 | ilustrasi  | check_tick         |  2232 | 01:14.40 |  -17.5 | 0.32s | centang 2
+  42 | ilustrasi  | check_tick         |  2241 | 01:14.70 |  -18.5 | 0.30s | centang 3
+--- beat 43: ambil panduan neuroplasticity
+  43 | kamera     | cam_air            |  2245 | 01:14.83 |  -28.0 | 0.68s | kamera: tilt-up
+  43 | ilustrasi  | book_open          |  2249 | 01:14.97 |  -18.0 | 0.70s | buku terbuka
+  43 | ilustrasi  | chime_soft         |  2259 | 01:15.30 |  -18.8 | 1.10s | glow teal — di-fade (sunyi pra-impact)
+  43 | keluar     | pop_out            |  2288 | 01:16.27 |  -22.6 | 0.13s | guide keluar — di-fade (sunyi pra-impact)
+--- beat 44 ★: dari PMO Savior yang ada di bio
+  44 | kamera     | cam_swell          |  2288 | 01:16.27 |  -28.0 | 0.75s | DIBUANG kamera: tilt-up ke logo — dimatikan (barengan imp_neon)
+  44 | PENTING    | imp_neon           |  2296 | 01:16.53 |   -9.0 | 1.77s | neon nyala (buzz + klik berlapis) — di-fade (sunyi pra-impact)
+  44 | ilustrasi  | neon_click         |  2301 | 01:16.70 |  -18.1 | 0.28s | flicker 2
+  44 | ilustrasi  | neon_click         |  2306 | 01:16.87 |  -18.5 | 0.27s | flicker 3
+  44 | ilustrasi  | neon_hum           |  2312 | 01:17.07 |  -24.0 | 6.40s | hum neon (sampai end card)
+--- beat 45 ★: buat nyambung ulang saraf otak lo yang udah terlanjur parah.
+  45 | kamera     | cam_rumble         |  2349 | 01:18.30 |  -28.0 | 1.02s | DIBUANG kamera: pull-out lebar — dimatikan (barengan imp_rewire)
+  45 | PENTING    | imp_rewire         |  2353 | 01:18.43 |   -9.0 | 3.10s | sparkle + swell saraf nyambung
+--- beat 42: dan siap berbenah,
+  42 | keluar     | pop_out            |  2356 | 01:18.53 |  -23.6 | 0.18s | checklist keluar — digeser +7 frame (sunyi pra-impact)
+--- beat 45 ★: buat nyambung ulang saraf otak lo yang udah terlanjur parah.
+  45 | ilustrasi  | ting_short         |  2369 | 01:18.97 |  -17.7 | 0.35s | neuron nyambung 1
+  45 | ilustrasi  | ting_short         |  2380 | 01:19.33 |  -18.1 | 0.33s | neuron nyambung 2 — digeser +2 frame (maks 3); digeser +2 frame (maks 3)
+  45 | ilustrasi  | ting_short         |  2387 | 01:19.57 |  -18.2 | 0.31s | DIBUANG neuron nyambung 3 — digeser +2 frame (maks 3); digeser +2 frame (maks 3); dibuang (maks 3 barengan)
+  45 | ilustrasi  | ting_short         |  2390 | 01:19.67 |  -18.3 | 0.30s | neuron nyambung 4
+  45 | ilustrasi  | ting_short         |  2399 | 01:19.97 |  -17.8 | 0.28s | neuron nyambung 5 — digeser +2 frame (maks 3)
+  45 | ilustrasi  | ting_short         |  2408 | 01:20.27 |  -18.2 | 0.27s | neuron nyambung 6 — digeser +2 frame (maks 3); digeser +2 frame (maks 3)
+  45 | ilustrasi  | ting_short         |  2415 | 01:20.50 |  -18.7 | 0.26s | DIBUANG neuron nyambung 7 — digeser +2 frame (maks 3); digeser +2 frame (maks 3); dibuang (maks 3 barengan)
+--- beat 46 ★: (end card)
+  46 | kamera     | cam_swell          |  2451 | 01:21.70 |  -28.0 | 2.08s | DIBUANG kamera: push ke logo — dimatikan (barengan imp_end_hit)
+  46 | PENTING    | imp_end_hit        |  2481 | 01:22.70 |   -9.0 | 2.80s | end card: hit penutup lembut
+--- beat 45 ★: buat nyambung ulang saraf otak lo yang udah terlanjur parah.
+  45 | keluar     | pop_out            |  2481 | 01:22.70 |  -22.3 | 0.19s | rewired keluar

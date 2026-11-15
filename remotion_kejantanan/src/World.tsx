@@ -130,7 +130,8 @@ export const World: React.FC<{mode: 'animatic' | 'final'; renderIll?: (f: number
       </AbsoluteFill>
       <Vignette strength={0.55 + endK * 0.3} />
       {mode === 'final' && <Grain opacity={0.03} />}
-      <Audio src={staticFile('voiceover.m4a')} />
+      {/* final: voiceover + SFX 3 lapis sudah dimix & dilimit (scripts/mix_sfx.py); animatic: voiceover saja */}
+      <Audio src={staticFile(mode === 'final' ? 'mix_final.wav' : 'voiceover.m4a')} />
     </AbsoluteFill>
   );
 };
