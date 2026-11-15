@@ -43,15 +43,19 @@ export const SAFE = {top: 200, bottom: H - 200, left: 80, right: W - 80};
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 export const clamp = (v: number, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
 
-export const hexToRgb = (h: string) => {
-  const n = parseInt(h.slice(1), 16);
+export const hexToRgb = (h: string): number[] => {
+  const m = /^rgba?\(([^)]+)\)/.exec(h.trim());
+  if (m) return m[1].split(',').slice(0, 3).map((v) => parseFloat(v));
+  const n = parseInt(h.trim().slice(1, 7), 16);
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 };
+const hex2 = (v: number) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0');
+// campur dua warna (hex atau rgb()) -> selalu hex #rrggbb (aman dicampur ulang & diberi alpha hex)
 export const mix = (a: string, b: string, t: number) => {
   const A = hexToRgb(a);
   const B = hexToRgb(b);
-  const r = A.map((v, i) => Math.round(lerp(v, B[i], clamp(t))));
-  return `rgb(${r[0]},${r[1]},${r[2]})`;
+  const r = A.map((v, i) => lerp(v, B[i], clamp(t)));
+  return `#${hex2(r[0])}${hex2(r[1])}${hex2(r[2])}`;
 };
 
 // deterministic pseudo-random
