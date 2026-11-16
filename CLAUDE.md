@@ -81,3 +81,23 @@ Dependensi: `pip install skia-python scipy numpy` + `apt-get install -y libegl1`
 - Objek realistis bila narasi membahas objek: otak 3D mesh (`brain3d()` memakai renderer video 2), jantung anatomis
   (`anat_heart`), cincin berlian, HP/laptop/rumah/mobil/sofa/ranjang detail. Stickman tidak selalu objek utama.
 - Transisi: crossfade saja (`TRW=0.7`, `src/render5.py`), SFX hanya animasi (`src/sfx5.py`). Build: `./build_v5.sh`.
+
+## KIT REUSE (Remotion) — karakter, pose, background yang sudah jadi
+Pakai versi terbaru di `remotion_30hari/` (copy ke project baru, jangan bikin ulang):
+- `src/components/Character.tsx`: rig pria Asia Tenggara (bomber navy, gelang kayu). Ekspresi ±35 (neutral, happy,
+  smirk, sad, guilty, shocked, worried, angry, thinking, determined, dazed, crying, bored, curious, hooked, panicked,
+  hypnotized, sweaty_stressed, jittery, lonely, tempted, proud, laughing, lethargic, restless, focused, relieved, sleepy,
+  confused_morning, confident, nervous, flat). Pose ±50 (standing_relaxed, arms_crossed, holding_phone, head_in_hands,
+  sitting_desk, pointing_up, shaking_head, walking, running, shrug, tapping_phone, carrying_weight, sitting_bed_bored,
+  grabbing_phone, shaking_cold, hero_pose_cape, cape_falls, slumped, pacing, pushing_phone_away, blocking_hand,
+  reading_focused, playing_guitar, workout, holding_scissors, steering_wheel, sleeping, waking_up, yawning, dll.)
+  + props otomatis per pose (karung, selimut, jubah polos, buku, gitar, barbel, gunting, setir, HP).
+  Prop `pose`/`expression` bisa string atau keyframe `[[frame, nilai], ...]`; lip-sync `talking`, `lookAt`, `rim`.
+  Preview: `remotion_30hari/preview/character_sheet.png` (+ `remotion_kejantanan/preview/character_sheet.png`).
+- `src/components/Rooms.tsx`: background `Bedroom` (mood night/rain/morning; lampOn, doorClosed, hanger, curtainOpen,
+  dim), `Lab`, `RoadScene`, `CtaStage`, `StringLights`, `Bokeh`. Preview: `remotion_30hari/preview/phase_stills.png`.
+- Komponen lain: `Brain`, `MidbrainMascot`, `Phone`, `NeonLogo`, `Calendar`, `UI` (label fase, subtitle karaoke, callout),
+  `src/shot.tsx` (renderer storyboard: kamera, transisi whip/blur/light/push).
+- Zona layout 9:16: label y140-260, karakter (kaki y1250, skala 1.1) & ilustrasi y420-1250, subtitle y≈1380, 260px bawah kosong.
+- Audio: `scripts/make_foley.py` (foley sintesis), `scripts/mix_audio.py` (VO+BGM+SFX, limiter -1 dBFS);
+  setelan terakhir user: BGM 1%, SFX maks 20% VO. Transcribe: Whisper small (bobot via npm, lihat riwayat) + `scripts/build_words.py`.
