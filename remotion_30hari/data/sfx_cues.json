@@ -1,0 +1,957 @@
+{
+ "fps": 30,
+ "total_frames": 3228,
+ "vo_duration": 105.07,
+ "beats": [
+  {
+   "id": 1,
+   "text": "Apa yang terjadi pada otak",
+   "f0": 0,
+   "imp": true
+  },
+  {
+   "id": 2,
+   "text": "kalau lo enggak coli",
+   "f0": 41,
+   "imp": false
+  },
+  {
+   "id": 3,
+   "text": "selama 30 hari?",
+   "f0": 73,
+   "imp": true
+  },
+  {
+   "id": 4,
+   "text": "Tiga hari pertama",
+   "f0": 109,
+   "imp": false
+  },
+  {
+   "id": 5,
+   "text": "adalah fase yang paling berat.",
+   "f0": 133,
+   "imp": true
+  },
+  {
+   "id": 6,
+   "text": "Bukan karena tubuh lo butuh,",
+   "f0": 201,
+   "imp": false
+  },
+  {
+   "id": 7,
+   "text": "tapi karena otak lo udah hafal polanya:",
+   "f0": 244,
+   "imp": false
+  },
+  {
+   "id": 8,
+   "text": "bosen,",
+   "f0": 311,
+   "imp": false
+  },
+  {
+   "id": 9,
+   "text": "sendirian,",
+   "f0": 334,
+   "imp": false
+  },
+  {
+   "id": 10,
+   "text": "pegang HP",
+   "f0": 358,
+   "imp": false
+  },
+  {
+   "id": 11,
+   "text": "langsung balik buka bokep",
+   "f0": 374,
+   "imp": false
+  },
+  {
+   "id": 12,
+   "text": "dan onani.",
+   "f0": 412,
+   "imp": false
+  },
+  {
+   "id": 13,
+   "text": "Fase ini, lo akan merasakan gejala withdrawal",
+   "f0": 437,
+   "imp": true
+  },
+  {
+   "id": 14,
+   "text": "atau sakau.",
+   "f0": 505,
+   "imp": false
+  },
+  {
+   "id": 15,
+   "text": "Sekitar hari ketujuh,",
+   "f0": 539,
+   "imp": false
+  },
+  {
+   "id": 16,
+   "text": "satu studi dari Journal of Zhejiang University-SCIENCE",
+   "f0": 578,
+   "imp": true
+  },
+  {
+   "id": 17,
+   "text": "bilang kalau kadar testosteron pria",
+   "f0": 662,
+   "imp": false
+  },
+  {
+   "id": 18,
+   "text": "naik sampai sekitar 145% dari normal,",
+   "f0": 721,
+   "imp": true
+  },
+  {
+   "id": 19,
+   "text": "terus balik lagi ke level biasa.",
+   "f0": 824,
+   "imp": false
+  },
+  {
+   "id": 20,
+   "text": "Jadi bukan jadi Superman,",
+   "f0": 867,
+   "imp": false
+  },
+  {
+   "id": 21,
+   "text": "cuma tanda tubuh lo lagi menyesuaikan.",
+   "f0": 926,
+   "imp": false
+  },
+  {
+   "id": 22,
+   "text": "Masuk ke fase yang datar, yaitu di minggu kedua.",
+   "f0": 988,
+   "imp": false
+  },
+  {
+   "id": 23,
+   "text": "Banyak yang ngerasa lesu,",
+   "f0": 1078,
+   "imp": false
+  },
+  {
+   "id": 24,
+   "text": "libido drop,",
+   "f0": 1120,
+   "imp": false
+  },
+  {
+   "id": 25,
+   "text": "mood datar.",
+   "f0": 1148,
+   "imp": false
+  },
+  {
+   "id": 26,
+   "text": "Fase ini biasa disebut flatline.",
+   "f0": 1177,
+   "imp": true
+  },
+  {
+   "id": 27,
+   "text": "Otak bagian amigdala",
+   "f0": 1245,
+   "imp": false
+  },
+  {
+   "id": 28,
+   "text": "sedang menyesuaikan kadar dopamin ke level yang normal.",
+   "f0": 1277,
+   "imp": false
+  },
+  {
+   "id": 29,
+   "text": "Jadi wajar kalau lo ngerasa gelisah,",
+   "f0": 1367,
+   "imp": false
+  },
+  {
+   "id": 30,
+   "text": "karena hormon kebahagiaan biasanya naik dari PMO,",
+   "f0": 1439,
+   "imp": false
+  },
+  {
+   "id": 31,
+   "text": "dan sekarang otak lo sedang didetoks dari bokep dan coli.",
+   "f0": 1528,
+   "imp": true
+  },
+  {
+   "id": 32,
+   "text": "Masuk ke minggu ketiga dan minggu terakhir.",
+   "f0": 1634,
+   "imp": true
+  },
+  {
+   "id": 33,
+   "text": "Setiap kali lo berhasil nahan dorongan PMO,",
+   "f0": 1694,
+   "imp": false
+  },
+  {
+   "id": 34,
+   "text": "lo lagi melatih otak buat memilih.",
+   "f0": 1778,
+   "imp": false
+  },
+  {
+   "id": 35,
+   "text": "Di fase ini banyak orang mulai merasa punya waktu lebih banyak,",
+   "f0": 1840,
+   "imp": false
+  },
+  {
+   "id": 36,
+   "text": "fokus mereka juga jadi lebih panjang.",
+   "f0": 1939,
+   "imp": false
+  },
+  {
+   "id": 37,
+   "text": "Yang paling penting, lo bukan lagi orang yang dikendalikan sama hawa nafsu.",
+   "f0": 2002,
+   "imp": true
+  },
+  {
+   "id": 38,
+   "text": "Lo bisa kontrol otak tengah",
+   "f0": 2121,
+   "imp": false
+  },
+  {
+   "id": 39,
+   "text": "dan otak bagian PFC kembali lebih dominan.",
+   "f0": 2163,
+   "imp": true
+  },
+  {
+   "id": 40,
+   "text": "Tapi ingat, rata-rata kebiasaan baru butuh sekitar 66 hari buat nempel.",
+   "f0": 2242,
+   "imp": true
+  },
+  {
+   "id": 41,
+   "text": "Jadi 30 hari itu bukan garis finish,",
+   "f0": 2382,
+   "imp": false
+  },
+  {
+   "id": 42,
+   "text": "itu baru awal lo pegang kendali.",
+   "f0": 2454,
+   "imp": false
+  },
+  {
+   "id": 43,
+   "text": "Lo juga akan mengalami mimpi basah dan itu adalah hal normal.",
+   "f0": 2498,
+   "imp": false
+  },
+  {
+   "id": 44,
+   "text": "Mimpi basah merupakan cara sperma keluar secara organik,",
+   "f0": 2618,
+   "imp": false
+  },
+  {
+   "id": 45,
+   "text": "bukan artifisial atau paksaan seperti dari onani.",
+   "f0": 2708,
+   "imp": false
+  },
+  {
+   "id": 46,
+   "text": "Miliki juga konsep neuroplasticity",
+   "f0": 2795,
+   "imp": false
+  },
+  {
+   "id": 47,
+   "text": "agar lo tidak ngasal dan salah langkah,",
+   "f0": 2859,
+   "imp": false
+  },
+  {
+   "id": 48,
+   "text": "dan bisa memulihkan kerusakan di otak akibat PMO.",
+   "f0": 2921,
+   "imp": false
+  },
+  {
+   "id": 49,
+   "text": "Miliki lewat link di bio,",
+   "f0": 3007,
+   "imp": true
+  },
+  {
+   "id": 50,
+   "text": "dijamin efektif buat lo sebagai pecandu berat PMO.",
+   "f0": 3049,
+   "imp": false
+  },
+  {
+   "id": 51,
+   "text": "(end card)",
+   "f0": 3152,
+   "imp": false
+  }
+ ],
+ "cues": [
+  {
+   "beat": 1,
+   "f": 9,
+   "sfx": "camera_shutter",
+   "kind": "imp",
+   "note": "kepala jadi X-ray (shutter)"
+  },
+  {
+   "beat": 1,
+   "f": 10,
+   "sfx": "paper_scan_whoosh",
+   "kind": "imp",
+   "note": "scan X-ray (whoosh kertas)"
+  },
+  {
+   "beat": 2,
+   "f": 41,
+   "sfx": "whoosh_air",
+   "kind": "trans",
+   "note": "whip slide"
+  },
+  {
+   "beat": 2,
+   "f": 43,
+   "sfx": "lock_click",
+   "kind": "ill",
+   "note": "HP 18+ digembok"
+  },
+  {
+   "beat": 2,
+   "f": 49,
+   "sfx": "pen_scribble",
+   "kind": "ill",
+   "note": "tisu dicoret X"
+  },
+  {
+   "beat": 3,
+   "f": 73,
+   "sfx": "paper_flip_fast",
+   "kind": "imp",
+   "note": "kalender disobek cepat 1→30"
+  },
+  {
+   "beat": 3,
+   "f": 92,
+   "sfx": "stamp_thud",
+   "kind": "imp",
+   "note": "stempel \"30\" dihentak"
+  },
+  {
+   "beat": 4,
+   "f": 109,
+   "sfx": "light_sweep_air",
+   "kind": "trans",
+   "note": "light sweep ke kamar malam"
+  },
+  {
+   "beat": 4,
+   "f": 117,
+   "sfx": "marker_circle",
+   "kind": "ill",
+   "note": "tanggal 1-3 dilingkari spidol"
+  },
+  {
+   "beat": 5,
+   "f": 135,
+   "sfx": "heavy_sack_thud",
+   "kind": "imp",
+   "note": "karung beban jatuh di pundak (thud kain)"
+  },
+  {
+   "beat": 6,
+   "f": 211,
+   "sfx": "pen_check",
+   "kind": "ill",
+   "note": "centang hijau badan OK"
+  },
+  {
+   "beat": 7,
+   "f": 248,
+   "sfx": "toy_train_loop",
+   "kind": "ill",
+   "note": "kereta mainan muter di rel otak"
+  },
+  {
+   "beat": 8,
+   "f": 313,
+   "sfx": "clock_tick",
+   "kind": "ill",
+   "note": "jam dinding tik-tok",
+   "len": 22
+  },
+  {
+   "beat": 8,
+   "f": 325,
+   "sfx": "yawn",
+   "kind": "ill",
+   "note": "menguap"
+  },
+  {
+   "beat": 9,
+   "f": 348,
+   "sfx": "door_close_soft",
+   "kind": "ill",
+   "note": "pintu ditutup pelan"
+  },
+  {
+   "beat": 10,
+   "f": 362,
+   "sfx": "phone_pickup",
+   "kind": "ill",
+   "note": "HP diangkat"
+  },
+  {
+   "beat": 10,
+   "f": 368,
+   "sfx": "phone_notification_soft",
+   "kind": "ill",
+   "note": "notifikasi HP"
+  },
+  {
+   "beat": 11,
+   "f": 378,
+   "sfx": "screen_tap",
+   "kind": "ill",
+   "note": "tap layar"
+  },
+  {
+   "beat": 11,
+   "f": 384,
+   "sfx": "screen_scroll",
+   "kind": "ill",
+   "note": "scroll layar"
+  },
+  {
+   "beat": 12,
+   "f": 418,
+   "sfx": "door_lock_click",
+   "kind": "ill",
+   "note": "pintu dikunci + gantungan"
+  },
+  {
+   "beat": 12,
+   "f": 426,
+   "sfx": "light_switch",
+   "kind": "ill",
+   "note": "saklar lampu dimatikan"
+  },
+  {
+   "beat": 13,
+   "f": 441,
+   "sfx": "heavy_breath",
+   "kind": "imp",
+   "note": "napas berat (withdrawal)"
+  },
+  {
+   "beat": 13,
+   "f": 449,
+   "sfx": "heartbeat",
+   "kind": "imp",
+   "note": "detak jantung"
+  },
+  {
+   "beat": 14,
+   "f": 505,
+   "sfx": "blanket_rustle",
+   "kind": "ill",
+   "note": "selimut ditarik"
+  },
+  {
+   "beat": 14,
+   "f": 513,
+   "sfx": "teeth_chatter",
+   "kind": "ill",
+   "note": "gigi gemeletuk menggigil"
+  },
+  {
+   "beat": 15,
+   "f": 539,
+   "sfx": "whoosh_air",
+   "kind": "trans",
+   "note": "whip slide ke lab"
+  },
+  {
+   "beat": 15,
+   "f": 545,
+   "sfx": "marker_circle",
+   "kind": "ill",
+   "note": "tanggal 7 dilingkari hijau"
+  },
+  {
+   "beat": 16,
+   "f": 582,
+   "sfx": "camera_shutter",
+   "kind": "imp",
+   "note": "jurnal ilmiah (shutter)"
+  },
+  {
+   "beat": 16,
+   "f": 586,
+   "sfx": "paper_page_turn",
+   "kind": "imp",
+   "note": "kertas jurnal dibalik"
+  },
+  {
+   "beat": 17,
+   "f": 666,
+   "sfx": "glass_clink",
+   "kind": "ill",
+   "note": "tabung reaksi berdenting"
+  },
+  {
+   "beat": 18,
+   "f": 725,
+   "sfx": "chalk_fast",
+   "kind": "imp",
+   "note": "kapur cepat: batang melesat ke 145%"
+  },
+  {
+   "beat": 18,
+   "f": 755,
+   "sfx": "soft_hit",
+   "kind": "imp",
+   "note": "hit saat batang mentok 145%"
+  },
+  {
+   "beat": 19,
+   "f": 828,
+   "sfx": "chalk_down",
+   "kind": "ill",
+   "note": "kapur nyoret turun ke 100%"
+  },
+  {
+   "beat": 20,
+   "f": 870,
+   "sfx": "cape_flutter",
+   "kind": "ill",
+   "note": "jubah berkibar"
+  },
+  {
+   "beat": 20,
+   "f": 897,
+   "sfx": "cloth_drop",
+   "kind": "ill",
+   "note": "jubah copot jatuh"
+  },
+  {
+   "beat": 21,
+   "f": 932,
+   "sfx": "knob_click",
+   "kind": "ill",
+   "note": "kenop diputar (klik-klik)"
+  },
+  {
+   "beat": 22,
+   "f": 988,
+   "sfx": "rain_loop",
+   "kind": "amb",
+   "note": "hujan di jendela (ambience, sepanjang fase)",
+   "len": 646
+  },
+  {
+   "beat": 22,
+   "f": 996,
+   "sfx": "paper_rustle",
+   "kind": "ill",
+   "note": "kalender minggu 2"
+  },
+  {
+   "beat": 23,
+   "f": 1084,
+   "sfx": "body_flop_bed",
+   "kind": "ill",
+   "note": "badan jatuh ke kasur"
+  },
+  {
+   "beat": 24,
+   "f": 1126,
+   "sfx": "needle_drop",
+   "kind": "ill",
+   "note": "jarum gauge turun (mekanis)"
+  },
+  {
+   "beat": 25,
+   "f": 1152,
+   "sfx": "sigh",
+   "kind": "ill",
+   "note": "helaan napas"
+  },
+  {
+   "beat": 26,
+   "f": 1189,
+   "sfx": "ekg_flatline",
+   "kind": "imp",
+   "note": "monitor flatline (pelan)"
+  },
+  {
+   "beat": 27,
+   "f": 1248,
+   "sfx": "paper_unfold",
+   "kind": "ill",
+   "note": "diagram otak dibentangkan"
+  },
+  {
+   "beat": 28,
+   "f": 1283,
+   "sfx": "knob_click",
+   "kind": "ill",
+   "note": "kenop tangki diputar"
+  },
+  {
+   "beat": 28,
+   "f": 1289,
+   "sfx": "water_slosh",
+   "kind": "ill",
+   "note": "air tangki bergoyang"
+  },
+  {
+   "beat": 29,
+   "f": 1367,
+   "sfx": "footsteps_pacing",
+   "kind": "ill",
+   "note": "langkah bolak-balik",
+   "len": 70
+  },
+  {
+   "beat": 30,
+   "f": 1445,
+   "sfx": "phone_notification_soft",
+   "kind": "ill",
+   "note": "notif HP",
+   "rate": 1.06
+  },
+  {
+   "beat": 30,
+   "f": 1453,
+   "sfx": "pop_soft",
+   "kind": "ill",
+   "note": "grafik dopamin naik"
+  },
+  {
+   "beat": 31,
+   "f": 1534,
+   "sfx": "water_flow",
+   "kind": "imp",
+   "note": "otak dicuci air bersih"
+  },
+  {
+   "beat": 31,
+   "f": 1550,
+   "sfx": "pen_scribble",
+   "kind": "imp",
+   "note": "HP 18+ & tisu dicoret"
+  },
+  {
+   "beat": 32,
+   "f": 1634,
+   "sfx": "curtain_open",
+   "kind": "imp",
+   "note": "tirai dibuka (light sweep pagi)"
+  },
+  {
+   "beat": 32,
+   "f": 1644,
+   "sfx": "birds_morning",
+   "kind": "imp",
+   "note": "burung pagi"
+  },
+  {
+   "beat": 33,
+   "f": 1698,
+   "sfx": "phone_slide_table",
+   "kind": "ill",
+   "note": "HP digeser menjauh"
+  },
+  {
+   "beat": 33,
+   "f": 1736,
+   "sfx": "hand_swat",
+   "kind": "ill",
+   "note": "tepisan tangan"
+  },
+  {
+   "beat": 34,
+   "f": 1784,
+   "sfx": "dumbbell_set_down",
+   "kind": "ill",
+   "note": "otak taruh barbel"
+  },
+  {
+   "beat": 34,
+   "f": 1796,
+   "sfx": "door_open",
+   "kind": "ill",
+   "note": "pintu terang dibuka"
+  },
+  {
+   "beat": 35,
+   "f": 1842,
+   "sfx": "clock_tick",
+   "kind": "ill",
+   "note": "jam bonus waktu",
+   "rate": 1.08
+  },
+  {
+   "beat": 35,
+   "f": 1870,
+   "sfx": "guitar_strum",
+   "kind": "ill",
+   "note": "senar gitar"
+  },
+  {
+   "beat": 35,
+   "f": 1904,
+   "sfx": "workout_breath",
+   "kind": "ill",
+   "note": "napas olahraga"
+  },
+  {
+   "beat": 35,
+   "f": 1920,
+   "sfx": "book_close",
+   "kind": "ill",
+   "note": "buku muncul (buku ditutup)"
+  },
+  {
+   "beat": 36,
+   "f": 1943,
+   "sfx": "paper_page_turn",
+   "kind": "ill",
+   "note": "halaman dibalik",
+   "rate": 1.05
+  },
+  {
+   "beat": 36,
+   "f": 1959,
+   "sfx": "pencil_write",
+   "kind": "ill",
+   "note": "pensil menulis"
+  },
+  {
+   "beat": 37,
+   "f": 2032,
+   "sfx": "scissors_snip",
+   "kind": "imp",
+   "note": "tali boneka ke-1 digunting",
+   "rate": 1
+  },
+  {
+   "beat": 37,
+   "f": 2068,
+   "sfx": "scissors_snip",
+   "kind": "imp",
+   "note": "tali boneka ke-2 digunting",
+   "rate": 1.05
+  },
+  {
+   "beat": 37,
+   "f": 2104,
+   "sfx": "scissors_snip",
+   "kind": "imp",
+   "note": "tali boneka ke-3 digunting",
+   "rate": 1.1
+  },
+  {
+   "beat": 37,
+   "f": 2036,
+   "sfx": "string_drop",
+   "kind": "ill",
+   "note": "tali jatuh"
+  },
+  {
+   "beat": 38,
+   "f": 2127,
+   "sfx": "mascot_hmph",
+   "kind": "ill",
+   "note": "maskot otak tengah \"hmph\" jinak"
+  },
+  {
+   "beat": 39,
+   "f": 2167,
+   "sfx": "padlock_open",
+   "kind": "imp",
+   "note": "gembok otak hari-30 terbuka"
+  },
+  {
+   "beat": 39,
+   "f": 2171,
+   "sfx": "warm_swell",
+   "kind": "imp",
+   "note": "PFC menyala (swell hangat)"
+  },
+  {
+   "beat": 40,
+   "f": 2242,
+   "sfx": "whoosh_air",
+   "kind": "trans",
+   "note": "whip slide"
+  },
+  {
+   "beat": 40,
+   "f": 2246,
+   "sfx": "paper_flip_fast",
+   "kind": "imp",
+   "note": "kalender nambah sampai 66"
+  },
+  {
+   "beat": 40,
+   "f": 2268,
+   "sfx": "tape_pull",
+   "kind": "imp",
+   "note": "selotip ditarik & ditempel"
+  },
+  {
+   "beat": 41,
+   "f": 2392,
+   "sfx": "ribbon_snap",
+   "kind": "ill",
+   "note": "pita finish putus"
+  },
+  {
+   "beat": 41,
+   "f": 2402,
+   "sfx": "footsteps_walk",
+   "kind": "ill",
+   "note": "langkah di jalan"
+  },
+  {
+   "beat": 42,
+   "f": 2457,
+   "sfx": "steering_grip",
+   "kind": "ill",
+   "note": "genggam setir"
+  },
+  {
+   "beat": 42,
+   "f": 2462,
+   "sfx": "engine_idle_soft",
+   "kind": "ill",
+   "note": "mesin halus"
+  },
+  {
+   "beat": 43,
+   "f": 2498,
+   "sfx": "blur_whoosh_soft",
+   "kind": "trans",
+   "note": "blur dissolve ke kamar tidur"
+  },
+  {
+   "beat": 43,
+   "f": 2504,
+   "sfx": "snore_soft",
+   "kind": "ill",
+   "note": "dengkur pelan"
+  },
+  {
+   "beat": 43,
+   "f": 2558,
+   "sfx": "alarm_clock_bell",
+   "kind": "ill",
+   "note": "jam weker berdering"
+  },
+  {
+   "beat": 43,
+   "f": 2590,
+   "sfx": "pen_check",
+   "kind": "ill",
+   "note": "centang NORMAL"
+  },
+  {
+   "beat": 44,
+   "f": 2624,
+   "sfx": "water_bubbles",
+   "kind": "ill",
+   "note": "sel sperma berenang (gelembung)"
+  },
+  {
+   "beat": 45,
+   "f": 2716,
+   "sfx": "stamp_thud",
+   "kind": "ill",
+   "note": "pabrik/pompa dicap X",
+   "rate": 1.1
+  },
+  {
+   "beat": 46,
+   "f": 2795,
+   "sfx": "light_sweep_air",
+   "kind": "trans",
+   "note": "light sweep ke CTA"
+  },
+  {
+   "beat": 46,
+   "f": 2803,
+   "sfx": "book_open",
+   "kind": "ill",
+   "note": "buku panduan dibuka"
+  },
+  {
+   "beat": 47,
+   "f": 2862,
+   "sfx": "paper_unfold",
+   "kind": "ill",
+   "note": "peta dibuka",
+   "rate": 1.08
+  },
+  {
+   "beat": 47,
+   "f": 2871,
+   "sfx": "footsteps_walk",
+   "kind": "ill",
+   "note": "jejak di labirin",
+   "rate": 1.1
+  },
+  {
+   "beat": 48,
+   "f": 2931,
+   "sfx": "crystal_join_soft",
+   "kind": "ill",
+   "note": "retakan otak menyatu"
+  },
+  {
+   "beat": 49,
+   "f": 3013,
+   "sfx": "neon_switch_click",
+   "kind": "imp",
+   "note": "saklar neon logo"
+  },
+  {
+   "beat": 49,
+   "f": 3023,
+   "sfx": "neon_buzz_soft",
+   "kind": "imp",
+   "note": "buzz neon halus"
+  },
+  {
+   "beat": 50,
+   "f": 3055,
+   "sfx": "warm_swell",
+   "kind": "ill",
+   "note": "swell hangat (penutup)"
+  }
+ ]
+}

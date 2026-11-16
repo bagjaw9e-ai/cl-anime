@@ -1,0 +1,146 @@
+SFX MAP — video 30 hari | VO -14.9 LUFS | master -12.6 LUFS (stereo), true-peak -1.13 dBFS (limit -1)
+BGM: 7% dasar -> 5.0% saat VO, 7.0% di jeda; fade in 0.5 s, fade out 2 s di end card.
+SFX: penting 28% (-11 dB), ilustrasi 18% (-15 dB), transisi 10% (-20 dB), hujan 9% (-21 dB); cap <= 30% VO saat narasi (penurunan terbesar -16.4 dB).
+90 SFX terpasang (0 dibuang) | maks bunyi SFX barengan: 3 | bunyi teknologi: ekg_flatline, neon_switch_click, neon_buzz_soft
+
+beat | jenis     | sfx                      | frame |    waktu |  % VO |     dB | keterangan
+--- beat 1 ⭐: Apa yang terjadi pada otak
+   1 | PENTING   | camera_shutter           |     9 | 00:00.30 |   28% |  -11.1 | kepala jadi X-ray (shutter)
+   1 | PENTING   | paper_scan_whoosh        |    10 | 00:00.33 |   28% |  -11.0 | scan X-ray (whoosh kertas)
+--- beat 2: kalau lo enggak coli
+   2 | transisi  | whoosh_air               |    41 | 00:01.37 |   10% |  -19.9 | whip slide
+   2 | ilustrasi | lock_click               |    43 | 00:01.43 |   18% |  -15.0 | HP 18+ digembok
+   2 | ilustrasi | pen_scribble             |    49 | 00:01.63 |   19% |  -14.5 | tisu dicoret X
+--- beat 3 ⭐: selama 30 hari?
+   3 | PENTING   | paper_flip_fast          |    73 | 00:02.43 |   26% |  -11.5 | kalender disobek cepat 1→30
+   3 | PENTING   | stamp_thud               |    92 | 00:03.07 |   29% |  -10.9 | stempel "30" dihentak
+--- beat 4: Tiga hari pertama
+   4 | transisi  | light_sweep_air          |   109 | 00:03.63 |   10% |  -19.8 | light sweep ke kamar malam
+   4 | ilustrasi | marker_circle            |   117 | 00:03.90 |   17% |  -15.2 | tanggal 1-3 dilingkari spidol
+--- beat 5 ⭐: adalah fase yang paling berat.
+   5 | PENTING   | heavy_sack_thud          |   135 | 00:04.50 |   28% |  -11.0 | karung beban jatuh di pundak (thud kain)
+--- beat 6: Bukan karena tubuh lo butuh,
+   6 | ilustrasi | pen_check                |   211 | 00:07.03 |   19% |  -14.6 | centang hijau badan OK
+--- beat 7: tapi karena otak lo udah hafal polanya:
+   7 | ilustrasi | toy_train_loop           |   248 | 00:08.27 |   18% |  -15.0 | kereta mainan muter di rel otak
+--- beat 8: bosen,
+   8 | ilustrasi | clock_tick               |   313 | 00:10.43 |   18% |  -14.7 | jam dinding tik-tok
+   8 | ilustrasi | yawn                     |   325 | 00:10.83 |   18% |  -15.0 | menguap
+--- beat 9: sendirian,
+   9 | ilustrasi | door_close_soft          |   348 | 00:11.60 |   18% |  -15.0 | pintu ditutup pelan
+--- beat 10: pegang HP
+  10 | ilustrasi | phone_pickup             |   362 | 00:12.07 |   18% |  -15.0 | HP diangkat
+  10 | ilustrasi | phone_notification_soft  |   370 | 00:12.33 |   19% |  -14.5 | notifikasi HP — digeser +2 frame (maks 3)
+--- beat 11: langsung balik buka bokep
+  11 | ilustrasi | screen_tap               |   378 | 00:12.60 |   18% |  -15.0 | tap layar
+  11 | ilustrasi | screen_scroll            |   384 | 00:12.80 |   18% |  -15.0 | scroll layar
+--- beat 12: dan onani.
+  12 | ilustrasi | door_lock_click          |   418 | 00:13.93 |   18% |  -15.0 | pintu dikunci + gantungan
+  12 | ilustrasi | light_switch             |   426 | 00:14.20 |   18% |  -15.0 | saklar lampu dimatikan
+--- beat 13 ⭐: Fase ini, lo akan merasakan gejala withdrawal
+  13 | PENTING   | heavy_breath             |   441 | 00:14.70 |   28% |  -11.0 | napas berat (withdrawal)
+  13 | PENTING   | heartbeat                |   449 | 00:14.97 |   28% |  -11.0 | detak jantung
+--- beat 14: atau sakau.
+  14 | ilustrasi | blanket_rustle           |   505 | 00:16.83 |   18% |  -15.0 | selimut ditarik
+  14 | ilustrasi | teeth_chatter            |   513 | 00:17.10 |   18% |  -15.0 | gigi gemeletuk menggigil
+--- beat 15: Sekitar hari ketujuh,
+  15 | transisi  | whoosh_air               |   539 | 00:17.97 |   10% |  -19.9 | whip slide ke lab
+  15 | ilustrasi | marker_circle            |   545 | 00:18.17 |   19% |  -14.3 | tanggal 7 dilingkari hijau
+--- beat 16 ⭐: satu studi dari Journal of Zhejiang University-SCIENCE
+  16 | PENTING   | camera_shutter           |   582 | 00:19.40 |   27% |  -11.5 | jurnal ilmiah (shutter)
+  16 | PENTING   | paper_page_turn          |   586 | 00:19.53 |   30% |  -10.4 | kertas jurnal dibalik
+--- beat 17: bilang kalau kadar testosteron pria
+  17 | ilustrasi | glass_clink              |   666 | 00:22.20 |   18% |  -15.0 | tabung reaksi berdenting
+--- beat 18 ⭐: naik sampai sekitar 145% dari normal,
+  18 | PENTING   | chalk_fast               |   725 | 00:24.17 |   28% |  -11.0 | kapur cepat: batang melesat ke 145%
+  18 | PENTING   | soft_hit                 |   755 | 00:25.17 |   28% |  -11.0 | hit saat batang mentok 145%
+--- beat 19: terus balik lagi ke level biasa.
+  19 | ilustrasi | chalk_down               |   828 | 00:27.60 |   18% |  -15.0 | kapur nyoret turun ke 100%
+--- beat 20: Jadi bukan jadi Superman,
+  20 | ilustrasi | cape_flutter             |   870 | 00:29.00 |   18% |  -15.0 | jubah berkibar
+  20 | ilustrasi | cloth_drop               |   897 | 00:29.90 |   18% |  -15.0 | jubah copot jatuh
+--- beat 21: cuma tanda tubuh lo lagi menyesuaikan.
+  21 | ilustrasi | knob_click               |   932 | 00:31.07 |   17% |  -15.3 | kenop diputar (klik-klik)
+--- beat 22: Masuk ke fase yang datar, yaitu di minggu kedua.
+  22 | ambience  | rain_loop                |   988 | 00:32.93 |    9% |  -21.0 | hujan di jendela (ambience, sepanjang fase)
+  22 | ilustrasi | paper_rustle             |   996 | 00:33.20 |   18% |  -15.0 | kalender minggu 2
+--- beat 23: Banyak yang ngerasa lesu,
+  23 | ilustrasi | body_flop_bed            |  1084 | 00:36.13 |   18% |  -15.0 | badan jatuh ke kasur
+--- beat 24: libido drop,
+  24 | ilustrasi | needle_drop              |  1126 | 00:37.53 |   18% |  -15.0 | jarum gauge turun (mekanis)
+--- beat 25: mood datar.
+  25 | ilustrasi | sigh                     |  1152 | 00:38.40 |   18% |  -15.0 | helaan napas
+--- beat 26 ⭐: Fase ini biasa disebut flatline.
+  26 | PENTING   | ekg_flatline             |  1189 | 00:39.63 |   28% |  -11.0 | monitor flatline (pelan)
+--- beat 27: Otak bagian amigdala
+  27 | ilustrasi | paper_unfold             |  1248 | 00:41.60 |   17% |  -15.2 | diagram otak dibentangkan
+--- beat 28: sedang menyesuaikan kadar dopamin ke level yang normal.
+  28 | ilustrasi | knob_click               |  1283 | 00:42.77 |   17% |  -15.3 | kenop tangki diputar
+  28 | ilustrasi | water_slosh              |  1289 | 00:42.97 |   18% |  -15.0 | air tangki bergoyang
+--- beat 29: Jadi wajar kalau lo ngerasa gelisah,
+  29 | ilustrasi | footsteps_pacing         |  1367 | 00:45.57 |   18% |  -15.0 | langkah bolak-balik
+--- beat 30: karena hormon kebahagiaan biasanya naik dari PMO,
+  30 | ilustrasi | phone_notification_soft  |  1445 | 00:48.17 |   17% |  -15.2 | notif HP
+  30 | ilustrasi | pop_soft                 |  1453 | 00:48.43 |   18% |  -15.0 | grafik dopamin naik
+--- beat 31 ⭐: dan sekarang otak lo sedang didetoks dari bokep dan coli.
+  31 | PENTING   | water_flow               |  1534 | 00:51.13 |   28% |  -11.0 | otak dicuci air bersih
+  31 | PENTING   | pen_scribble             |  1550 | 00:51.67 |   26% |  -11.5 | HP 18+ & tisu dicoret
+--- beat 32 ⭐: Masuk ke minggu ketiga dan minggu terakhir.
+  32 | PENTING   | curtain_open             |  1634 | 00:54.47 |   28% |  -11.0 | tirai dibuka (light sweep pagi)
+  32 | PENTING   | birds_morning            |  1644 | 00:54.80 |   28% |  -11.0 | burung pagi
+--- beat 33: Setiap kali lo berhasil nahan dorongan PMO,
+  33 | ilustrasi | phone_slide_table        |  1698 | 00:56.60 |   18% |  -15.0 | HP digeser menjauh
+  33 | ilustrasi | hand_swat                |  1736 | 00:57.87 |   18% |  -15.0 | tepisan tangan
+--- beat 34: lo lagi melatih otak buat memilih.
+  34 | ilustrasi | dumbbell_set_down        |  1784 | 00:59.47 |   18% |  -15.0 | otak taruh barbel
+  34 | ilustrasi | door_open                |  1796 | 00:59.87 |   18% |  -15.0 | pintu terang dibuka
+--- beat 35: Di fase ini banyak orang mulai merasa punya waktu lebih banyak,
+  35 | ilustrasi | clock_tick               |  1842 | 01:01.40 |   17% |  -15.5 | jam bonus waktu
+  35 | ilustrasi | guitar_strum             |  1870 | 01:02.33 |   18% |  -15.0 | senar gitar
+  35 | ilustrasi | workout_breath           |  1904 | 01:03.47 |   18% |  -15.0 | napas olahraga
+  35 | ilustrasi | book_close               |  1920 | 01:04.00 |   18% |  -15.0 | buku muncul (buku ditutup)
+--- beat 36: fokus mereka juga jadi lebih panjang.
+  36 | ilustrasi | paper_page_turn          |  1943 | 01:04.77 |   19% |  -14.3 | halaman dibalik
+  36 | ilustrasi | pencil_write             |  1959 | 01:05.30 |   18% |  -15.0 | pensil menulis
+--- beat 37 ⭐: Yang paling penting, lo bukan lagi orang yang dikendalikan sama hawa nafsu.
+  37 | PENTING   | scissors_snip            |  2032 | 01:07.73 |   27% |  -11.5 | tali boneka ke-1 digunting
+  37 | ilustrasi | string_drop              |  2036 | 01:07.87 |   18% |  -15.0 | tali jatuh
+  37 | PENTING   | scissors_snip            |  2068 | 01:08.93 |   30% |  -10.5 | tali boneka ke-2 digunting
+  37 | PENTING   | scissors_snip            |  2104 | 01:10.13 |   30% |  -10.4 | tali boneka ke-3 digunting
+--- beat 38: Lo bisa kontrol otak tengah
+  38 | ilustrasi | mascot_hmph              |  2127 | 01:10.90 |   18% |  -15.0 | maskot otak tengah "hmph" jinak
+--- beat 39 ⭐: dan otak bagian PFC kembali lebih dominan.
+  39 | PENTING   | padlock_open             |  2167 | 01:12.23 |   28% |  -11.0 | gembok otak hari-30 terbuka
+  39 | PENTING   | warm_swell               |  2171 | 01:12.37 |   29% |  -10.8 | PFC menyala (swell hangat)
+--- beat 40 ⭐: Tapi ingat, rata-rata kebiasaan baru butuh sekitar 66 hari buat nempel.
+  40 | transisi  | whoosh_air               |  2242 | 01:14.73 |    9% |  -20.5 | whip slide
+  40 | PENTING   | paper_flip_fast          |  2246 | 01:14.87 |   27% |  -11.3 | kalender nambah sampai 66
+  40 | PENTING   | tape_pull                |  2268 | 01:15.60 |   28% |  -11.0 | selotip ditarik & ditempel
+--- beat 41: Jadi 30 hari itu bukan garis finish,
+  41 | ilustrasi | ribbon_snap              |  2392 | 01:19.73 |   18% |  -15.0 | pita finish putus
+  41 | ilustrasi | footsteps_walk           |  2402 | 01:20.07 |   19% |  -14.6 | langkah di jalan
+--- beat 42: itu baru awal lo pegang kendali.
+  42 | ilustrasi | steering_grip            |  2457 | 01:21.90 |   18% |  -15.0 | genggam setir
+  42 | ilustrasi | engine_idle_soft         |  2462 | 01:22.07 |   18% |  -15.0 | mesin halus
+--- beat 43: Lo juga akan mengalami mimpi basah dan itu adalah hal normal.
+  43 | transisi  | blur_whoosh_soft         |  2498 | 01:23.27 |   10% |  -20.0 | blur dissolve ke kamar tidur
+  43 | ilustrasi | snore_soft               |  2504 | 01:23.47 |   18% |  -15.0 | dengkur pelan
+  43 | ilustrasi | alarm_clock_bell         |  2558 | 01:25.27 |   18% |  -15.0 | jam weker berdering
+  43 | ilustrasi | pen_check                |  2590 | 01:26.33 |   17% |  -15.2 | centang NORMAL
+--- beat 44: Mimpi basah merupakan cara sperma keluar secara organik,
+  44 | ilustrasi | water_bubbles            |  2624 | 01:27.47 |   18% |  -15.0 | sel sperma berenang (gelembung)
+--- beat 45: bukan artifisial atau paksaan seperti dari onani.
+  45 | ilustrasi | stamp_thud               |  2716 | 01:30.53 |   18% |  -15.1 | pabrik/pompa dicap X
+--- beat 46: Miliki juga konsep neuroplasticity
+  46 | transisi  | light_sweep_air          |  2795 | 01:33.17 |    9% |  -20.5 | light sweep ke CTA
+  46 | ilustrasi | book_open                |  2803 | 01:33.43 |   18% |  -15.0 | buku panduan dibuka
+--- beat 47: agar lo tidak ngasal dan salah langkah,
+  47 | ilustrasi | paper_unfold             |  2862 | 01:35.40 |   18% |  -15.1 | peta dibuka
+  47 | ilustrasi | footsteps_walk           |  2871 | 01:35.70 |   17% |  -15.5 | jejak di labirin
+--- beat 48: dan bisa memulihkan kerusakan di otak akibat PMO.
+  48 | ilustrasi | crystal_join_soft        |  2931 | 01:37.70 |   18% |  -15.0 | retakan otak menyatu
+--- beat 49 ⭐: Miliki lewat link di bio,
+  49 | PENTING   | neon_switch_click        |  3013 | 01:40.43 |   28% |  -11.0 | saklar neon logo
+  49 | PENTING   | neon_buzz_soft           |  3023 | 01:40.77 |   28% |  -11.0 | buzz neon halus
+--- beat 50: dijamin efektif buat lo sebagai pecandu berat PMO.
+  50 | ilustrasi | warm_swell               |  3055 | 01:41.83 |   17% |  -15.4 | swell hangat (penutup)
