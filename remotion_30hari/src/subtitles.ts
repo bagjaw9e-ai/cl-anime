@@ -9,7 +9,7 @@ export const CHUNKS = SUBS_JSON as Chunk[];
 export type Callout = {beat: number; text: string; s: number; e: number; color: string; icon?: 'lock' | 'warn' | 'up' | 'flat' | 'drop' | 'brain' | 'cal' | 'flag' | 'check' | 'link' | 'muscle'; pos: 'top' | 'sub'};
 const ws = (w: string, nth = 0) => WORDS.filter((x) => x.w.replace(/[^\w%-]/g, '').toLowerCase() === w.toLowerCase())[nth].s;
 export const CALLOUTS: Callout[] = [
-  {beat: 3, text: '30 HARI TANPA COLI?', s: ws('30'), e: 3.55, color: '#F5FF3B', icon: 'cal', pos: 'top'},
+  {beat: 3, text: '30 HARI TANPA COLI?', s: ws('30'), e: 3.62, color: '#F5FF3B', icon: 'cal', pos: 'top'},
   {beat: 4, text: 'HARI 1–3', s: 3.62, e: 4.95, color: '#FF4D5A', icon: 'warn', pos: 'top'},
   {beat: 13, text: 'WITHDRAWAL', s: ws('withdrawal'), e: 17.9, color: '#FF7A45', icon: 'warn', pos: 'top'},
   {beat: 18, text: '145%', s: ws('145%'), e: 26.95, color: '#4FB3A9', icon: 'up', pos: 'top'},
