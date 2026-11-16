@@ -33,8 +33,11 @@ export const Subtitle: React.FC = () => {
   const k = Math.min(1, (f - Math.round(ch.s * FPS_T)) / 4);
   const sc = 0.9 + 0.1 * k;
   const words = ch.words.map((i) => WORDS[i]);
+  // muat di lebar aman 920px (estimasi lebar Poppins ExtraBold ±0.62em/huruf)
+  const estW = words.reduce((a, w) => a + w.w.length * 0.62 * 76, 0) + (words.length - 1) * 22 + 40;
+  const fit = Math.min(1, 920 / estW);
   return (
-    <g transform={`translate(540,1380) scale(${sc})`}>
+    <g transform={`translate(540,1380) scale(${sc * fit})`}>
       <text textAnchor="middle" y={26} fontSize={76} fontWeight={800} fontFamily={FONT}>
         {words.map((w, i) => {
           const active = t >= w.s - 0.03 && t < w.e + 0.05;
@@ -79,7 +82,8 @@ export const CalloutView: React.FC = () => {
   const out = Math.max(0, 1 - (f1 - f) / 5);
   const sh = k > 4 && k < 14 ? Math.sin(k * 3.3) * (14 - k) * 0.9 : 0;
   const y = c.pos === 'top' ? 360 : 1380;
-  const fs = c.text.length > 14 ? 74 : c.text.length > 9 ? 88 : 104;
+  // ukuran font dipaskan supaya badge muat di lebar aman 920px
+  const fs = Math.min(104, (920 - (c.icon ? 150 : 70)) / (c.text.length * 0.66));
   const w = c.text.length * fs * 0.66 + (c.icon ? 150 : 70);
   return (
     <g transform={`translate(${540 + sh},${y}) rotate(-3) scale(${slam * (1 - out * 0.4)})`} opacity={Math.min(1, (k + 1) / 3) * (1 - out)}>
