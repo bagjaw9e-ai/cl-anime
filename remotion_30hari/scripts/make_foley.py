@@ -115,12 +115,11 @@ def clock_tick():
     for k, s in enumerate(np.arange(0, d - 0.05, 0.5)): place(y, knock(2600 if k % 2 == 0 else 2100, 0.01) * 0.8, s)
     return reverb(y, 0.2, 0.3)
 @sfx
-def yawn():
-    d = 1.5; u = np.linspace(0, 1, int(SR * d))
-    v = breath(d, 300, 1800, 'inhale') * 0.6
-    f0 = 140 * np.interp(u, [0, 0.3, 0.7, 1], [1.0, 1.3, 1.15, 0.85])
-    voiced = sum(np.sin(2 * np.pi * np.cumsum(f0 * h) / SR) / h for h in (1, 2, 3, 4)) * np.interp(u, [0, 0.2, 0.75, 1], [0, 0.25, 0.2, 0])
-    return v + bp(voiced, 300, 1100) * 0.6
+def yawn():   # menguap: tarik napas panjang + hembus, tanpa suara vokal sintetis
+    y = silence(1.7)
+    place(y, breath(0.8, 250, 1600, 'inhale') * 0.8, 0)
+    place(y, breath(0.8, 200, 1200, 'exhale') * 0.9, 0.75)
+    return lp(y, 3500)
 @sfx
 def door_close_soft():
     y = silence(0.9)
@@ -238,10 +237,8 @@ def needle_drop():
     for k in range(8): place(y, click(0.003, 2000, 6000, 0.5 - k * 0.04), k * 0.07)
     place(y, knock(1200, 0.02) * 0.5, 0.6); return y
 @sfx
-def sigh():
-    d = 1.1; u = np.linspace(0, 1, int(SR * d))
-    voiced = sum(np.sin(2 * np.pi * np.cumsum(np.interp(u, [0, 1], [130, 95]) * h) / SR) / h for h in (1, 2, 3)) * np.interp(u, [0, 0.15, 1], [0, 0.12, 0])
-    return breath(d, 300, 2200, 'exhale') + bp(voiced, 250, 900) * 0.5
+def sigh():   # helaan napas murni
+    return lp(breath(1.0, 250, 2000, 'exhale') * 1.0, 3000)
 @sfx
 def ekg_flatline():   # bunyi teknologi (1/3): nada monitor lembut, bukan laser
     d = 1.8; return add(ar(tone(880, d) * 0.5 + tone(1760, d) * 0.06, 0.08, 0.5), click(0.003, 1500, 4000, 0.2))
@@ -413,6 +410,34 @@ def neon_buzz_soft():   # bunyi teknologi (3/3)
     h = sum(a * np.sin(2 * np.pi * f * tt) for f, a in [(120, .5), (240, .2), (360, .1)]) * (0.85 + 0.15 * np.sin(2 * np.pi * 0.7 * tt))
     return ar(h * 0.5 + grains(d, 60, 2000, 7000, (0.001, 0.003), (0.02, 0.1)), 0.15, 0.6)
 
+
+# ---------- tambahan revisi 2 ----------
+@sfx
+def scan_sweep():   # sapuan scan halus (udara), bukan laser
+    d = 0.7; return lp(bell(sweep_bp(pink(d), 1200, 4000, 0.7), 0.5) * 0.7, 7000)
+@sfx
+def bar_rise():     # batang grafik naik: luncuran halus naik + ketuk kecil di akhir
+    d = 1.0; y = lp(sweep_bp(pink(d), 400, 2400, 0.8) * np.linspace(0.3, 1, int(SR * d)) ** 1.2, 4000) * ar(np.ones(int(SR * d)), 0.05, 0.1)
+    place(y, knock(900, 0.03) * 0.5, d - 0.08); return y
+@sfx
+def bar_fall():
+    d = 0.8; return lp(sweep_bp(pink(d), 2000, 400, 0.8), 3500) * ar(np.ones(int(SR * d)), 0.03, 0.2)
+@sfx
+def whoosh_up():
+    d = 0.6; return lp(bell(sweep_bp(pink(d), 500, 3000, 0.9), 0.7), 5000)
+@sfx
+def push_whoosh():  # dorongan tangan (udara)
+    d = 0.45; return lp(bell(sweep_bp(pink(d), 900, 300, 0.9), 0.35), 2500)
+@sfx
+def footsteps_short():
+    d = 0.9; y = silence(d)
+    for k, s in enumerate((0.0, 0.32, 0.62)):
+        place(y, add(thump(0.15, 140, 0.03) * (0.8 if k % 2 else 0.65), env(bp(N(0.08), 1000, 3500), 0.003, 0.02) * 0.3), s)
+    return reverb(y, 0.12, 0.25)
+@sfx
+def bed_sit():      # duduk di kasur: tekanan kasur empuk + kain
+    y = silence(0.7); place(y, thump(0.4, 90, 0.08) * 0.7, 0)
+    place(y, grains(0.35, 80, 600, 3500, amp=(0.05, 0.25)), 0.02); return y
 
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)

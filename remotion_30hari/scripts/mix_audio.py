@@ -24,7 +24,8 @@ FPS = D['fps']; FR = 1 / FPS; TOTAL = D['total_frames'] / FPS; VO_END = D['vo_du
 N = int(TOTAL * SR)
 # Level BGM (gain linear dari file asli). Revisi: diturunkan ke 1% (sebelumnya 7% / duck 5% / jeda 10%).
 BGM_VO, BGM_GAP, BGM_END = 0.010, 0.014, 0.014
-REL = {'imp': -11.0, 'ill': -15.0, 'trans': -20.0, 'amb': -21.0}
+# Revisi 2: SFX diturunkan, maksimal 20% VO. penting 20%, ilustrasi 15%, transisi 8%, hujan 6%.
+REL = {'imp': -14.0, 'ill': -16.5, 'trans': -22.0, 'amb': -24.4}
 PRIO = {'imp': 3, 'ill': 2, 'trans': 1, 'amb': 0}
 
 def dec(p, ch):
@@ -120,7 +121,7 @@ H2, W2 = int(0.05 * SR), int(0.4 * SR); cen = np.arange(0, N, H2); gc = np.ones(
 for j, c0 in enumerate(cen):
     a0, a1 = max(0, c0 - W2 // 2), min(N, c0 + W2 // 2)
     vr = np.sqrt((cv[a1] - cv[a0]) / max(1, a1 - a0)); br = np.sqrt((cb[a1] - cb[a0]) / max(1, a1 - a0))
-    if vr > 0.03 and br > 1e-6: gc[j] = min(1.0, vr * 10 ** (-10.5 / 20) / br)
+    if vr > 0.03 and br > 1e-6: gc[j] = min(1.0, vr * 10 ** (-14.0 / 20) / br)
 gc = np.minimum.reduce([np.roll(gc, s) for s in (-2, -1, 0, 1, 2)])
 for j in range(1, len(gc)): gc[j] = min(gc[j], gc[j - 1] + 0.1)
 CAP_MIN = gc.min()
@@ -148,7 +149,7 @@ L_MIX = meter.integrated_loudness(mix)
 beats = {b['id']: b for b in D['beats']}
 L = [f'SFX MAP — video 30 hari | VO {VO_L:.1f} LUFS | master {L_MIX:.1f} LUFS (stereo), true-peak {TP:.2f} dBFS (limit -1)',
      f'BGM: {BGM_VO*100:.1f}% saat VO (median {BGM_STATS[0]*100:.2f}%), naik ke {BGM_GAP*100:.1f}% di jeda/end card; fade in 0.5 s, fade out 2 s di end card.',
-     f'SFX: penting 28% (-11 dB), ilustrasi 18% (-15 dB), transisi 10% (-20 dB), hujan 9% (-21 dB); cap <= 30% VO saat narasi (penurunan terbesar {20*np.log10(CAP_MIN):.1f} dB).',
+     f'SFX (revisi 2): penting 20% (-14 dB), ilustrasi 15% (-16.5 dB), transisi 8% (-22 dB), hujan 6% (-24.4 dB); cap <= 20% VO saat narasi (penurunan terbesar {20*np.log10(CAP_MIN):.1f} dB).',
      f'{len(placed)} SFX terpasang ({sum(i["dropped"] for i in items)} dibuang) | maks bunyi SFX barengan: {mx} | bunyi teknologi: ekg_flatline, neon_switch_click, neon_buzz_soft',
      '', f'{"beat":>4} | {"jenis":9s} | {"sfx":24s} | {"frame":>5} | {"waktu":>8} | {"% VO":>5} | {"dB":>6} | keterangan']
 last = None

@@ -313,17 +313,25 @@
  "cues": [
   {
    "beat": 1,
-   "f": 9,
-   "sfx": "camera_shutter",
-   "kind": "imp",
-   "note": "kepala jadi X-ray (shutter)"
+   "f": 2,
+   "sfx": "whoosh_air",
+   "kind": "trans",
+   "note": "snap zoom ke wajah",
+   "rate": 1.15
   },
   {
    "beat": 1,
-   "f": 10,
-   "sfx": "paper_scan_whoosh",
+   "f": 9,
+   "sfx": "camera_shutter",
    "kind": "imp",
-   "note": "scan X-ray (whoosh kertas)"
+   "note": "kepala berubah jadi X-ray (jepret)"
+  },
+  {
+   "beat": 1,
+   "f": 12,
+   "sfx": "scan_sweep",
+   "kind": "imp",
+   "note": "garis scan X-ray menyapu kepala"
   },
   {
    "beat": 2,
@@ -337,14 +345,14 @@
    "f": 43,
    "sfx": "lock_click",
    "kind": "ill",
-   "note": "HP 18+ digembok"
+   "note": "HP 18+ muncul terkunci gembok"
   },
   {
    "beat": 2,
    "f": 49,
    "sfx": "pen_scribble",
    "kind": "ill",
-   "note": "tisu dicoret X"
+   "note": "kotak tisu dicoret X"
   },
   {
    "beat": 3,
@@ -359,6 +367,14 @@
    "sfx": "stamp_thud",
    "kind": "imp",
    "note": "stempel \"30\" dihentak"
+  },
+  {
+   "beat": 3,
+   "f": 93,
+   "sfx": "lock_click",
+   "kind": "ill",
+   "note": "teaser otak bergembok muncul",
+   "rate": 0.9
   },
   {
    "beat": 4,
@@ -379,14 +395,14 @@
    "f": 135,
    "sfx": "heavy_sack_thud",
    "kind": "imp",
-   "note": "karung beban jatuh di pundak (thud kain)"
+   "note": "karung beban mendarat di pundak"
   },
   {
    "beat": 6,
    "f": 211,
    "sfx": "pen_check",
    "kind": "ill",
-   "note": "centang hijau badan OK"
+   "note": "centang hijau di badan OK"
   },
   {
    "beat": 7,
@@ -397,32 +413,48 @@
   },
   {
    "beat": 8,
-   "f": 313,
+   "f": 301,
+   "sfx": "footsteps_short",
+   "kind": "ill",
+   "note": "jalan ke kasur",
+   "len": 22
+  },
+  {
+   "beat": 8,
+   "f": 315,
+   "sfx": "bed_sit",
+   "kind": "ill",
+   "note": "duduk di kasur"
+  },
+  {
+   "beat": 8,
+   "f": 317,
    "sfx": "clock_tick",
    "kind": "ill",
    "note": "jam dinding tik-tok",
-   "len": 22
+   "len": 18
   },
   {
    "beat": 8,
    "f": 325,
    "sfx": "yawn",
    "kind": "ill",
-   "note": "menguap"
+   "note": "menguap (napas)",
+   "len": 30
   },
   {
    "beat": 9,
-   "f": 348,
+   "f": 346,
    "sfx": "door_close_soft",
    "kind": "ill",
-   "note": "pintu ditutup pelan"
+   "note": "pintu kamar menutup"
   },
   {
    "beat": 10,
    "f": 362,
    "sfx": "phone_pickup",
    "kind": "ill",
-   "note": "HP diangkat"
+   "note": "HP diambil"
   },
   {
    "beat": 10,
@@ -434,30 +466,23 @@
   {
    "beat": 11,
    "f": 378,
-   "sfx": "screen_tap",
-   "kind": "ill",
-   "note": "tap layar"
-  },
-  {
-   "beat": 11,
-   "f": 384,
    "sfx": "screen_scroll",
    "kind": "ill",
-   "note": "scroll layar"
+   "note": "layar thumbnail di-scroll"
   },
   {
    "beat": 12,
    "f": 418,
    "sfx": "door_lock_click",
    "kind": "ill",
-   "note": "pintu dikunci + gantungan"
+   "note": "pintu dikunci, gantungan muncul"
   },
   {
    "beat": 12,
-   "f": 426,
+   "f": 428,
    "sfx": "light_switch",
    "kind": "ill",
-   "note": "saklar lampu dimatikan"
+   "note": "saklar lampu diklik mati"
   },
   {
    "beat": 13,
@@ -468,24 +493,17 @@
   },
   {
    "beat": 13,
-   "f": 449,
+   "f": 451,
    "sfx": "heartbeat",
    "kind": "imp",
-   "note": "detak jantung"
+   "note": "detak jantung + termometer naik"
   },
   {
    "beat": 14,
-   "f": 505,
-   "sfx": "blanket_rustle",
-   "kind": "ill",
-   "note": "selimut ditarik"
-  },
-  {
-   "beat": 14,
-   "f": 513,
+   "f": 507,
    "sfx": "teeth_chatter",
    "kind": "ill",
-   "note": "gigi gemeletuk menggigil"
+   "note": "menggigil, gigi gemeletuk"
   },
   {
    "beat": 15,
@@ -496,52 +514,45 @@
   },
   {
    "beat": 15,
-   "f": 545,
+   "f": 547,
    "sfx": "marker_circle",
    "kind": "ill",
-   "note": "tanggal 7 dilingkari hijau"
+   "note": "tanggal 7 dilingkari"
   },
   {
    "beat": 16,
    "f": 582,
-   "sfx": "camera_shutter",
-   "kind": "imp",
-   "note": "jurnal ilmiah (shutter)"
-  },
-  {
-   "beat": 16,
-   "f": 586,
    "sfx": "paper_page_turn",
    "kind": "imp",
-   "note": "kertas jurnal dibalik"
+   "note": "lembar jurnal meluncur masuk"
   },
   {
    "beat": 17,
    "f": 666,
    "sfx": "glass_clink",
    "kind": "ill",
-   "note": "tabung reaksi berdenting"
+   "note": "tabung reaksi muncul berdenting"
   },
   {
    "beat": 18,
    "f": 725,
-   "sfx": "chalk_fast",
+   "sfx": "bar_rise",
    "kind": "imp",
-   "note": "kapur cepat: batang melesat ke 145%"
+   "note": "batang grafik melesat naik"
   },
   {
    "beat": 18,
    "f": 755,
    "sfx": "soft_hit",
    "kind": "imp",
-   "note": "hit saat batang mentok 145%"
+   "note": "mentok di 145%"
   },
   {
    "beat": 19,
    "f": 828,
-   "sfx": "chalk_down",
+   "sfx": "bar_fall",
    "kind": "ill",
-   "note": "kapur nyoret turun ke 100%"
+   "note": "batang turun lagi ke 100%"
   },
   {
    "beat": 20,
@@ -552,24 +563,24 @@
   },
   {
    "beat": 20,
-   "f": 897,
+   "f": 895,
    "sfx": "cloth_drop",
    "kind": "ill",
-   "note": "jubah copot jatuh"
+   "note": "jubah copot jatuh ke lantai"
   },
   {
    "beat": 21,
    "f": 932,
    "sfx": "knob_click",
    "kind": "ill",
-   "note": "kenop diputar (klik-klik)"
+   "note": "kenop diputar ke tengah"
   },
   {
    "beat": 22,
    "f": 988,
    "sfx": "rain_loop",
    "kind": "amb",
-   "note": "hujan di jendela (ambience, sepanjang fase)",
+   "note": "hujan di jendela (ambience sepanjang fase)",
    "len": 646
   },
   {
@@ -578,6 +589,14 @@
    "sfx": "paper_rustle",
    "kind": "ill",
    "note": "kalender minggu 2"
+  },
+  {
+   "beat": 23,
+   "f": 1072,
+   "sfx": "footsteps_short",
+   "kind": "ill",
+   "note": "jalan ke kasur",
+   "rate": 0.95
   },
   {
    "beat": 23,
@@ -591,7 +610,7 @@
    "f": 1126,
    "sfx": "needle_drop",
    "kind": "ill",
-   "note": "jarum gauge turun (mekanis)"
+   "note": "jarum gauge turun"
   },
   {
    "beat": 25,
@@ -605,35 +624,36 @@
    "f": 1189,
    "sfx": "ekg_flatline",
    "kind": "imp",
-   "note": "monitor flatline (pelan)"
+   "note": "garis monitor jadi datar"
   },
   {
    "beat": 27,
    "f": 1248,
-   "sfx": "paper_unfold",
+   "sfx": "pop_soft",
    "kind": "ill",
-   "note": "diagram otak dibentangkan"
+   "note": "diagram otak muncul"
   },
   {
    "beat": 28,
    "f": 1283,
    "sfx": "knob_click",
    "kind": "ill",
-   "note": "kenop tangki diputar"
+   "note": "kenop tangki diputar",
+   "rate": 0.92
   },
   {
    "beat": 28,
    "f": 1289,
    "sfx": "water_slosh",
    "kind": "ill",
-   "note": "air tangki bergoyang"
+   "note": "cairan tangki bergoyang"
   },
   {
    "beat": 29,
    "f": 1367,
    "sfx": "footsteps_pacing",
    "kind": "ill",
-   "note": "langkah bolak-balik",
+   "note": "mondar-mandir",
    "len": 70
   },
   {
@@ -641,15 +661,15 @@
    "f": 1445,
    "sfx": "phone_notification_soft",
    "kind": "ill",
-   "note": "notif HP",
+   "note": "HP muncul (notif)",
    "rate": 1.06
   },
   {
    "beat": 30,
    "f": 1453,
-   "sfx": "pop_soft",
+   "sfx": "whoosh_up",
    "kind": "ill",
-   "note": "grafik dopamin naik"
+   "note": "grafik dopamin naik tajam"
   },
   {
    "beat": 31,
@@ -660,21 +680,21 @@
   },
   {
    "beat": 31,
-   "f": 1550,
+   "f": 1554,
    "sfx": "pen_scribble",
    "kind": "imp",
-   "note": "HP 18+ & tisu dicoret"
+   "note": "HP & tisu dicoret"
   },
   {
    "beat": 32,
-   "f": 1634,
+   "f": 1638,
    "sfx": "curtain_open",
    "kind": "imp",
-   "note": "tirai dibuka (light sweep pagi)"
+   "note": "tirai terbuka, sinar pagi"
   },
   {
    "beat": 32,
-   "f": 1644,
+   "f": 1646,
    "sfx": "birds_morning",
    "kind": "imp",
    "note": "burung pagi"
@@ -682,30 +702,31 @@
   {
    "beat": 33,
    "f": 1698,
-   "sfx": "phone_slide_table",
+   "sfx": "push_whoosh",
    "kind": "ill",
-   "note": "HP digeser menjauh"
+   "note": "tangan mendorong HP menjauh"
   },
   {
    "beat": 33,
    "f": 1736,
    "sfx": "hand_swat",
    "kind": "ill",
-   "note": "tepisan tangan"
+   "note": "tangan menepis"
   },
   {
    "beat": 34,
-   "f": 1784,
-   "sfx": "dumbbell_set_down",
+   "f": 1780,
+   "sfx": "pop_soft",
    "kind": "ill",
-   "note": "otak taruh barbel"
+   "note": "dua pintu muncul",
+   "rate": 0.9
   },
   {
    "beat": 34,
-   "f": 1796,
+   "f": 1794,
    "sfx": "door_open",
    "kind": "ill",
-   "note": "pintu terang dibuka"
+   "note": "pintu terang terbuka"
   },
   {
    "beat": 35,
@@ -713,47 +734,49 @@
    "sfx": "clock_tick",
    "kind": "ill",
    "note": "jam bonus waktu",
-   "rate": 1.08
+   "rate": 1.08,
+   "len": 24
   },
   {
    "beat": 35,
    "f": 1870,
    "sfx": "guitar_strum",
    "kind": "ill",
-   "note": "senar gitar"
+   "note": "main gitar"
   },
   {
    "beat": 35,
    "f": 1904,
    "sfx": "workout_breath",
    "kind": "ill",
-   "note": "napas olahraga"
+   "note": "angkat barbel"
   },
   {
    "beat": 35,
    "f": 1920,
    "sfx": "book_close",
    "kind": "ill",
-   "note": "buku muncul (buku ditutup)"
+   "note": "ikon buku muncul"
   },
   {
    "beat": 36,
-   "f": 1943,
+   "f": 1941,
+   "sfx": "light_switch",
+   "kind": "ill",
+   "note": "lampu meja menyala",
+   "rate": 1.1
+  },
+  {
+   "beat": 36,
+   "f": 1947,
    "sfx": "paper_page_turn",
    "kind": "ill",
-   "note": "halaman dibalik",
+   "note": "halaman buku dibalik",
    "rate": 1.05
   },
   {
-   "beat": 36,
-   "f": 1959,
-   "sfx": "pencil_write",
-   "kind": "ill",
-   "note": "pensil menulis"
-  },
-  {
    "beat": 37,
-   "f": 2032,
+   "f": 2024,
    "sfx": "scissors_snip",
    "kind": "imp",
    "note": "tali boneka ke-1 digunting",
@@ -761,7 +784,7 @@
   },
   {
    "beat": 37,
-   "f": 2068,
+   "f": 2066,
    "sfx": "scissors_snip",
    "kind": "imp",
    "note": "tali boneka ke-2 digunting",
@@ -769,7 +792,7 @@
   },
   {
    "beat": 37,
-   "f": 2104,
+   "f": 2100,
    "sfx": "scissors_snip",
    "kind": "imp",
    "note": "tali boneka ke-3 digunting",
@@ -777,17 +800,18 @@
   },
   {
    "beat": 37,
-   "f": 2036,
+   "f": 2044,
    "sfx": "string_drop",
    "kind": "ill",
-   "note": "tali jatuh"
+   "note": "tali putus jatuh"
   },
   {
    "beat": 38,
-   "f": 2127,
-   "sfx": "mascot_hmph",
+   "f": 2125,
+   "sfx": "pop_soft",
    "kind": "ill",
-   "note": "maskot otak tengah \"hmph\" jinak"
+   "note": "maskot otak tengah muncul jinak",
+   "rate": 1.15
   },
   {
    "beat": 39,
@@ -798,10 +822,10 @@
   },
   {
    "beat": 39,
-   "f": 2171,
+   "f": 2173,
    "sfx": "warm_swell",
    "kind": "imp",
-   "note": "PFC menyala (swell hangat)"
+   "note": "PFC menyala emas"
   },
   {
    "beat": 40,
@@ -822,21 +846,22 @@
    "f": 2268,
    "sfx": "tape_pull",
    "kind": "imp",
-   "note": "selotip ditarik & ditempel"
+   "note": "selotip ditempel"
   },
   {
    "beat": 41,
-   "f": 2392,
+   "f": 2382,
+   "sfx": "whoosh_air",
+   "kind": "trans",
+   "note": "push ke jalan",
+   "rate": 0.85
+  },
+  {
+   "beat": 41,
+   "f": 2394,
    "sfx": "ribbon_snap",
    "kind": "ill",
    "note": "pita finish putus"
-  },
-  {
-   "beat": 41,
-   "f": 2402,
-   "sfx": "footsteps_walk",
-   "kind": "ill",
-   "note": "langkah di jalan"
   },
   {
    "beat": 42,
@@ -875,7 +900,15 @@
   },
   {
    "beat": 43,
-   "f": 2590,
+   "f": 2562,
+   "sfx": "blanket_rustle",
+   "kind": "ill",
+   "note": "bangun duduk dari kasur",
+   "len": 20
+  },
+  {
+   "beat": 43,
+   "f": 2592,
    "sfx": "pen_check",
    "kind": "ill",
    "note": "centang NORMAL"
@@ -885,15 +918,14 @@
    "f": 2624,
    "sfx": "water_bubbles",
    "kind": "ill",
-   "note": "sel sperma berenang (gelembung)"
+   "note": "sel sperma berenang"
   },
   {
    "beat": 45,
-   "f": 2716,
-   "sfx": "stamp_thud",
+   "f": 2718,
+   "sfx": "pen_scribble",
    "kind": "ill",
-   "note": "pabrik/pompa dicap X",
-   "rate": 1.1
+   "note": "pabrik/pompa dicoret X"
   },
   {
    "beat": 46,
@@ -904,26 +936,17 @@
   },
   {
    "beat": 46,
-   "f": 2803,
+   "f": 2801,
    "sfx": "book_open",
    "kind": "ill",
-   "note": "buku panduan dibuka"
+   "note": "buku panduan terbuka"
   },
   {
    "beat": 47,
    "f": 2862,
    "sfx": "paper_unfold",
    "kind": "ill",
-   "note": "peta dibuka",
-   "rate": 1.08
-  },
-  {
-   "beat": 47,
-   "f": 2871,
-   "sfx": "footsteps_walk",
-   "kind": "ill",
-   "note": "jejak di labirin",
-   "rate": 1.1
+   "note": "peta & labirin muncul"
   },
   {
    "beat": 48,
@@ -937,21 +960,29 @@
    "f": 3013,
    "sfx": "neon_switch_click",
    "kind": "imp",
-   "note": "saklar neon logo"
+   "note": "logo neon menyala"
   },
   {
    "beat": 49,
    "f": 3023,
    "sfx": "neon_buzz_soft",
    "kind": "imp",
-   "note": "buzz neon halus"
+   "note": "dengung neon halus"
   },
   {
    "beat": 50,
    "f": 3055,
    "sfx": "warm_swell",
    "kind": "ill",
-   "note": "swell hangat (penutup)"
+   "note": "swell hangat penutup",
+   "rate": 0.95
+  },
+  {
+   "beat": 51,
+   "f": 3154,
+   "sfx": "blur_whoosh_soft",
+   "kind": "trans",
+   "note": "end card"
   }
  ]
 }
