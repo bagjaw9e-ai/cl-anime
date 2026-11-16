@@ -1,0 +1,79 @@
+# SFX yang dibutuhkan video 30 hari — status file di public/sfx/
+# Format: nama_file.wav | jenis | dipakai untuk | status
+# FOUND    = file dengan nama persis sudah ada
+# FALLBACK = belum ada foley asli; ada file SINTESIS lama yang bisa dipakai sementara (kualitas kurang natural)
+# MISSING  = belum ada sama sekali (perlu file foley dari lo, atau gua sintesis kalau lo izinkan)
+
+camera_shutter.wav             | imp   | kepala jadi X-ray (shutter)                   | MISSING
+paper_scan_whoosh.wav          | imp   | scan X-ray (whoosh kertas)                    | MISSING
+whoosh_air.wav                 | trans | whip slide                                    | FALLBACK -> whoosh_soft.wav (sintesis)
+lock_click.wav                 | ill   | HP 18+ digembok                               | MISSING
+pen_scribble.wav               | ill   | tisu dicoret X                                | MISSING
+paper_flip_fast.wav            | imp   | kalender disobek cepat 1→30                   | FALLBACK -> paper_flap.wav (sintesis)
+stamp_thud.wav                 | imp   | stempel "30" dihentak                         | FALLBACK -> thud.wav (sintesis)
+light_sweep_air.wav            | trans | light sweep ke kamar malam                    | FALLBACK -> whoosh_trans.wav (sintesis)
+marker_circle.wav              | ill   | tanggal 1-3 dilingkari spidol                 | MISSING
+heavy_sack_thud.wav            | imp   | karung beban jatuh di pundak (thud kain)      | FALLBACK -> thud.wav (sintesis)
+pen_check.wav                  | ill   | centang hijau badan OK                        | MISSING
+toy_train_loop.wav             | ill   | kereta mainan muter di rel otak               | MISSING
+clock_tick.wav                 | ill   | jam dinding tik-tok                           | FALLBACK -> clock_fast.wav (sintesis)
+yawn.wav                       | ill   | menguap                                       | FOUND
+door_close_soft.wav            | ill   | pintu ditutup pelan                           | MISSING
+phone_pickup.wav               | ill   | HP diangkat                                   | MISSING
+phone_notification_soft.wav    | ill   | notifikasi HP                                 | FALLBACK -> notif_soft.wav (sintesis)
+screen_tap.wav                 | ill   | tap layar                                     | FALLBACK -> tap_tap.wav (sintesis)
+screen_scroll.wav              | ill   | scroll layar                                  | MISSING
+door_lock_click.wav            | ill   | pintu dikunci + gantungan                     | MISSING
+light_switch.wav               | ill   | saklar lampu dimatikan                        | MISSING
+heavy_breath.wav               | imp   | napas berat (withdrawal)                      | MISSING
+heartbeat.wav                  | imp   | detak jantung                                 | FALLBACK -> heartbeat_heavy.wav (sintesis)
+blanket_rustle.wav             | ill   | selimut ditarik                               | MISSING
+teeth_chatter.wav              | ill   | gigi gemeletuk menggigil                      | MISSING
+paper_page_turn.wav            | imp   | kertas jurnal dibalik                         | FALLBACK -> paper_flap.wav (sintesis)
+glass_clink.wav                | ill   | tabung reaksi berdenting                      | MISSING
+chalk_fast.wav                 | imp   | kapur cepat: batang melesat ke 145%           | MISSING
+soft_hit.wav                   | imp   | hit saat batang mentok 145%                   | MISSING
+chalk_down.wav                 | ill   | kapur nyoret turun ke 100%                    | MISSING
+cape_flutter.wav               | ill   | jubah berkibar                                | MISSING
+cloth_drop.wav                 | ill   | jubah copot jatuh                             | MISSING
+knob_click.wav                 | ill   | kenop diputar (klik-klik)                     | FALLBACK -> knob_turn.wav (sintesis)
+rain_loop.wav                  | amb   | hujan di jendela (ambience, sepanjang fase)   | MISSING
+paper_rustle.wav               | ill   | kalender minggu 2                             | FALLBACK -> paper_flap.wav (sintesis)
+body_flop_bed.wav              | ill   | badan jatuh ke kasur                          | MISSING
+needle_drop.wav                | ill   | jarum gauge turun (mekanis)                   | MISSING
+sigh.wav                       | ill   | helaan napas                                  | MISSING
+ekg_flatline.wav               | imp   | monitor flatline (pelan)                      | FALLBACK -> imp_flatline.wav (sintesis)
+paper_unfold.wav               | ill   | diagram otak dibentangkan                     | FALLBACK -> paper_flap.wav (sintesis)
+water_slosh.wav                | ill   | air tangki bergoyang                          | MISSING
+footsteps_pacing.wav           | ill   | langkah bolak-balik                           | FALLBACK -> treadmill_run.wav (sintesis)
+pop_soft.wav                   | ill   | grafik dopamin naik                           | FOUND
+water_flow.wav                 | imp   | otak dicuci air bersih                        | MISSING
+curtain_open.wav               | imp   | tirai dibuka (light sweep pagi)               | MISSING
+birds_morning.wav              | imp   | burung pagi                                   | FALLBACK -> bird_chirp.wav (sintesis)
+phone_slide_table.wav          | ill   | HP digeser menjauh                            | MISSING
+hand_swat.wav                  | ill   | tepisan tangan                                | MISSING
+dumbbell_set_down.wav          | ill   | otak taruh barbel                             | MISSING
+door_open.wav                  | ill   | pintu terang dibuka                           | MISSING
+guitar_strum.wav               | ill   | senar gitar                                   | MISSING
+workout_breath.wav             | ill   | napas olahraga                                | MISSING
+book_close.wav                 | ill   | buku muncul (buku ditutup)                    | FALLBACK -> book_open.wav (sintesis)
+pencil_write.wav               | ill   | pensil menulis                                | MISSING
+string_drop.wav                | ill   | tali jatuh                                    | FALLBACK -> string_zip.wav (sintesis)
+mascot_hmph.wav                | ill   | maskot otak tengah "hmph" jinak               | MISSING
+padlock_open.wav               | imp   | gembok otak hari-30 terbuka                   | MISSING
+warm_swell.wav                 | imp   | PFC menyala (swell hangat)                    | FOUND
+tape_pull.wav                  | imp   | selotip ditarik & ditempel                    | FALLBACK -> zip_jacket.wav (sintesis)
+ribbon_snap.wav                | ill   | pita finish putus                             | FALLBACK -> rope_snap.wav (sintesis)
+footsteps_walk.wav             | ill   | langkah di jalan                              | FALLBACK -> treadmill_run.wav (sintesis)
+steering_grip.wav              | ill   | genggam setir                                 | MISSING
+engine_idle_soft.wav           | ill   | mesin halus                                   | MISSING
+blur_whoosh_soft.wav           | trans | blur dissolve ke kamar tidur                  | FALLBACK -> whoosh_soft.wav (sintesis)
+snore_soft.wav                 | ill   | dengkur pelan                                 | MISSING
+alarm_clock_bell.wav           | ill   | jam weker berdering                           | MISSING
+water_bubbles.wav              | ill   | sel sperma berenang (gelembung)               | FALLBACK -> molecule_whoosh.wav (sintesis)
+book_open.wav                  | ill   | buku panduan dibuka                           | FOUND
+crystal_join_soft.wav          | ill   | retakan otak menyatu                          | FALLBACK -> crystal_ting.wav (sintesis)
+neon_switch_click.wav          | imp   | saklar neon logo                              | FALLBACK -> neon_click.wav (sintesis)
+neon_buzz_soft.wav             | imp   | buzz neon halus                               | FALLBACK -> neon_hum.wav (sintesis)
+
+Total 71 jenis bunyi: FOUND 4, FALLBACK 26, MISSING 41. Total cue: 87.
