@@ -3,7 +3,7 @@
 Level (relatif VO, amplitudo/loudness LUFS):
   VO 100%. SFX penting 28% (-11 dB), ilustrasi 18% (-15 dB), transisi/kamera 10% (-20 dB), ambience hujan 9% (-21 dB).
   Batas: SFX tidak pernah > 30% VO (-10.5 dB) saat narasi (cap dinamis K-weighted, jendela 0.4 s).
-BGM: gain 7% dari file asli, ducking otomatis ke 5% saat ada VO, naik ke 10% di jeda napas / tanpa VO
+BGM: 1% saat ada VO, naik ke 1,4% di jeda napas / end card (revisi user: BGM terlalu kencang)
      (attack 80 ms, release 300 ms). Fade in 0.5 s, fade out 2 s di end card, dipotong di akhir video.
 Aturan SFX: maks 3 barengan (prioritas penting > ilustrasi > transisi; hujan dihitung tapi tidak dipotong),
      fade in 5 ms (transien) / 2 frame (transisi & ambience), fade out 3 frame, variasi pitch ±6% & volume ±0.7 dB
@@ -22,6 +22,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = json.load(open(os.path.join(ROOT, 'data/sfx_cues.json')))
 FPS = D['fps']; FR = 1 / FPS; TOTAL = D['total_frames'] / FPS; VO_END = D['vo_duration']
 N = int(TOTAL * SR)
+# Level BGM (gain linear dari file asli). Revisi: diturunkan ke 1% (sebelumnya 7% / duck 5% / jeda 10%).
+BGM_VO, BGM_GAP, BGM_END = 0.010, 0.014, 0.014
 REL = {'imp': -11.0, 'ill': -15.0, 'trans': -20.0, 'amb': -21.0}
 PRIO = {'imp': 3, 'ill': 2, 'trans': 1, 'amb': 0}
 
@@ -45,11 +47,11 @@ k = int(0.12 / 0.01)
 act = np.convolve(active, np.ones(2 * k + 1), 'same') > 0
 
 # ---------------- BGM: 7% dasar, 5% saat VO, 10% di jeda ----------------
-g = np.empty(len(act)); cur = 0.10
+g = np.empty(len(act)); cur = BGM_GAP
 a_c, r_c = np.exp(-0.01 / 0.08), np.exp(-0.01 / 0.30)
 for i, on in enumerate(act):
-    tgt = 0.05 if on else 0.10
-    if i * 0.01 > VO_END + 0.2: tgt = 0.07
+    tgt = BGM_VO if on else BGM_GAP
+    if i * 0.01 > VO_END + 0.2: tgt = BGM_END
     cur = tgt + (cur - tgt) * (a_c if tgt < cur else r_c); g[i] = cur
 gb = np.interp(np.arange(N), np.arange(len(g)) * hop, g)
 tt = np.arange(N) / SR
@@ -145,7 +147,7 @@ for i in range(0, N - W2, W2 // 2):
 L_MIX = meter.integrated_loudness(mix)
 beats = {b['id']: b for b in D['beats']}
 L = [f'SFX MAP — video 30 hari | VO {VO_L:.1f} LUFS | master {L_MIX:.1f} LUFS (stereo), true-peak {TP:.2f} dBFS (limit -1)',
-     f'BGM: 7% dasar -> {BGM_STATS[0]*100:.1f}% saat VO, {BGM_STATS[1]*100:.1f}% di jeda; fade in 0.5 s, fade out 2 s di end card.',
+     f'BGM: {BGM_VO*100:.1f}% saat VO (median {BGM_STATS[0]*100:.2f}%), naik ke {BGM_GAP*100:.1f}% di jeda/end card; fade in 0.5 s, fade out 2 s di end card.',
      f'SFX: penting 28% (-11 dB), ilustrasi 18% (-15 dB), transisi 10% (-20 dB), hujan 9% (-21 dB); cap <= 30% VO saat narasi (penurunan terbesar {20*np.log10(CAP_MIN):.1f} dB).',
      f'{len(placed)} SFX terpasang ({sum(i["dropped"] for i in items)} dibuang) | maks bunyi SFX barengan: {mx} | bunyi teknologi: ekg_flatline, neon_switch_click, neon_buzz_soft',
      '', f'{"beat":>4} | {"jenis":9s} | {"sfx":24s} | {"frame":>5} | {"waktu":>8} | {"% VO":>5} | {"dB":>6} | keterangan']

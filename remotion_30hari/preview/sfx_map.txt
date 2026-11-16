@@ -1,5 +1,5 @@
 SFX MAP — video 30 hari | VO -14.9 LUFS | master -12.6 LUFS (stereo), true-peak -1.13 dBFS (limit -1)
-BGM: 7% dasar -> 5.0% saat VO, 7.0% di jeda; fade in 0.5 s, fade out 2 s di end card.
+BGM: 1.0% saat VO (median 1.00%), naik ke 1.4% di jeda/end card; fade in 0.5 s, fade out 2 s di end card.
 SFX: penting 28% (-11 dB), ilustrasi 18% (-15 dB), transisi 10% (-20 dB), hujan 9% (-21 dB); cap <= 30% VO saat narasi (penurunan terbesar -16.4 dB).
 90 SFX terpasang (0 dibuang) | maks bunyi SFX barengan: 3 | bunyi teknologi: ekg_flatline, neon_switch_click, neon_buzz_soft
 
