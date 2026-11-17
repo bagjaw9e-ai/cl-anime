@@ -21,5 +21,7 @@ export const chunkAt = (f: number) => {
   let cur: Chunk | undefined;
   for (const c of CHUNKS) if (c.s <= t + 0.03) cur = c;
   if (cur && t > cur.e + 0.6) return undefined; // jeda panjang / end card: kosong
+  // chunk yang diucapkan selama subtitle poin penting tidak muncul lagi setelah poin penting selesai
+  if (cur && CALLOUTS.some((c) => (cur!.s + cur!.e) / 2 >= c.s && (cur!.s + cur!.e) / 2 < c.e)) return undefined;
   return cur;
 };

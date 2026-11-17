@@ -101,3 +101,13 @@ Pakai versi terbaru di `remotion_30hari/` (copy ke project baru, jangan bikin ul
 - Zona layout 9:16: label y140-260, karakter (kaki y1250, skala 1.1) & ilustrasi y420-1250, subtitle y≈1380, 260px bawah kosong.
 - Audio: `scripts/make_foley.py` (foley sintesis), `scripts/mix_audio.py` (VO+BGM+SFX, limiter -1 dBFS);
   setelan terakhir user: BGM 1%, SFX maks 20% VO. Transcribe: Whisper small (bobot via npm, lihat riwayat) + `scripts/build_words.py`.
+
+## Video promo ±15 dtk (Remotion, `remotion_promo/`, `out/video_promo.mp4`)
+- Gaya ref "Video-39893" (`preview/style_notes.md`): panggung minimalis navy ↔ cokelat hangat, lantai + pantulan (`Reflect`),
+  objek utama menyala amber/putih hangat + halo, pendukung abu-abu, merah neon hanya PMO SAVIOR/CTA.
+- Karakter = rig `Character` lama + pose baru (struggling_chains, breaking_free, thinking, opening_chest, lifting_lid,
+  pointing_side), lirikan otomatis, anticipation; `LitCharacter` = rim light 2 sisi + backlight + halo (wajib di bg navy).
+- Scene per beat `src/scenes.tsx`, transisi/tone di `src/Main.tsx`, subtitle karaoke 3 kata + poin penting `src/components/UI.tsx`.
+- Audio: `scripts/sfx_cues.py` (cue di frame kejadian) → `scripts/mix_audio.py` (VO 100%, tanpa BGM, SFX ≤20% VO, maks 2 barengan,
+  limiter -1 dBFS). Foley tambahan: `scripts/make_foley_promo.py`. Whisper small (faster-whisper, bobot npm @skillninja/shortmovie-telop-model-p0..p3).
+- Render ±15 menit (501 frame): jalankan di background dengan timeout panjang.
