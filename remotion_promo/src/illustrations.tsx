@@ -310,7 +310,8 @@ export const NeuronNet: React.FC<{t: number; grow: number; s?: number}> = ({t, g
 
 /* ================= BEAT 5: peti harta terkunci ================= */
 // unlock 0..1: gembok membuka & jatuh; open 0..1: tutup terangkat, cahaya amber keluar
-export const TreasureChest: React.FC<{t: number; unlock: number; open: number; lockFall?: number; floorY?: number}> = ({t, unlock, open, lockFall = 0}) => {
+// part: 'back' = halo + sinar (taruh di BELAKANG karakter), 'front' = badan peti/tutup/gembok, 'all' = keduanya
+export const TreasureChest: React.FC<{t: number; unlock: number; open: number; lockFall?: number; part?: 'all' | 'back' | 'front'}> = ({t, unlock, open, lockFall = 0, part = 'all'}) => {
   const id = useSid('tc');
   const W2 = 190, Hb = 190, Hl = 80;
   const wood = '#4A3426', woodL = '#6A4A34', band = '#5A6170', bandL = '#8A90A0';
@@ -325,9 +326,9 @@ export const TreasureChest: React.FC<{t: number; unlock: number; open: number; l
           <stop offset="1" stopColor={P.amber} stopOpacity={0} />
         </linearGradient>
       </defs>
-      <Halo y={-Hb} rx={420} ry={360} color={P.amber} op={0.55 * light} />
+      {part !== 'front' && <Halo y={-Hb} rx={420} ry={360} color={P.amber} op={0.55 * light} />}
       {/* sinar keluar dari celah tutup */}
-      {light > 0 && (
+      {part !== 'front' && light > 0 && (
         <g opacity={light}>
           {[-0.5, -0.25, 0, 0.25, 0.5].map((a, i) => (
             <path key={i} d={`M ${-W2 * 0.85 + i * 20} ${-Hb} L ${W2 * 0.85 - (4 - i) * 20} ${-Hb} L ${a * 700 + 160} ${-Hb - 640} L ${a * 700 - 160} ${-Hb - 640} Z`}
@@ -335,6 +336,7 @@ export const TreasureChest: React.FC<{t: number; unlock: number; open: number; l
           ))}
         </g>
       )}
+      {part !== 'back' && <g>
       {/* badan peti */}
       <rect x={-W2} y={-Hb} width={W2 * 2} height={Hb} rx={14} fill={wood} />
       {[0.33, 0.66].map((k) => <line key={k} x1={-W2 + 10} y1={-Hb * k} x2={W2 - 10} y2={-Hb * k} stroke="#3A281C" strokeWidth={4} />)}
@@ -368,6 +370,7 @@ export const TreasureChest: React.FC<{t: number; unlock: number; open: number; l
         );
       })()}
       {light > 0.2 && <Rise y={-Hb - 30} w={300} h={420} n={14} seed={61} op={light} t={t} />}
+      </g>}
     </g>
   );
 };

@@ -8,6 +8,6 @@ const serveUrl = await bundle({entryPoint: path.join(root, 'src/index.ts')});
 const composition = await selectComposition({serveUrl, id: process.env.COMP || 'Main', browserExecutable});
 for (const a of process.argv.slice(2)) {
   const [name, fr] = a.split(':');
-  await renderStill({composition, serveUrl, output: path.join(root, 'preview', name + '.png'), frame: +fr, browserExecutable, chromiumOptions: {gl: 'swangle'}});
+  await renderStill({composition, serveUrl, output: path.join(root, 'preview', process.env.SUB || '', name + '.png'), frame: +fr, browserExecutable, chromiumOptions: {gl: 'swangle'}});
   console.log(name, fr);
 }
