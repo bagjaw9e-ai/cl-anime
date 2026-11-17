@@ -1,0 +1,269 @@
+{
+ "fps": 30,
+ "cues": [
+  {
+   "frame": 0,
+   "file": "chain_rattle",
+   "cls": "ill",
+   "dur": 1.0,
+   "fade": 0.25,
+   "note": "B1 rantai berderak saat karakter meronta (frame 0-30)"
+  },
+  {
+   "frame": 10,
+   "file": "chain_snap",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B1 lilitan bawah putus + kilatan"
+  },
+  {
+   "frame": 19,
+   "file": "chain_snap",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B1 lilitan tengah putus"
+  },
+  {
+   "frame": 28,
+   "file": "chain_snap",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B1 lilitan atas + tali ke HP putus, pose lepas"
+  },
+  {
+   "frame": 37,
+   "file": "blur_whoosh_soft",
+   "cls": "trans",
+   "dur": null,
+   "fade": 0.1,
+   "note": "transisi blur dissolve B1 -> B2 (otak)"
+  },
+  {
+   "frame": 38,
+   "file": "chain_drop",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B1 potongan rantai mendarat di lantai"
+  },
+  {
+   "frame": 58,
+   "file": "tape_pull",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B2 plester dikelupas dari otak (58-80)"
+  },
+  {
+   "frame": 80,
+   "file": "crystal_join_soft",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B2 retakan nyala amber & mulai menyatu"
+  },
+  {
+   "frame": 100,
+   "file": "crystal_ting",
+   "cls": "ill",
+   "dur": 1.0,
+   "fade": 0.1,
+   "note": "B2 kilau kristal saat otak utuh"
+  },
+  {
+   "frame": 118,
+   "file": "paper_rustle",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B3 papan klip menyala (kertas)"
+  },
+  {
+   "frame": 127,
+   "file": "pen_check",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B3 centang di papan klip"
+  },
+  {
+   "frame": 134,
+   "file": "glass_clink",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B3 tabung reaksi menyala (gelas berdenting)"
+  },
+  {
+   "frame": 150,
+   "file": "grow_soft",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B4 sambungan neuron tumbuh (150-198)"
+  },
+  {
+   "frame": 167,
+   "file": "ting_short",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B4 simpul neuron menyala (kata \"neuroplasticity\")"
+  },
+  {
+   "frame": 185,
+   "file": "ting_short",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B4 simpul terluar menyala"
+  },
+  {
+   "frame": 196,
+   "file": "blur_whoosh_soft",
+   "cls": "trans",
+   "dur": null,
+   "fade": 0.1,
+   "note": "transisi B4 -> B5 (peti)"
+  },
+  {
+   "frame": 212,
+   "file": "cloth_drop",
+   "cls": "ill",
+   "dur": 0.5,
+   "fade": 0.1,
+   "note": "B5 karakter membungkuk pegang tutup peti (gesekan jaket)"
+  },
+  {
+   "frame": 233,
+   "file": "padlock_open",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B5 gembok klik terbuka (kata \"bongkar\")"
+  },
+  {
+   "frame": 244,
+   "file": "chest_hinge",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B5 engsel peti berderit, tutup terangkat"
+  },
+  {
+   "frame": 248,
+   "file": "light_sweep_air",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B5 whoosh cahaya amber keluar dari peti"
+  },
+  {
+   "frame": 252,
+   "file": "padlock_drop",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B5 gembok jatuh ke lantai"
+  },
+  {
+   "frame": 259,
+   "file": "light_sweep_air",
+   "cls": "trans",
+   "dur": null,
+   "fade": 0.1,
+   "note": "match cut kilatan cahaya B5 -> B6"
+  },
+  {
+   "frame": 274,
+   "file": "scissors_snip",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B6 gunting memotong pita (kata \"basa\")"
+  },
+  {
+   "frame": 286,
+   "file": "whoosh_soft",
+   "cls": "trans",
+   "dur": null,
+   "fade": 0.1,
+   "note": "transisi B6 -> B7"
+  },
+  {
+   "frame": 300,
+   "file": "whoosh_soft",
+   "cls": "trans",
+   "dur": 0.4,
+   "fade": 0.1,
+   "note": "B7 lengan menunjuk ke samping"
+  },
+  {
+   "frame": 306,
+   "file": "paper_page_turn",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B7 e-book menyala (halaman dibalik)"
+  },
+  {
+   "frame": 330,
+   "file": "screen_tap",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B7 tombol play diklik"
+  },
+  {
+   "frame": 345,
+   "file": "footsteps_walk",
+   "cls": "ill",
+   "dur": 1.3,
+   "fade": 0.2,
+   "note": "B8 langkah kaki menuju toko (345-384)"
+  },
+  {
+   "frame": 362,
+   "file": "neon_switch_click",
+   "cls": "imp",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B8 saklar neon papan PMO SAVIOR"
+  },
+  {
+   "frame": 366,
+   "file": "neon_buzz_soft",
+   "cls": "ill",
+   "dur": 2.4,
+   "fade": 0.4,
+   "note": "B8 buzz halus neon berkedip lalu stabil"
+  },
+  {
+   "frame": 391,
+   "file": "click_sharp",
+   "cls": "imp",
+   "dur": 0.35,
+   "fade": 0.1,
+   "note": "B9 klik ikon link (kata \"link\")"
+  },
+  {
+   "frame": 394,
+   "file": "whoosh_up",
+   "cls": "ill",
+   "dur": null,
+   "fade": 0.1,
+   "note": "B9 panah swoosh naik ke arah bio"
+  },
+  {
+   "frame": 440,
+   "file": "neon_hum",
+   "cls": "amb",
+   "dur": 2.0,
+   "fade": 1.2,
+   "note": "END hum neon pelan lalu fade out sampai akhir"
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+# SFX map: frame | detik | file | kelas | catatan   (status: OK = file ada, MISSING = belum ada)
+   0 |   0.00s | chain_rattle.wav       | ill   | MISSING | B1 rantai berderak saat karakter meronta (frame 0-30)
+  10 |   0.33s | chain_snap.wav         | imp   | MISSING | B1 lilitan bawah putus + kilatan
+  19 |   0.63s | chain_snap.wav         | imp   | MISSING | B1 lilitan tengah putus
+  28 |   0.93s | chain_snap.wav         | imp   | MISSING | B1 lilitan atas + tali ke HP putus, pose lepas
+  37 |   1.23s | blur_whoosh_soft.wav   | trans | OK      | transisi blur dissolve B1 -> B2 (otak)
+  38 |   1.27s | chain_drop.wav         | ill   | MISSING | B1 potongan rantai mendarat di lantai
+  58 |   1.93s | tape_pull.wav          | imp   | OK      | B2 plester dikelupas dari otak (58-80)
+  80 |   2.67s | crystal_join_soft.wav  | ill   | OK      | B2 retakan nyala amber & mulai menyatu
+ 100 |   3.33s | crystal_ting.wav       | ill   | OK      | B2 kilau kristal saat otak utuh
+ 118 |   3.93s | paper_rustle.wav       | ill   | OK      | B3 papan klip menyala (kertas)
+ 127 |   4.23s | pen_check.wav          | ill   | OK      | B3 centang di papan klip
+ 134 |   4.47s | glass_clink.wav        | imp   | OK      | B3 tabung reaksi menyala (gelas berdenting)
+ 150 |   5.00s | grow_soft.wav          | ill   | OK      | B4 sambungan neuron tumbuh (150-198)
+ 167 |   5.57s | ting_short.wav         | ill   | OK      | B4 simpul neuron menyala (kata "neuroplasticity")
+ 185 |   6.17s | ting_short.wav         | ill   | OK      | B4 simpul terluar menyala
+ 196 |   6.53s | blur_whoosh_soft.wav   | trans | OK      | transisi B4 -> B5 (peti)
+ 212 |   7.07s | cloth_drop.wav         | ill   | OK      | B5 karakter membungkuk pegang tutup peti (gesekan jaket)
+ 233 |   7.77s | padlock_open.wav       | imp   | OK      | B5 gembok klik terbuka (kata "bongkar")
+ 244 |   8.13s | chest_hinge.wav        | imp   | MISSING | B5 engsel peti berderit, tutup terangkat
+ 248 |   8.27s | light_sweep_air.wav    | ill   | OK      | B5 whoosh cahaya amber keluar dari peti
+ 252 |   8.40s | padlock_drop.wav       | ill   | MISSING | B5 gembok jatuh ke lantai
+ 259 |   8.63s | light_sweep_air.wav    | trans | OK      | match cut kilatan cahaya B5 -> B6
+ 274 |   9.13s | scissors_snip.wav      | imp   | OK      | B6 gunting memotong pita (kata "basa")
+ 286 |   9.53s | whoosh_soft.wav        | trans | OK      | transisi B6 -> B7
+ 300 |  10.00s | whoosh_soft.wav        | trans | OK      | B7 lengan menunjuk ke samping
+ 306 |  10.20s | paper_page_turn.wav    | ill   | OK      | B7 e-book menyala (halaman dibalik)
+ 330 |  11.00s | screen_tap.wav         | imp   | OK      | B7 tombol play diklik
+ 345 |  11.50s | footsteps_walk.wav     | ill   | OK      | B8 langkah kaki menuju toko (345-384)
+ 362 |  12.07s | neon_switch_click.wav  | imp   | OK      | B8 saklar neon papan PMO SAVIOR
+ 366 |  12.20s | neon_buzz_soft.wav     | ill   | OK      | B8 buzz halus neon berkedip lalu stabil
+ 391 |  13.03s | click_sharp.wav        | imp   | OK      | B9 klik ikon link (kata "link")
+ 394 |  13.13s | whoosh_up.wav          | ill   | OK      | B9 panah swoosh naik ke arah bio
+ 440 |  14.67s | neon_hum.wav           | amb   | OK      | END hum neon pelan lalu fade out sampai akhir
