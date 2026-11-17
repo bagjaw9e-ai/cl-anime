@@ -11,7 +11,6 @@ C = [  # frame, file, kelas, dur, catatan
     (19,  'chain_snap',        'imp',   None, 'B1 lilitan tengah putus'),
     (28,  'chain_snap',        'imp',   None, 'B1 lilitan atas + tali ke HP putus, pose lepas'),
     (38,  'chain_drop',        'ill',   None, 'B1 potongan rantai mendarat di lantai'),
-    (37,  'blur_whoosh_soft',  'trans', None, 'transisi blur dissolve B1 -> B2 (otak)'),
     (58,  'tape_pull',         'imp',   None, 'B2 plester dikelupas dari otak (58-80)'),
     (80,  'crystal_join_soft', 'ill',   None, 'B2 retakan nyala amber & mulai menyatu'),
     (100, 'crystal_ting',      'ill',   1.0,  'B2 kilau kristal saat otak utuh'),
@@ -24,18 +23,17 @@ C = [  # frame, file, kelas, dur, catatan
     (196, 'blur_whoosh_soft',  'trans', None, 'transisi B4 -> B5 (peti)'),
     (212, 'cloth_drop',        'ill',   0.5,  'B5 karakter membungkuk pegang tutup peti (gesekan jaket)'),
     (233, 'padlock_open',      'imp',   None, 'B5 gembok klik terbuka (kata "bongkar")'),
-    (244, 'chest_hinge',       'imp',   None, 'B5 engsel peti berderit, tutup terangkat'),
-    (252, 'padlock_drop',      'ill',   None, 'B5 gembok jatuh ke lantai'),
-    (248, 'light_sweep_air',   'ill',   None, 'B5 whoosh cahaya amber keluar dari peti'),
-    (259, 'light_sweep_air',   'trans', None, 'match cut kilatan cahaya B5 -> B6'),
+    (244, 'chest_hinge',       'imp',   0.6,  'B5 engsel peti berderit, tutup terangkat'),
+    (253, 'padlock_drop',      'ill',   0.45, 'B5 gembok mendarat di lantai'),
+    (263, 'light_sweep_air',   'ill',   None, 'B5 whoosh cahaya amber dari peti -> kilatan match cut ke B6'),
     (274, 'scissors_snip',     'imp',   None, 'B6 gunting memotong pita (kata "basa")'),
     (286, 'whoosh_soft',       'trans', None, 'transisi B6 -> B7'),
     (300, 'whoosh_soft',       'trans', 0.4,  'B7 lengan menunjuk ke samping'),
     (306, 'paper_page_turn',   'ill',   None, 'B7 e-book menyala (halaman dibalik)'),
     (330, 'screen_tap',        'imp',   None, 'B7 tombol play diklik'),
-    (345, 'footsteps_walk',    'ill',   1.3,  'B8 langkah kaki menuju toko (345-384)'),
+    (345, 'footsteps_walk',    'ill',   1.3,  'B8 langkah kaki menuju toko (345-384), berhenti di depan pintu'),
     (362, 'neon_switch_click', 'imp',   None, 'B8 saklar neon papan PMO SAVIOR'),
-    (366, 'neon_buzz_soft',    'ill',   2.4,  'B8 buzz halus neon berkedip lalu stabil'),
+    (370, 'neon_buzz_soft',    'ill',   0.6,  'B8 buzz halus neon setelah berkedip, stabil'),
     (391, 'click_sharp',       'imp',   0.35, 'B9 klik ikon link (kata "link")'),
     (394, 'whoosh_up',         'ill',   None, 'B9 panah swoosh naik ke arah bio'),
     (440, 'neon_hum',          'amb',   2.0,  'END hum neon pelan lalu fade out sampai akhir'),
@@ -58,10 +56,9 @@ with open(os.path.join(ROOT, 'preview/sfx_map.txt'), 'w') as o:
         st = 'OK' if c['file'] in have else 'MISSING'
         o.write(f"{c['frame']:4d} | {c['frame']/FPS:6.2f}s | {c['file'] + '.wav':22s} | {c['cls']:5s} | {st:7s} | {c['note']}\n")
 with open(os.path.join(ROOT, 'preview/sfx_missing.txt'), 'w') as o:
-    o.write('# SFX yang belum ada filenya di public/sfx (perlu file foley dari lo, atau gua sintesis kalau lo izinkan)\n')
-    o.write('# nama_file.wav | bunyi yang dibutuhkan | fallback file lama yang mirip\n')
+    o.write('# SFX yang awalnya belum ada filenya di public/sfx.\n# Status: user pilih opsi 2 -> disintesis natural dengan scripts/make_foley_promo.py (logam/kayu, tanpa beep/laser).\n')
+    o.write('# nama_file.wav | bunyi | frame | status\n')
     for n, (fb, desc) in MISSING.items():
-        assert n not in have
         frames = ', '.join(str(c['frame']) for c in cues if c['file'] == n)
-        o.write(f"{n + '.wav':18s} | {desc} (frame {frames}) | fallback: {fb}\n")
+        o.write(f"{n + '.wav':18s} | {desc} | frame {frames} | {'SINTESIS (ada)' if n in have else 'MISSING'}\n")
 print(open(os.path.join(ROOT, 'preview/sfx_missing.txt')).read())

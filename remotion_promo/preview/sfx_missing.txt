@@ -1,7 +1,8 @@
-# SFX yang belum ada filenya di public/sfx (perlu file foley dari lo, atau gua sintesis kalau lo izinkan)
-# nama_file.wav | bunyi yang dibutuhkan | fallback file lama yang mirip
-chain_rattle.wav   | rantai logam berderak/bergemerincing saat ditarik-tarik ±1 dtk (frame 0) | fallback: -
-chain_snap.wav     | mata rantai logam patah/putus, pendek & tajam (frame 10, 19, 28) | fallback: chain_break_sparkle.wav (ada ekor kilau, kurang natural)
-chain_drop.wav     | potongan rantai jatuh ke lantai keras (gemerincing logam) (frame 38) | fallback: piece_fall.wav (benturan kayu, bukan logam)
-chest_hinge.wav    | engsel peti kayu berderit pendek ±0,6 dtk (frame 244) | fallback: door_open.wav (engsel pintu)
-padlock_drop.wav   | gembok logam kecil jatuh ke lantai (clunk) (frame 252) | fallback: piece_fall.wav
+# SFX yang awalnya belum ada filenya di public/sfx.
+# Status: user pilih opsi 2 -> disintesis natural dengan scripts/make_foley_promo.py (logam/kayu, tanpa beep/laser).
+# nama_file.wav | bunyi | frame | status
+chain_rattle.wav   | rantai logam berderak/bergemerincing saat ditarik-tarik ±1 dtk | frame 0 | SINTESIS (ada)
+chain_snap.wav     | mata rantai logam patah/putus, pendek & tajam | frame 10, 19, 28 | SINTESIS (ada)
+chain_drop.wav     | potongan rantai jatuh ke lantai keras (gemerincing logam) | frame 38 | SINTESIS (ada)
+chest_hinge.wav    | engsel peti kayu berderit pendek ±0,6 dtk | frame 244 | SINTESIS (ada)
+padlock_drop.wav   | gembok logam kecil jatuh ke lantai (clunk) | frame 253 | SINTESIS (ada)
