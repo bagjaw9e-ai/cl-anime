@@ -1,0 +1,86 @@
+# SFX map (draf) | frame | detik | file | kelas | status | catatan
+    4 |    0.13s | camera_shutter.wav         | imp   | OK      | B1 ⭐ blitz foto pertama
+   22 |    0.73s | camera_shutter.wav         | imp   | OK      | B1 ⭐ blitz foto kedua
+   36 |    1.20s | cam_whoosh.wav             | trans | OK      | B2 snap zoom ke HP di saku
+   56 |    1.87s | crack_soft.wav             | imp   | OK      | B2 ⭐ foto nikah retak
+   58 |    1.93s | bass_hit.wav               | imp   | OK      | B2 ⭐ dentuman bass rendah, lampu resepsi meredup
+  111 |    3.70s | tissue_pull.wav            | ill   | MISSING | B3 tisu ditarik dari kotak
+  123 |    4.10s | ting_short.wav             | ill   | OK      | B3 piala ironis "ting"
+  159 |    5.30s | crack_soft.wav             | imp   | OK      | B4 ⭐ retakan 1
+  173 |    5.77s | crack_soft.wav             | imp   | OK      | B4 ⭐ retakan 2
+  187 |    6.23s | crack_soft.wav             | imp   | OK      | B4 ⭐ retakan 3
+  208 |    6.93s | whistle.wav                | ill   | OK      | B5 siulan cuek
+  218 |    7.27s | crack_creep.wav            | ill   | MISSING | B5 retakan merayap melebar
+  257 |    8.57s | light_sweep_air.wav        | trans | OK      | tembus retakan 1 -> light sweep ke Fase 1
+  271 |    9.03s | stamp_thud.wav             | ill   | OK      | B6 label chip FASE 1 masuk (stempel)
+  306 |   10.20s | steering_grip.wav          | imp   | OK      | B7 setir REWARD diputar paksa
+  338 |   11.27s | lock_click.wav             | ill   | OK      | B7 kunci (dibajak)
+  366 |   12.20s | clock_tick.wav             | ill   | OK      | B8 jam tik-tok
+  368 |   12.27s | crickets.wav               | trans | OK      | B8 jangkrik malam
+  386 |   12.87s | water_bubbles.wav          | ill   | OK      | B9 banjir partikel pink (gelembung)
+  465 |   15.50s | rusty_clank.wav            | imp   | MISSING | B10 reseptor berkarat berdentang tumpul
+  522 |   17.40s | blanket_rustle.wav         | ill   | OK      | B11 kamar luntur (kain digosok lembut)
+  608 |   20.27s | yawn.wav                   | ill   | OK      | B12 menguap
+  614 |   20.47s | paper_rustle.wav           | ill   | OK      | B12 berkas jatuh
+  640 |   21.33s | cloth_drop.wav             | ill   | OK      | B13 kain sajadah
+  642 |   21.40s | wind_soft.wav              | trans | OK      | B13 angin pelan (hampa)
+  668 |   22.27s | footsteps_short.wav        | ill   | OK      | B14 langkah istri masuk
+  686 |   22.87s | cup_tray.wav               | ill   | MISSING | B14 cangkir di nampan
+  733 |   24.43s | scale_clank.wav            | imp   | MISSING | B15 timbangan berdentang miring ke HP
+  788 |   26.27s | water_pour.wav             | ill   | MISSING | B16 air dituang ke gelas bocor
+  866 |   28.87s | footsteps_walk.wav         | ill   | OK      | B17 langkah di tangga
+  898 |   29.93s | gauge_rise.wav             | ill   | OK      | B17 jarum gauge naik ke merah
+  964 |   32.13s | chime_soft.wav             | imp   | OK      | B18 ting lembut, otak amber menyala
+  968 |   32.27s | warm_swell.wav             | ill   | OK      | B18 swell hangat
+ 1123 |   37.43s | click_sharp.wav            | imp   | OK      | B19 colokan saraf tersambung (klik)
+ 1125 |   37.50s | neon_hum.wav               | ill   | OK      | B19 dengung lembut sirkuit menyala
+ 1184 |   39.47s | click_sharp.wav            | imp   | OK      | B20 klik ikon link
+ 1237 |   41.23s | light_switch.wav           | imp   | OK      | B21 ⭐ saklar: lampu amber mati
+ 1245 |   41.50s | siren_soft.wav             | imp   | MISSING | B21 ⭐ sirene pelan (bukan laser)
+ 1353 |   45.10s | whoosh_fast.wav            | trans | OK      | whip slide ke kantor
+ 1364 |   45.47s | stamp_thud.wav             | ill   | OK      | B22 label chip FASE 2
+ 1401 |   46.70s | wood_gnaw.wav              | imp   | MISSING | B23 PFC digerogoti rayap (kayu digerogoti)
+ 1485 |   49.50s | knob_click.wav             | ill   | OK      | B24 tombol mati 1
+ 1505 |   50.17s | knob_click.wav             | ill   | OK      | B24 tombol mati 2
+ 1525 |   50.83s | knob_click.wav             | ill   | OK      | B24 tombol mati 3
+ 1563 |   52.10s | brake_snap.wav             | imp   | OK      | B25 ⭐ pedal rem patah (snap logam)
+ 1618 |   53.93s | rope_snap.wav              | imp   | OK      | B26 tali tekad putus
+ 1634 |   54.47s | match_strike.wav           | imp   | MISSING | B27 korek api dinyalakan
+ 1700 |   56.67s | desk_slam.wav              | imp   | MISSING | B28 ⭐ meja digebrak
+ 1742 |   58.07s | dice_roll.wav              | ill   | MISSING | B29 dadu bergulir di atas berkas
+ 1790 |   59.67s | compass_spin.wav           | ill   | MISSING | B30 kompas berputar liar
+ 1825 |   60.83s | stamp_thud.wav             | imp   | OK      | B31 ⭐ stempel "bukan masalah"
+ 1837 |   61.23s | fire_crackle.wav           | imp   | MISSING | B31 ⭐ api berkobar pelan di meja
+ 1932 |   64.40s | camera_shutter.wav         | imp   | OK      | B32 ⭐ shutter: jurnal JAMA
+ 1938 |   64.60s | paper_unfold.wav           | ill   | OK      | B32 kertas jurnal
+ 2015 |   67.17s | clock_tick.wav             | ill   | OK      | B33 jam bertumpuk (tik-tok)
+ 2057 |   68.57s | chalk_fast.wav             | ill   | OK      | B33 grafik batang (kapur)
+ 2126 |   70.87s | deflate.wav                | imp   | OK      | B34 ⭐ striatum mengecil (balon mengempis pelan)
+ 2195 |   73.17s | chalk_down.wav             | ill   | OK      | B35 panah eskalasi di papan (kapur)
+ 2307 |   76.90s | treadmill_run.wav          | ill   | OK      | B36 treadmill + langkah lari
+ 2357 |   78.57s | light_sweep_air.wav        | trans | OK      | light sweep ke ruang tamu
+ 2369 |   78.97s | stamp_thud.wav             | ill   | OK      | B37 label chip FASE 3
+ 2417 |   80.57s | thread_snap.wav            | imp   | MISSING | B38 benang merah putus
+ 2487 |   82.90s | remote_click.wav           | ill   | MISSING | B39 klik remote / tombol OK
+ 2517 |   83.90s | remote_click.wav           | ill   | MISSING | B39 klik OK lagi
+ 2587 |   86.23s | swipe_fast.wav             | ill   | MISSING | B40 swipe cepat berulang
+ 2650 |   88.33s | ice_freeze.wav             | imp   | OK      | B41 ⭐ es membeku di dada
+ 2712 |   90.40s | blanket_rustle.wav         | ill   | OK      | B42 gesekan kain saat dipeluk
+ 2750 |   91.67s | yawn.wav                   | ill   | OK      | B43 menguap
+ 2778 |   92.60s | pop_soft.wav               | ill   | OK      | B43 bubble cerita jatuh
+ 2802 |   93.40s | clock_tick.wav             | ill   | OK      | B44 tik-tok jam dinding (rutinitas)
+ 2892 |   96.40s | camera_shutter.wav         | imp   | OK      | B45 shutter viewfinder -> manekin
+ 3020 |  100.67s | crack_soft.wav             | imp   | OK      | B46 hati istri retak lembut
+ 3080 |  102.67s | phone_notification_soft.wav | ill   | OK      | B47 notifikasi HP
+ 3160 |  105.33s | heavy_breath.wav           | ill   | OK      | B48 dengusan napas kesal
+ 3197 |  106.57s | desk_slam.wav              | imp   | MISSING | B49 ⭐ meja digebrak
+ 3199 |  106.63s | muffled_shout.wav          | imp   | MISSING | B49 ⭐ bentakan teredam (tanpa kata)
+ 3226 |  107.53s | door_creak.wav             | imp   | MISSING | B50 pintu berderit (kamar pasangan)
+ 3250 |  108.33s | heartbeat.wav              | ill   | OK      | B50 detak jantung pelan
+ 3418 |  113.93s | frame_fall.wav             | imp   | MISSING | B51 ⭐ bingkai foto jatuh
+ 3430 |  114.33s | glass_shatter.wav          | imp   | MISSING | B51 ⭐ kaca foto pecah
+ 3490 |  116.33s | muffled_shout.wav          | imp   | MISSING | B52 bentakan teredam
+ 3526 |  117.53s | plate_break.wav            | imp   | MISSING | B53 piring pecah
+ 3591 |  119.70s | phone_notification_soft.wav | imp   | OK      | B54 ⭐ hening 5 frame lalu notifikasi HP
+ 3655 |  121.83s | stone_grind.wav            | imp   | MISSING | B55 hati mengeras jadi batu
+ 3677 |  122.57s | heavy_breath.wav           | ill   | OK      | B55 napas berat

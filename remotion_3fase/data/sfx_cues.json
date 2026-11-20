@@ -1,0 +1,600 @@
+{
+ "fps": 30,
+ "cues": [
+  {
+   "frame": 4,
+   "file": "camera_shutter",
+   "cls": "imp",
+   "dur": null,
+   "note": "B1 ⭐ blitz foto pertama"
+  },
+  {
+   "frame": 22,
+   "file": "camera_shutter",
+   "cls": "imp",
+   "dur": null,
+   "note": "B1 ⭐ blitz foto kedua"
+  },
+  {
+   "frame": 36,
+   "file": "cam_whoosh",
+   "cls": "trans",
+   "dur": null,
+   "note": "B2 snap zoom ke HP di saku"
+  },
+  {
+   "frame": 56,
+   "file": "crack_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B2 ⭐ foto nikah retak"
+  },
+  {
+   "frame": 58,
+   "file": "bass_hit",
+   "cls": "imp",
+   "dur": 1.6,
+   "note": "B2 ⭐ dentuman bass rendah, lampu resepsi meredup"
+  },
+  {
+   "frame": 111,
+   "file": "tissue_pull",
+   "cls": "ill",
+   "dur": null,
+   "note": "B3 tisu ditarik dari kotak"
+  },
+  {
+   "frame": 123,
+   "file": "ting_short",
+   "cls": "ill",
+   "dur": null,
+   "note": "B3 piala ironis \"ting\""
+  },
+  {
+   "frame": 159,
+   "file": "crack_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B4 ⭐ retakan 1"
+  },
+  {
+   "frame": 173,
+   "file": "crack_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B4 ⭐ retakan 2"
+  },
+  {
+   "frame": 187,
+   "file": "crack_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B4 ⭐ retakan 3"
+  },
+  {
+   "frame": 208,
+   "file": "whistle",
+   "cls": "ill",
+   "dur": 1.4,
+   "note": "B5 siulan cuek"
+  },
+  {
+   "frame": 218,
+   "file": "crack_creep",
+   "cls": "ill",
+   "dur": null,
+   "note": "B5 retakan merayap melebar"
+  },
+  {
+   "frame": 257,
+   "file": "light_sweep_air",
+   "cls": "trans",
+   "dur": null,
+   "note": "tembus retakan 1 -> light sweep ke Fase 1"
+  },
+  {
+   "frame": 271,
+   "file": "stamp_thud",
+   "cls": "ill",
+   "dur": null,
+   "note": "B6 label chip FASE 1 masuk (stempel)"
+  },
+  {
+   "frame": 306,
+   "file": "steering_grip",
+   "cls": "imp",
+   "dur": null,
+   "note": "B7 setir REWARD diputar paksa"
+  },
+  {
+   "frame": 338,
+   "file": "lock_click",
+   "cls": "ill",
+   "dur": null,
+   "note": "B7 kunci (dibajak)"
+  },
+  {
+   "frame": 366,
+   "file": "clock_tick",
+   "cls": "ill",
+   "dur": 1.6,
+   "note": "B8 jam tik-tok"
+  },
+  {
+   "frame": 368,
+   "file": "crickets",
+   "cls": "trans",
+   "dur": 2.0,
+   "note": "B8 jangkrik malam"
+  },
+  {
+   "frame": 386,
+   "file": "water_bubbles",
+   "cls": "ill",
+   "dur": 1.8,
+   "note": "B9 banjir partikel pink (gelembung)"
+  },
+  {
+   "frame": 465,
+   "file": "rusty_clank",
+   "cls": "imp",
+   "dur": null,
+   "note": "B10 reseptor berkarat berdentang tumpul"
+  },
+  {
+   "frame": 522,
+   "file": "blanket_rustle",
+   "cls": "ill",
+   "dur": 1.4,
+   "note": "B11 kamar luntur (kain digosok lembut)"
+  },
+  {
+   "frame": 608,
+   "file": "yawn",
+   "cls": "ill",
+   "dur": 1.0,
+   "note": "B12 menguap"
+  },
+  {
+   "frame": 614,
+   "file": "paper_rustle",
+   "cls": "ill",
+   "dur": null,
+   "note": "B12 berkas jatuh"
+  },
+  {
+   "frame": 640,
+   "file": "cloth_drop",
+   "cls": "ill",
+   "dur": null,
+   "note": "B13 kain sajadah"
+  },
+  {
+   "frame": 642,
+   "file": "wind_soft",
+   "cls": "trans",
+   "dur": 1.2,
+   "note": "B13 angin pelan (hampa)"
+  },
+  {
+   "frame": 668,
+   "file": "footsteps_short",
+   "cls": "ill",
+   "dur": null,
+   "note": "B14 langkah istri masuk"
+  },
+  {
+   "frame": 686,
+   "file": "cup_tray",
+   "cls": "ill",
+   "dur": null,
+   "note": "B14 cangkir di nampan"
+  },
+  {
+   "frame": 733,
+   "file": "scale_clank",
+   "cls": "imp",
+   "dur": null,
+   "note": "B15 timbangan berdentang miring ke HP"
+  },
+  {
+   "frame": 788,
+   "file": "water_pour",
+   "cls": "ill",
+   "dur": 2.0,
+   "note": "B16 air dituang ke gelas bocor"
+  },
+  {
+   "frame": 866,
+   "file": "footsteps_walk",
+   "cls": "ill",
+   "dur": 2.0,
+   "note": "B17 langkah di tangga"
+  },
+  {
+   "frame": 898,
+   "file": "gauge_rise",
+   "cls": "ill",
+   "dur": null,
+   "note": "B17 jarum gauge naik ke merah"
+  },
+  {
+   "frame": 964,
+   "file": "chime_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B18 ting lembut, otak amber menyala"
+  },
+  {
+   "frame": 968,
+   "file": "warm_swell",
+   "cls": "ill",
+   "dur": null,
+   "note": "B18 swell hangat"
+  },
+  {
+   "frame": 1123,
+   "file": "click_sharp",
+   "cls": "imp",
+   "dur": 0.35,
+   "note": "B19 colokan saraf tersambung (klik)"
+  },
+  {
+   "frame": 1125,
+   "file": "neon_hum",
+   "cls": "ill",
+   "dur": 1.4,
+   "note": "B19 dengung lembut sirkuit menyala"
+  },
+  {
+   "frame": 1184,
+   "file": "click_sharp",
+   "cls": "imp",
+   "dur": 0.35,
+   "note": "B20 klik ikon link"
+  },
+  {
+   "frame": 1237,
+   "file": "light_switch",
+   "cls": "imp",
+   "dur": null,
+   "note": "B21 ⭐ saklar: lampu amber mati"
+  },
+  {
+   "frame": 1245,
+   "file": "siren_soft",
+   "cls": "imp",
+   "dur": 3.0,
+   "note": "B21 ⭐ sirene pelan (bukan laser)"
+  },
+  {
+   "frame": 1353,
+   "file": "whoosh_fast",
+   "cls": "trans",
+   "dur": null,
+   "note": "whip slide ke kantor"
+  },
+  {
+   "frame": 1364,
+   "file": "stamp_thud",
+   "cls": "ill",
+   "dur": null,
+   "note": "B22 label chip FASE 2"
+  },
+  {
+   "frame": 1401,
+   "file": "wood_gnaw",
+   "cls": "imp",
+   "dur": 2.0,
+   "note": "B23 PFC digerogoti rayap (kayu digerogoti)"
+  },
+  {
+   "frame": 1485,
+   "file": "knob_click",
+   "cls": "ill",
+   "dur": null,
+   "note": "B24 tombol mati 1"
+  },
+  {
+   "frame": 1505,
+   "file": "knob_click",
+   "cls": "ill",
+   "dur": null,
+   "note": "B24 tombol mati 2"
+  },
+  {
+   "frame": 1525,
+   "file": "knob_click",
+   "cls": "ill",
+   "dur": null,
+   "note": "B24 tombol mati 3"
+  },
+  {
+   "frame": 1563,
+   "file": "brake_snap",
+   "cls": "imp",
+   "dur": null,
+   "note": "B25 ⭐ pedal rem patah (snap logam)"
+  },
+  {
+   "frame": 1618,
+   "file": "rope_snap",
+   "cls": "imp",
+   "dur": null,
+   "note": "B26 tali tekad putus"
+  },
+  {
+   "frame": 1634,
+   "file": "match_strike",
+   "cls": "imp",
+   "dur": null,
+   "note": "B27 korek api dinyalakan"
+  },
+  {
+   "frame": 1700,
+   "file": "desk_slam",
+   "cls": "imp",
+   "dur": null,
+   "note": "B28 ⭐ meja digebrak"
+  },
+  {
+   "frame": 1742,
+   "file": "dice_roll",
+   "cls": "ill",
+   "dur": null,
+   "note": "B29 dadu bergulir di atas berkas"
+  },
+  {
+   "frame": 1790,
+   "file": "compass_spin",
+   "cls": "ill",
+   "dur": null,
+   "note": "B30 kompas berputar liar"
+  },
+  {
+   "frame": 1825,
+   "file": "stamp_thud",
+   "cls": "imp",
+   "dur": null,
+   "note": "B31 ⭐ stempel \"bukan masalah\""
+  },
+  {
+   "frame": 1837,
+   "file": "fire_crackle",
+   "cls": "imp",
+   "dur": 3.0,
+   "note": "B31 ⭐ api berkobar pelan di meja"
+  },
+  {
+   "frame": 1932,
+   "file": "camera_shutter",
+   "cls": "imp",
+   "dur": null,
+   "note": "B32 ⭐ shutter: jurnal JAMA"
+  },
+  {
+   "frame": 1938,
+   "file": "paper_unfold",
+   "cls": "ill",
+   "dur": null,
+   "note": "B32 kertas jurnal"
+  },
+  {
+   "frame": 2015,
+   "file": "clock_tick",
+   "cls": "ill",
+   "dur": 1.6,
+   "note": "B33 jam bertumpuk (tik-tok)"
+  },
+  {
+   "frame": 2057,
+   "file": "chalk_fast",
+   "cls": "ill",
+   "dur": null,
+   "note": "B33 grafik batang (kapur)"
+  },
+  {
+   "frame": 2126,
+   "file": "deflate",
+   "cls": "imp",
+   "dur": null,
+   "note": "B34 ⭐ striatum mengecil (balon mengempis pelan)"
+  },
+  {
+   "frame": 2195,
+   "file": "chalk_down",
+   "cls": "ill",
+   "dur": null,
+   "note": "B35 panah eskalasi di papan (kapur)"
+  },
+  {
+   "frame": 2307,
+   "file": "treadmill_run",
+   "cls": "ill",
+   "dur": 1.9,
+   "note": "B36 treadmill + langkah lari"
+  },
+  {
+   "frame": 2357,
+   "file": "light_sweep_air",
+   "cls": "trans",
+   "dur": null,
+   "note": "light sweep ke ruang tamu"
+  },
+  {
+   "frame": 2369,
+   "file": "stamp_thud",
+   "cls": "ill",
+   "dur": null,
+   "note": "B37 label chip FASE 3"
+  },
+  {
+   "frame": 2417,
+   "file": "thread_snap",
+   "cls": "imp",
+   "dur": null,
+   "note": "B38 benang merah putus"
+  },
+  {
+   "frame": 2487,
+   "file": "remote_click",
+   "cls": "ill",
+   "dur": null,
+   "note": "B39 klik remote / tombol OK"
+  },
+  {
+   "frame": 2517,
+   "file": "remote_click",
+   "cls": "ill",
+   "dur": null,
+   "note": "B39 klik OK lagi"
+  },
+  {
+   "frame": 2587,
+   "file": "swipe_fast",
+   "cls": "ill",
+   "dur": 1.6,
+   "note": "B40 swipe cepat berulang"
+  },
+  {
+   "frame": 2650,
+   "file": "ice_freeze",
+   "cls": "imp",
+   "dur": null,
+   "note": "B41 ⭐ es membeku di dada"
+  },
+  {
+   "frame": 2712,
+   "file": "blanket_rustle",
+   "cls": "ill",
+   "dur": 1.0,
+   "note": "B42 gesekan kain saat dipeluk"
+  },
+  {
+   "frame": 2750,
+   "file": "yawn",
+   "cls": "ill",
+   "dur": 1.0,
+   "note": "B43 menguap"
+  },
+  {
+   "frame": 2778,
+   "file": "pop_soft",
+   "cls": "ill",
+   "dur": null,
+   "note": "B43 bubble cerita jatuh"
+  },
+  {
+   "frame": 2802,
+   "file": "clock_tick",
+   "cls": "ill",
+   "dur": 2.4,
+   "note": "B44 tik-tok jam dinding (rutinitas)"
+  },
+  {
+   "frame": 2892,
+   "file": "camera_shutter",
+   "cls": "imp",
+   "dur": null,
+   "note": "B45 shutter viewfinder -> manekin"
+  },
+  {
+   "frame": 3020,
+   "file": "crack_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B46 hati istri retak lembut"
+  },
+  {
+   "frame": 3080,
+   "file": "phone_notification_soft",
+   "cls": "ill",
+   "dur": null,
+   "note": "B47 notifikasi HP"
+  },
+  {
+   "frame": 3160,
+   "file": "heavy_breath",
+   "cls": "ill",
+   "dur": 1.0,
+   "note": "B48 dengusan napas kesal"
+  },
+  {
+   "frame": 3197,
+   "file": "desk_slam",
+   "cls": "imp",
+   "dur": null,
+   "note": "B49 ⭐ meja digebrak"
+  },
+  {
+   "frame": 3199,
+   "file": "muffled_shout",
+   "cls": "imp",
+   "dur": 1.0,
+   "note": "B49 ⭐ bentakan teredam (tanpa kata)"
+  },
+  {
+   "frame": 3226,
+   "file": "door_creak",
+   "cls": "imp",
+   "dur": null,
+   "note": "B50 pintu berderit (kamar pasangan)"
+  },
+  {
+   "frame": 3250,
+   "file": "heartbeat",
+   "cls": "ill",
+   "dur": 4.5,
+   "note": "B50 detak jantung pelan"
+  },
+  {
+   "frame": 3418,
+   "file": "frame_fall",
+   "cls": "imp",
+   "dur": null,
+   "note": "B51 ⭐ bingkai foto jatuh"
+  },
+  {
+   "frame": 3430,
+   "file": "glass_shatter",
+   "cls": "imp",
+   "dur": null,
+   "note": "B51 ⭐ kaca foto pecah"
+  },
+  {
+   "frame": 3490,
+   "file": "muffled_shout",
+   "cls": "imp",
+   "dur": 0.9,
+   "note": "B52 bentakan teredam"
+  },
+  {
+   "frame": 3526,
+   "file": "plate_break",
+   "cls": "imp",
+   "dur": null,
+   "note": "B53 piring pecah"
+  },
+  {
+   "frame": 3591,
+   "file": "phone_notification_soft",
+   "cls": "imp",
+   "dur": null,
+   "note": "B54 ⭐ hening 5 frame lalu notifikasi HP"
+  },
+  {
+   "frame": 3655,
+   "file": "stone_grind",
+   "cls": "imp",
+   "dur": 1.6,
+   "note": "B55 hati mengeras jadi batu"
+  },
+  {
+   "frame": 3677,
+   "file": "heavy_breath",
+   "cls": "ill",
+   "dur": 1.4,
+   "note": "B55 napas berat"
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+# SFX yang belum ada filenya di public/sfx (perlu file foley dari lo, atau gua sintesis kalau lo izinkan)
+# file | bunyi | frame | fallback file lama
+compass_spin.wav     | jarum kompas berputar (tik-tik logam halus) | frame 1790 | clock_fast
+crack_creep.wav      | retakan merayap pelan (kerikil/kaca halus berderak) | frame 218 | crack_soft
+cup_tray.wav         | cangkir keramik diletakkan di nampan | frame 686 | glass_clink
+desk_slam.wav        | telapak tangan menggebrak meja kayu | frame 1700, 3197 | thud
+dice_roll.wav        | dadu bergulir di atas kertas/meja | frame 1742 | chess_tap
+door_creak.wav       | pintu kayu berderit pelan | frame 3226 | door_open
+fire_crackle.wav     | api berkobar pelan (kertas terbakar) | frame 1837 | -
+frame_fall.wav       | bingkai foto jatuh dari dinding (kayu + dentum) | frame 3418 | thud
+glass_shatter.wav    | kaca bingkai pecah di lantai | frame 3430 | imp_glass_crack (desain sinematik, kurang natural)
+match_strike.wav     | korek api digesek & menyala | frame 1634 | -
+muffled_shout.wav    | bentakan teredam di balik dinding (tanpa kata) | frame 3199, 3490 | -
+plate_break.wav      | piring keramik pecah | frame 3526 | -
+remote_click.wav     | klik tombol remote plastik | frame 2487, 2517 | knob_click
+rusty_clank.wav      | logam berkarat berdentang tumpul | frame 465 | dumbbell_set_down
+scale_clank.wav      | timbangan kuningan berdentang/miring | frame 733 | chess_tap
+siren_soft.wav       | sirene pelan jauh (bukan laser) | frame 1245 | -
+stone_grind.wav      | batu mengeras/bergesek (gerinda batu pelan) | frame 3655 | stone_rumble
+swipe_fast.wav       | jempol swipe layar cepat berulang | frame 2587 | screen_scroll
+thread_snap.wav      | benang putus (tik tipis) | frame 2417 | ribbon_snap
+tissue_pull.wav      | tisu ditarik dari kotak (kertas tipis sret) | frame 111 | paper_rustle
+water_pour.wav       | air dituang ke gelas | frame 788 | water_flow
+wood_gnaw.wav        | kayu digerogoti (rayap/krek-krek halus) | frame 1401 | pencil_write
