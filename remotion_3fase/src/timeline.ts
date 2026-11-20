@@ -35,6 +35,7 @@ export const PHASES: Phase[] = [
   {from: 0, num: '?', label: '3 FASE', color: '#8A90A0', slot: 0},
   {from: beatF(6), num: '1', label: 'FASE 1', color: '#FFD23F', slot: 1},
   {from: beatF(18), num: '★', label: 'HARAPAN', color: '#FFB23F', slot: 1},
+  {from: beatF(21, 12), num: '!', label: 'AWAS', color: '#FF8A2B', slot: 2},
   {from: beatF(22), num: '2', label: 'FASE 2', color: '#FF8A2B', slot: 2},
   {from: beatF(32), num: '📄', label: 'RISET', color: '#7FB7C9', slot: 2},
   {from: beatF(37), num: '3', label: 'FASE 3', color: '#FF3B3B', slot: 3},

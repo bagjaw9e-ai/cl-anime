@@ -26,10 +26,11 @@ const C: Array<[number, string[], string[], string, 'slam' | 'neon']> = [
   [51, ['ABUSIVE'], ['ABUSIVE'], '#FF3B3B', 'slam'],
   [54, ['DIA NGGAK', 'NGERASA SALAH'], ['SALAH'], '#FF3B3B', 'slam'],
 ];
-// tampil dari awal beat (+0,15 dtk) maks 2,8 dtk atau sampai beat selesai
+// tampil dari awal beat (+0,15 dtk, + jeda khusus) maks 2,8 dtk atau sampai beat selesai
+const DELAY: Record<number, number> = {2: 0.9}; // beat 2: tunggu snap zoom ke HP selesai
 export const CALLOUTS: Callout[] = C.map(([beat, lines, accent, color, style]) => {
   const b = BEATS[beat - 1];
-  const s = b.start + 0.15;
+  const s = b.start + 0.15 + (DELAY[beat] ?? 0);
   return {beat, lines, accent, color, style, s, e: Math.min(b.end, s + 2.8)};
 });
 export const calloutAt = (f: number) => CALLOUTS.find((c) => f >= Math.round(c.s * FPS_T) && f < Math.round(c.e * FPS_T));

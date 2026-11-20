@@ -48,3 +48,84 @@ export const PhaseHeader: React.FC<{frame?: number; crackAll?: number}> = ({fram
     </svg>
   );
 };
+
+// lebar teks Poppins 800 (canvas measureText; font dimuat lewat delayRender di fonts.ts)
+let ctx: CanvasRenderingContext2D | null = null;
+const measure = (txt: string, size: number) => {
+  if (typeof document === 'undefined') return txt.length * size * 0.7;
+  if (!ctx) ctx = document.createElement('canvas').getContext('2d');
+  ctx!.font = `800 ${size}px Poppins`;
+  return ctx!.measureText(txt).width;
+};
+
+/* Subtitle karaoke maks 3 kata, pusat y 1380. Putih + shadow + stroke tipis gelap; kata aktif kuning neon + glow + scale 1.08; pop kecil. */
+export const Subtitle: React.FC = () => {
+  const f = useCurrentFrame();
+  if (calloutAt(f)) return null;
+  const ch = chunkAt(f);
+  if (!ch) return null;
+  const t = f / FPS_T;
+  const k = (f - ch.s * FPS_T) / 5;
+  const sc = 0.82 + 0.18 * backOut(k);
+  const txt = ch.words.map((wi) => WORDS[wi].w).join(' ');
+  const fs = Math.min(76, (900 / (measure(txt, 100) + 22 * (ch.words.length - 1) * 1.3)) * 100);
+  let active = -1;
+  ch.words.forEach((wi) => { if (WORDS[wi].s <= t + 0.02) active = wi; });
+  if (t > WORDS[ch.words[ch.words.length - 1]].e + 0.15) active = -1;
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <div style={{position: 'absolute', left: 80, right: 80, top: 1380 - 60, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center',
+        gap: 22 * fs / 76, transform: `scale(${sc})`, opacity: clamp(k * 2), fontFamily: FONT, fontWeight: 800, fontSize: fs, letterSpacing: -0.5, whiteSpace: 'nowrap'}}>
+        {ch.words.map((wi) => {
+          const on = wi === active;
+          return (
+            <span key={wi} style={{color: on ? '#F5FF3B' : '#FFFFFF', transform: `scale(${on ? 1.08 : 1})`, display: 'inline-block', WebkitTextStroke: '2px rgba(10,10,20,0.85)', paintOrder: 'stroke fill',
+              textShadow: on ? '0 0 18px rgba(245,255,59,0.75), 0 0 40px rgba(245,255,59,0.35), 0 4px 10px rgba(0,0,0,0.6)' : '0 4px 14px rgba(0,0,0,0.7)'}}>
+              {WORDS[wi].w}
+            </span>
+          );
+        })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/* CALLOUT poster (110-140px, maks 2 baris, 1-2 kata aksen). slam = masuk besar menghantam + shake kecil; neon = nyala berkedip.
+   Default di zona bawah (y ±1290-1560, ruang lantai kosong; subtitle disembunyikan) supaya tidak menutupi karakter/ilustrasi. */
+export const CalloutText: React.FC<{c: Callout; top: number}> = ({c, top}) => {
+  const f = useCurrentFrame();
+  const f0 = Math.round(c.s * FPS_T), f1 = Math.round(c.e * FPS_T);
+  const kin = (f - f0) / 8;
+  const out = clamp((f1 - f) / 5);
+  const size = Math.min(132, ...c.lines.map((l) => (900 / measure(l, 100)) * 100));
+  const slam = c.style === 'slam';
+  const sc = slam ? 1 + 0.6 * (1 - clamp(kin)) ** 2 : 1;
+  const sh = slam && f - f0 > 7 && f - f0 < 16 ? Math.sin((f - f0) * 2.4) * (16 - (f - f0)) * 1.2 : 0;
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <div style={{position: 'absolute', left: 60, right: 60, top, textAlign: 'center', fontFamily: FONT, fontWeight: 800, fontSize: size, lineHeight: `${size * 1.02}px`,
+        letterSpacing: -1, transform: `translate(${sh}px,0) scale(${sc})`, opacity: clamp(kin * 2) * out, whiteSpace: 'nowrap'}}>
+        {c.lines.map((l, li) => (
+          <div key={li}>
+            {l.split(' ').map((w, wi, arr) => {
+              const acc = c.accent.includes(w);
+              const flick = !slam && acc ? (f - f0 < 14 ? (Math.floor((f - f0) / 2) % 2 ? 0.45 : 1) : 0.93 + 0.07 * Math.sin(f * 0.4)) : 1;
+              const col = acc ? c.color : '#FFFFFF';
+              return (
+                <span key={wi} style={{color: col, opacity: flick, marginRight: wi < arr.length - 1 ? size * 0.24 : 0, WebkitTextStroke: '3px rgba(10,10,20,0.9)', paintOrder: 'stroke fill',
+                  textShadow: acc ? `0 0 ${size * 0.16}px ${col}, 0 0 ${size * 0.4}px ${col}88, 0 6px 16px rgba(0,0,0,0.7)` : '0 6px 18px rgba(0,0,0,0.75)'}}>{w}</span>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </AbsoluteFill>
+  );
+};
+// posisi atas blok callout per beat (default zona lantai bawah; beat yg objeknya rendah dipindah ke atas di bawah chip)
+const CALLOUT_TOP: Record<number, number> = {23: 300, 31: 300};
+export const CalloutView: React.FC = () => {
+  const f = useCurrentFrame();
+  const c = calloutAt(f);
+  return c ? <CalloutText c={c} top={CALLOUT_TOP[c.beat] ?? 1290} /> : null;
+};

@@ -186,7 +186,7 @@ export const DarkStage: React.FC<{warm?: number}> = ({warm = 0}) => {
 };
 
 /* ================= 4. KANTOR / RUANG KERJA (teal-abu kusam) ================= */
-export const Office: React.FC<{fire?: number}> = ({fire = 0}) => {
+export const Office: React.FC<{fire?: number; desk?: boolean}> = ({fire = 0, desk = true}) => {
   const f = useCurrentFrame();
   return (
     <g>
@@ -213,7 +213,7 @@ export const Office: React.FC<{fire?: number}> = ({fire = 0}) => {
       <g transform="translate(990,1110)"><path d="M -30 0 L -24 -70 L 24 -70 L 30 0 Z" fill="#8A6A4E" />
         {[-30, -5, 20].map((a, i) => <path key={i} d={`M 0 -70 Q ${a} -130 ${a * 1.6} -110`} stroke="#8A8A5A" strokeWidth={6} fill="none" />)}</g>
       {/* meja kerja berantakan + monitor */}
-      <g transform="translate(300,960)">
+      {desk && <g transform="translate(300,960)">
         <rect x={0} y={0} width={560} height={24} rx={6} fill="#6E5A46" />
         <rect x={30} y={24} width={20} height={150} fill="#4A3C30" /><rect x={510} y={24} width={20} height={150} fill="#4A3C30" />
         <rect x={190} y={-230} width={250} height={170} rx={10} fill="#22282A" />
@@ -223,7 +223,7 @@ export const Office: React.FC<{fire?: number}> = ({fire = 0}) => {
         <rect x={470} y={-60} width={40} height={60} rx={6} fill="#B8C6C8" />
         <path d="M 470 -50 q -20 10 0 30" stroke="#B8C6C8" strokeWidth={6} fill="none" />
         {fire > 0 && <DeskFire x={110} y={-110} s={fire} />}
-      </g>
+      </g>}
     </g>
   );
 };
