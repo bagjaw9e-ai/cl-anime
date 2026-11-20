@@ -111,3 +111,6 @@ Pakai versi terbaru di `remotion_30hari/` (copy ke project baru, jangan bikin ul
 - Audio: `scripts/sfx_cues.py` (cue di frame kejadian) → `scripts/mix_audio.py` (VO 100%, tanpa BGM, SFX ≤20% VO, maks 2 barengan,
   limiter -1 dBFS). Foley tambahan: `scripts/make_foley_promo.py`. Whisper small (faster-whisper, bobot npm @skillninja/shortmovie-telop-model-p0..p3).
 - Render ±15 menit (501 frame): jalankan di background dengan timeout panjang.
+
+## Video 3 fase (Remotion, `remotion_3fase/`, `out/video_3fase.mp4`) — dipanggil ulang dengan `/style3`
+- Skill project `.claude/skills/style3/SKILL.md` berisi resep lengkap gaya ini (kit, layout, subtitle/callout, audio, alur ⏸, render per potongan).
