@@ -112,7 +112,7 @@ sfx_pre = sfx.copy(); sfx[:b] *= w[:b]; bgm *= w[:, None]
 
 # ---- master + limiter true-peak -1 dBFS ----
 mix = np.stack([v + sfx, v + sfx], 1) + bgm
-ceil = 10 ** (-1 / 20)
+ceil = 10 ** (-1.6 / 20)  # -1 dBFS + 0,6 dB headroom untuk overshoot encode AAC
 pk = np.abs(resample_poly(mix, 4, 1, axis=0)).max(1).reshape(-1, 4).max(1)[:N]
 need = minimum_filter1d(np.minimum(1, ceil * 0.97 / np.maximum(pk, 1e-9)), size=2 * int(0.005 * SR) + 1)
 gl = np.empty_like(need); cur = 1.0; rc = np.exp(-1 / (0.08 * SR))

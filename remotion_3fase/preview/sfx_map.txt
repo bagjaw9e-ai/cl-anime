@@ -1,5 +1,5 @@
 # SFX MAP video 3 fase | VO -14.5 LUFS (100%) | BGM -39.9 dB vs VO (≈1.0%), fade in 1 dtk / out 2 dtk
-# master -12.4 LUFS, true-peak -1.26 dBFS (limit -1) | SFX terkeras saat narasi -14.9 dB = 18% VO (batas 20%) | maks barengan 3 (batas 3)
+# master -12.6 LUFS, true-peak -1.86 dBFS (limit -1) | SFX terkeras saat narasi -14.9 dB = 18% VO (batas 20%) | maks barengan 3 (batas 3)
 # kelas: imp ⭐ -14.5 dB (19%), ill -16.5 dB (15%), trans -20 dB (10%) | beat 54: hening 5 frame lalu notifikasi
 # frame | detik | file | kelas | durasi main | catatan
     4 |    0.13s | camera_shutter.wav         | imp   | 0.12s | B1 ⭐ blitz foto pertama
