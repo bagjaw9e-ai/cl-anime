@@ -399,7 +399,8 @@ export const FoggyGlass: React.FC<{fog: number; t: number}> = ({fog, t}) => {
   return (
     <g opacity={fog}>
       <defs><filter id={`${id}`} x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency={0.012} numOctaves={2} seed={4} /><feColorMatrix values="0 0 0 0 0.85  0 0 0 0 0.9  0 0 0 0 0.95  0 0 0 0.9 0" /></filter></defs>
-      <rect x={0} y={0} width={1080} height={1920} filter={`url(#${id})`} opacity={0.7} />
+      <rect x={0} y={0} width={1080} height={1920} filter={`url(#${id})`} opacity={0.32} />
+      <rect x={0} y={0} width={1080} height={1920} fill="#DDE6F0" opacity={0.18} />
       {Array.from({length: 8}).map((_, i) => {
         const x = 100 + rand(i) * 880, ph = ((t * 0.01 + rand(i * 3)) % 1);
         return <path key={i} d={`M ${x} 300 L ${x + 4} ${300 + ph * 900}`} stroke="#FFFFFF" strokeWidth={6} opacity={0.35} strokeLinecap="round" />;
@@ -579,7 +580,6 @@ export const EyeCloseup: React.FC<{t: number}> = ({t}) => {
       <circle cx={dx} cy={10} r={58} fill="#3A2A24" opacity={0.7} />
       <circle cx={dx + 40} cy={-30} r={14} fill="#FFFFFF" opacity={0.25} />
       <path d="M -380 -10 Q 0 -250 380 -10" stroke="#241418" strokeWidth={16} fill="none" strokeLinecap="round" />
-      <rect x={-460} y={-230} width={920} height={110} fill="#F1C9A5" opacity={0.35} />
     </g>
   );
 };

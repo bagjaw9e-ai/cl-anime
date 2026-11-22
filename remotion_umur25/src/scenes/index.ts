@@ -1,9 +1,9 @@
 import {ShotDef} from './types';
 import {shotHook} from './hook';
-import {shotF1} from './fase1';
+import {shotE1} from './efek1';
 import {shotMid} from './mid';
-import {shotF2} from './fase2';
-import {shotRiset} from './riset';
-import {shotF3a, shotF3b, shotF3c} from './fase3';
-// 8 shot. Transisi berat (light/whip/dark/blend) hanya saat GANTI TEMPAT/FASE; di dalam tempat = camera move + rack focus.
-export const SHOTS: ShotDef[] = [shotHook, shotF1, shotMid, shotF2, shotRiset, shotF3a, shotF3b, shotF3c];
+import {shotE2} from './efek2';
+import {shotE3, shotClose} from './efek3';
+// 6 shot: HOOK+ONE SHOT (kamar ultah) -> EFEK 1 (ruang makan) -> MID-CTA (panggung) -> EFEK 2 (jalan+halte) -> EFEK 3 (kafe) -> PENUTUP 30 frame.
+// Transisi berat hanya saat ganti tempat/efek; di dalam tempat = camera move + rack focus.
+export const SHOTS: ShotDef[] = [shotHook, shotE1, shotMid, shotE2, shotE3, shotClose];

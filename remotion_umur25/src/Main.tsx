@@ -6,7 +6,7 @@ import {Cam, camT, ramp, sm} from './kit';
 import {Dim} from './components/Places';
 import {CalloutView, PhaseHeader, Subtitle} from './components/UI';
 import {Grain} from './components/Bg';
-import {TOTAL_FRAMES, beatF} from './timeline';
+import {TOTAL_FRAMES, VO_FRAMES, beatF} from './timeline';
 
 const CY = 860; // titik tengah kamera di layar (zona tengah 420-1250)
 
@@ -77,15 +77,13 @@ const TransFlash: React.FC = () => {
 
 export const Scene: React.FC = () => {
   const f = useCurrentFrame();
-  const endDim = sm(ramp(f, TOTAL_FRAMES - 60, TOTAL_FRAMES - 1)) * 0.55;
   return (
     <AbsoluteFill style={{background: '#000'}}>
       {SHOTS.map((s, i) => <ShotView key={s.id} s={s} next={SHOTS[i + 1]} />)}
       <TransFlash />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse 82% 64% at 50% 45%, rgba(0,0,0,0) 52%, rgba(2,3,6,0.72) 100%)'}} />
-      <AbsoluteFill style={{background: '#000', opacity: endDim}} />
       <Grain opacity={0.04} />
-      <PhaseHeader crackAll={sm(ramp(f, beatF(55, 12), beatF(55, 40)))} />
+      {f < VO_FRAMES && <PhaseHeader crackAll={Math.max(0.35 * sm(ramp(f, beatF(3, 40), beatF(3, 70))), sm(ramp(f, beatF(51, 10), beatF(51, 40))))} />}
       <CalloutView />
       <Subtitle />
     </AbsoluteFill>

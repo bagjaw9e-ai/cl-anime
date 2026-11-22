@@ -1,68 +1,82 @@
-// SHOT 1: HOOK (beat 1-2) + ONE SHOT slow zoom-in (beat 3-5) — satu shot tanpa cut.
+// SHOT 1: HOOK (beat 1-2, cepat & kuat) + ONE SHOT slow zoom-in dengan background berubah pelan (beat 3-5) — satu shot.
 import React from 'react';
-import {STAND_Y, WeddingHall, WeddingPhoto} from '../components/Places';
-import {LitCharacter, LitFemale, Reflect} from '../components/Lit';
+import {STAND_Y} from '../components/Places';
+import {BirthdayRoom} from '../components/Places2';
+import {LitCharacter, Reflect} from '../components/Lit';
+import {Silhouette} from '../components/Silhouette';
 import {Spotlight} from '../components/Spot';
 import * as A from '../illustrations/part1';
-import {Phone18} from '../illustrations/shared';
-import {Appear, be, bf, ease, kp, ramp, sm} from '../kit';
+import * as U from '../illustrations/u25';
+import {be, bf, ease, kp, ramp, sm} from '../kit';
 import {lerp} from '../theme';
 import {ShotDef} from './types';
+import {setKeyPos} from '../components/UI';
+setKeyPos({1: [600, 400], 2: [560, 400], 3: [540, 400]});
 
-const GX = 440, BX = 660, SC = 1.1;
-const HEAD = {x: GX, y: STAND_Y - 579};   // pusat kepala pria
-const CRACK1 = {x: GX - 150 * 0.32, y: HEAD.y - 60 * 0.32 - 10};
-const POCKET = {x: GX - 58, y: STAND_Y - 322};
-const dimF = (f: number) => 0.08 + 0.55 * ease(f, bf(2, 16), bf(2, 46));
+const MX = 400, SC = 1.1;
+const HEAD = {x: MX, y: STAND_Y - 579};
+const CRACK1 = {x: MX - 150 * 0.26, y: HEAD.y - 60 * 0.26 - 72};
+const CAKE = {x: 740, y: STAND_Y - 250};                 // dasar kue di atas meja
+const CANDLE = {x: CAKE.x, y: CAKE.y - 330};
+const lightsAt = (f: number) => 1 - 0.85 * ease(f, bf(2, 6), bf(2, 10));
 
 export const shotHook: ShotDef = {
-  id: 'hook', from: 0, to: bf(6), enter: 'cut', trLen: 0, floorY: 1250, free: (f) => f >= bf(2),
+  id: 'hook', from: 0, to: bf(6), enter: 'cut', trLen: 0, floorY: STAND_Y, free: () => true,
   cam: (f) => {
-    // beat 1: quick push-in dari wide (frame 0 langsung bergerak); beat 2: snap zoom ke HP lalu balik
-    if (f < bf(3)) {
-      const base = {x: kp(f, [[0, 560], [30, 545]]), y: kp(f, [[0, 900], [30, 880]]), s: kp(f, [[0, 0.94], [30, 1.0], [bf(3), 1.04]])};
-      const snap = ease(f, bf(2, 3), bf(2, 10)) * (1 - ease(f, bf(2, 20), bf(2, 30)));
-      return {x: lerp(base.x, POCKET.x, snap), y: lerp(base.y, POCKET.y, snap), s: lerp(base.s, 2.3, snap)};
+    if (f < bf(2)) {               // beat 1: frame 0 bergerak, snap zoom-in ke lilin (6 frame) + overshoot
+      const z = sm(ramp(f, 4, 11));
+      const ov = Math.sin(ramp(f, 11, 19) * Math.PI) * 0.06;
+      return {x: lerp(560, CANDLE.x, z), y: lerp(860, CANDLE.y + 80, z), s: lerp(1.02, 1.9, z) + ov};
     }
-    // ONE SHOT: zoom konstan ease-in-out 1x -> 4,5x dari badan -> wajah -> kepala -> retakan 1, lalu tembus
-    const e = ease(f, bf(3), be(5) - 6);
-    const s = Math.exp(lerp(Math.log(1.04), Math.log(4.6), e)) * (1 + 3 * sm(ramp(f, be(5) - 10, be(5))));
-    const tgt = e < 0.75 ? {x: GX, y: lerp(880, HEAD.y, e / 0.75)} : {x: lerp(GX, CRACK1.x, (e - 0.75) / 0.25), y: lerp(HEAD.y, CRACK1.y, (e - 0.75) / 0.25)};
-    return {x: lerp(545, tgt.x, ease(f, bf(3), bf(3, 40))), y: tgt.y, s};
+    if (f < bf(3)) {               // beat 2: lilin ditiup -> gelap, whip cepat ke pria (6 frame)
+      const w = sm(ramp(f, bf(2, 8), bf(2, 14)));
+      return {x: lerp(CANDLE.x, MX + 60, w), y: lerp(CANDLE.y + 80, 880, w), s: lerp(1.9, 1.1, w)};
+    }
+    // ONE SHOT: zoom konstan ease-in-out 1,2x -> 3,5x ke kepala -> masuk otak -> tembus retakan 1
+    // zoom pelan & konstan: 1,1x (beat 3) -> 1,35x (beat 4, bayangan di dinding masih terlihat) -> 3,6x (beat 5) -> tembus retakan
+    const e = ease(f, bf(3), be(5) - 4);
+    const s = Math.exp(lerp(Math.log(1.1), Math.log(3.6), e * e)) * (1 + 3 * sm(ramp(f, be(5) - 8, be(5))));
+    const wallX = 560;
+    const tx = e < 0.6 ? lerp(MX + 60, wallX, Math.sin((e / 0.6) * Math.PI) * 0.6) + (e / 0.6) * 0 : e < 0.85 ? lerp(MX + 60, HEAD.x, (e - 0.6) / 0.25) : lerp(HEAD.x, CRACK1.x, (e - 0.85) / 0.15);
+    const ty = e < 0.6 ? lerp(880, 800, e / 0.6) : e < 0.85 ? lerp(800, HEAD.y, (e - 0.6) / 0.25) : lerp(HEAD.y, CRACK1.y, (e - 0.85) / 0.15);
+    return {x: tx, y: ty, s};
   },
-  bg: (f) => <WeddingHall lights={1 - ease(f, bf(2, 16), bf(2, 46)) * 0.85} />,
-  bgBlur: (f) => 1.5 + 2 * ease(f, bf(2, 16), bf(3, 20)),
-  dim: dimF,
+  bg: (f) => (
+    <BirthdayRoom lights={lightsAt(f)} decay={ease(f, bf(3, 10), bf(5, 10))} maroon={ease(f, bf(3, 20), bf(5, 20))} shadowWall={ease(f, bf(4) - 10, bf(4, 20))} />
+  ),
+  bgBlur: (f) => 1.5 + 1.5 * ease(f, bf(3), bf(4)),
+  dim: (f) => 0.1 + 0.4 * (1 - lightsAt(f)) * 0.8,
   fg: (f) => {
-    const brideOp = 1 - 0.85 * ease(f, bf(3), bf(3, 40)); // wanita memudar ke gelap di belakang
-    const xray = ease(f, bf(4), bf(4, 14));
+    const xray = ease(f, bf(3, 18), bf(3, 32));
     return (
       <g>
-        <Spotlight x={540} y={900} rx={lerp(900, 430, ease(f, bf(2, 16), bf(2, 46)))} ry={700} dark={dimF(f)} />
-        {/* foto pernikahan di easel samping pasangan, retak di "kecanduan" */}
-        <g transform="translate(880,860) scale(0.72)" opacity={brideOp}><WeddingPhoto crack={ease(f, bf(2, 22), bf(2, 34))} /></g>
+        <Spotlight x={kp(f, [[0, 600], [bf(2, 10), MX + 40]])} y={860} rx={lerp(900, 460, 1 - lightsAt(f))} ry={720} dark={0.25 + 0.45 * (1 - lightsAt(f))} />
+        {/* beat 4-5: 3 bayangan "versi lain" di dinding belakang (layar bayangan) */}
+        <g transform={`translate(720,${STAND_Y - 330})`}>
+          <U.ShadowSelves show={[ramp(f, bf(4, 2), bf(4, 12)), ramp(f, bf(4, 14), bf(4, 24)), ramp(f, bf(4, 26), bf(4, 36))]} dark={ease(f, bf(5), be(5))} t={f} />
+        </g>
+        {/* teman-teman tepuk tangan (hook), lalu memudar */}
+        <g opacity={lightsAt(f)}>
+          <Silhouette x={120} y={STAND_Y} scale={0.85} type="friend" pose="clap" rim="#FFC870" seed={2} />
+          <Silhouette x={980} y={STAND_Y} scale={0.8} type="woman" pose="clap" rim="#FFC870" seed={5} />
+        </g>
         <Reflect floor={STAND_Y} op={0.14}>
-          <g opacity={brideOp}>
-            <LitFemale id="h_b" x={BX} y={STAND_Y} scale={1.05} outfit="bride" haloColor="#FFC870" halo={brideOp}
-              pose="standing_smile" expression={[[-100, 'happy'], [bf(2, 10), 'suspicious']]} lookAt={f > bf(2, 10) ? {x: -0.8, y: 0} : {x: 0, y: 0}} />
-          </g>
-          <LitCharacter id="h_g" x={GX} y={STAND_Y} scale={SC} outfit="groom" haloColor="#FFC870" phoneColor="#FF5FA2"
-            pose={[[-100, 'groom_standing'], [bf(3), 'holding_phone_smug'], [bf(5), 'whistling_unaware']]}
-            expression={[[-100, 'happy'], [bf(2, 12), 'smug'], [bf(4), 'neutral'], [bf(5), 'oblivious']]} />
+          <LitCharacter id="h_m" x={MX} y={STAND_Y} scale={SC} haloColor={f < bf(2, 8) ? '#FFC870' : '#FF6A6A'}
+            pose={[[-100, 'blowing_candle'], [bf(2, 10), 'holding_phone_hidden'], [bf(3, 4), 'standing_relaxed']]}
+            expression={[[-100, 'excited'], [bf(2, 10), 'guilty'], [bf(3, 4), 'neutral'], [bf(3, 50), 'worried'], [bf(4), 'dazed'], [bf(5), 'oblivious']]} />
         </Reflect>
-        {/* beat 2: HP di saku jas nyala merah + 18+ */}
-        {f < bf(3, 4) && <g transform={`translate(${POCKET.x},${POCKET.y}) scale(0.9)`}><g opacity={ease(f, bf(2, 0), bf(2, 4))}><A.PocketPhone on={ease(f, bf(2, 2), bf(2, 10))} /></g></g>}
-        {/* beat 3: HP 18+ di tangan, kotak tisu, piala ironis */}
-        <Appear f={f} a={bf(3, 2)} b={be(5)} x={GX + 72} y={STAND_Y - 470} s={0.34}><Phone18 w={110} glow={1} /></Appear>
-        <Appear f={f} a={bf(3, 8)} b={be(4)} x={GX - 200} y={STAND_Y - 300}><A.TissueBox pull={ramp(f, bf(3, 14), bf(3, 34))} s={0.8} /></Appear>
-        <Appear f={f} a={bf(3, 24)} b={be(4)} x={GX + 210} y={STAND_Y - 380}><A.IronicTrophy s={0.75} /></Appear>
-        {/* beat 4-5: kepala jadi X-ray, 3 retakan bernomor nyala satu-satu, lalu melebar + tanda tanya */}
+        {/* kue + meja */}
+        <g opacity={1 - 0.75 * ease(f, bf(3), bf(3, 30))}>
+          <rect x={CAKE.x - 210} y={CAKE.y} width={420} height={STAND_Y - CAKE.y} rx={10} fill="#5A4636" />
+          <g transform={`translate(${CAKE.x},${CAKE.y})`}><U.BirthdayCake t={f} lit={1} blown={ease(f, bf(2, 4), bf(2, 30))} /></g>
+        </g>
+        <g transform={`translate(${CANDLE.x},${CANDLE.y})`}><U.Confetti k={f - 6} spread={600} /></g>
+        {/* beat 3-5: kepala jadi X-ray, 3 retakan bernomor nyala satu-satu, lalu melebar */}
         {xray > 0 && (
           <g opacity={xray}>
-            <ellipse cx={HEAD.x} cy={HEAD.y + 4} rx={96} ry={110} fill="#061A24" opacity={0.78} />
-            <g transform={`translate(${HEAD.x},${HEAD.y - 10})`}>
-              <A.XrayBrain s={0.32} cracks={[ramp(f, bf(4, 14), bf(4, 26)), ramp(f, bf(4, 28), bf(4, 40)), ramp(f, bf(4, 42), bf(4, 54))]} widen={ease(f, bf(5), be(5))} />
-              <g transform="scale(0.5)"><A.QuestionMarks on={ease(f, bf(5, 6), bf(5, 18))} t={f} /></g>
+            <path d={`M ${HEAD.x - 84} ${HEAD.y - 30} C ${HEAD.x - 84} ${HEAD.y - 110} ${HEAD.x - 44} ${HEAD.y - 130} ${HEAD.x} ${HEAD.y - 130} C ${HEAD.x + 44} ${HEAD.y - 130} ${HEAD.x + 84} ${HEAD.y - 110} ${HEAD.x + 84} ${HEAD.y - 30} Q ${HEAD.x} ${HEAD.y - 14} ${HEAD.x - 84} ${HEAD.y - 30} Z`} fill="#1A0408" opacity={0.82} />
+            <g transform={`translate(${HEAD.x},${HEAD.y - 72})`}>
+              <A.XrayBrain s={0.26} cracks={[ramp(f, bf(3, 34), bf(3, 46)), ramp(f, bf(3, 48), bf(3, 60)), ramp(f, bf(3, 62), bf(3, 74))]} widen={ease(f, bf(5), be(5))} />
             </g>
           </g>
         )}
@@ -71,10 +85,10 @@ export const shotHook: ShotDef = {
   },
   overlay: (f) => (
     <g>
-      <A.CameraFlash k={f - 4} />
-      <A.CameraFlash k={f - 22} />
-      {/* tembus ke retakan nomor 1: cahaya kuning memenuhi layar */}
-      <rect width={1080} height={1920} fill="#FFD23F" opacity={0.9 * sm(ramp(f, be(5) - 8, be(5)))} />
+      {/* kilat saat lilin ditiup -> gelap */}
+      <rect width={1080} height={1920} fill="#FFF4E0" opacity={0.85 * Math.max(0, 1 - Math.abs(f - bf(2, 7)) / 4)} />
+      {/* tembus retakan 1: cahaya merah memenuhi layar */}
+      <rect width={1080} height={1920} fill="#FF3B3B" opacity={0.85 * sm(ramp(f, be(5) - 8, be(5)))} />
     </g>
   ),
 };
