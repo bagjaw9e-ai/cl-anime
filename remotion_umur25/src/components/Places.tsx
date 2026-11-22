@@ -12,7 +12,7 @@ export const STAND_Y = 1250;
 const W = 1080, H = 1920;
 
 // lantai kayu/karpet + dinding gradasi
-const Room: React.FC<{wall: [string, string]; floor: [string, string]; boards?: boolean; boardColor?: string}> = ({wall, floor, boards = true, boardColor}) => {
+export const Room: React.FC<{wall: [string, string]; floor: [string, string]; boards?: boolean; boardColor?: string}> = ({wall, floor, boards = true, boardColor}) => {
   const id = useSid('rm');
   return (
     <g>

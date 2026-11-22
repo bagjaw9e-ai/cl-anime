@@ -1,15 +1,16 @@
-// 1 still per tempat (frame i = tempat ke-i) untuk cek kontras karakter vs background.
+// 1 still per tempat (frame i = tempat ke-i): cek kontras karakter vs background + ukuran ilustrasi medium.
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {BedroomNight, CoupleBedroom, DarkStage, Dim, LabDark, LivingDining, Office, STAND_Y, WeddingHall, WeddingPhoto} from './components/Places';
+import {AbsoluteFill} from 'remotion';
+import {useCurrentFrame} from 'remotion';
+import {DarkStage, Dim, STAND_Y} from './components/Places';
+import {BirthdayRoom, Cafe, CityStreet, FamilyDining} from './components/Places2';
 import {Spotlight} from './components/Spot';
-import {LitCharacter, LitFemale, Reflect, Halo} from './components/Lit';
+import {LitCharacter, Reflect} from './components/Lit';
+import {Silhouette} from './components/Silhouette';
 import {PhaseHeader} from './components/UI';
 import {Grain} from './components/Bg';
-import * as A from './illustrations/part1';
+import * as U from './illustrations/u25';
 import * as B from './illustrations/part2';
-import * as C from './illustrations/part3';
-import * as PR from './illustrations/promo';
 import {beatF} from './timeline';
 
 const Layer: React.FC<{blur?: number; children: React.ReactNode}> = ({blur = 0, children}) => (
@@ -17,67 +18,55 @@ const Layer: React.FC<{blur?: number; children: React.ReactNode}> = ({blur = 0, 
 );
 const Vig: React.FC = () => <AbsoluteFill style={{background: 'radial-gradient(ellipse 80% 62% at 50% 46%, rgba(0,0,0,0) 50%, rgba(2,3,6,0.7) 100%)'}} />;
 
-export const PLACES = ['pelaminan', 'kamar_pria', 'panggung_mid_cta', 'kantor', 'lab_riset', 'ruang_tamu_hangat', 'ruang_tamu_dingin', 'kamar_pasangan'];
-const PHASE_F = [beatF(1), beatF(9), beatF(18), beatF(25), beatF(33), beatF(42), beatF(44), beatF(50)];
+export const PLACES = ['kamar_ultah', 'kamar_oneshot_maroon', 'ruang_makan_efek1', 'panggung_mid_cta', 'jalan_halte_efek2', 'kafe_efek3', 'penutup'];
+const PH_F = [beatF(1, 14), beatF(4, 14), beatF(8, 14), beatF(23, 14), beatF(28, 14), beatF(43, 14), beatF(51, 14)];
 
 export const PlaceStills: React.FC = () => {
   const i = useCurrentFrame() % PLACES.length;
   const t = 40;
-  const bg = [
-    <WeddingHall lights={1} />, <BedroomNight />, <DarkStage />, <Office />, <LabDark />, <LivingDining cold={0} />, <LivingDining cold={0.9} photoTilt={-8} />, <CoupleBedroom />,
-  ][i];
-  const dim = [0.15, 0.3, 0, 0.3, 0.2, 0.2, 0.32, 0.25][i];
-  const spot: Array<[number, number, number, number]> = [[540, 900, 520, 0.55], [600, 880, 460, 0.65], [540, 800, 560, 0.4], [520, 880, 480, 0.6], [540, 760, 520, 0.6], [560, 900, 520, 0.5], [560, 900, 480, 0.7], [560, 960, 460, 0.7]];
+  const bg = [<BirthdayRoom lights={1} />, <BirthdayRoom lights={0.2} decay={1} maroon={1} shadowWall={1} />, <FamilyDining heat={0.45} />, <DarkStage />,
+    <CityStreet dusk={0.45} carX={-60} />, <Cafe />, <rect width={1080} height={1920} fill="#05060A" />][i];
+  const dim = [0.15, 0.3, 0.28, 0, 0.25, 0.25, 0][i];
+  const spot: Array<[number, number, number, number]> = [[540, 860, 560, 0.45], [540, 820, 480, 0.6], [540, 880, 540, 0.55], [540, 800, 560, 0.4], [520, 880, 560, 0.5], [540, 880, 540, 0.5], [540, 900, 500, 0.8]];
   const [sx, sy, sr, sd] = spot[i];
   const fg = [
-    // 0 pelaminan
     <g key="0">
-      <Reflect floor={STAND_Y} op={0.15}>
-        <LitCharacter id="g0" x={430} y={STAND_Y} scale={1.1} pose="groom_standing" expression="happy" outfit="groom" haloColor="#FFC870" />
-        <LitFemale id="b0" x={660} y={STAND_Y} scale={1.05} pose="standing_smile" expression="happy" outfit="bride" haloColor="#FFC870" />
-      </Reflect>
-      <g transform="translate(860,820) scale(0.8)"><WeddingPhoto /></g>
+      <Silhouette x={140} y={STAND_Y} scale={0.85} type="friend" pose="clap" t={t} rim="#FFC870" />
+      <Silhouette x={950} y={STAND_Y} scale={0.8} type="woman" pose="clap" seed={3} t={t} rim="#FFC870" />
+      <Reflect floor={STAND_Y} op={0.14}><LitCharacter id="m0" x={400} y={STAND_Y} scale={1.1} pose="blowing_candle" expression="excited" haloColor="#FFC870" /></Reflect>
+      <g transform={`translate(700,${STAND_Y - 270})`}><rect x={-200} y={0} width={400} height={270} rx={10} fill="#5A4636" /><U.BirthdayCake t={t} /></g>
+      <g transform="translate(700,700)"><U.Confetti k={16} /></g>
     </g>,
-    // 1 kamar pria
     <g key="1">
-      <Reflect floor={STAND_Y} op={0.15}>
-        <LitCharacter id="m1" x={560} y={STAND_Y} scale={1.1} pose="holding_phone" expression="hooked" phoneColor="#FF5FA2" haloColor="#FF8FC0" />
-      </Reflect>
-      <A.PinkFlood x1={630} y1={760} x2={560} y2={560} t={t} on={1} />
+      <g transform={`translate(700,${STAND_Y - 340})`}><U.ShadowSelves show={[1, 1, 0.8]} dark={0.5} t={t} /></g>
+      <Reflect floor={STAND_Y} op={0.14}><LitCharacter id="m1" x={380} y={STAND_Y} scale={1.1} expression="oblivious" haloColor="#FF6A6A" /></Reflect>
     </g>,
-    // 2 panggung mid-CTA
     <g key="2">
-      <g transform="translate(560,640)"><B.AmberBrain glow={1} t={t} s={0.95} /></g>
-      <Reflect floor={1152} op={0.2}><LitCharacter id="m2" x={300} y={1152} scale={0.85} expression="curious" lookAt={{x: 0.6, y: -1}} /></Reflect>
+      <Silhouette x={860} y={STAND_Y} scale={0.82} type="mother" pose="step_back" t={t} rim="#FFC870" />
+      <Silhouette x={980} y={STAND_Y} scale={0.62} type="child" pose="step_back" seed={4} t={t} rim="#FFC870" />
+      <Reflect floor={STAND_Y} op={0.12}><LitCharacter id="m2" x={430} y={STAND_Y} scale={1.1} pose="slamming_table" expression="angry" haloColor="#FF8A4A" /></Reflect>
+      <g transform="translate(400,1090)"><rect x={-260} y={0} width={560} height={22} rx={6} fill="#8A4A30" /><rect x={-240} y={22} width={520} height={140} fill="#5A2A18" /></g>
+      <g transform="translate(780,1088) scale(1.05)"><U.GlassCrack crack={1} /></g>
     </g>,
-    // 3 kantor
     <g key="3">
-      <Reflect floor={STAND_Y} op={0.12}><LitCharacter id="m3" x={540} y={STAND_Y} scale={1.1} pose="standing_relaxed" expression="irritated" haloColor="#FF9A3C" /></Reflect>
-      <g transform="translate(560,470)"><B.MatchFuse burn={0.4} t={t} /></g>
+      <g transform="translate(580,640)"><B.AmberBrain glow={1} t={t} s={1.05} /></g>
+      <Reflect floor={1152} op={0.2}><LitCharacter id="m3" x={260} y={1152} scale={0.9} expression="curious" lookAt={{x: 0.6, y: -1}} /></Reflect>
     </g>,
-    // 4 lab
-    <g key="4"><g transform="translate(540,780)"><C.JournalGlow on={1} mag={0.5} /></g></g>,
-    // 5 ruang tamu hangat
+    <g key="4">
+      <Silhouette x={820} y={STAND_Y - 40} scale={0.8} type="woman_hijab" pose="hug_bag" t={t} rim="#FFC870" />
+      <Reflect floor={STAND_Y} op={0.12}><LitCharacter id="m4" x={360} y={STAND_Y} scale={1.1} pose="walking_street" expression="daydreaming" haloColor="#FF8FC0" /></Reflect>
+      <g transform="translate(640,470)"><U.PinkCloud t={t} s={0.8} /></g>
+    </g>,
     <g key="5">
-      <Reflect floor={STAND_Y} op={0.12}>
-        <LitCharacter id="m5" x={400} y={STAND_Y} scale={1.1} pose="holding_phone" expression="hooked" phoneColor="#FF5FA2" />
-        <LitFemale id="f5" x={700} y={STAND_Y} scale={1.05} pose="bringing_tea" expression="hopeful" />
-      </Reflect>
+      <Silhouette x={850} y={STAND_Y} scale={0.85} type="man" pose="sit" t={t} rim="#BFD4FF" />
+      <Reflect floor={STAND_Y} op={0.12}><LitCharacter id="m5" x={380} y={STAND_Y} scale={1.1} pose="sitting_meeting" expression="lost" haloColor="#BFD4FF" /></Reflect>
+      <g transform="translate(600,1090)"><rect x={-360} y={0} width={720} height={22} rx={6} fill="#4A5462" /><rect x={-340} y={22} width={680} height={140} fill="#3A424E" />
+        <path d="M 120 -50 L 126 0 L 170 0 L 176 -50 Z" fill="#FBF7EE" /></g>
+      <g transform="translate(680,560)"><U.JammedGears t={t} jam={1} /></g>
     </g>,
-    // 6 ruang tamu dingin
     <g key="6">
-      <Reflect floor={STAND_Y} op={0.12}>
-        <LitFemale id="f6" x={680} y={STAND_Y} scale={1.05} pose="talking" expression="sad" haloColor="#9FC8FF" />
-        <LitCharacter id="m6" x={420} y={STAND_Y} scale={1.1} pose="stiff_while_hugged" expression="cold" phoneColor="#FF5FA2" haloColor="#BFD4FF" />
-      </Reflect>
-      <g transform="translate(420,905)"><C.IceChest ice={0.8} /></g>
-    </g>,
-    // 7 kamar pasangan (simbolik)
-    <g key="7">
-      <path d="M 700 1110 L 1000 1110 L 1040 300 L 820 300 Z" fill="#05060A" opacity={0.0} />
-      <Halo x={850} y={700} rx={300} ry={420} color="#FF3B3B" op={0.22} />
-      <g transform="translate(860,1110) scale(1.9,2.1)" opacity={0.92}><path d="M -40 0 L -46 -110 Q -50 -170 0 -176 Q 50 -170 46 -110 L 40 0 Z M -22 -196 a 26 26 0 1 0 44 0 a 26 26 0 1 0 -44 0" fill="#05060A" /></g>
-      <LitFemale id="f7" x={560} y={1060} scale={1.0} pose="sitting_bed_edge_hugging_knees" expression="uncomfortable" haloColor="#9FC8FF" />
+      <g transform="translate(540,820)"><U.ClosingBrains k={0.35} off={0} /></g>
+      <Silhouette x={540} y={1250} scale={0.5} type="man" pose="look" t={t} rim="#FF6A6A" />
     </g>,
   ][i];
   return (
@@ -86,7 +75,7 @@ export const PlaceStills: React.FC = () => {
       <Layer><Spotlight x={sx} y={sy} rx={sr} ry={sr * 1.35} dark={sd} />{fg}</Layer>
       <Vig />
       <Grain opacity={0.04} />
-      <PhaseHeader frame={PHASE_F[i] + 14} />
+      {i < 6 && <PhaseHeader frame={PH_F[i]} />}
     </AbsoluteFill>
   );
 };

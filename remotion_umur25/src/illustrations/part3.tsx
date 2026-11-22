@@ -10,14 +10,14 @@ import {PINK, BlurSilhouette, Phone18, backOut, ramp, smooth} from './shared';
 
 /* ---------- RISET ---------- */
 // lembar jurnal menyala + kaca pembesar menyapu: mag 0..1
-export const JournalGlow: React.FC<{on: number; mag: number}> = ({on, mag}) => (
+export const JournalGlow: React.FC<{on: number; mag: number; title?: string; year?: string}> = ({on, mag, title = 'JAMA Psychiatry', year = '2014'}) => (
   <g>
     <Halo rx={330} ry={360} color="#FFF4E0" op={0.45 * on} />
     <g transform="rotate(-4)">
       <rect x={-210} y={-280} width={420} height={560} rx={8} fill={mix('#5A6170', '#FBF7EE', on)} />
       <rect x={-210} y={-280} width={420} height={90} fill={mix('#3A404C', '#C0262E', on)} />
-      <text x={0} y={-238} textAnchor="middle" fontFamily="Poppins" fontWeight={800} fontSize={34} fill="#FFFFFF">JAMA Psychiatry</text>
-      <text x={0} y={-204} textAnchor="middle" fontFamily="Poppins" fontWeight={700} fontSize={22} fill="#FFFFFF" opacity={0.9}>2014</text>
+      <text x={0} y={-238} textAnchor="middle" fontFamily="Poppins" fontWeight={800} fontSize={34} fill="#FFFFFF">{title}</text>
+      <text x={0} y={-204} textAnchor="middle" fontFamily="Poppins" fontWeight={700} fontSize={22} fill="#FFFFFF" opacity={0.9}>{year}</text>
       {Array.from({length: 9}).map((_, i) => <rect key={i} x={-170} y={-150 + i * 40} width={i === 3 ? 200 : 340 - (i % 3) * 40} height={12} rx={6} fill="#8A8F9A" opacity={0.55} />)}
       <rect x={-170} y={-150 + 3 * 40 - 6} width={300} height={24} fill="#FFD166" opacity={0.45 * on} />
     </g>

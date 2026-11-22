@@ -41,7 +41,7 @@ export const PhaseHeader: React.FC<{frame?: number; crackAll?: number}> = ({fram
           <g key={i} transform={`translate(${468 + i * 72},246) scale(${pop})`}>
             {on > 0 && <circle r={34} fill={c} opacity={0.3 + 0.1 * Math.sin(f * 0.15 + i)} />}
             <circle r={25} fill={on ? c : '#2A2834'} stroke={on ? '#FFFFFF' : '#5A6170'} strokeWidth={3} strokeDasharray={on ? undefined : '5 5'} />
-            <g transform="scale(0.8)"><BrainIcon c={c} on={on} cracked={crackAll} /></g>
+            <g transform="scale(0.8)"><BrainIcon c={c} on={on} cracked={Math.max(on, crackAll)} /></g>
           </g>
         );
       })}
