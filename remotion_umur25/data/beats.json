@@ -1,0 +1,410 @@
+[
+{
+"id": 1,
+"sec": "HOOK",
+"w0": 0,
+"start": 0.0,
+"w1": 3,
+"text": "Umur 25 tahun"
+},
+{
+"id": 2,
+"sec": "HOOK",
+"w0": 3,
+"start": 1.12,
+"w1": 7,
+"text": "tapi masih kecanduan PMO,"
+},
+{
+"id": 3,
+"sec": "ONESHOT",
+"w0": 7,
+"start": 2.64,
+"w1": 14,
+"text": "setidaknya bakal muncul tiga efek kerusakan otak,"
+},
+{
+"id": 4,
+"sec": "ONESHOT",
+"w0": 14,
+"start": 5.34,
+"w1": 19,
+"text": "yang ngerubah sifat dalam keseharian"
+},
+{
+"id": 5,
+"sec": "ONESHOT",
+"w0": 19,
+"start": 7.22,
+"w1": 22,
+"text": "tanpa lo sadari."
+},
+{
+"id": 6,
+"sec": "E1",
+"w0": 22,
+"start": 8.16,
+"w1": 25,
+"text": "Efek yang pertama,"
+},
+{
+"id": 7,
+"sec": "E1",
+"w0": 25,
+"start": 9.26,
+"w1": 29,
+"text": "lo jadi gampang marah,"
+},
+{
+"id": 8,
+"sec": "E1",
+"w0": 29,
+"start": 10.38,
+"w1": 33,
+"text": "dan lama-lama jadi abusive,"
+},
+{
+"id": 9,
+"sec": "E1",
+"w0": 33,
+"start": 11.9,
+"w1": 38,
+"text": "atau perilaku lo jadi kasar."
+},
+{
+"id": 10,
+"sec": "E1",
+"w0": 38,
+"start": 13.58,
+"w1": 42,
+"text": "Tiap lo nonton bokep,"
+},
+{
+"id": 11,
+"sec": "E1",
+"w0": 42,
+"start": 15.06,
+"w1": 46,
+"text": "otak lo kebanjiran dopamin."
+},
+{
+"id": 12,
+"sec": "E1",
+"w0": 46,
+"start": 16.58,
+"w1": 52,
+"text": "Jadi pas gak dapet asupan PMO,"
+},
+{
+"id": 13,
+"sec": "E1",
+"w0": 52,
+"start": 18.84,
+"w1": 56,
+"text": "mood lo langsung anjlok,"
+},
+{
+"id": 14,
+"sec": "E1",
+"w0": 56,
+"start": 19.96,
+"w1": 62,
+"text": "karena otak bagian amigdala udah nagih"
+},
+{
+"id": 15,
+"sec": "E1",
+"w0": 62,
+"start": 22.2,
+"w1": 68,
+"text": "dan terbiasa dapet kesenangan dari PMO."
+},
+{
+"id": 16,
+"sec": "E1",
+"w0": 68,
+"start": 24.56,
+"w1": 76,
+"text": "Hal kecil aja udah cukup bikin lo meledak."
+},
+{
+"id": 17,
+"sec": "E1",
+"w0": 76,
+"start": 27.12,
+"w1": 88,
+"text": "Masalahnya, hal ini diperparah dengan tontonan dewasa yang makin lama makin ekstrem."
+},
+{
+"id": 18,
+"sec": "E1",
+"w0": 88,
+"start": 32.5,
+"w1": 96,
+"text": "Karena dengan kategori biasa, otak lo udah kebal,"
+},
+{
+"id": 19,
+"sec": "E1",
+"w0": 96,
+"start": 35.56,
+"w1": 105,
+"text": "sampai otak mulai nganggep perlakuan kasar itu hal biasa."
+},
+{
+"id": 20,
+"sec": "E1",
+"w0": 105,
+"start": 38.74,
+"w1": 110,
+"text": "Kasar dalam ucapan maupun tindakan,"
+},
+{
+"id": 21,
+"sec": "E1",
+"w0": 110,
+"start": 40.96,
+"w1": 116,
+"text": "baik itu ke keluarga dan pasangan,"
+},
+{
+"id": 22,
+"sec": "E1",
+"w0": 116,
+"start": 42.68,
+"w1": 121,
+"text": "sudah menginfeksi tanpa lo sadari."
+},
+{
+"id": 23,
+"sec": "MID",
+"w0": 121,
+"start": 44.98,
+"w1": 125,
+"text": "Walaupun ada konsep neuroplasticity"
+},
+{
+"id": 24,
+"sec": "MID",
+"w0": 125,
+"start": 46.54,
+"w1": 129,
+"text": "lewat link di bio"
+},
+{
+"id": 25,
+"sec": "MID",
+"w0": 129,
+"start": 47.38,
+"w1": 140,
+"text": "yang terbukti efektif ngebuat otak bagian amigdala pulih akibat adiksi PMO."
+},
+{
+"id": 26,
+"sec": "MID",
+"w0": 140,
+"start": 51.74,
+"w1": 149,
+"text": "Tapi lo harus tau efek kedua yang lebih mengerikan."
+},
+{
+"id": 27,
+"sec": "E2",
+"w0": 149,
+"start": 54.84,
+"w1": 152,
+"text": "Efek nomor dua,"
+},
+{
+"id": 28,
+"sec": "E2",
+"w0": 152,
+"start": 55.96,
+"w1": 157,
+"text": "kepala lo jadi penuh hayalan."
+},
+{
+"id": 29,
+"sec": "E2",
+"w0": 157,
+"start": 57.66,
+"w1": 160,
+"text": "Tiap liat cewek,"
+},
+{
+"id": 30,
+"sec": "E2",
+"w0": 160,
+"start": 59.0,
+"w1": 168,
+"text": "yang muncul malah bayangan jorok yang gak karuan."
+},
+{
+"id": 31,
+"sec": "E2",
+"w0": 168,
+"start": 61.34,
+"w1": 169,
+"text": "Kenapa?"
+},
+{
+"id": 32,
+"sec": "E2",
+"w0": 169,
+"start": 62.04,
+"w1": 175,
+"text": "Karena otak tengah lo terus dikuatkan."
+},
+{
+"id": 33,
+"sec": "E2",
+"w0": 175,
+"start": 64.24,
+"w1": 179,
+"text": "Padahal bagian ini primitif,"
+},
+{
+"id": 34,
+"sec": "E2",
+"w0": 179,
+"start": 65.98,
+"w1": 184,
+"text": "urusannya cuma makan dan keturunan."
+},
+{
+"id": 35,
+"sec": "E2",
+"w0": 184,
+"start": 68.06,
+"w1": 191,
+"text": "Makin kuat otak tengah, makin lemah PFC,"
+},
+{
+"id": 36,
+"sec": "E2",
+"w0": 191,
+"start": 70.68,
+"w1": 198,
+"text": "otak logika yang jadi rem dan pertimbangan."
+},
+{
+"id": 37,
+"sec": "E2",
+"w0": 198,
+"start": 73.04,
+"w1": 204,
+"text": "Tanpa rem, lo susah mikir jernih"
+},
+{
+"id": 38,
+"sec": "E2",
+"w0": 204,
+"start": 75.02,
+"w1": 208,
+"text": "dan gampang kebawa dorongan."
+},
+{
+"id": 39,
+"sec": "E2",
+"w0": 208,
+"start": 76.62,
+"w1": 216,
+"text": "Makanya gak jarang, ini bisa berujung sampe pelecehan."
+},
+{
+"id": 40,
+"sec": "E2",
+"w0": 216,
+"start": 79.74,
+"w1": 220,
+"text": "Ini bukan sekedar ancaman,"
+},
+{
+"id": 41,
+"sec": "E2",
+"w0": 220,
+"start": 81.22,
+"w1": 229,
+"text": "tapi tertulis di tahun 2014 dalam jurnal PLOS ONE."
+},
+{
+"id": 42,
+"sec": "E3",
+"w0": 229,
+"start": 84.44,
+"w1": 232,
+"text": "Efek yang terakhir,"
+},
+{
+"id": 43,
+"sec": "E3",
+"w0": 232,
+"start": 85.52,
+"w1": 238,
+"text": "cara berpikir lo jadi ikut terganggu."
+},
+{
+"id": 44,
+"sec": "E3",
+"w0": 238,
+"start": 87.74,
+"w1": 246,
+"text": "Otak yang terus dibanjiri dopamin lama-lama jadi lelah"
+},
+{
+"id": 45,
+"sec": "E3",
+"w0": 246,
+"start": 90.74,
+"w1": 249,
+"text": "dan susah fokus."
+},
+{
+"id": 46,
+"sec": "E3",
+"w0": 249,
+"start": 91.9,
+"w1": 254,
+"text": "Pikiran yang gampang buyar ini"
+},
+{
+"id": 47,
+"sec": "E3",
+"w0": 254,
+"start": 93.18,
+"w1": 261,
+"text": "bikin lo sering bingung harus ngomong apa."
+},
+{
+"id": 48,
+"sec": "E3",
+"w0": 261,
+"start": 95.22,
+"w1": 267,
+"text": "Ditambah rasa bersalah tiap habis kambuh,"
+},
+{
+"id": 49,
+"sec": "E3",
+"w0": 267,
+"start": 97.46,
+"w1": 272,
+"text": "kepercayaan diri lo makin terkikis."
+},
+{
+"id": 50,
+"sec": "E3",
+"w0": 272,
+"start": 99.54,
+"w1": 279,
+"text": "Makanya, pas ngobrol, tatapan lo terasa kosong."
+},
+{
+"id": 51,
+"sec": "E3",
+"w0": 279,
+"start": 102.44,
+"w1": 289,
+"text": "Bahkan buat natap mata lawan bicara aja lo gak berani."
+}
+]
