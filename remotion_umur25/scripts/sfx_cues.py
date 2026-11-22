@@ -97,8 +97,8 @@ with open(os.path.join(ROOT, 'preview/sfx_map.txt'), 'w') as o:
         o.write(f"{c['frame']:5d} | {c['frame']/30:7.2f}s | {c['cls']:5s} | {c['file'] + '.wav':26s} | {'OK' if c['file'] in have else 'MISSING':7s} | {c['note']}\n")
 miss = sorted(MISSING_DESC)
 with open(os.path.join(ROOT, 'preview/sfx_missing.txt'), 'w') as o:
-    o.write('# SFX yang belum ada filenya di public/sfx (perlu file foley dari lo, atau gua sintesis kalau lo izinkan)\n# file | bunyi | frame | status | fallback file lama\n')
+    o.write('# SFX yang awalnya belum ada filenya di public/sfx (20 bunyi).\n# Status: user pilih opsi 2 -> disintesis natural dengan scripts/make_foley_umur25.py (tanpa beep/laser/zap).\n# file | bunyi | frame | status | fallback file lama\n')
     for n in miss:
         fr = ', '.join(str(c['frame']) for c in cues if c['file'] == n)
-        o.write(f"{n + '.wav':18s} | {MISSING_DESC[n]} | frame {fr} | {'ADA' if n in have else 'MISSING'} | {FALLBACK[n]}\n")
+        o.write(f"{n + '.wav':18s} | {MISSING_DESC[n]} | frame {fr} | {'SINTESIS (ada)' if n in have else 'MISSING'} | {FALLBACK[n]}\n")
 print(len(cues), 'cue,', sum(1 for c in cues if c['file'] not in have), 'cue file belum ada;', sorted({c['file'] for c in cues if c['file'] not in have}))

@@ -1,22 +1,23 @@
-# SFX yang belum ada filenya di public/sfx (perlu file foley dari lo, atau gua sintesis kalau lo izinkan)
+# SFX yang awalnya belum ada filenya di public/sfx (20 bunyi).
+# Status: user pilih opsi 2 -> disintesis natural dengan scripts/make_foley_umur25.py (tanpa beep/laser/zap).
 # file | bunyi | frame | status | fallback file lama
-bus_brake.wav      | rem bus mendadak (desis angin + decit) | frame 2307 | MISSING | brake_snap (logam, kurang cocok)
-bus_pass.wav       | bus lewat (mesin berat + angin) | frame 1742 | MISSING | engine_idle_soft
-candle_blow.wav    | tiupan napas mematikan lilin (fuh) | frame 38 | MISSING | breath? (heavy_breath)
-car_pass.wav       | mobil lewat (whoosh ban + mesin) | frame 1655 | MISSING | whoosh_air
-cartoon_blast.wav  | ledakan kartun teredam (poof + debu, bukan bom realistis) | frame 775 | MISSING | thud
-chair_scrape.wav   | kursi kayu bergeser di lantai | frame 369, 1176, 3077 | MISSING | wheel_creak
-fuse_hiss.wav      | sumbu terbakar mendesis | frame 294 | MISSING | steam_hiss
-glass_fog.wav      | napas di kaca dingin (hah) + embun | frame 2195 | MISSING | heavy_breath
-heels_steps.wav    | langkah sepatu heels di trotoar | frame 1734 | MISSING | footsteps_short
-ink_spread.wav     | tinta basah menyebar/merembes | frame 1284 | MISSING | water_bubbles
-knock_tap.wav      | ketukan kayu dua kali | frame 1840 | MISSING | soft_hit
-munch.wav          | kunyah lucu (nyam-nyam, bukan vokal) | frame 696, 1983 | MISSING | -
-paper_crumple.wav  | kertas diremas | frame 1774 | MISSING | paper_rustle
-paper_tear.wav     | kertas tagihan disobek dari buku | frame 613 | MISSING | tape_pull
-party_popper.wav   | party popper meletus + kertas confetti | frame 6 | MISSING | -
-room_tone.wav      | dengung ruangan pelan (AC/kafe sepi) | frame 2990 | MISSING | neon_hum
-seesaw_creak.wav   | kayu jungkat-jungkit berderit | frame 2062 | MISSING | chest_hinge
-shield_clang.wav   | perisai logam berdentang | frame 1029 | MISSING | rusty_clank
-spoon_clink.wav    | sendok logam berdenting | frame 690 | MISSING | glass_clink
-water_rush.wav     | arus air deras | frame 2253 | MISSING | water_flow
+bus_brake.wav      | rem bus mendadak (desis angin + decit) | frame 2307 | SINTESIS (ada) | brake_snap (logam, kurang cocok)
+bus_pass.wav       | bus lewat (mesin berat + angin) | frame 1742 | SINTESIS (ada) | engine_idle_soft
+candle_blow.wav    | tiupan napas mematikan lilin (fuh) | frame 38 | SINTESIS (ada) | breath? (heavy_breath)
+car_pass.wav       | mobil lewat (whoosh ban + mesin) | frame 1655 | SINTESIS (ada) | whoosh_air
+cartoon_blast.wav  | ledakan kartun teredam (poof + debu, bukan bom realistis) | frame 775 | SINTESIS (ada) | thud
+chair_scrape.wav   | kursi kayu bergeser di lantai | frame 369, 1176, 3077 | SINTESIS (ada) | wheel_creak
+fuse_hiss.wav      | sumbu terbakar mendesis | frame 294 | SINTESIS (ada) | steam_hiss
+glass_fog.wav      | napas di kaca dingin (hah) + embun | frame 2195 | SINTESIS (ada) | heavy_breath
+heels_steps.wav    | langkah sepatu heels di trotoar | frame 1734 | SINTESIS (ada) | footsteps_short
+ink_spread.wav     | tinta basah menyebar/merembes | frame 1284 | SINTESIS (ada) | water_bubbles
+knock_tap.wav      | ketukan kayu dua kali | frame 1840 | SINTESIS (ada) | soft_hit
+munch.wav          | kunyah lucu (nyam-nyam, bukan vokal) | frame 696, 1983 | SINTESIS (ada) | -
+paper_crumple.wav  | kertas diremas | frame 1774 | SINTESIS (ada) | paper_rustle
+paper_tear.wav     | kertas tagihan disobek dari buku | frame 613 | SINTESIS (ada) | tape_pull
+party_popper.wav   | party popper meletus + kertas confetti | frame 6 | SINTESIS (ada) | -
+room_tone.wav      | dengung ruangan pelan (AC/kafe sepi) | frame 2990 | SINTESIS (ada) | neon_hum
+seesaw_creak.wav   | kayu jungkat-jungkit berderit | frame 2062 | SINTESIS (ada) | chest_hinge
+shield_clang.wav   | perisai logam berdentang | frame 1029 | SINTESIS (ada) | rusty_clank
+spoon_clink.wav    | sendok logam berdenting | frame 690 | SINTESIS (ada) | glass_clink
+water_rush.wav     | arus air deras | frame 2253 | SINTESIS (ada) | water_flow

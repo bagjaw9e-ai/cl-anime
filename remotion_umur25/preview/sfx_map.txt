@@ -1,97 +1,99 @@
-# SFX map (draf) | frame | detik | beat/jenis | file | status | catatan
-# jenis: anim = animasi/ilustrasi/gerakan karakter 20% VO, trans = transisi/camera move 10% VO
-    2 |    0.07s | anim  | match_strike.wav           | OK      | B1 korek menyalakan lilin 25
-    4 |    0.13s | trans | whoosh_fast.wav            | OK      | B1 snap zoom-in ke lilin
-    6 |    0.20s | anim  | party_popper.wav           | MISSING | B1 party popper + confetti meledak
-   38 |    1.27s | anim  | candle_blow.wav            | MISSING | B2 lilin ditiup -> gelap
-   42 |    1.40s | trans | whoosh_fast.wav            | OK      | B2 whip cepat + flash ke pria
-   48 |    1.60s | anim  | phone_notification_soft.wav | OK      | B2 notifikasi HP di balik punggung
-   99 |    3.30s | anim  | deflate.wav                | OK      | B3 balon kempes pelan (dekorasi layu)
-  113 |    3.77s | anim  | crack_soft.wav             | OK      | B3 retakan 1
-  127 |    4.23s | anim  | crack_soft.wav             | OK      | B3 retakan 2
-  141 |    4.70s | anim  | crack_soft.wav             | OK      | B3 retakan 3
-  160 |    5.33s | anim  | curtain_open.wav           | OK      | B4 kain/tirai bergeser, dinding jadi layar bayangan
-  190 |    6.33s | anim  | heavy_breath.wav           | OK      | B4 napas
-  219 |    7.30s | anim  | crack_creep.wav            | OK      | B5 retakan merayap
-  223 |    7.43s | anim  | heartbeat.wav              | OK      | B5 detak jantung pelan
-  239 |    7.97s | trans | light_sweep_air.wav        | OK      | tembus retakan 1 -> kilat merah ke Efek 1
-  253 |    8.43s | anim  | stamp_thud.wav             | OK      | B6 label chip EFEK 1 (stempel)
-  282 |    9.40s | anim  | match_strike.wav           | OK      | B7 korek di sumbu
-  294 |    9.80s | anim  | fuse_hiss.wav              | MISSING | B7 desis sumbu terbakar
-  317 |   10.57s | anim  | crack_soft.wav             | OK      | B8 gelas retak
-  365 |   12.17s | anim  | desk_slam.wav              | OK      | B9 meja digebrak
-  369 |   12.30s | anim  | chair_scrape.wav           | MISSING | B9 kursi bergeser (keluarga mundur)
-  413 |   13.77s | anim  | screen_tap.wav             | OK      | B10 tap layar HP
-  456 |   15.20s | anim  | water_flow.wav             | OK      | B11 air bah partikel pink
-  511 |   17.03s | anim  | power_down.wav             | OK      | B12 HP mati
-  569 |   18.97s | anim  | fall_whoosh.wav            | OK      | B13 mood jatuh bebas
-  585 |   19.50s | anim  | thud.wav                   | OK      | B13 dentum
-  613 |   20.43s | anim  | paper_tear.wav             | MISSING | B14 kertas tagihan disobek dari buku
-  690 |   23.00s | anim  | spoon_clink.wav            | MISSING | B15 sendok
-  696 |   23.20s | anim  | munch.wav                  | MISSING | B15 kunyah lucu
-  745 |   24.83s | anim  | water_slosh.wav            | OK      | B16 air tumpah
-  775 |   25.83s | anim  | cartoon_blast.wav          | MISSING | B16 kepala meledak (bom kartun teredam)
-  820 |   27.33s | trans | whoosh_up.wav              | OK      | B17 tilt naik ngikutin tangga
-  824 |   27.47s | anim  | footsteps_walk.wav         | OK      | B17 langkah di tangga
-  854 |   28.47s | anim  | gauge_rise.wav             | OK      | B17 jarum gauge ke merah
-  987 |   32.90s | anim  | click_sharp.wav            | OK      | B18 folder diklik
- 1003 |   33.43s | anim  | click_sharp.wav            | OK      | B18 folder diklik
- 1019 |   33.97s | anim  | click_sharp.wav            | OK      | B18 folder diklik
- 1029 |   34.30s | anim  | shield_clang.wav           | MISSING | B18 dentang perisai
- 1093 |   36.43s | anim  | stamp_thud.wav             | OK      | B19 stempel NORMAL
- 1176 |   39.20s | anim  | chair_scrape.wav           | MISSING | B20 kursi terbalik
- 1186 |   39.53s | anim  | plate_break.wav            | OK      | B20 piring pecah
- 1233 |   41.10s | anim  | footsteps_short.wav        | OK      | B21 langkah menjauh
- 1243 |   41.43s | anim  | frame_fall.wav             | OK      | B21 bingkai miring (gesek paku)
- 1284 |   42.80s | anim  | ink_spread.wav             | MISSING | B22 tinta/noda merah menyebar
- 1290 |   43.00s | anim  | heartbeat.wav              | OK      | B22 detak jantung
- 1343 |   44.77s | trans | light_switch.wav           | OK      | fade lewat gelap: lampu mati lalu objek nyala
- 1355 |   45.17s | anim  | chime_soft.wav             | OK      | B23 ting lembut otak amber
- 1359 |   45.30s | anim  | warm_swell.wav             | OK      | B23 swell hangat
- 1404 |   46.80s | anim  | click_sharp.wav            | OK      | B24 klik link
- 1471 |   49.03s | anim  | tape_pull.wav              | OK      | B25 perban dilepas
- 1501 |   50.03s | anim  | sigh.wav                   | OK      | B25 napas lega
- 1554 |   51.80s | anim  | light_switch.wav           | OK      | B26 saklar mati
- 1560 |   52.00s | anim  | bass_hit.wav               | OK      | B26 dentum rendah
- 1640 |   54.67s | trans | whoosh_fast.wav            | OK      | whip slide ke jalan kota
- 1651 |   55.03s | anim  | stamp_thud.wav             | OK      | B27 label chip EFEK 2
- 1655 |   55.17s | anim  | car_pass.wav               | MISSING | B27 mobil lewat
- 1683 |   56.10s | anim  | bubble_pop.wav             | OK      | B28 awan hayalan pop
- 1693 |   56.43s | anim  | pop_soft.wav               | OK      | B28 gelembung pop
- 1734 |   57.80s | anim  | heels_steps.wav            | MISSING | B29 langkah heels
- 1742 |   58.07s | anim  | bus_pass.wav               | MISSING | B29 bus lewat
- 1774 |   59.13s | anim  | paper_crumple.wav          | MISSING | B30 kertas diremas
- 1780 |   59.33s | anim  | steam_hiss.wav             | OK      | B30 desis sensor
- 1840 |   61.33s | anim  | knock_tap.wav              | MISSING | B31 ketukan (Kenapa?)
- 1871 |   62.37s | anim  | dumbbell_set_down.wav      | OK      | B32 barbel diangkat/diletakkan
- 1879 |   62.63s | anim  | workout_breath.wav         | OK      | B32 napas berat angkat beban
- 1931 |   64.37s | anim  | stone_grind.wav            | OK      | B33 batu bergeser
- 1947 |   64.90s | anim  | sand_flow.wav              | OK      | B33 debu
- 1983 |   66.10s | anim  | munch.wav                  | MISSING | B34 kunyah
- 2005 |   66.83s | anim  | bird_chirp.wav             | OK      | B34 kicau burung (sarang)
- 2062 |   68.73s | anim  | seesaw_creak.wav           | MISSING | B35 kayu jungkat-jungkit berderit
- 2100 |   70.00s | anim  | thud.wav                   | OK      | B35 thud otak tengah turun
- 2140 |   71.33s | anim  | scale_clank.wav            | OK      | B36 timbangan berdenting
- 2195 |   73.17s | anim  | glass_fog.wav              | MISSING | B37 embun/napas di kaca
- 2253 |   75.10s | anim  | water_rush.wav             | MISSING | B38 arus air deras
- 2307 |   76.90s | anim  | bus_brake.wav              | MISSING | B39 rem bus mendadak
- 2319 |   77.30s | anim  | heartbeat.wav              | OK      | B39 detak jantung
- 2402 |   80.07s | anim  | paper_page_turn.wav        | OK      | B40 kertas dibalik
- 2441 |   81.37s | anim  | camera_shutter.wav         | OK      | B41 shutter kamera jurnal
- 2451 |   81.70s | anim  | stamp_thud.wav             | OK      | B41 stempel PLOS ONE 2014
- 2527 |   84.23s | trans | light_sweep_air.wav        | OK      | light sweep ke kafe
- 2539 |   84.63s | anim  | stamp_thud.wav             | OK      | B42 label chip EFEK 3
- 2547 |   84.90s | anim  | cup_tray.wav               | OK      | B42 cangkir kopi
- 2582 |   86.07s | anim  | gear_jam.wav               | OK      | B43 gear macet berderit
- 2642 |   88.07s | anim  | sigh.wav                   | OK      | B44 helaan napas panjang
- 2726 |   90.87s | anim  | knob_turn.wav              | OK      | B45 putaran lensa
- 2759 |   91.97s | anim  | paper_flap.wav             | OK      | B46 kertas beterbangan
- 2799 |   93.30s | anim  | cup_tray.wav               | OK      | B47 cangkir diletakkan (lalu hening canggung)
- 2887 |   96.23s | anim  | heavy_sack_thud.wav        | OK      | B48 beban jatuh di pundak
- 2944 |   98.13s | anim  | sand_flow.wav              | OK      | B49 pasir berjatuhan
- 2988 |   99.60s | trans | whoosh_soft.wav            | OK      | B50 extreme push-in ke mata
- 2990 |   99.67s | anim  | room_tone.wav              | MISSING | B50 dengung ruangan pelan
- 3077 |  102.57s | anim  | chair_scrape.wav           | MISSING | B51 kursi bergeser pelan
- 3103 |  103.43s | anim  | heavy_breath.wav           | OK      | B51 napas
- 3171 |  105.70s | anim  | glass_shatter.wav          | OK      | PENUTUP kaca pecah halus (3 otak retak pecah)
- 3187 |  106.23s | anim  | light_switch.wav           | OK      | PENUTUP saklar lampu mati
+# SFX MAP video umur25 | VO -14.9 LUFS (100%) | BGM -39.9 dB vs VO (≈1.0%), fade in 1 dtk / fade out di penutup 1 dtk
+# master -12.9 LUFS, true-peak -1.86 dBFS (limit -1) | SFX terkeras saat narasi -14.8 dB = 18% VO (batas 20%) | maks barengan 3 (batas 3)
+# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.5 dB ≈ 19-20% VO | trans (transisi/camera move) -20 dB = 10% VO
+# frame | detik | beat | jenis | SFX | durasi main
+    2 |    0.07s | B1       | animasi 20%  | match_strike.wav           | 0.71s | korek menyalakan lilin 25
+    4 |    0.13s | B1       | transisi 10% | whoosh_fast.wav            | 0.40s | snap zoom-in ke lilin
+    6 |    0.20s | B1       | animasi 20%  | party_popper.wav           | 1.34s | party popper + confetti meledak
+   38 |    1.27s | B2       | animasi 20%  | candle_blow.wav            | 0.50s | lilin ditiup -> gelap
+   42 |    1.40s | B2       | transisi 10% | whoosh_fast.wav            | 0.37s | whip cepat + flash ke pria
+   48 |    1.60s | B2       | animasi 20%  | phone_notification_soft.wav | 0.66s | notifikasi HP di balik punggung
+   99 |    3.30s | B3       | animasi 20%  | deflate.wav                | 1.20s | balon kempes pelan (dekorasi layu)
+  113 |    3.77s | B3       | animasi 20%  | crack_soft.wav             | 0.30s | retakan 1
+  127 |    4.23s | B3       | animasi 20%  | crack_soft.wav             | 0.28s | retakan 2
+  141 |    4.70s | B3       | animasi 20%  | crack_soft.wav             | 0.32s | retakan 3
+  160 |    5.33s | B4       | animasi 20%  | curtain_open.wav           | 1.19s | kain/tirai bergeser, dinding jadi layar bayangan
+  190 |    6.33s | B4       | animasi 20%  | heavy_breath.wav           | 1.20s | napas
+  219 |    7.30s | B5       | animasi 20%  | crack_creep.wav            | 1.17s | retakan merayap
+  223 |    7.43s | B5       | animasi 20%  | heartbeat.wav              | 1.00s | detak jantung pelan
+  239 |    7.97s | tembus   | transisi 10% | light_sweep_air.wav        | 0.90s | retakan 1 -> kilat merah ke Efek 1
+  253 |    8.43s | B6       | animasi 20%  | stamp_thud.wav             | 0.35s | label chip EFEK 1 (stempel)
+  282 |    9.40s | B7       | animasi 20%  | match_strike.wav           | 1.21s | korek di sumbu
+  294 |    9.80s | B7       | animasi 20%  | fuse_hiss.wav              | 1.20s | desis sumbu terbakar
+  317 |   10.57s | B8       | animasi 20%  | crack_soft.wav             | 0.28s | gelas retak
+  365 |   12.17s | B9       | animasi 20%  | desk_slam.wav              | 0.49s | meja digebrak
+  369 |   12.30s | B9       | animasi 20%  | chair_scrape.wav           | 0.79s | kursi bergeser (keluarga mundur)
+  413 |   13.77s | B10      | animasi 20%  | screen_tap.wav             | 0.05s | tap layar HP
+  456 |   15.20s | B11      | animasi 20%  | water_flow.wav             | 1.50s | air bah partikel pink
+  511 |   17.03s | B12      | animasi 20%  | power_down.wav             | 1.39s | HP mati
+  569 |   18.97s | B13      | animasi 20%  | fall_whoosh.wav            | 0.40s | mood jatuh bebas
+  585 |   19.50s | B13      | animasi 20%  | thud.wav                   | 0.60s | dentum
+  613 |   20.43s | B14      | animasi 20%  | paper_tear.wav             | 0.65s | kertas tagihan disobek dari buku
+  690 |   23.00s | B15      | animasi 20%  | spoon_clink.wav            | 0.58s | sendok
+  696 |   23.20s | B15      | animasi 20%  | munch.wav                  | 0.61s | kunyah lucu
+  745 |   24.83s | B16      | animasi 20%  | water_slosh.wav            | 0.80s | air tumpah
+  775 |   25.83s | B16      | animasi 20%  | cartoon_blast.wav          | 1.23s | kepala meledak (bom kartun teredam)
+  820 |   27.33s | B17      | transisi 10% | whoosh_up.wav              | 0.50s | tilt naik ngikutin tangga
+  824 |   27.47s | B17      | animasi 20%  | footsteps_walk.wav         | 1.60s | langkah di tangga
+  854 |   28.47s | B17      | animasi 20%  | gauge_rise.wav             | 0.90s | jarum gauge ke merah
+  987 |   32.90s | B18      | animasi 20%  | click_sharp.wav            | 0.28s | folder diklik
+ 1003 |   33.43s | B18      | animasi 20%  | click_sharp.wav            | 0.26s | folder diklik
+ 1019 |   33.97s | B18      | animasi 20%  | click_sharp.wav            | 0.30s | folder diklik
+ 1029 |   34.30s | B18      | animasi 20%  | shield_clang.wav           | 1.36s | dentang perisai
+ 1093 |   36.43s | B19      | animasi 20%  | stamp_thud.wav             | 0.32s | stempel NORMAL
+ 1176 |   39.20s | B20      | animasi 20%  | chair_scrape.wav           | 0.72s | kursi terbalik
+ 1186 |   39.53s | B20      | animasi 20%  | plate_break.wav            | 0.70s | piring pecah
+ 1233 |   41.10s | B21      | animasi 20%  | footsteps_short.wav        | 0.90s | langkah menjauh
+ 1243 |   41.43s | B21      | animasi 20%  | frame_fall.wav             | 0.50s | bingkai miring (gesek paku)
+ 1284 |   42.80s | B22      | animasi 20%  | ink_spread.wav             | 1.60s | tinta/noda merah menyebar
+ 1290 |   43.00s | B22      | animasi 20%  | heartbeat.wav              | 1.04s | detak jantung
+ 1343 |   44.77s | fade     | transisi 10% | light_switch.wav           | 0.19s | lewat gelap: lampu mati lalu objek nyala
+ 1355 |   45.17s | B23      | animasi 20%  | chime_soft.wav             | 1.45s | ting lembut otak amber
+ 1359 |   45.30s | B23      | animasi 20%  | warm_swell.wav             | 1.99s | swell hangat
+ 1404 |   46.80s | B24      | animasi 20%  | click_sharp.wav            | 0.26s | klik link
+ 1471 |   49.03s | B25      | animasi 20%  | tape_pull.wav              | 0.57s | perban dilepas
+ 1501 |   50.03s | B25      | animasi 20%  | sigh.wav                   | 1.00s | napas lega
+ 1554 |   51.80s | B26      | animasi 20%  | light_switch.wav           | 0.18s | saklar mati
+ 1560 |   52.00s | B26      | animasi 20%  | bass_hit.wav               | 1.40s | dentum rendah
+ 1640 |   54.67s | whip     | transisi 10% | whoosh_fast.wav            | 0.52s | slide ke jalan kota
+ 1651 |   55.03s | B27      | animasi 20%  | stamp_thud.wav             | 0.38s | label chip EFEK 2
+ 1655 |   55.17s | B27      | animasi 20%  | car_pass.wav               | 1.60s | mobil lewat
+ 1683 |   56.10s | B28      | animasi 20%  | bubble_pop.wav             | 0.31s | awan hayalan pop
+ 1693 |   56.43s | B28      | animasi 20%  | pop_soft.wav               | 0.08s | gelembung pop
+ 1734 |   57.80s | B29      | animasi 20%  | heels_steps.wav            | 1.19s | langkah heels
+ 1742 |   58.07s | B29      | animasi 20%  | bus_pass.wav               | 1.60s | bus lewat
+ 1774 |   59.13s | B30      | animasi 20%  | paper_crumple.wav          | 0.70s | kertas diremas
+ 1780 |   59.33s | B30      | animasi 20%  | steam_hiss.wav             | 0.80s | desis sensor
+ 1840 |   61.33s | B31      | animasi 20%  | knock_tap.wav              | 0.47s | ketukan (Kenapa?)
+ 1871 |   62.37s | B32      | animasi 20%  | dumbbell_set_down.wav      | 0.80s | barbel diangkat/diletakkan
+ 1879 |   62.63s | B32      | animasi 20%  | workout_breath.wav         | 1.00s | napas berat angkat beban
+ 1931 |   64.37s | B33      | animasi 20%  | stone_grind.wav            | 1.40s | batu bergeser
+ 1947 |   64.90s | B33      | animasi 20%  | sand_flow.wav              | 1.00s | debu
+ 1983 |   66.10s | B34      | animasi 20%  | munch.wav                  | 0.56s | kunyah
+ 2005 |   66.83s | B34      | animasi 20%  | bird_chirp.wav             | 0.84s | kicau burung (sarang)
+ 2062 |   68.73s | B35      | animasi 20%  | seesaw_creak.wav           | 1.35s | kayu jungkat-jungkit berderit
+ 2100 |   70.00s | B35      | animasi 20%  | thud.wav                   | 0.56s | thud otak tengah turun
+ 2140 |   71.33s | B36      | animasi 20%  | scale_clank.wav            | 1.00s | timbangan berdenting
+ 2195 |   73.17s | B37      | animasi 20%  | glass_fog.wav              | 1.21s | embun/napas di kaca
+ 2253 |   75.10s | B38      | animasi 20%  | water_rush.wav             | 1.60s | arus air deras
+ 2307 |   76.90s | B39      | animasi 20%  | bus_brake.wav              | 1.38s | rem bus mendadak
+ 2319 |   77.30s | B39      | animasi 20%  | heartbeat.wav              | 2.01s | detak jantung
+ 2402 |   80.07s | B40      | animasi 20%  | paper_page_turn.wav        | 0.50s | kertas dibalik
+ 2441 |   81.37s | B41      | animasi 20%  | camera_shutter.wav         | 0.12s | shutter kamera jurnal
+ 2451 |   81.70s | B41      | animasi 20%  | stamp_thud.wav             | 0.32s | stempel PLOS ONE 2014
+ 2527 |   84.23s | light    | transisi 10% | light_sweep_air.wav        | 0.84s | sweep ke kafe
+ 2539 |   84.63s | B42      | animasi 20%  | stamp_thud.wav             | 0.38s | label chip EFEK 3
+ 2547 |   84.90s | B42      | animasi 20%  | cup_tray.wav               | 0.62s | cangkir kopi
+ 2582 |   86.07s | B43      | animasi 20%  | gear_jam.wav               | 1.45s | gear macet berderit
+ 2642 |   88.07s | B44      | animasi 20%  | sigh.wav                   | 0.94s | helaan napas panjang
+ 2726 |   90.87s | B45      | animasi 20%  | knob_turn.wav              | 0.90s | putaran lensa
+ 2759 |   91.97s | B46      | animasi 20%  | paper_flap.wav             | 0.36s | kertas beterbangan
+ 2799 |   93.30s | B47      | animasi 20%  | cup_tray.wav               | 0.57s | cangkir diletakkan (lalu hening canggung)
+ 2887 |   96.23s | B48      | animasi 20%  | heavy_sack_thud.wav        | 0.60s | beban jatuh di pundak
+ 2944 |   98.13s | B49      | animasi 20%  | sand_flow.wav              | 1.47s | pasir berjatuhan
+ 2988 |   99.60s | B50      | transisi 10% | whoosh_soft.wav            | 0.60s | extreme push-in ke mata
+ 2990 |   99.67s | B50      | animasi 20%  | room_tone.wav              | 2.40s | dengung ruangan pelan
+ 3077 |  102.57s | B51      | animasi 20%  | chair_scrape.wav           | 0.83s | kursi bergeser pelan
+ 3103 |  103.43s | B51      | animasi 20%  | heavy_breath.wav           | 1.30s | napas
+ 3171 |  105.70s | PENUTUP  | animasi 20%  | glass_shatter.wav          | 0.88s | kaca pecah halus (3 otak retak pecah)
+ 3187 |  106.23s | PENUTUP  | animasi 20%  | light_switch.wav           | 0.21s | saklar lampu mati

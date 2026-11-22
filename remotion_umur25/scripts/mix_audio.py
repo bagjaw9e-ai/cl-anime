@@ -1,12 +1,13 @@
 """Mix VO + BGM + SFX -> public/mix_final.wav (+ preview/sfx_map.txt final dengan level & durasi aktual).
-Setelan (brief video 3 fase):
+Setelan (brief video umur25): SFX animasi/ilustrasi/gerakan = 20% VO, SFX transisi/camera move = 10% VO, BGM 1% fade out di penutup 1 dtk.
+Setelan dasar (/style3):
   VO 100%. BGM 1% dari VO (-40 dB relatif loudness VO), fade in 1 dtk, fade out 2 dtk di akhir.
   SFX penting ⭐ (imp) 20% VO = -14 dB; ilustrasi/gerak (ill) 15% = -16.5 dB; transisi (trans) 10% = -20 dB.
   Cap dinamis K-weighted (0,4 dtk): bus SFX tidak pernah > 20% VO saat narasi.
   Maks 3 SFX barengan (cue ke-4 memotong cue berprioritas terendah, fade 3 frame).
   Fade in 2 frame (transisi/ambience) atau 5 ms (bunyi transien supaya serangannya tetap ada), fade out 3 frame.
   SFX yang dipakai berulang diberi variasi pitch ±5-10% (resample) & volume ±0,7 dB.
-  Beat 54: hening 5 frame (SFX + BGM) sebelum notifikasi HP. Master limiter true-peak -1 dBFS."""
+  Master limiter true-peak -1 dBFS (ceiling -1,6 dBFS untuk overshoot AAC)."""
 import json, os, subprocess
 from collections import Counter
 import numpy as np
@@ -19,10 +20,11 @@ SR = 48000
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = json.load(open(os.path.join(ROOT, 'data/sfx_cues.json')))
 FPS = 30; FR = 1 / FPS
-TOTAL_FRAMES = 3801
+TOTAL_FRAMES = 3193
+VO_FRAMES = 3163
 N = int(TOTAL_FRAMES / FPS * SR)
-REL = {'imp': -14.5, 'ill': -16.5, 'trans': -20.0}
-PRIO = {'imp': 3, 'ill': 2, 'trans': 1}
+REL = {'anim': -14.5, 'trans': -20.0}   # anim ≈19-20% VO, trans 10% VO
+PRIO = {'anim': 2, 'trans': 1}
 rng = np.random.default_rng(7)
 
 def dec(p, ch=1):
@@ -40,8 +42,9 @@ if len(bgm) < N: bgm = np.vstack([bgm, np.zeros((N - len(bgm), 2))])
 bgm = bgm[:N].copy()
 BGM_L = meter.integrated_loudness(bgm)
 bgm *= 10 ** ((VO_L - 40 - BGM_L) / 20)
-fi, fo = SR * 1, SR * 2
-bgm[:fi] *= np.linspace(0, 1, fi)[:, None]; bgm[-fo:] *= np.linspace(1, 0, fo)[:, None]
+fi = SR * 1; a0 = int(VO_FRAMES / FPS * SR)
+bgm[:fi] *= np.linspace(0, 1, fi)[:, None]
+bgm[a0:] *= np.linspace(1, 0, N - a0)[:, None]   # fade out di scene penutup (1 dtk)
 
 # ---- jadwal + aturan maks 3 barengan ----
 cnt = Counter(c['file'] for c in D['cues']); seen = Counter()
@@ -103,13 +106,6 @@ for _pass in range(3):  # cap diulang supaya puncak singkat juga tertahan
     for j in range(1, len(gc)): gc[j] = min(gc[j], gc[j - 1] + 0.1)
     sfx *= np.interp(np.arange(N), cen, gc)
 
-# ---- beat 54: hening 5 frame sebelum notifikasi ----
-nf = [c['frame'] for c in D['cues'] if c['file'] == 'phone_notification_soft' and 'hening' in c['note']][0]
-a, b = int((nf - 5) * FR * SR), int(nf * FR * SR)
-w = np.ones(N); r = int(0.03 * SR)
-w[a - r:a] = np.linspace(1, 0, r); w[a:b] = 0; w[b:b + r] = np.linspace(0, 1, r)
-sfx_pre = sfx.copy(); sfx[:b] *= w[:b]; bgm *= w[:, None]
-
 # ---- master + limiter true-peak -1 dBFS ----
 mix = np.stack([v + sfx, v + sfx], 1) + bgm
 ceil = 10 ** (-1.6 / 20)  # -1 dBFS + 0,6 dB headroom untuk overshoot encode AAC
@@ -130,12 +126,13 @@ for i in range(0, N - W2, W2 // 4):
     vr = np.sqrt(np.mean(vk[i:i + W2] ** 2))
     if vr > 0.03:
         br = np.sqrt(np.mean(kw(sfx[i:i + W2].copy()) ** 2)); worst = max(worst, 20 * np.log10(max(br, 1e-9) / vr))
-bl = meter.integrated_loudness(bgm[int(2 * SR):-int(3 * SR)]) - VO_L
-out = [f'# SFX MAP video 3 fase | VO {VO_L:.1f} LUFS (100%) | BGM {bl:.1f} dB vs VO (≈{100 * 10 ** (bl / 20):.1f}%), fade in 1 dtk / out 2 dtk',
+bl = meter.integrated_loudness(bgm[int(2 * SR):int((VO_FRAMES / FPS - 1) * SR)]) - VO_L
+out = [f'# SFX MAP video umur25 | VO {VO_L:.1f} LUFS (100%) | BGM {bl:.1f} dB vs VO (≈{100 * 10 ** (bl / 20):.1f}%), fade in 1 dtk / fade out di penutup 1 dtk',
        f'# master {meter.integrated_loudness(mix):.1f} LUFS, true-peak {TP:.2f} dBFS (limit -1) | SFX terkeras saat narasi {worst:.1f} dB = {100 * 10 ** (worst / 20):.0f}% VO (batas 20%) | maks barengan {mx} (batas 3)',
-       '# kelas: imp ⭐ -14.5 dB (19%), ill -16.5 dB (15%), trans -20 dB (10%) | beat 54: hening 5 frame lalu notifikasi',
-       '# frame | detik | file | kelas | durasi main | catatan']
+       '# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.5 dB ≈ 19-20% VO | trans (transisi/camera move) -20 dB = 10% VO',
+       '# frame | detik | beat | jenis | SFX | durasi main']
 for it in items:
-    out.append(f"{it['frame']:5d} | {it['start']:7.2f}s | {it['file'] + '.wav':26s} | {it['cls']:5s} | {it['end'] - it['start']:.2f}s | {it['note']}")
+    bt = it['note'].split(' ')[0]
+    out.append(f"{it['frame']:5d} | {it['start']:7.2f}s | {bt:8s} | {('animasi 20%' if it['cls'] == 'anim' else 'transisi 10%'):12s} | {it['file'] + '.wav':26s} | {it['end'] - it['start']:.2f}s | {' '.join(it['note'].split(' ')[1:])}")
 open(os.path.join(ROOT, 'preview/sfx_map.txt'), 'w').write('\n'.join(out) + '\n')
 print('\n'.join(out[:3]))
