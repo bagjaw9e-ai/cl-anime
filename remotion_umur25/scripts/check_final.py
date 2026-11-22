@@ -26,7 +26,7 @@ def cuts(a, b, th=0.3):
     return [round(a + float(x), 2) for x in re.findall(r'pts_time:([0-9.]+)', out)]
 os1, os2 = bt[3]['start'] + 0.1, bt[6]['start'] - 0.35
 print(f'3) one shot {os1:.2f}-{os2:.2f} dtk: cut = {cuts(os1, os2) or "tidak ada"}')
-n = int(subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', V], capture_output=True, text=True).stdout.strip())
+n = int(subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', V], capture_output=True, text=True).stdout.strip().rstrip(','))
 vo_frames = round(VO_END * FR)
 vol = subprocess.run(['ffmpeg', '-ss', str(VO_END + 0.02), '-i', os.path.join(ROOT, 'public/voiceover.m4a'), '-af', 'volumedetect', '-f', 'null', '-'], capture_output=True, text=True).stderr
 mx = re.findall(r'max_volume: ([-0-9.]+) dB', vol)
