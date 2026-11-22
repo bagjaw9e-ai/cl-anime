@@ -1,0 +1,670 @@
+{
+ "fps": 30,
+ "cues": [
+  {
+   "frame": 2,
+   "file": "match_strike",
+   "cls": "anim",
+   "dur": 0.8,
+   "note": "B1 korek menyalakan lilin 25"
+  },
+  {
+   "frame": 4,
+   "file": "whoosh_fast",
+   "cls": "trans",
+   "dur": 0.4,
+   "note": "B1 snap zoom-in ke lilin"
+  },
+  {
+   "frame": 6,
+   "file": "party_popper",
+   "cls": "anim",
+   "dur": null,
+   "note": "B1 party popper + confetti meledak"
+  },
+  {
+   "frame": 38,
+   "file": "candle_blow",
+   "cls": "anim",
+   "dur": null,
+   "note": "B2 lilin ditiup -> gelap"
+  },
+  {
+   "frame": 42,
+   "file": "whoosh_fast",
+   "cls": "trans",
+   "dur": 0.4,
+   "note": "B2 whip cepat + flash ke pria"
+  },
+  {
+   "frame": 48,
+   "file": "phone_notification_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B2 notifikasi HP di balik punggung"
+  },
+  {
+   "frame": 99,
+   "file": "deflate",
+   "cls": "anim",
+   "dur": 1.6,
+   "note": "B3 balon kempes pelan (dekorasi layu)"
+  },
+  {
+   "frame": 113,
+   "file": "crack_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B3 retakan 1"
+  },
+  {
+   "frame": 127,
+   "file": "crack_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B3 retakan 2"
+  },
+  {
+   "frame": 141,
+   "file": "crack_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B3 retakan 3"
+  },
+  {
+   "frame": 160,
+   "file": "curtain_open",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B4 kain/tirai bergeser, dinding jadi layar bayangan"
+  },
+  {
+   "frame": 190,
+   "file": "heavy_breath",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B4 napas"
+  },
+  {
+   "frame": 219,
+   "file": "crack_creep",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B5 retakan merayap"
+  },
+  {
+   "frame": 223,
+   "file": "heartbeat",
+   "cls": "anim",
+   "dur": 1.0,
+   "note": "B5 detak jantung pelan"
+  },
+  {
+   "frame": 239,
+   "file": "light_sweep_air",
+   "cls": "trans",
+   "dur": null,
+   "note": "tembus retakan 1 -> kilat merah ke Efek 1"
+  },
+  {
+   "frame": 253,
+   "file": "stamp_thud",
+   "cls": "anim",
+   "dur": null,
+   "note": "B6 label chip EFEK 1 (stempel)"
+  },
+  {
+   "frame": 282,
+   "file": "match_strike",
+   "cls": "anim",
+   "dur": null,
+   "note": "B7 korek di sumbu"
+  },
+  {
+   "frame": 294,
+   "file": "fuse_hiss",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B7 desis sumbu terbakar"
+  },
+  {
+   "frame": 317,
+   "file": "crack_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B8 gelas retak"
+  },
+  {
+   "frame": 365,
+   "file": "desk_slam",
+   "cls": "anim",
+   "dur": null,
+   "note": "B9 meja digebrak"
+  },
+  {
+   "frame": 369,
+   "file": "chair_scrape",
+   "cls": "anim",
+   "dur": null,
+   "note": "B9 kursi bergeser (keluarga mundur)"
+  },
+  {
+   "frame": 413,
+   "file": "screen_tap",
+   "cls": "anim",
+   "dur": null,
+   "note": "B10 tap layar HP"
+  },
+  {
+   "frame": 456,
+   "file": "water_flow",
+   "cls": "anim",
+   "dur": 1.5,
+   "note": "B11 air bah partikel pink"
+  },
+  {
+   "frame": 511,
+   "file": "power_down",
+   "cls": "anim",
+   "dur": null,
+   "note": "B12 HP mati"
+  },
+  {
+   "frame": 569,
+   "file": "fall_whoosh",
+   "cls": "anim",
+   "dur": 0.6,
+   "note": "B13 mood jatuh bebas"
+  },
+  {
+   "frame": 585,
+   "file": "thud",
+   "cls": "anim",
+   "dur": 0.6,
+   "note": "B13 dentum"
+  },
+  {
+   "frame": 613,
+   "file": "paper_tear",
+   "cls": "anim",
+   "dur": null,
+   "note": "B14 kertas tagihan disobek dari buku"
+  },
+  {
+   "frame": 690,
+   "file": "spoon_clink",
+   "cls": "anim",
+   "dur": null,
+   "note": "B15 sendok"
+  },
+  {
+   "frame": 696,
+   "file": "munch",
+   "cls": "anim",
+   "dur": null,
+   "note": "B15 kunyah lucu"
+  },
+  {
+   "frame": 745,
+   "file": "water_slosh",
+   "cls": "anim",
+   "dur": 0.8,
+   "note": "B16 air tumpah"
+  },
+  {
+   "frame": 775,
+   "file": "cartoon_blast",
+   "cls": "anim",
+   "dur": null,
+   "note": "B16 kepala meledak (bom kartun teredam)"
+  },
+  {
+   "frame": 820,
+   "file": "whoosh_up",
+   "cls": "trans",
+   "dur": 0.5,
+   "note": "B17 tilt naik ngikutin tangga"
+  },
+  {
+   "frame": 824,
+   "file": "footsteps_walk",
+   "cls": "anim",
+   "dur": 1.6,
+   "note": "B17 langkah di tangga"
+  },
+  {
+   "frame": 854,
+   "file": "gauge_rise",
+   "cls": "anim",
+   "dur": null,
+   "note": "B17 jarum gauge ke merah"
+  },
+  {
+   "frame": 987,
+   "file": "click_sharp",
+   "cls": "anim",
+   "dur": 0.3,
+   "note": "B18 folder diklik"
+  },
+  {
+   "frame": 1003,
+   "file": "click_sharp",
+   "cls": "anim",
+   "dur": 0.3,
+   "note": "B18 folder diklik"
+  },
+  {
+   "frame": 1019,
+   "file": "click_sharp",
+   "cls": "anim",
+   "dur": 0.3,
+   "note": "B18 folder diklik"
+  },
+  {
+   "frame": 1029,
+   "file": "shield_clang",
+   "cls": "anim",
+   "dur": null,
+   "note": "B18 dentang perisai"
+  },
+  {
+   "frame": 1093,
+   "file": "stamp_thud",
+   "cls": "anim",
+   "dur": null,
+   "note": "B19 stempel NORMAL"
+  },
+  {
+   "frame": 1176,
+   "file": "chair_scrape",
+   "cls": "anim",
+   "dur": null,
+   "note": "B20 kursi terbalik"
+  },
+  {
+   "frame": 1186,
+   "file": "plate_break",
+   "cls": "anim",
+   "dur": null,
+   "note": "B20 piring pecah"
+  },
+  {
+   "frame": 1233,
+   "file": "footsteps_short",
+   "cls": "anim",
+   "dur": null,
+   "note": "B21 langkah menjauh"
+  },
+  {
+   "frame": 1243,
+   "file": "frame_fall",
+   "cls": "anim",
+   "dur": 0.5,
+   "note": "B21 bingkai miring (gesek paku)"
+  },
+  {
+   "frame": 1284,
+   "file": "ink_spread",
+   "cls": "anim",
+   "dur": 1.6,
+   "note": "B22 tinta/noda merah menyebar"
+  },
+  {
+   "frame": 1290,
+   "file": "heartbeat",
+   "cls": "anim",
+   "dur": 1.5,
+   "note": "B22 detak jantung"
+  },
+  {
+   "frame": 1343,
+   "file": "light_switch",
+   "cls": "trans",
+   "dur": null,
+   "note": "fade lewat gelap: lampu mati lalu objek nyala"
+  },
+  {
+   "frame": 1355,
+   "file": "chime_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B23 ting lembut otak amber"
+  },
+  {
+   "frame": 1359,
+   "file": "warm_swell",
+   "cls": "anim",
+   "dur": null,
+   "note": "B23 swell hangat"
+  },
+  {
+   "frame": 1404,
+   "file": "click_sharp",
+   "cls": "anim",
+   "dur": 0.35,
+   "note": "B24 klik link"
+  },
+  {
+   "frame": 1471,
+   "file": "tape_pull",
+   "cls": "anim",
+   "dur": null,
+   "note": "B25 perban dilepas"
+  },
+  {
+   "frame": 1501,
+   "file": "sigh",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B25 napas lega"
+  },
+  {
+   "frame": 1554,
+   "file": "light_switch",
+   "cls": "anim",
+   "dur": null,
+   "note": "B26 saklar mati"
+  },
+  {
+   "frame": 1560,
+   "file": "bass_hit",
+   "cls": "anim",
+   "dur": 1.4,
+   "note": "B26 dentum rendah"
+  },
+  {
+   "frame": 1640,
+   "file": "whoosh_fast",
+   "cls": "trans",
+   "dur": null,
+   "note": "whip slide ke jalan kota"
+  },
+  {
+   "frame": 1651,
+   "file": "stamp_thud",
+   "cls": "anim",
+   "dur": null,
+   "note": "B27 label chip EFEK 2"
+  },
+  {
+   "frame": 1655,
+   "file": "car_pass",
+   "cls": "anim",
+   "dur": null,
+   "note": "B27 mobil lewat"
+  },
+  {
+   "frame": 1683,
+   "file": "bubble_pop",
+   "cls": "anim",
+   "dur": null,
+   "note": "B28 awan hayalan pop"
+  },
+  {
+   "frame": 1693,
+   "file": "pop_soft",
+   "cls": "anim",
+   "dur": null,
+   "note": "B28 gelembung pop"
+  },
+  {
+   "frame": 1734,
+   "file": "heels_steps",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B29 langkah heels"
+  },
+  {
+   "frame": 1742,
+   "file": "bus_pass",
+   "cls": "anim",
+   "dur": 1.6,
+   "note": "B29 bus lewat"
+  },
+  {
+   "frame": 1774,
+   "file": "paper_crumple",
+   "cls": "anim",
+   "dur": null,
+   "note": "B30 kertas diremas"
+  },
+  {
+   "frame": 1780,
+   "file": "steam_hiss",
+   "cls": "anim",
+   "dur": 0.8,
+   "note": "B30 desis sensor"
+  },
+  {
+   "frame": 1840,
+   "file": "knock_tap",
+   "cls": "anim",
+   "dur": null,
+   "note": "B31 ketukan (Kenapa?)"
+  },
+  {
+   "frame": 1871,
+   "file": "dumbbell_set_down",
+   "cls": "anim",
+   "dur": null,
+   "note": "B32 barbel diangkat/diletakkan"
+  },
+  {
+   "frame": 1879,
+   "file": "workout_breath",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B32 napas berat angkat beban"
+  },
+  {
+   "frame": 1931,
+   "file": "stone_grind",
+   "cls": "anim",
+   "dur": 1.4,
+   "note": "B33 batu bergeser"
+  },
+  {
+   "frame": 1947,
+   "file": "sand_flow",
+   "cls": "anim",
+   "dur": 1.0,
+   "note": "B33 debu"
+  },
+  {
+   "frame": 1983,
+   "file": "munch",
+   "cls": "anim",
+   "dur": null,
+   "note": "B34 kunyah"
+  },
+  {
+   "frame": 2005,
+   "file": "bird_chirp",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B34 kicau burung (sarang)"
+  },
+  {
+   "frame": 2062,
+   "file": "seesaw_creak",
+   "cls": "anim",
+   "dur": null,
+   "note": "B35 kayu jungkat-jungkit berderit"
+  },
+  {
+   "frame": 2100,
+   "file": "thud",
+   "cls": "anim",
+   "dur": 0.6,
+   "note": "B35 thud otak tengah turun"
+  },
+  {
+   "frame": 2140,
+   "file": "scale_clank",
+   "cls": "anim",
+   "dur": 1.0,
+   "note": "B36 timbangan berdenting"
+  },
+  {
+   "frame": 2195,
+   "file": "glass_fog",
+   "cls": "anim",
+   "dur": 1.4,
+   "note": "B37 embun/napas di kaca"
+  },
+  {
+   "frame": 2253,
+   "file": "water_rush",
+   "cls": "anim",
+   "dur": 1.6,
+   "note": "B38 arus air deras"
+  },
+  {
+   "frame": 2307,
+   "file": "bus_brake",
+   "cls": "anim",
+   "dur": null,
+   "note": "B39 rem bus mendadak"
+  },
+  {
+   "frame": 2319,
+   "file": "heartbeat",
+   "cls": "anim",
+   "dur": 2.0,
+   "note": "B39 detak jantung"
+  },
+  {
+   "frame": 2402,
+   "file": "paper_page_turn",
+   "cls": "anim",
+   "dur": null,
+   "note": "B40 kertas dibalik"
+  },
+  {
+   "frame": 2441,
+   "file": "camera_shutter",
+   "cls": "anim",
+   "dur": null,
+   "note": "B41 shutter kamera jurnal"
+  },
+  {
+   "frame": 2451,
+   "file": "stamp_thud",
+   "cls": "anim",
+   "dur": null,
+   "note": "B41 stempel PLOS ONE 2014"
+  },
+  {
+   "frame": 2527,
+   "file": "light_sweep_air",
+   "cls": "trans",
+   "dur": null,
+   "note": "light sweep ke kafe"
+  },
+  {
+   "frame": 2539,
+   "file": "stamp_thud",
+   "cls": "anim",
+   "dur": null,
+   "note": "B42 label chip EFEK 3"
+  },
+  {
+   "frame": 2547,
+   "file": "cup_tray",
+   "cls": "anim",
+   "dur": null,
+   "note": "B42 cangkir kopi"
+  },
+  {
+   "frame": 2582,
+   "file": "gear_jam",
+   "cls": "anim",
+   "dur": null,
+   "note": "B43 gear macet berderit"
+  },
+  {
+   "frame": 2642,
+   "file": "sigh",
+   "cls": "anim",
+   "dur": 1.6,
+   "note": "B44 helaan napas panjang"
+  },
+  {
+   "frame": 2726,
+   "file": "knob_turn",
+   "cls": "anim",
+   "dur": 1.0,
+   "note": "B45 putaran lensa"
+  },
+  {
+   "frame": 2759,
+   "file": "paper_flap",
+   "cls": "anim",
+   "dur": 1.2,
+   "note": "B46 kertas beterbangan"
+  },
+  {
+   "frame": 2799,
+   "file": "cup_tray",
+   "cls": "anim",
+   "dur": null,
+   "note": "B47 cangkir diletakkan (lalu hening canggung)"
+  },
+  {
+   "frame": 2887,
+   "file": "heavy_sack_thud",
+   "cls": "anim",
+   "dur": null,
+   "note": "B48 beban jatuh di pundak"
+  },
+  {
+   "frame": 2944,
+   "file": "sand_flow",
+   "cls": "anim",
+   "dur": 1.8,
+   "note": "B49 pasir berjatuhan"
+  },
+  {
+   "frame": 2988,
+   "file": "whoosh_soft",
+   "cls": "trans",
+   "dur": 0.6,
+   "note": "B50 extreme push-in ke mata"
+  },
+  {
+   "frame": 2990,
+   "file": "room_tone",
+   "cls": "anim",
+   "dur": 2.4,
+   "note": "B50 dengung ruangan pelan"
+  },
+  {
+   "frame": 3077,
+   "file": "chair_scrape",
+   "cls": "anim",
+   "dur": null,
+   "note": "B51 kursi bergeser pelan"
+  },
+  {
+   "frame": 3103,
+   "file": "heavy_breath",
+   "cls": "anim",
+   "dur": 1.4,
+   "note": "B51 napas"
+  },
+  {
+   "frame": 3171,
+   "file": "glass_shatter",
+   "cls": "anim",
+   "dur": 0.9,
+   "note": "PENUTUP kaca pecah halus (3 otak retak pecah)"
+  },
+  {
+   "frame": 3187,
+   "file": "light_switch",
+   "cls": "anim",
+   "dur": null,
+   "note": "PENUTUP saklar lampu mati"
+  }
+ ]
+}
