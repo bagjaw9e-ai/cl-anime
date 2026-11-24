@@ -1,5 +1,5 @@
 # SFX MAP video otak bodoh | VO -14.9 LUFS (100%) | BGM -39.9 dB vs VO (≈1.0%), diputar utuh 0-129.50 dtk, fade in 1 dtk / fade out 1 dtk terakhir
-# master -12.7 LUFS, true-peak -1.86 dBFS (limit -1) | SFX terkeras saat narasi -13.8 dB = 20% VO (batas 20%) | maks barengan 3 (batas 3)
+# master -13.1 LUFS, true-peak -3.06 dBFS (limit -1) | SFX terkeras saat narasi -13.8 dB = 20% VO (batas 20%) | maks barengan 3 (batas 3)
 # jenis: anim (animasi/ilustrasi/gerakan karakter) -14.3 dB ≈ 19-20% VO | trans (transisi + camera move + panel neon) -16.8 dB ≈ 14-15% VO | semua SFX = sintesis baru (public/sfx_ob)
 # frame | detik | beat | jenis | SFX | durasi main
     0 |    0.00s | B1       | transisi 15% | tr_snap_zoom.wav           | 0.38s | snap zoom ke kertas ujian

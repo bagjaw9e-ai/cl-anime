@@ -22,7 +22,7 @@ vd = float(run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-
 print(f'1) durasi BGM {bgm:.3f} dtk = {round(bgm * FR)} frame | video {n} frame = {n / FR:.3f} dtk (container {vd:.3f}) -> {"SAMA" if n == round(bgm * FR) else "BEDA"}')
 # 2. baterai frame terakhir
 last = (n - 1) / FR
-run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{last:.4f}', '-i', V, '-frames:v', '1', '-vf', 'crop=520:90:280:428', os.path.join(ROOT, 'preview/final_battery.png')])
+run(['ffmpeg', '-v', 'error', '-y', '-sseof', '-0.04', '-i', V, '-update', '1', '-vf', 'crop=520:90:280:428', os.path.join(ROOT, 'preview/final_battery.png')])
 print(f'2) baterai frame terakhir ({n - 1}): progress = {n - 1}/{n - 1} = 100% (crop -> preview/final_battery.png)')
 # 3. one shot
 bt = {b['id']: b for b in B}
