@@ -27,7 +27,9 @@ export type Expression =
   // video umur25
   | 'excited' | 'explosive' | 'daydreaming' | 'ashamed' | 'lost' | 'tired' | 'unfocused' | 'empty_stare' | 'avoiding_eye_contact'
   // video otak bodoh
-  | 'struggling' | 'blank' | 'hopeless';
+  | 'struggling' | 'blank' | 'hopeless'
+  // thumbnail
+  | 'bulging';
 
 export type PoseName =
   | 'standing_relaxed' | 'arms_crossed' | 'holding_phone' | 'head_in_hands'
@@ -51,7 +53,9 @@ export type PoseName =
   | 'walking_street' | 'sitting_bus_stop' | 'being_dragged' | 'sitting_meeting' | 'scratching_head' | 'looking_down'
   // video otak bodoh
   | 'chained_to_phone' | 'standing_still_lookup' | 'sitting_desk_study' | 'running_hamster_wheel' | 'puppet_pulled' | 'fist_clenched'
-  | 'sitting_meeting_blank' | 'procrastinating_slumped' | 'walking_treadmill' | 'head_down';
+  | 'sitting_meeting_blank' | 'procrastinating_slumped' | 'walking_treadmill' | 'head_down'
+  // thumbnail
+  | 'holding_text_edges';
 
 type Limb = {a: number; b: number}; // a = sendi pangkal, b = sendi tengah (relatif)
 type Pose = {
@@ -221,6 +225,8 @@ export const POSES: Record<PoseName, Pose> = {
   // jalan di treadmill (treadmill digambar di bawah kaki)
   walking_treadmill: mk({walk: 1, pelvisY: 252, lean: 3, armR: {a: 8, b: -24}, armL: {a: 8, b: -24}, headTilt: 3, pitch: 0.15}),
   // kepala tertunduk dalam, bahu jatuh
+  // thumbnail: kedua tangan terentang ke samping-bawah memegang ujung teks judul
+  holding_text_edges: mk({armR: {a: 38, b: 6}, armL: {a: 38, b: 6}, shoulder: 0.3, headTilt: 0, pitch: -0.04, headDY: -2}),
   head_down: mk({pitch: 0.9, headDY: 20, headTilt: 4, armR: {a: 2, b: -2}, armL: {a: 2, b: -2}, shoulder: 0.55, torsoSY: 0.96, pelvisY: 224}),
 };
 
@@ -341,6 +347,8 @@ export const EXPR: Record<Expression, ExprDef> = {
   blank: D({mouth: 'M -10 4 L 10 4 L 10 7 L -10 7 Z', browR: {y: -6, rot: 0}, browL: {y: -6, rot: 0}, eye: E({lid: 0, iris: 0.32}), load: 1}),
   hopeless: D({mouth: 'M -18 10 Q 0 0 18 10 Q 0 5 -18 10 Z', browR: {y: -4, rot: -20}, browL: {y: -4, rot: 20},
     eye: E({lid: 0.58, lidB: 0.1, iris: 0.8, dy: 0.8}), sweat: 0.2}),
+  // melotot: mata terbuka penuh, iris kecil, alis naik tinggi, mulut terbuka kaget
+  bulging: D({mouth: 'M -15 2 C -15 -20 15 -20 15 2 C 15 30 -15 30 -15 2 Z', browR: {y: -20, rot: -8}, browL: {y: -20, rot: 8}, eye: E({lid: 0, iris: 0.42}), sweat: 0.8}),
   crying: D({mouth: M.crying, browR: {y: -6, rot: -22}, browL: {y: -6, rot: 22}, eye: E({lid: 0.55, lidB: 0.25, dy: 0.3}), tears: 1}),
 };
 

@@ -1,74 +1,69 @@
 // Thumbnail video "otak bodoh" (1080x1920, sama dengan video) -> out/thumbnail_otak_bodoh.jpg
-// Gaya video: ruang gelap samar + lantai mengkilap, 3 pintu fase bercahaya, karakter bengong memegang HP 18+ (simbolik),
-// judul teks NEON + baterai otak lowbat. Teks penting di tengah (bebas dari 260 px bawah & 80 px kiri/kanan UI TikTok/Reels).
+// Revisi: latar gelap, pencahayaan fokus (spotlight) ke karakter CLOSE-UP, ekspresi melotot, kedua tangan memegang ujung teks.
+// Teks "OTAK BODOH KARENA" / "PMO" (PMO di-highlight) di tengah area bawah, overlay PALING DEPAN (boleh menimpa karakter).
+// Vignette di bagian atas & bawah. Teks bebas dari 260 px bawah & 80 px kiri/kanan (UI TikTok/Reels).
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {FONT} from './fonts';
-import {Dim} from './components/Places';
-import {EmptyRoom, FEET, HZ, TONES, mixTone} from './components/Places4';
-import {Halo, LitCharacter, Reflect, Rise} from './components/Lit';
+import {EmptyRoom, TONES, mixTone} from './components/Places4';
+import {Halo, LitCharacter, Rise} from './components/Lit';
 import {Spotlight} from './components/Spot';
 import {Grain} from './components/Bg';
-import * as O from './illustrations/ob';
+import {handWorld} from './components/Character';
 
-const neon = (c: string, k = 1) => `0 0 4px #FFFFFF, 0 0 ${12 * k}px ${c}, 0 0 ${28 * k}px ${c}, 0 0 ${60 * k}px ${c}, 0 0 ${110 * k}px ${c}99`;
-const T0 = mixTone(TONES.emptyPurple, TONES.cityRed, 0.45);
+// karakter close-up
+const CX = 540, SC = 2.3, FEET_Y = 1935;
+const hl = handWorld('holding_text_edges', -1, CX, FEET_Y, SC); // tangan kanan karakter (kiri layar)
+const hr = handWorld('holding_text_edges', 1, CX, FEET_Y, SC);  // tangan kiri karakter (kanan layar)
+const L1_Y = (hl.y + hr.y) / 2;                                 // garis tengah baris 1 = tinggi genggaman
 
-export const Thumbnail: React.FC = () => (
-  <AbsoluteFill style={{background: '#000'}}>
-    {/* latar samar: ruang kosong + 3 pintu fase */}
-    <AbsoluteFill style={{filter: 'blur(5px)'}}>
-      <svg width={1080} height={1920}>
-        <g transform="translate(540,1000) scale(1.25) translate(-540,-1000)"><EmptyRoom T={T0} /></g>
-        <Dim dim={0.25} />
+let ctx: CanvasRenderingContext2D | null = null;
+const measure = (txt: string, size: number) => {
+  if (typeof document === 'undefined') return txt.length * size * 0.66;
+  if (!ctx) ctx = document.createElement('canvas').getContext('2d');
+  ctx!.font = `800 ${size}px Poppins`;
+  return ctx!.measureText(txt).width;
+};
+const L1 = 'OTAK BODOH KARENA';
+
+export const Thumbnail: React.FC = () => {
+  // baris 1 mengisi jarak antar genggaman (ujung huruf ada di tangan), tetap di dalam 80 px kiri/kanan
+  const span = Math.min(hr.x - hl.x + 60, 920);
+  const fs1 = (span / measure(L1, 100)) * 100;
+  const fs2 = 210;
+  return (
+    <AbsoluteFill style={{background: '#000'}}>
+      {/* latar gelap samar */}
+      <AbsoluteFill style={{filter: 'blur(9px)'}}>
+        <svg width={1080} height={1920}>
+          <EmptyRoom T={mixTone(TONES.emptyPurple, TONES.cityRed, 0.5)} />
+          <rect width={1080} height={1920} fill="#04030A" opacity={0.55} />
+        </svg>
+      </AbsoluteFill>
+      {/* fokus cahaya ke karakter close-up */}
+      <svg width={1080} height={1920} style={{position: 'absolute'}}>
+        <Spotlight x={540} y={900} rx={560} ry={700} dark={0.92} />
+        <Halo x={540} y={760} rx={520} ry={560} color="#FF4A6A" op={0.28} />
+        <Halo x={540} y={720} rx={300} ry={300} color="#FFE6C8" op={0.22} />
+        <Rise x={540} y={1100} w={760} h={700} n={16} color="#FF8A6A" t={17} />
+        <LitCharacter id="th" x={CX} y={FEET_Y} scale={SC} pose="holding_text_edges" expression="bulging" haloColor="#FF5A7A" lookAt={{x: 0, y: 0.05}} blinkSeed={99} />
       </svg>
-    </AbsoluteFill>
-    <svg width={1080} height={1920} style={{position: 'absolute'}}>
-      <g transform="translate(540,1050) scale(1.25) translate(-540,-1050)">
-        <Spotlight x={540} y={1000} rx={560} ry={760} dark={0.5} />
-        <Reflect floor={HZ} op={0.45} depth={420}>
-          <g transform={`translate(190,${HZ}) scale(0.95)`}><O.GlowDoor n={1} color="#FFD23F" on={1} /></g>
-          <g transform={`translate(890,${HZ}) scale(0.95)`}><O.GlowDoor n={3} color="#FF3B3B" on={1} /></g>
-        </Reflect>
-        <Reflect floor={HZ} op={0.4} depth={420}>
-          <g transform={`translate(540,${HZ - 40}) scale(0.95)`} opacity={0.9}><O.GlowDoor n={2} color="#FF8A2B" on={1} /></g>
-        </Reflect>
-        <Rise x={540} y={1100} w={600} h={600} n={14} color="#FF8A6A" t={23} />
-        <Reflect floor={FEET + 80} op={0.3}>
-          <LitCharacter id="th" x={540} y={FEET + 80} scale={0.8} pose="holding_phone" expression="dazed" haloColor="#FF5FA2" phoneColor="#FF5FA2"
-            lookAt={{x: 0.2, y: 0.4}} />
-        </Reflect>
-      </g>
-    </svg>
-    <AbsoluteFill style={{background: 'radial-gradient(ellipse 85% 60% at 50% 55%, rgba(0,0,0,0) 45%, rgba(2,3,6,0.85) 100%)'}} />
-    <Grain opacity={0.05} />
+      {/* vignette atas & bawah */}
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 12%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.95) 100%)'}} />
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 75% 55% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 100%)'}} />
+      <Grain opacity={0.05} />
 
-    {/* JUDUL NEON */}
-    <div style={{position: 'absolute', left: 80, right: 80, top: 190, textAlign: 'center', fontFamily: FONT, fontWeight: 800, lineHeight: 1}}>
-      <div style={{fontSize: 118, color: '#FFFFFF', letterSpacing: 2, textShadow: neon('#FF2A3A', 0.8)}}>OTAK JADI</div>
-      <div style={{fontSize: 236, color: '#F5FF3B', letterSpacing: 4, marginTop: 6, textShadow: neon('#FFB400', 1.1), transform: 'rotate(-3deg)'}}>BODOH</div>
-    </div>
-    {/* baterai otak lowbat */}
-    <svg width={1080} height={1920} style={{position: 'absolute'}}>
-      <g transform="translate(290,620)">
-        <rect x={0} y={0} width={400} height={84} rx={20} fill="rgba(6,7,12,0.75)" stroke="#E8ECF4" strokeWidth={6} />
-        <rect x={404} y={24} width={18} height={36} rx={6} fill="#E8ECF4" />
-        <rect x={10} y={10} width={38} height={64} rx={10} fill="#FF3B3B" style={{filter: 'drop-shadow(0 0 12px #FF3B3B)'}} />
-        <text x={452} y={62} fontFamily={FONT} fontWeight={800} fontSize={60} fill="#FF4A55" style={{filter: 'drop-shadow(0 0 10px #FF3B3B)'}}>7%</text>
-      </g>
-      <Halo x={540} y={660} rx={360} ry={90} color="#FF3B3B" op={0.18} />
-    </svg>
-    {/* sub judul */}
-    <div style={{position: 'absolute', left: 80, right: 80, top: 1440, textAlign: 'center', fontFamily: FONT, fontWeight: 800}}>
-      <div style={{display: 'inline-block', padding: '18px 34px', borderRadius: 28, background: 'rgba(6,7,12,0.7)', border: '3px solid #FF3B3B88',
-        boxShadow: '0 0 30px #FF3B3B55'}}>
-        <span style={{fontSize: 64, color: '#FFFFFF', textShadow: neon('#2FD8FF', 0.5)}}>3 FASE </span>
-        <span style={{fontSize: 64, color: '#FFFFFF', textShadow: '0 4px 14px rgba(0,0,0,0.8)'}}>KERUSAKAN OTAK</span>
-        <div style={{fontSize: 58, marginTop: 6}}>
-          <span style={{color: '#FFFFFF', textShadow: '0 4px 14px rgba(0,0,0,0.8)'}}>AKIBAT </span>
-          <span style={{color: '#FF3B4A', textShadow: neon('#FF2A3A', 0.7)}}>PMO</span>
+      {/* TEKS — overlay paling depan */}
+      <div style={{position: 'absolute', left: 0, right: 0, top: L1_Y - fs1 * 0.58, textAlign: 'center', fontFamily: FONT, fontWeight: 800, lineHeight: 1}}>
+        <div style={{fontSize: fs1, color: '#FFFFFF', letterSpacing: 0, whiteSpace: 'nowrap', WebkitTextStroke: '5px #0A0A14', paintOrder: 'stroke fill',
+          textShadow: '0 8px 0 #0A0A14, 0 14px 30px rgba(0,0,0,0.9), 0 0 40px rgba(255,80,100,0.35)'}}>{L1}</div>
+        <div style={{marginTop: fs1 * 0.22, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
+          <div style={{position: 'absolute', left: -36, right: -36, top: 18, bottom: 4, background: '#F5FF3B', borderRadius: 22,
+            boxShadow: '0 0 40px #F5FF3BAA, 0 0 90px #FFB40066, 0 12px 0 #0A0A14'}} />
+          <div style={{position: 'relative', fontSize: fs2, color: '#E8101E', letterSpacing: 6, WebkitTextStroke: '6px #0A0A14', paintOrder: 'stroke fill',
+            textShadow: '0 6px 0 #0A0A14'}}>PMO</div>
         </div>
       </div>
-    </div>
-  </AbsoluteFill>
-);
+    </AbsoluteFill>
+  );
+};
