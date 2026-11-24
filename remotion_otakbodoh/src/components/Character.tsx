@@ -226,7 +226,7 @@ export const POSES: Record<PoseName, Pose> = {
   walking_treadmill: mk({walk: 1, pelvisY: 252, lean: 3, armR: {a: 8, b: -24}, armL: {a: 8, b: -24}, headTilt: 3, pitch: 0.15}),
   // kepala tertunduk dalam, bahu jatuh
   // thumbnail: kedua tangan terentang ke samping-bawah memegang ujung teks judul
-  holding_text_edges: mk({armR: {a: 38, b: 6}, armL: {a: 38, b: 6}, shoulder: 0.3, headTilt: 0, pitch: -0.04, headDY: -2}),
+  holding_text_edges: mk({armR: {a: 44, b: 4}, armL: {a: 44, b: 4}, shoulder: 0.3, headTilt: 0, pitch: -0.04, headDY: -2}),
   head_down: mk({pitch: 0.9, headDY: 20, headTilt: 4, armR: {a: 2, b: -2}, armL: {a: 2, b: -2}, shoulder: 0.55, torsoSY: 0.96, pelvisY: 224}),
 };
 

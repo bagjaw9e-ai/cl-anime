@@ -35,7 +35,7 @@ const L1 = 'OTAK BODOH KARENA';
 
 export const Thumbnail: React.FC = () => {
   // baris 1 mengisi jarak antar genggaman (ujung huruf ada di tangan), tetap di dalam 80 px kiri/kanan
-  const span = Math.min(hr.x - hl.x + 60, 920);
+  const span = 850; // lebar baris 1 tetap; tangan menggenggam tepat di ujung kotak highlight
   const fs1 = (span / measure(L1, 100)) * 100;
   const fs2 = Math.max(fs1 * 1.9, 280); // PMO tetap paling besar
   return (
@@ -62,11 +62,16 @@ export const Thumbnail: React.FC = () => {
 
       {/* TEKS — overlay paling depan */}
       <div style={{position: 'absolute', left: 0, right: 0, top: L1_Y - fs1 * 0.62, textAlign: 'center', fontFamily: DISPLAY, fontWeight: 400, lineHeight: 1.12}}>
-        {/* baris 1: warna highlight kuning-oranye menyala */}
-        <div style={{fontSize: fs1, letterSpacing: 1, whiteSpace: 'nowrap', color: '#FFE23A', WebkitTextStroke: '7px #0A0A14', paintOrder: 'stroke fill',
-          textShadow: '0 9px 0 #0A0A14, 0 0 26px #FFB400CC, 0 0 60px #FF8A0088, 0 16px 34px rgba(0,0,0,0.9)'}}>{L1}</div>
+        {/* baris 1: teks KUNING di atas highlight MERAH (kebalikan warna PMO) */}
+        <div style={{display: 'inline-block', position: 'relative', transform: 'rotate(2deg)'}}>
+          <div style={{position: 'absolute', left: -22, right: -22, top: fs1 * 0.1, bottom: fs1 * 0.02, background: '#E8101E', borderRadius: 20,
+            boxShadow: '0 0 40px #FF2A3AAA, 0 0 90px #FF2A3A55, 0 12px 0 #0A0A14'}} />
+          <div style={{position: 'relative', fontSize: fs1, letterSpacing: 1, whiteSpace: 'nowrap', color: '#F5FF3B', WebkitTextStroke: '7px #0A0A14', paintOrder: 'stroke fill',
+            textShadow: '0 7px 0 #0A0A14'}}>{L1}</div>
+        </div>
+        <br />
         {/* baris 2: PMO paling besar, merah di atas highlight kuning */}
-        <div style={{marginTop: fs1 * 0.02, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
+        <div style={{marginTop: fs1 * 0.12, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
           <div style={{position: 'absolute', left: -40, right: -40, top: fs2 * 0.12, bottom: fs2 * 0.06, background: '#F5FF3B', borderRadius: 24,
             boxShadow: '0 0 44px #F5FF3BAA, 0 0 100px #FFB40066, 0 14px 0 #0A0A14'}} />
           <div style={{position: 'relative', fontSize: fs2, color: '#E8101E', letterSpacing: 8, WebkitTextStroke: '8px #0A0A14', paintOrder: 'stroke fill',
