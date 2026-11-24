@@ -3,7 +3,7 @@
 // Teks "OTAK BODOH KARENA" / "PMO" (PMO di-highlight) di tengah area bawah, overlay PALING DEPAN (boleh menimpa karakter).
 // Vignette di bagian atas & bawah. Teks bebas dari 260 px bawah & 80 px kiri/kanan (UI TikTok/Reels).
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, continueRender, delayRender, staticFile} from 'remotion';
 import {FONT} from './fonts';
 import {EmptyRoom, TONES, mixTone} from './components/Places4';
 import {Halo, LitCharacter, Rise} from './components/Lit';
@@ -12,16 +12,23 @@ import {Grain} from './components/Bg';
 import {handWorld} from './components/Character';
 
 // karakter close-up
-const CX = 540, SC = 2.3, FEET_Y = 1935;
+const CX = 540, SC = 2.3, FEET_Y = 1815;
 const hl = handWorld('holding_text_edges', -1, CX, FEET_Y, SC); // tangan kanan karakter (kiri layar)
 const hr = handWorld('holding_text_edges', 1, CX, FEET_Y, SC);  // tangan kiri karakter (kanan layar)
 const L1_Y = (hl.y + hr.y) / 2;                                 // garis tengah baris 1 = tinggi genggaman
 
+// font judul: Anton (display kondensed tebal, @fontsource/anton, OFL) -> bisa jauh lebih besar dalam lebar yang sama
+const DISPLAY = 'Anton, Impact, sans-serif';
+if (typeof document !== 'undefined') {
+  const h = delayRender('load Anton');
+  new FontFace('Anton', `url(${staticFile('fonts/anton-latin-400-normal.woff2')}) format('woff2')`).load()
+    .then((f) => { (document.fonts as unknown as {add: (x: FontFace) => void}).add(f); continueRender(h); }).catch(() => continueRender(h));
+}
 let ctx: CanvasRenderingContext2D | null = null;
 const measure = (txt: string, size: number) => {
-  if (typeof document === 'undefined') return txt.length * size * 0.66;
+  if (typeof document === 'undefined') return txt.length * size * 0.45;
   if (!ctx) ctx = document.createElement('canvas').getContext('2d');
-  ctx!.font = `800 ${size}px Poppins`;
+  ctx!.font = `400 ${size}px Anton`;
   return ctx!.measureText(txt).width;
 };
 const L1 = 'OTAK BODOH KARENA';
@@ -30,7 +37,7 @@ export const Thumbnail: React.FC = () => {
   // baris 1 mengisi jarak antar genggaman (ujung huruf ada di tangan), tetap di dalam 80 px kiri/kanan
   const span = Math.min(hr.x - hl.x + 60, 920);
   const fs1 = (span / measure(L1, 100)) * 100;
-  const fs2 = 210;
+  const fs2 = Math.max(fs1 * 1.9, 280); // PMO tetap paling besar
   return (
     <AbsoluteFill style={{background: '#000'}}>
       {/* latar gelap samar */}
@@ -54,14 +61,16 @@ export const Thumbnail: React.FC = () => {
       <Grain opacity={0.05} />
 
       {/* TEKS — overlay paling depan */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: L1_Y - fs1 * 0.58, textAlign: 'center', fontFamily: FONT, fontWeight: 800, lineHeight: 1}}>
-        <div style={{fontSize: fs1, color: '#FFFFFF', letterSpacing: 0, whiteSpace: 'nowrap', WebkitTextStroke: '5px #0A0A14', paintOrder: 'stroke fill',
-          textShadow: '0 8px 0 #0A0A14, 0 14px 30px rgba(0,0,0,0.9), 0 0 40px rgba(255,80,100,0.35)'}}>{L1}</div>
-        <div style={{marginTop: fs1 * 0.22, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
-          <div style={{position: 'absolute', left: -36, right: -36, top: 18, bottom: 4, background: '#F5FF3B', borderRadius: 22,
-            boxShadow: '0 0 40px #F5FF3BAA, 0 0 90px #FFB40066, 0 12px 0 #0A0A14'}} />
-          <div style={{position: 'relative', fontSize: fs2, color: '#E8101E', letterSpacing: 6, WebkitTextStroke: '6px #0A0A14', paintOrder: 'stroke fill',
-            textShadow: '0 6px 0 #0A0A14'}}>PMO</div>
+      <div style={{position: 'absolute', left: 0, right: 0, top: L1_Y - fs1 * 0.62, textAlign: 'center', fontFamily: DISPLAY, fontWeight: 400, lineHeight: 1.12}}>
+        {/* baris 1: warna highlight kuning-oranye menyala */}
+        <div style={{fontSize: fs1, letterSpacing: 1, whiteSpace: 'nowrap', color: '#FFE23A', WebkitTextStroke: '7px #0A0A14', paintOrder: 'stroke fill',
+          textShadow: '0 9px 0 #0A0A14, 0 0 26px #FFB400CC, 0 0 60px #FF8A0088, 0 16px 34px rgba(0,0,0,0.9)'}}>{L1}</div>
+        {/* baris 2: PMO paling besar, merah di atas highlight kuning */}
+        <div style={{marginTop: fs1 * 0.02, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
+          <div style={{position: 'absolute', left: -40, right: -40, top: fs2 * 0.12, bottom: fs2 * 0.06, background: '#F5FF3B', borderRadius: 24,
+            boxShadow: '0 0 44px #F5FF3BAA, 0 0 100px #FFB40066, 0 14px 0 #0A0A14'}} />
+          <div style={{position: 'relative', fontSize: fs2, color: '#E8101E', letterSpacing: 8, WebkitTextStroke: '8px #0A0A14', paintOrder: 'stroke fill',
+            textShadow: '0 8px 0 #0A0A14'}}>PMO</div>
         </div>
       </div>
     </AbsoluteFill>
