@@ -35,7 +35,7 @@ const L1 = 'OTAK BODOH KARENA';
 
 export const Thumbnail: React.FC = () => {
   // baris 1 mengisi jarak antar genggaman (ujung huruf ada di tangan), tetap di dalam 80 px kiri/kanan
-  const span = 850; // lebar baris 1 tetap; tangan menggenggam tepat di ujung kotak highlight
+  const span = 800; // lebar baris 1 tetap; tangan menggenggam tepat di ujung kotak highlight
   const fs1 = (span / measure(L1, 100)) * 100;
   const fs2 = Math.max(fs1 * 1.9, 280); // PMO tetap paling besar
   return (
@@ -61,21 +61,21 @@ export const Thumbnail: React.FC = () => {
       <Grain opacity={0.05} />
 
       {/* TEKS — overlay paling depan */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: L1_Y - fs1 * 0.62, textAlign: 'center', fontFamily: DISPLAY, fontWeight: 400, lineHeight: 1.12}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: L1_Y - fs1 * 0.66, textAlign: 'center', fontFamily: DISPLAY, fontWeight: 400, lineHeight: 1.12}}>
         {/* baris 1: teks KUNING di atas highlight MERAH (kebalikan warna PMO) */}
         <div style={{display: 'inline-block', position: 'relative', transform: 'rotate(2deg)'}}>
-          <div style={{position: 'absolute', left: -22, right: -22, top: fs1 * 0.1, bottom: fs1 * 0.02, background: '#E8101E', borderRadius: 20,
+          <div style={{position: 'absolute', left: -46, right: -46, top: -fs1 * 0.06, bottom: -fs1 * 0.12, background: '#E8101E', borderRadius: 26,
             boxShadow: '0 0 40px #FF2A3AAA, 0 0 90px #FF2A3A55, 0 12px 0 #0A0A14'}} />
           <div style={{position: 'relative', fontSize: fs1, letterSpacing: 1, whiteSpace: 'nowrap', color: '#F5FF3B', WebkitTextStroke: '7px #0A0A14', paintOrder: 'stroke fill',
-            textShadow: '0 7px 0 #0A0A14'}}>{L1}</div>
+            textShadow: '0 7px 0 #0A0A14, 0 0 14px #FFF59A, 0 0 30px #FFE23A, 0 0 56px #FFC400CC, 0 0 90px #FFB40088'}}>{L1}</div>
         </div>
         <br />
         {/* baris 2: PMO paling besar, merah di atas highlight kuning */}
-        <div style={{marginTop: fs1 * 0.12, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
-          <div style={{position: 'absolute', left: -40, right: -40, top: fs2 * 0.12, bottom: fs2 * 0.06, background: '#F5FF3B', borderRadius: 24,
+        <div style={{marginTop: fs1 * 0.34, display: 'inline-block', position: 'relative', transform: 'rotate(-4deg)'}}>
+          <div style={{position: 'absolute', left: -66, right: -66, top: fs2 * 0.02, bottom: -fs2 * 0.06, background: '#F5FF3B', borderRadius: 30,
             boxShadow: '0 0 44px #F5FF3BAA, 0 0 100px #FFB40066, 0 14px 0 #0A0A14'}} />
           <div style={{position: 'relative', fontSize: fs2, color: '#E8101E', letterSpacing: 8, WebkitTextStroke: '8px #0A0A14', paintOrder: 'stroke fill',
-            textShadow: '0 8px 0 #0A0A14'}}>PMO</div>
+            textShadow: '0 8px 0 #0A0A14, 0 0 16px #FF6A74, 0 0 34px #FF2A3A, 0 0 64px #FF1020CC, 0 0 100px #FF102088'}}>PMO</div>
         </div>
       </div>
     </AbsoluteFill>
