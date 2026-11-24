@@ -67,7 +67,7 @@ export const Thumbnail: React.FC = () => {
           <div style={{position: 'absolute', left: -46, right: -46, top: -fs1 * 0.06, bottom: -fs1 * 0.12, background: '#E8101E', borderRadius: 26,
             boxShadow: '0 0 40px #FF2A3AAA, 0 0 90px #FF2A3A55, 0 12px 0 #0A0A14'}} />
           <div style={{position: 'relative', fontSize: fs1, letterSpacing: 1, whiteSpace: 'nowrap', color: '#F5FF3B', WebkitTextStroke: '7px #0A0A14', paintOrder: 'stroke fill',
-            textShadow: '0 7px 0 #0A0A14, 0 0 14px #FFF59A, 0 0 30px #FFE23A, 0 0 56px #FFC400CC, 0 0 90px #FFB40088'}}>{L1}</div>
+            textShadow: '0 7px 0 #0A0A14'}}>{L1}</div>
         </div>
         <br />
         {/* baris 2: PMO paling besar, merah di atas highlight kuning */}
@@ -75,7 +75,7 @@ export const Thumbnail: React.FC = () => {
           <div style={{position: 'absolute', left: -66, right: -66, top: fs2 * 0.02, bottom: -fs2 * 0.06, background: '#F5FF3B', borderRadius: 30,
             boxShadow: '0 0 44px #F5FF3BAA, 0 0 100px #FFB40066, 0 14px 0 #0A0A14'}} />
           <div style={{position: 'relative', fontSize: fs2, color: '#E8101E', letterSpacing: 8, WebkitTextStroke: '8px #0A0A14', paintOrder: 'stroke fill',
-            textShadow: '0 8px 0 #0A0A14, 0 0 16px #FF6A74, 0 0 34px #FF2A3A, 0 0 64px #FF1020CC, 0 0 100px #FF102088'}}>PMO</div>
+            textShadow: '0 8px 0 #0A0A14'}}>PMO</div>
         </div>
       </div>
     </AbsoluteFill>
