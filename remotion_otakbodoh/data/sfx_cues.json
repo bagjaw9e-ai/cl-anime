@@ -1,0 +1,676 @@
+{
+"cues": [
+{
+"frame": 0,
+"file": "tr_snap_zoom",
+"cls": "trans",
+"dur": null,
+"note": "B1 snap zoom ke kertas ujian"
+},
+{
+"frame": 0,
+"file": "paper_slide",
+"cls": "anim",
+"dur": null,
+"note": "B1 kertas ujian masuk"
+},
+{
+"frame": 8,
+"file": "stamp_paper",
+"cls": "anim",
+"dur": null,
+"note": "B1 cap nilai 0 menghantam kertas"
+},
+{
+"frame": 28,
+"file": "tr_whip",
+"cls": "trans",
+"dur": null,
+"note": "B2 hard cut + whip cepat ke HP"
+},
+{
+"frame": 36,
+"file": "phone_ping",
+"cls": "anim",
+"dur": null,
+"note": "B2 notifikasi HP 18+"
+},
+{
+"frame": 44,
+"file": "screen_tap",
+"cls": "anim",
+"dur": null,
+"note": "B2 tap layar"
+},
+{
+"frame": 57,
+"file": "tr_snap_zoom",
+"cls": "trans",
+"dur": null,
+"note": "B3 snap zoom ke gagang pintu"
+},
+{
+"frame": 60,
+"file": "key_lock",
+"cls": "anim",
+"dur": null,
+"note": "B3 kunci diputar, klik terkunci"
+},
+{
+"frame": 73,
+"file": "tr_push",
+"cls": "trans",
+"dur": null,
+"note": "B4 push cepat + shake"
+},
+{
+"frame": 75,
+"file": "chain_clank",
+"cls": "anim",
+"dur": null,
+"note": "B4 rantai berderak"
+},
+{
+"frame": 114,
+"file": "tr_dark_fade",
+"cls": "trans",
+"dur": 0.6,
+"note": "B5 fade singkat ke ruang kosong"
+},
+{
+"frame": 118,
+"file": "room_hum",
+"cls": "anim",
+"dur": 3.0,
+"note": "B5 dengung ruangan pelan"
+},
+{
+"frame": 128,
+"file": "light_switch",
+"cls": "anim",
+"dur": null,
+"note": "B5 saklar pintu 1 (kuning)"
+},
+{
+"frame": 150,
+"file": "light_switch",
+"cls": "anim",
+"dur": null,
+"note": "B5 saklar pintu 2 (oranye)"
+},
+{
+"frame": 154,
+"file": "tr_air_rise",
+"cls": "trans",
+"dur": null,
+"note": "B5 slow zoom masuk pintu 1"
+},
+{
+"frame": 172,
+"file": "light_switch",
+"cls": "anim",
+"dur": null,
+"note": "B5 saklar pintu 3 (merah)"
+},
+{
+"frame": 204,
+"file": "tr_door_light",
+"cls": "trans",
+"dur": null,
+"note": "tembus pintu 1 -> cahaya kuning -> perpustakaan"
+},
+{
+"frame": 212,
+"file": "neon_on",
+"cls": "trans",
+"dur": null,
+"note": "B6 panel neon FASE 1 nyala (flicker 3x)"
+},
+{
+"frame": 270,
+"file": "cable_plug",
+"cls": "anim",
+"dur": null,
+"note": "B7 kabel merah menancap di dahi"
+},
+{
+"frame": 276,
+"file": "hum_down",
+"cls": "anim",
+"dur": null,
+"note": "B7 dengung energi turun"
+},
+{
+"frame": 298,
+"file": "tr_push",
+"cls": "trans",
+"dur": null,
+"note": "B7 zoom ke dahi"
+},
+{
+"frame": 361,
+"file": "bulb_flicker",
+"cls": "anim",
+"dur": null,
+"note": "B8 PFC meredup kayak lampu mau mati"
+},
+{
+"frame": 457,
+"file": "tr_air_rise",
+"cls": "trans",
+"dur": 0.8,
+"note": "B9 tilt ke mesin"
+},
+{
+"frame": 461,
+"file": "gears_soft",
+"cls": "anim",
+"dur": null,
+"note": "B9 gear emas berputar"
+},
+{
+"frame": 558,
+"file": "pencil_scratch",
+"cls": "anim",
+"dur": null,
+"note": "B10 pensil menggores (benang -> jaringan)"
+},
+{
+"frame": 632,
+"file": "chess_knock",
+"cls": "anim",
+"dur": null,
+"note": "B11 bidak kuda diletakkan"
+},
+{
+"frame": 662,
+"file": "chalk_board",
+"cls": "anim",
+"dur": null,
+"note": "B12 kapur di papan tulis"
+},
+{
+"frame": 700,
+"file": "map_unfold",
+"cls": "anim",
+"dur": null,
+"note": "B13 peta dibentangkan"
+},
+{
+"frame": 754,
+"file": "brake_stomp",
+"cls": "anim",
+"dur": null,
+"note": "B14 pedal rem dihentak"
+},
+{
+"frame": 780,
+"file": "wheel_squeak",
+"cls": "anim",
+"dur": null,
+"note": "B15 roda hamster berderit"
+},
+{
+"frame": 857,
+"file": "tr_air_fall",
+"cls": "trans",
+"dur": 0.9,
+"note": "B16 tilt turun"
+},
+{
+"frame": 859,
+"file": "engine_slow",
+"cls": "anim",
+"dur": null,
+"note": "B16 mesin melambat + gear macet"
+},
+{
+"frame": 934,
+"file": "tr_dark_fade",
+"cls": "trans",
+"dur": null,
+"note": "fade lewat gelap -> panggung"
+},
+{
+"frame": 937,
+"file": "neon_off",
+"cls": "trans",
+"dur": null,
+"note": "panel FASE 1 flicker mati"
+},
+{
+"frame": 943,
+"file": "neon_on",
+"cls": "trans",
+"dur": null,
+"note": "B17 panel PMO SAVIOR nyala"
+},
+{
+"frame": 953,
+"file": "link_click",
+"cls": "anim",
+"dur": null,
+"note": "B17 klik ikon link"
+},
+{
+"frame": 989,
+"file": "book_open",
+"cls": "anim",
+"dur": null,
+"note": "B18 buku panduan dibuka + halaman"
+},
+{
+"frame": 1066,
+"file": "crystal_mend",
+"cls": "anim",
+"dur": null,
+"note": "B19 retakan menyatu lembut"
+},
+{
+"frame": 1128,
+"file": "switch_off",
+"cls": "anim",
+"dur": null,
+"note": "B20 lampu panggung redup"
+},
+{
+"frame": 1188,
+"file": "tr_air_rise",
+"cls": "trans",
+"dur": null,
+"note": "B20 zoom ke pintu 2"
+},
+{
+"frame": 1190,
+"file": "door_creak",
+"cls": "anim",
+"dur": null,
+"note": "B20 pintu 2 berderit terbuka"
+},
+{
+"frame": 1211,
+"file": "tr_door_light",
+"cls": "trans",
+"dur": null,
+"note": "tembus pintu 2 -> cahaya oranye -> hutan"
+},
+{
+"frame": 1213,
+"file": "neon_off",
+"cls": "trans",
+"dur": null,
+"note": "panel PMO SAVIOR mati"
+},
+{
+"frame": 1219,
+"file": "neon_on",
+"cls": "trans",
+"dur": null,
+"note": "B21 panel FASE 2 nyala"
+},
+{
+"frame": 1223,
+"file": "night_owl",
+"cls": "anim",
+"dur": null,
+"note": "B21 burung malam"
+},
+{
+"frame": 1249,
+"file": "leaf_steps",
+"cls": "anim",
+"dur": null,
+"note": "B22 maskot melangkah di daun kering"
+},
+{
+"frame": 1341,
+"file": "lizard_monkey",
+"cls": "anim",
+"dur": null,
+"note": "B23 desis kadal + monyet"
+},
+{
+"frame": 1377,
+"file": "twig_fire",
+"cls": "anim",
+"dur": null,
+"note": "B24 ranting dipatahkan + api unggun"
+},
+{
+"frame": 1421,
+"file": "chew",
+"cls": "anim",
+"dur": null,
+"note": "B25 kunyah paha ayam"
+},
+{
+"frame": 1441,
+"file": "chicks",
+"cls": "anim",
+"dur": null,
+"note": "B26 kicau anak burung"
+},
+{
+"frame": 1494,
+"file": "scratch_hmm",
+"cls": "anim",
+"dur": null,
+"note": "B27 garuk kepala + hmm"
+},
+{
+"frame": 1552,
+"file": "screen_tap",
+"cls": "anim",
+"dur": null,
+"note": "B28 tap layar"
+},
+{
+"frame": 1596,
+"file": "screen_tap",
+"cls": "anim",
+"dur": null,
+"note": "B28 tap layar lagi"
+},
+{
+"frame": 1633,
+"file": "tr_air_rise",
+"cls": "trans",
+"dur": 0.9,
+"note": "B29 orbit pelan"
+},
+{
+"frame": 1663,
+"file": "cardboard_boing",
+"cls": "anim",
+"dur": null,
+"note": "B29 ternyata kardus tipis"
+},
+{
+"frame": 1722,
+"file": "camera_shutter",
+"cls": "anim",
+"dur": null,
+"note": "B30 shutter + kertas jurnal"
+},
+{
+"frame": 1833,
+"file": "clock_fast",
+"cls": "anim",
+"dur": null,
+"note": "B31 jam tik-tok dipercepat"
+},
+{
+"frame": 1925,
+"file": "giant_step",
+"cls": "anim",
+"dur": null,
+"note": "B32 langkah raksasa maskot"
+},
+{
+"frame": 1933,
+"file": "tr_push",
+"cls": "trans",
+"dur": null,
+"note": "B32 zoom out lalu in"
+},
+{
+"frame": 1993,
+"file": "wheel_grab",
+"cls": "anim",
+"dur": null,
+"note": "B33 setir direbut paksa"
+},
+{
+"frame": 2048,
+"file": "tr_door_light",
+"cls": "trans",
+"dur": null,
+"note": "tembus pintu 3 -> cahaya merah -> jalan kota"
+},
+{
+"frame": 2050,
+"file": "neon_off",
+"cls": "trans",
+"dur": null,
+"note": "panel FASE 2 mati"
+},
+{
+"frame": 2056,
+"file": "neon_on",
+"cls": "trans",
+"dur": null,
+"note": "B34 panel FASE 3 nyala"
+},
+{
+"frame": 2062,
+"file": "car_wet",
+"cls": "anim",
+"dur": null,
+"note": "B34 mobil lewat di jalan basah"
+},
+{
+"frame": 2102,
+"file": "crown_ding",
+"cls": "anim",
+"dur": null,
+"note": "B35 mahkota dipasang"
+},
+{
+"frame": 2138,
+"file": "balloon_deflate",
+"cls": "anim",
+"dur": null,
+"note": "B36 PFC menyusut (balon mengempis)"
+},
+{
+"frame": 2199,
+"file": "switches_snap",
+"cls": "anim",
+"dur": null,
+"note": "B37 lampu panel mati berurutan + pedal patah"
+},
+{
+"frame": 2261,
+"file": "red_torrent",
+"cls": "anim",
+"dur": null,
+"note": "B38 arus air deras"
+},
+{
+"frame": 2261,
+"file": "tr_air_rise",
+"cls": "trans",
+"dur": 0.8,
+"note": "B38 pan mengikuti arus"
+},
+{
+"frame": 2386,
+"file": "rope_rewind",
+"cls": "anim",
+"dur": null,
+"note": "B39 tali ditarik + rewind 1"
+},
+{
+"frame": 2422,
+"file": "rope_rewind",
+"cls": "anim",
+"dur": null,
+"note": "B39 rewind 2"
+},
+{
+"frame": 2456,
+"file": "rope_rewind",
+"cls": "anim",
+"dur": null,
+"note": "B39 rewind 3"
+},
+{
+"frame": 2498,
+"file": "match_hiss",
+"cls": "anim",
+"dur": null,
+"note": "B40 korek api + desis"
+},
+{
+"frame": 2612,
+"file": "scale_fall",
+"cls": "anim",
+"dur": null,
+"note": "B41 timbangan patah jatuh"
+},
+{
+"frame": 2639,
+"file": "lamp_buzz",
+"cls": "anim",
+"dur": null,
+"note": "B42 lampu jalan berdengung/berkedip"
+},
+{
+"frame": 2682,
+"file": "dull_knife",
+"cls": "anim",
+"dur": null,
+"note": "B43 pisau tumpul digesek"
+},
+{
+"frame": 2737,
+"file": "papers_fly",
+"cls": "anim",
+"dur": null,
+"note": "B44 kertas beterbangan"
+},
+{
+"frame": 2815,
+"file": "paper_collapse",
+"cls": "anim",
+"dur": null,
+"note": "B45 kertas sobek + tumpukan ambruk"
+},
+{
+"frame": 2893,
+"file": "tr_dark_fade",
+"cls": "trans",
+"dur": null,
+"note": "fade lewat gelap -> kantor"
+},
+{
+"frame": 2896,
+"file": "neon_off",
+"cls": "trans",
+"dur": null,
+"note": "panel FASE 3 mati"
+},
+{
+"frame": 2902,
+"file": "neon_broken",
+"cls": "trans",
+"dur": null,
+"note": "B46 panel HANCURNYA MASA DEPAN nyala (rusak)"
+},
+{
+"frame": 3031,
+"file": "book_slam",
+"cls": "anim",
+"dur": null,
+"note": "B47 buku teori ditutup keras"
+},
+{
+"frame": 3106,
+"file": "marker_down",
+"cls": "anim",
+"dur": null,
+"note": "B48 spidol menggaris turun"
+},
+{
+"frame": 3199,
+"file": "awkward_tick",
+"cls": "anim",
+"dur": null,
+"note": "B49 hening canggung + tik-tok"
+},
+{
+"frame": 3268,
+"file": "tr_push",
+"cls": "trans",
+"dur": null,
+"note": "B50 extreme zoom ke mata"
+},
+{
+"frame": 3272,
+"file": "office_hum",
+"cls": "anim",
+"dur": 1.5,
+"note": "B50 dengung ruangan"
+},
+{
+"frame": 3317,
+"file": "files_pen",
+"cls": "anim",
+"dur": null,
+"note": "B51 berkas ditumpuk + pulpen nyoret"
+},
+{
+"frame": 3366,
+"file": "lens_turn",
+"cls": "anim",
+"dur": null,
+"note": "B52 ring lensa diputar"
+},
+{
+"frame": 3431,
+"file": "rusty_gear",
+"cls": "anim",
+"dur": null,
+"note": "B53 gear berkarat berderit"
+},
+{
+"frame": 3484,
+"file": "tr_dissolve",
+"cls": "trans",
+"dur": null,
+"note": "dissolve -> jalan ke cakrawala"
+},
+{
+"frame": 3535,
+"file": "sign_steps",
+"cls": "anim",
+"dur": null,
+"note": "B54 rambu berdecit + langkah"
+},
+{
+"frame": 3631,
+"file": "sand_flow",
+"cls": "anim",
+"dur": null,
+"note": "B55 pasir mengalir"
+},
+{
+"frame": 3724,
+"file": "candle_out",
+"cls": "anim",
+"dur": null,
+"note": "B56 lilin POTENSI padam"
+},
+{
+"frame": 3793,
+"file": "treadmill_steps",
+"cls": "anim",
+"dur": null,
+"note": "B57 treadmill + langkah"
+},
+{
+"frame": 3793,
+"file": "tr_air_fall",
+"cls": "trans",
+"dur": null,
+"note": "B57 pull-out ke wide"
+},
+{
+"frame": 3857,
+"file": "neon_off",
+"cls": "trans",
+"dur": null,
+"note": "B58 panel neon flicker terakhir lalu mati"
+}
+]
+}

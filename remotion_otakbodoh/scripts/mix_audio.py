@@ -1,5 +1,7 @@
 """Mix VO + BGM + SFX -> public/mix_final.wav (+ preview/sfx_map.txt final dengan level & durasi aktual).
-Setelan (brief video umur25): SFX animasi/ilustrasi/gerakan = 20% VO, SFX transisi/camera move = 10% VO, BGM 1% fade out di penutup 1 dtk.
+Setelan (brief video "otak bodoh"): VO 100% mulai frame 0. BGM 1% diputar UTUH dari frame 0 sampai habis (video = durasi BGM),
+fade in 1 dtk + fade out 1 dtk terakhir (ending BGM turun mendadak). SFX animasi/ilustrasi/gerakan = 20% VO,
+SFX transisi + camera movement + panel neon ganti = 15% VO. Semua SFX dari public/sfx_ob (disintesis baru).
 Setelan dasar (/style3):
   VO 100%. BGM 1% dari VO (-40 dB relatif loudness VO), fade in 1 dtk, fade out 2 dtk di akhir.
   SFX penting ⭐ (imp) 20% VO = -14 dB; ilustrasi/gerak (ill) 15% = -16.5 dB; transisi (trans) 10% = -20 dB.
@@ -20,10 +22,10 @@ SR = 48000
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = json.load(open(os.path.join(ROOT, 'data/sfx_cues.json')))
 FPS = 30; FR = 1 / FPS
-TOTAL_FRAMES = 3193
-VO_FRAMES = 3163
+TOTAL_FRAMES = 3885
+VO_FRAMES = 3843
 N = int(TOTAL_FRAMES / FPS * SR)
-REL = {'anim': -14.5, 'trans': -20.0}   # anim ≈19-20% VO, trans 10% VO
+REL = {'anim': -14.3, 'trans': -16.8}   # anim ≈19-20% VO, trans ≈14-15% VO
 PRIO = {'anim': 2, 'trans': 1}
 rng = np.random.default_rng(7)
 
@@ -42,15 +44,15 @@ if len(bgm) < N: bgm = np.vstack([bgm, np.zeros((N - len(bgm), 2))])
 bgm = bgm[:N].copy()
 BGM_L = meter.integrated_loudness(bgm)
 bgm *= 10 ** ((VO_L - 40 - BGM_L) / 20)
-fi = SR * 1; a0 = int(VO_FRAMES / FPS * SR)
+fi = SR * 1; a0 = N - SR * 1
 bgm[:fi] *= np.linspace(0, 1, fi)[:, None]
-bgm[a0:] *= np.linspace(1, 0, N - a0)[:, None]   # fade out di scene penutup (1 dtk)
+bgm[a0:] *= np.linspace(1, 0, N - a0)[:, None]   # fade out 1 dtk terakhir (BGM tetap utuh sampai habis)
 
 # ---- jadwal + aturan maks 3 barengan ----
 cnt = Counter(c['file'] for c in D['cues']); seen = Counter()
 items = []
 for c in D['cues']:
-    x = dec(os.path.join(ROOT, 'public/sfx', c['file'] + '.wav'))
+    x = dec(os.path.join(ROOT, 'public/sfx_ob', c['file'] + '.wav'))
     if c['dur']: x = x[:int(c['dur'] * SR)]
     nz = np.where(np.abs(x) > 1e-4)[0]; x = x[:nz[-1] + 1] if len(nz) else x
     gj = 0.0
@@ -126,13 +128,13 @@ for i in range(0, N - W2, W2 // 4):
     vr = np.sqrt(np.mean(vk[i:i + W2] ** 2))
     if vr > 0.03:
         br = np.sqrt(np.mean(kw(sfx[i:i + W2].copy()) ** 2)); worst = max(worst, 20 * np.log10(max(br, 1e-9) / vr))
-bl = meter.integrated_loudness(bgm[int(2 * SR):int((VO_FRAMES / FPS - 1) * SR)]) - VO_L
-out = [f'# SFX MAP video umur25 | VO {VO_L:.1f} LUFS (100%) | BGM {bl:.1f} dB vs VO (≈{100 * 10 ** (bl / 20):.1f}%), fade in 1 dtk / fade out di penutup 1 dtk',
+bl = meter.integrated_loudness(bgm[int(2 * SR):int((TOTAL_FRAMES / FPS - 2) * SR)]) - VO_L
+out = [f'# SFX MAP video otak bodoh | VO {VO_L:.1f} LUFS (100%) | BGM {bl:.1f} dB vs VO (≈{100 * 10 ** (bl / 20):.1f}%), diputar utuh 0-{N / SR:.2f} dtk, fade in 1 dtk / fade out 1 dtk terakhir',
        f'# master {meter.integrated_loudness(mix):.1f} LUFS, true-peak {TP:.2f} dBFS (limit -1) | SFX terkeras saat narasi {worst:.1f} dB = {100 * 10 ** (worst / 20):.0f}% VO (batas 20%) | maks barengan {mx} (batas 3)',
-       '# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.5 dB ≈ 19-20% VO | trans (transisi/camera move) -20 dB = 10% VO',
+       '# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.3 dB ≈ 19-20% VO | trans (transisi + camera move + panel neon) -16.8 dB ≈ 14-15% VO | semua SFX = sintesis baru (public/sfx_ob)',
        '# frame | detik | beat | jenis | SFX | durasi main']
 for it in items:
     bt = it['note'].split(' ')[0]
-    out.append(f"{it['frame']:5d} | {it['start']:7.2f}s | {bt:8s} | {('animasi 20%' if it['cls'] == 'anim' else 'transisi 10%'):12s} | {it['file'] + '.wav':26s} | {it['end'] - it['start']:.2f}s | {' '.join(it['note'].split(' ')[1:])}")
+    out.append(f"{it['frame']:5d} | {it['start']:7.2f}s | {bt:8s} | {('animasi 20%' if it['cls'] == 'anim' else 'transisi 15%'):12s} | {it['file'] + '.wav':26s} | {it['end'] - it['start']:.2f}s | {' '.join(it['note'].split(' ')[1:])}")
 open(os.path.join(ROOT, 'preview/sfx_map.txt'), 'w').write('\n'.join(out) + '\n')
 print('\n'.join(out[:3]))

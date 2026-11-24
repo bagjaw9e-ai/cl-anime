@@ -1,104 +1,91 @@
-"""Jadwal SFX video umur25 di FRAME KEJADIAN animasi (frame absolut 30 fps, sinkron src/scenes/*.tsx).
-Kelas (brief): anim = SFX animasi/ilustrasi/gerakan karakter 20% VO; trans = SFX transisi/camera move 10% VO.
-Output: data/sfx_cues.json, preview/sfx_map.txt (draf), preview/sfx_missing.txt."""
+"""Jadwal SFX video "otak bodoh" di FRAME KEJADIAN (frame absolut 30 fps, sinkron src/scenes/*.tsx & neonPanel.ts).
+Semua file dari public/sfx_ob/ (disintesis baru oleh scripts/make_sfx_ob.py, tanpa SFX lama).
+Kelas: anim = animasi/ilustrasi/gerakan karakter 20% VO; trans = transisi + camera movement + panel neon ganti 15% VO.
+Output: data/sfx_cues.json."""
 import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = json.load(open(os.path.join(ROOT, 'data/beats.json')))
 bf = lambda i, o=0: round(B[i - 1]['start'] * 30) + o
-VO_F = round(105.44 * 30)
+VO_F, TOT = round(128.1 * 30), round(129.497 * 30)
+A, TR = 'anim', 'trans'
 C = [  # (frame, file, kelas, durasi maks dtk / None, catatan)
- # HOOK
- (2, 'match_strike', 'anim', 0.8, 'B1 korek menyalakan lilin 25'), (6, 'party_popper', 'anim', None, 'B1 party popper + confetti meledak'),
- (4, 'whoosh_fast', 'trans', 0.4, 'B1 snap zoom-in ke lilin'),
- (bf(2, 4), 'candle_blow', 'anim', None, 'B2 lilin ditiup -> gelap'), (bf(2, 8), 'whoosh_fast', 'trans', 0.4, 'B2 whip cepat + flash ke pria'),
- (bf(2, 14), 'phone_notification_soft', 'anim', None, 'B2 notifikasi HP di balik punggung'),
- # ONE SHOT
- (bf(3, 34), 'crack_soft', 'anim', None, 'B3 retakan 1'), (bf(3, 48), 'crack_soft', 'anim', None, 'B3 retakan 2'), (bf(3, 62), 'crack_soft', 'anim', None, 'B3 retakan 3'),
- (bf(3, 20), 'deflate', 'anim', 1.6, 'B3 balon kempes pelan (dekorasi layu)'),
- (bf(4, 0), 'curtain_open', 'anim', 1.2, 'B4 kain/tirai bergeser, dinding jadi layar bayangan'), (bf(4, 30), 'heavy_breath', 'anim', 1.2, 'B4 napas'),
- (bf(5, 2), 'crack_creep', 'anim', 1.2, 'B5 retakan merayap'), (bf(5, 6), 'heartbeat', 'anim', 1.0, 'B5 detak jantung pelan'),
- (bf(6, -6), 'light_sweep_air', 'trans', None, 'tembus retakan 1 -> kilat merah ke Efek 1'),
- # EFEK 1
- (bf(6, 8), 'stamp_thud', 'anim', None, 'B6 label chip EFEK 1 (stempel)'),
- (bf(7, 4), 'match_strike', 'anim', None, 'B7 korek di sumbu'), (bf(7, 16), 'fuse_hiss', 'anim', 1.2, 'B7 desis sumbu terbakar'),
- (bf(8, 6), 'crack_soft', 'anim', None, 'B8 gelas retak'),
- (bf(9, 8), 'desk_slam', 'anim', None, 'B9 meja digebrak'), (bf(9, 12), 'chair_scrape', 'anim', None, 'B9 kursi bergeser (keluarga mundur)'),
- (bf(10, 6), 'screen_tap', 'anim', None, 'B10 tap layar HP'),
- (bf(11, 4), 'water_flow', 'anim', 1.5, 'B11 air bah partikel pink'),
- (bf(12, 14), 'power_down', 'anim', None, 'B12 HP mati'),
- (bf(13, 4), 'fall_whoosh', 'anim', 0.6, 'B13 mood jatuh bebas'), (bf(13, 20), 'thud', 'anim', 0.6, 'B13 dentum'),
- (bf(14, 14), 'paper_tear', 'anim', None, 'B14 kertas tagihan disobek dari buku'),
- (bf(15, 24), 'spoon_clink', 'anim', None, 'B15 sendok'), (bf(15, 30), 'munch', 'anim', None, 'B15 kunyah lucu'),
- (bf(16, 8), 'water_slosh', 'anim', 0.8, 'B16 air tumpah'), (bf(16, 38), 'cartoon_blast', 'anim', None, 'B16 kepala meledak (bom kartun teredam)'),
- (bf(17, 10), 'footsteps_walk', 'anim', 1.6, 'B17 langkah di tangga'), (bf(17, 40), 'gauge_rise', 'anim', None, 'B17 jarum gauge ke merah'),
- (bf(17, 6), 'whoosh_up', 'trans', 0.5, 'B17 tilt naik ngikutin tangga'),
- (bf(18, 12), 'click_sharp', 'anim', 0.3, 'B18 folder diklik'), (bf(18, 28), 'click_sharp', 'anim', 0.3, 'B18 folder diklik'), (bf(18, 44), 'click_sharp', 'anim', 0.3, 'B18 folder diklik'),
- (bf(18, 54), 'shield_clang', 'anim', None, 'B18 dentang perisai'),
- (bf(19, 26), 'stamp_thud', 'anim', None, 'B19 stempel NORMAL'),
- (bf(20, 14), 'chair_scrape', 'anim', None, 'B20 kursi terbalik'), (bf(20, 24), 'plate_break', 'anim', None, 'B20 piring pecah'),
- (bf(21, 4), 'footsteps_short', 'anim', None, 'B21 langkah menjauh'), (bf(21, 14), 'frame_fall', 'anim', 0.5, 'B21 bingkai miring (gesek paku)'),
- (bf(22, 4), 'ink_spread', 'anim', 1.6, 'B22 tinta/noda merah menyebar'), (bf(22, 10), 'heartbeat', 'anim', 1.5, 'B22 detak jantung'),
- # MID-CTA
- (bf(23, -6), 'light_switch', 'trans', None, 'fade lewat gelap: lampu mati lalu objek nyala'),
- (bf(23, 6), 'chime_soft', 'anim', None, 'B23 ting lembut otak amber'), (bf(23, 10), 'warm_swell', 'anim', None, 'B23 swell hangat'),
- (bf(24, 8), 'click_sharp', 'anim', 0.35, 'B24 klik link'),
- (bf(25, 50), 'tape_pull', 'anim', None, 'B25 perban dilepas'), (bf(25, 80), 'sigh', 'anim', 1.2, 'B25 napas lega'),
- (bf(26, 2), 'light_switch', 'anim', None, 'B26 saklar mati'), (bf(26, 8), 'bass_hit', 'anim', 1.4, 'B26 dentum rendah'),
- # EFEK 2
- (bf(27, -5), 'whoosh_fast', 'trans', None, 'whip slide ke jalan kota'), (bf(27, 6), 'stamp_thud', 'anim', None, 'B27 label chip EFEK 2'),
- (bf(27, 10), 'car_pass', 'anim', None, 'B27 mobil lewat'),
- (bf(28, 4), 'bubble_pop', 'anim', None, 'B28 awan hayalan pop'), (bf(28, 14), 'pop_soft', 'anim', None, 'B28 gelembung pop'),
- (bf(29, 4), 'heels_steps', 'anim', 1.2, 'B29 langkah heels'), (bf(29, 12), 'bus_pass', 'anim', 1.6, 'B29 bus lewat'),
- (bf(30, 4), 'paper_crumple', 'anim', None, 'B30 kertas diremas'), (bf(30, 10), 'steam_hiss', 'anim', 0.8, 'B30 desis sensor'),
- (bf(31, 0), 'knock_tap', 'anim', None, 'B31 ketukan (Kenapa?)'),
- (bf(32, 10), 'dumbbell_set_down', 'anim', None, 'B32 barbel diangkat/diletakkan'), (bf(32, 18), 'workout_breath', 'anim', 1.2, 'B32 napas berat angkat beban'),
- (bf(33, 4), 'stone_grind', 'anim', 1.4, 'B33 batu bergeser'), (bf(33, 20), 'sand_flow', 'anim', 1.0, 'B33 debu'),
- (bf(34, 4), 'munch', 'anim', None, 'B34 kunyah'), (bf(34, 26), 'bird_chirp', 'anim', 1.2, 'B34 kicau burung (sarang)'),
- (bf(35, 20), 'seesaw_creak', 'anim', None, 'B35 kayu jungkat-jungkit berderit'), (bf(35, 58), 'thud', 'anim', 0.6, 'B35 thud otak tengah turun'),
- (bf(36, 20), 'scale_clank', 'anim', 1.0, 'B36 timbangan berdenting'),
- (bf(37, 4), 'glass_fog', 'anim', 1.4, 'B37 embun/napas di kaca'),
- (bf(38, 2), 'water_rush', 'anim', 1.6, 'B38 arus air deras'),
- (bf(39, 8), 'bus_brake', 'anim', None, 'B39 rem bus mendadak'), (bf(39, 20), 'heartbeat', 'anim', 2.0, 'B39 detak jantung'),
- (bf(40, 10), 'paper_page_turn', 'anim', None, 'B40 kertas dibalik'),
- (bf(41, 4), 'camera_shutter', 'anim', None, 'B41 shutter kamera jurnal'), (bf(41, 14), 'stamp_thud', 'anim', None, 'B41 stempel PLOS ONE 2014'),
- # EFEK 3
- (bf(42, -6), 'light_sweep_air', 'trans', None, 'light sweep ke kafe'), (bf(42, 6), 'stamp_thud', 'anim', None, 'B42 label chip EFEK 3'), (bf(42, 14), 'cup_tray', 'anim', None, 'B42 cangkir kopi'),
- (bf(43, 16), 'gear_jam', 'anim', None, 'B43 gear macet berderit'),
- (bf(44, 10), 'sigh', 'anim', 1.6, 'B44 helaan napas panjang'),
- (bf(45, 4), 'knob_turn', 'anim', 1.0, 'B45 putaran lensa'),
- (bf(46, 2), 'paper_flap', 'anim', 1.2, 'B46 kertas beterbangan'),
- (bf(47, 4), 'cup_tray', 'anim', None, 'B47 cangkir diletakkan (lalu hening canggung)'),
- (bf(48, 30), 'heavy_sack_thud', 'anim', None, 'B48 beban jatuh di pundak'),
- (bf(49, 20), 'sand_flow', 'anim', 1.8, 'B49 pasir berjatuhan'),
- (bf(50, 4), 'room_tone', 'anim', 2.4, 'B50 dengung ruangan pelan'), (bf(50, 2), 'whoosh_soft', 'trans', 0.6, 'B50 extreme push-in ke mata'),
- (bf(51, 4), 'chair_scrape', 'anim', None, 'B51 kursi bergeser pelan'), (bf(51, 30), 'heavy_breath', 'anim', 1.4, 'B51 napas'),
- # PENUTUP (20%)
- (VO_F + 8, 'glass_shatter', 'anim', 0.9, 'PENUTUP kaca pecah halus (3 otak retak pecah)'), (VO_F + 24, 'light_switch', 'anim', None, 'PENUTUP saklar lampu mati'),
+ # ---------- HOOK (quick cut) ----------
+ (0, 'tr_snap_zoom', TR, None, 'B1 snap zoom ke kertas ujian'), (0, 'paper_slide', A, None, 'B1 kertas ujian masuk'), (8, 'stamp_paper', A, None, 'B1 cap nilai 0 menghantam kertas'),
+ (bf(2), 'tr_whip', TR, None, 'B2 hard cut + whip cepat ke HP'), (bf(2, 8), 'phone_ping', A, None, 'B2 notifikasi HP 18+'), (bf(2, 16), 'screen_tap', A, None, 'B2 tap layar'),
+ (bf(3), 'tr_snap_zoom', TR, None, 'B3 snap zoom ke gagang pintu'), (bf(3, 3), 'key_lock', A, None, 'B3 kunci diputar, klik terkunci'),
+ (bf(4), 'tr_push', TR, None, 'B4 push cepat + shake'), (bf(4, 2), 'chain_clank', A, None, 'B4 rantai berderak'),
+ # ---------- ONE SHOT ----------
+ (bf(5), 'tr_dark_fade', TR, 0.6, 'B5 fade singkat ke ruang kosong'), (bf(5, 4), 'room_hum', A, 3.0, 'B5 dengung ruangan pelan'),
+ (bf(5, 14), 'light_switch', A, None, 'B5 saklar pintu 1 (kuning)'), (bf(5, 36), 'light_switch', A, None, 'B5 saklar pintu 2 (oranye)'),
+ (bf(5, 58), 'light_switch', A, None, 'B5 saklar pintu 3 (merah)'), (bf(5, 40), 'tr_air_rise', TR, None, 'B5 slow zoom masuk pintu 1'),
+ # ---------- FASE 1 ----------
+ (bf(6, -8), 'tr_door_light', TR, None, 'tembus pintu 1 -> cahaya kuning -> perpustakaan'), (bf(6), 'neon_on', TR, None, 'B6 panel neon FASE 1 nyala (flicker 3x)'),
+ (bf(7, 28), 'cable_plug', A, None, 'B7 kabel merah menancap di dahi'), (bf(7, 34), 'hum_down', A, None, 'B7 dengung energi turun'),
+ (bf(7, 56), 'tr_push', TR, None, 'B7 zoom ke dahi'),
+ (bf(8, 10), 'bulb_flicker', A, None, 'B8 PFC meredup kayak lampu mau mati'),
+ (bf(9, 0), 'tr_air_rise', TR, 0.8, 'B9 tilt ke mesin'), (bf(9, 4), 'gears_soft', A, None, 'B9 gear emas berputar'),
+ (bf(10, 4), 'pencil_scratch', A, None, 'B10 pensil menggores (benang -> jaringan)'),
+ (bf(11, 10), 'chess_knock', A, None, 'B11 bidak kuda diletakkan'),
+ (bf(12, 4), 'chalk_board', A, None, 'B12 kapur di papan tulis'),
+ (bf(13, 2), 'map_unfold', A, None, 'B13 peta dibentangkan'),
+ (bf(14, 18), 'brake_stomp', A, None, 'B14 pedal rem dihentak'),
+ (bf(15, 4), 'wheel_squeak', A, None, 'B15 roda hamster berderit'),
+ (bf(16, 0), 'tr_air_fall', TR, 0.9, 'B16 tilt turun'), (bf(16, 2), 'engine_slow', A, None, 'B16 mesin melambat + gear macet'),
+ # ---------- PMO SAVIOR ----------
+ (bf(17, -9), 'tr_dark_fade', TR, None, 'fade lewat gelap -> panggung'), (bf(17, -6), 'neon_off', TR, None, 'panel FASE 1 flicker mati'),
+ (bf(17), 'neon_on', TR, None, 'B17 panel PMO SAVIOR nyala'), (bf(17, 10), 'link_click', A, None, 'B17 klik ikon link'),
+ (bf(18, 2), 'book_open', A, None, 'B18 buku panduan dibuka + halaman'),
+ (bf(19, 24), 'crystal_mend', A, None, 'B19 retakan menyatu lembut'),
+ (bf(20, 0), 'switch_off', A, None, 'B20 lampu panggung redup'), (bf(20, 62), 'door_creak', A, None, 'B20 pintu 2 berderit terbuka'),
+ (bf(20, 60), 'tr_air_rise', TR, None, 'B20 zoom ke pintu 2'),
+ # ---------- FASE 2 ----------
+ (bf(21, -8), 'tr_door_light', TR, None, 'tembus pintu 2 -> cahaya oranye -> hutan'), (bf(21, -6), 'neon_off', TR, None, 'panel PMO SAVIOR mati'),
+ (bf(21), 'neon_on', TR, None, 'B21 panel FASE 2 nyala'), (bf(21, 4), 'night_owl', A, None, 'B21 burung malam'),
+ (bf(22, 0), 'leaf_steps', A, None, 'B22 maskot melangkah di daun kering'),
+ (bf(23, 2), 'lizard_monkey', A, None, 'B23 desis kadal + monyet'),
+ (bf(24, 4), 'twig_fire', A, None, 'B24 ranting dipatahkan + api unggun'),
+ (bf(25, 1), 'chew', A, None, 'B25 kunyah paha ayam'),
+ (bf(26, 2), 'chicks', A, None, 'B26 kicau anak burung'),
+ (bf(27, 20), 'scratch_hmm', A, None, 'B27 garuk kepala + hmm'),
+ (bf(28, 8), 'screen_tap', A, None, 'B28 tap layar'), (bf(28, 52), 'screen_tap', A, None, 'B28 tap layar lagi'),
+ (bf(29, 0), 'tr_air_rise', TR, 0.9, 'B29 orbit pelan'), (bf(29, 30), 'cardboard_boing', A, None, 'B29 ternyata kardus tipis'),
+ (bf(30, 4), 'camera_shutter', A, None, 'B30 shutter + kertas jurnal'),
+ (bf(31, 4), 'clock_fast', A, None, 'B31 jam tik-tok dipercepat'),
+ (bf(32, 4), 'giant_step', A, None, 'B32 langkah raksasa maskot'), (bf(32, 12), 'tr_push', TR, None, 'B32 zoom out lalu in'),
+ (bf(33, 18), 'wheel_grab', A, None, 'B33 setir direbut paksa'),
+ # ---------- FASE 3 ----------
+ (bf(34, -8), 'tr_door_light', TR, None, 'tembus pintu 3 -> cahaya merah -> jalan kota'), (bf(34, -6), 'neon_off', TR, None, 'panel FASE 2 mati'),
+ (bf(34), 'neon_on', TR, None, 'B34 panel FASE 3 nyala'), (bf(34, 6), 'car_wet', A, None, 'B34 mobil lewat di jalan basah'),
+ (bf(35, 16), 'crown_ding', A, None, 'B35 mahkota dipasang'),
+ (bf(36, 6), 'balloon_deflate', A, None, 'B36 PFC menyusut (balon mengempis)'),
+ (bf(37, 14), 'switches_snap', A, None, 'B37 lampu panel mati berurutan + pedal patah'),
+ (bf(38, 0), 'red_torrent', A, None, 'B38 arus air deras'), (bf(38, 0), 'tr_air_rise', TR, 0.8, 'B38 pan mengikuti arus'),
+ (bf(39, 14), 'rope_rewind', A, None, 'B39 tali ditarik + rewind 1'), (bf(39, 50), 'rope_rewind', A, None, 'B39 rewind 2'), (bf(39, 84), 'rope_rewind', A, None, 'B39 rewind 3'),
+ (bf(40, 8), 'match_hiss', A, None, 'B40 korek api + desis'),
+ (bf(41, 52), 'scale_fall', A, None, 'B41 timbangan patah jatuh'),
+ (bf(42, 0), 'lamp_buzz', A, None, 'B42 lampu jalan berdengung/berkedip'),
+ (bf(43, 4), 'dull_knife', A, None, 'B43 pisau tumpul digesek'),
+ (bf(44, 0), 'papers_fly', A, None, 'B44 kertas beterbangan'),
+ (bf(45, 30), 'paper_collapse', A, None, 'B45 kertas sobek + tumpukan ambruk'),
+ # ---------- HANCURNYA MASA DEPAN ----------
+ (bf(46, -9), 'tr_dark_fade', TR, None, 'fade lewat gelap -> kantor'), (bf(46, -6), 'neon_off', TR, None, 'panel FASE 3 mati'),
+ (bf(46), 'neon_broken', TR, None, 'B46 panel HANCURNYA MASA DEPAN nyala (rusak)'),
+ (bf(47, 28), 'book_slam', A, None, 'B47 buku teori ditutup keras'),
+ (bf(48, 14), 'marker_down', A, None, 'B48 spidol menggaris turun'),
+ (bf(49, 4), 'awkward_tick', A, None, 'B49 hening canggung + tik-tok'),
+ (bf(50, 0), 'tr_push', TR, None, 'B50 extreme zoom ke mata'), (bf(50, 4), 'office_hum', A, 1.5, 'B50 dengung ruangan'),
+ (bf(51, 4), 'files_pen', A, None, 'B51 berkas ditumpuk + pulpen nyoret'),
+ (bf(52, 2), 'lens_turn', A, None, 'B52 ring lensa diputar'),
+ (bf(53, 4), 'rusty_gear', A, None, 'B53 gear berkarat berderit'),
+ (bf(54, -7), 'tr_dissolve', TR, None, 'dissolve -> jalan ke cakrawala'), (bf(54, 44), 'sign_steps', A, None, 'B54 rambu berdecit + langkah'),
+ (bf(55, 2), 'sand_flow', A, None, 'B55 pasir mengalir'),
+ (bf(56, 30), 'candle_out', A, None, 'B56 lilin POTENSI padam'),
+ (bf(57, 0), 'treadmill_steps', A, None, 'B57 treadmill + langkah'), (bf(57, 0), 'tr_air_fall', TR, None, 'B57 pull-out ke wide'),
+ # ---------- PENUTUP ----------
+ (VO_F + 14, 'neon_off', TR, None, 'B58 panel neon flicker terakhir lalu mati'),
 ]
-MISSING_DESC = {
- 'party_popper': 'party popper meletus + kertas confetti', 'candle_blow': 'tiupan napas mematikan lilin (fuh)', 'fuse_hiss': 'sumbu terbakar mendesis',
- 'chair_scrape': 'kursi kayu bergeser di lantai', 'paper_tear': 'kertas tagihan disobek dari buku', 'spoon_clink': 'sendok logam berdenting',
- 'munch': 'kunyah lucu (nyam-nyam, bukan vokal)', 'cartoon_blast': 'ledakan kartun teredam (poof + debu, bukan bom realistis)',
- 'shield_clang': 'perisai logam berdentang', 'ink_spread': 'tinta basah menyebar/merembes', 'car_pass': 'mobil lewat (whoosh ban + mesin)',
- 'heels_steps': 'langkah sepatu heels di trotoar', 'bus_pass': 'bus lewat (mesin berat + angin)', 'paper_crumple': 'kertas diremas',
- 'knock_tap': 'ketukan kayu dua kali', 'seesaw_creak': 'kayu jungkat-jungkit berderit', 'glass_fog': 'napas di kaca dingin (hah) + embun',
- 'water_rush': 'arus air deras', 'bus_brake': 'rem bus mendadak (desis angin + decit)', 'room_tone': 'dengung ruangan pelan (AC/kafe sepi)',
-}
-FALLBACK = {'party_popper': '-', 'candle_blow': 'breath? (heavy_breath)', 'fuse_hiss': 'steam_hiss', 'chair_scrape': 'wheel_creak', 'paper_tear': 'tape_pull',
- 'spoon_clink': 'glass_clink', 'munch': '-', 'cartoon_blast': 'thud', 'shield_clang': 'rusty_clank', 'ink_spread': 'water_bubbles', 'car_pass': 'whoosh_air',
- 'heels_steps': 'footsteps_short', 'bus_pass': 'engine_idle_soft', 'paper_crumple': 'paper_rustle', 'knock_tap': 'soft_hit', 'seesaw_creak': 'chest_hinge',
- 'glass_fog': 'heavy_breath', 'water_rush': 'water_flow', 'bus_brake': 'brake_snap (logam, kurang cocok)', 'room_tone': 'neon_hum'}
-have = set(x[:-4] for x in os.listdir(os.path.join(ROOT, 'public/sfx')))
-cues = [{'frame': f, 'file': n, 'cls': c, 'dur': d, 'note': nt} for f, n, c, d, nt in sorted(C)]
-json.dump({'fps': 30, 'cues': cues}, open(os.path.join(ROOT, 'data/sfx_cues.json'), 'w'), indent=1, ensure_ascii=False)
-with open(os.path.join(ROOT, 'preview/sfx_map.txt'), 'w') as o:
-    o.write('# SFX map (draf) | frame | detik | beat/jenis | file | status | catatan\n# jenis: anim = animasi/ilustrasi/gerakan karakter 20% VO, trans = transisi/camera move 10% VO\n')
-    for c in cues:
-        o.write(f"{c['frame']:5d} | {c['frame']/30:7.2f}s | {c['cls']:5s} | {c['file'] + '.wav':26s} | {'OK' if c['file'] in have else 'MISSING':7s} | {c['note']}\n")
-miss = sorted(MISSING_DESC)
-with open(os.path.join(ROOT, 'preview/sfx_missing.txt'), 'w') as o:
-    o.write('# SFX yang awalnya belum ada filenya di public/sfx (20 bunyi).\n# Status: user pilih opsi 2 -> disintesis natural dengan scripts/make_foley_umur25.py (tanpa beep/laser/zap).\n# file | bunyi | frame | status | fallback file lama\n')
-    for n in miss:
-        fr = ', '.join(str(c['frame']) for c in cues if c['file'] == n)
-        o.write(f"{n + '.wav':18s} | {MISSING_DESC[n]} | frame {fr} | {'SINTESIS (ada)' if n in have else 'MISSING'} | {FALLBACK[n]}\n")
-print(len(cues), 'cue,', sum(1 for c in cues if c['file'] not in have), 'cue file belum ada;', sorted({c['file'] for c in cues if c['file'] not in have}))
+cues = [{'frame': f, 'file': fi, 'cls': c, 'dur': d, 'note': n} for f, fi, c, d, n in sorted(C, key=lambda x: x[0])]
+for c in cues:
+    assert os.path.exists(os.path.join(ROOT, 'public/sfx_ob', c['file'] + '.wav')), c['file']
+json.dump({'cues': cues}, open(os.path.join(ROOT, 'data/sfx_cues.json'), 'w'), ensure_ascii=False, indent=0)
+print(len(cues), 'cue,', len({c['file'] for c in cues}), 'file SFX baru')

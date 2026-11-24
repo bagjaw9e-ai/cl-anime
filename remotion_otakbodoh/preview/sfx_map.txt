@@ -1,0 +1,100 @@
+# SFX MAP video otak bodoh | VO -14.9 LUFS (100%) | BGM -39.9 dB vs VO (≈1.0%), diputar utuh 0-129.50 dtk, fade in 1 dtk / fade out 1 dtk terakhir
+# master -12.7 LUFS, true-peak -1.86 dBFS (limit -1) | SFX terkeras saat narasi -13.8 dB = 20% VO (batas 20%) | maks barengan 3 (batas 3)
+# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.3 dB ≈ 19-20% VO | trans (transisi + camera move + panel neon) -16.8 dB ≈ 14-15% VO | semua SFX = sintesis baru (public/sfx_ob)
+# frame | detik | beat | jenis | SFX | durasi main
+    0 |    0.00s | B1       | transisi 15% | tr_snap_zoom.wav           | 0.38s | snap zoom ke kertas ujian
+    0 |    0.00s | B1       | animasi 20%  | paper_slide.wav            | 0.45s | kertas ujian masuk
+    8 |    0.27s | B1       | animasi 20%  | stamp_paper.wav            | 0.40s | cap nilai 0 menghantam kertas
+   28 |    0.93s | B2       | transisi 15% | tr_whip.wav                | 0.44s | hard cut + whip cepat ke HP
+   36 |    1.20s | B2       | animasi 20%  | phone_ping.wav             | 0.71s | notifikasi HP 18+
+   44 |    1.47s | B2       | animasi 20%  | screen_tap.wav             | 0.06s | tap layar
+   57 |    1.90s | B3       | transisi 15% | tr_snap_zoom.wav           | 0.35s | snap zoom ke gagang pintu
+   60 |    2.00s | B3       | animasi 20%  | key_lock.wav               | 0.72s | kunci diputar, klik terkunci
+   73 |    2.43s | B4       | transisi 15% | tr_push.wav                | 0.50s | push cepat + shake
+   75 |    2.50s | B4       | animasi 20%  | chain_clank.wav            | 1.14s | rantai berderak
+  114 |    3.80s | B5       | transisi 15% | tr_dark_fade.wav           | 0.60s | fade singkat ke ruang kosong
+  118 |    3.93s | B5       | animasi 20%  | room_hum.wav               | 1.20s | dengung ruangan pelan
+  128 |    4.27s | B5       | animasi 20%  | light_switch.wav           | 1.35s | saklar pintu 1 (kuning)
+  150 |    5.00s | B5       | animasi 20%  | light_switch.wav           | 1.25s | saklar pintu 2 (oranye)
+  154 |    5.13s | B5       | transisi 15% | tr_air_rise.wav            | 1.39s | slow zoom masuk pintu 1
+  172 |    5.73s | B5       | animasi 20%  | light_switch.wav           | 1.45s | saklar pintu 3 (merah)
+  204 |    6.80s | tembus   | transisi 15% | tr_door_light.wav          | 1.99s | pintu 1 -> cahaya kuning -> perpustakaan
+  212 |    7.07s | B6       | transisi 15% | neon_on.wav                | 1.00s | panel neon FASE 1 nyala (flicker 3x)
+  270 |    9.00s | B7       | animasi 20%  | cable_plug.wav             | 0.18s | kabel merah menancap di dahi
+  276 |    9.20s | B7       | animasi 20%  | hum_down.wav               | 1.60s | dengung energi turun
+  298 |    9.93s | B7       | transisi 15% | tr_push.wav                | 0.47s | zoom ke dahi
+  361 |   12.03s | B8       | animasi 20%  | bulb_flicker.wav           | 1.20s | PFC meredup kayak lampu mau mati
+  457 |   15.23s | B9       | transisi 15% | tr_air_rise.wav            | 0.74s | tilt ke mesin
+  461 |   15.37s | B9       | animasi 20%  | gears_soft.wav             | 1.59s | gear emas berputar
+  558 |   18.60s | B10      | animasi 20%  | pencil_scratch.wav         | 0.80s | pensil menggores (benang -> jaringan)
+  632 |   21.07s | B11      | animasi 20%  | chess_knock.wav            | 0.55s | bidak kuda diletakkan
+  662 |   22.07s | B12      | animasi 20%  | chalk_board.wav            | 1.20s | kapur di papan tulis
+  700 |   23.33s | B13      | animasi 20%  | map_unfold.wav             | 0.90s | peta dibentangkan
+  754 |   25.13s | B14      | animasi 20%  | brake_stomp.wav            | 0.66s | pedal rem dihentak
+  780 |   26.00s | B15      | animasi 20%  | wheel_squeak.wav           | 1.79s | roda hamster berderit
+  857 |   28.57s | B16      | transisi 15% | tr_air_fall.wav            | 0.90s | tilt turun
+  859 |   28.63s | B16      | animasi 20%  | engine_slow.wav            | 2.20s | mesin melambat + gear macet
+  934 |   31.13s | fade     | transisi 15% | tr_dark_fade.wav           | 0.63s | lewat gelap -> panggung
+  937 |   31.23s | panel    | transisi 15% | neon_off.wav               | 0.90s | FASE 1 flicker mati
+  943 |   31.43s | B17      | transisi 15% | neon_on.wav                | 0.94s | panel PMO SAVIOR nyala
+  953 |   31.77s | B17      | animasi 20%  | link_click.wav             | 0.08s | klik ikon link
+  989 |   32.97s | B18      | animasi 20%  | book_open.wav              | 0.90s | buku panduan dibuka + halaman
+ 1066 |   35.53s | B19      | animasi 20%  | crystal_mend.wav           | 2.19s | retakan menyatu lembut
+ 1128 |   37.60s | B20      | animasi 20%  | switch_off.wav             | 1.34s | lampu panggung redup
+ 1188 |   39.60s | B20      | transisi 15% | tr_air_rise.wav            | 0.83s | zoom ke pintu 2
+ 1190 |   39.67s | B20      | animasi 20%  | door_creak.wav             | 2.18s | pintu 2 berderit terbuka
+ 1211 |   40.37s | tembus   | transisi 15% | tr_door_light.wav          | 0.27s | pintu 2 -> cahaya oranye -> hutan
+ 1213 |   40.43s | panel    | transisi 15% | neon_off.wav               | 0.33s | PMO SAVIOR mati
+ 1219 |   40.63s | B21      | transisi 15% | neon_on.wav                | 1.00s | panel FASE 2 nyala
+ 1223 |   40.77s | B21      | animasi 20%  | night_owl.wav              | 2.05s | burung malam
+ 1249 |   41.63s | B22      | animasi 20%  | leaf_steps.wav             | 1.12s | maskot melangkah di daun kering
+ 1341 |   44.70s | B23      | animasi 20%  | lizard_monkey.wav          | 1.60s | desis kadal + monyet
+ 1377 |   45.90s | B24      | animasi 20%  | twig_fire.wav              | 1.75s | ranting dipatahkan + api unggun
+ 1421 |   47.37s | B25      | animasi 20%  | chew.wav                   | 0.57s | kunyah paha ayam
+ 1441 |   48.03s | B26      | animasi 20%  | chicks.wav                 | 1.50s | kicau anak burung
+ 1494 |   49.80s | B27      | animasi 20%  | scratch_hmm.wav            | 1.10s | garuk kepala + hmm
+ 1552 |   51.73s | B28      | animasi 20%  | screen_tap.wav             | 0.06s | tap layar
+ 1596 |   53.20s | B28      | animasi 20%  | screen_tap.wav             | 0.06s | tap layar lagi
+ 1633 |   54.43s | B29      | transisi 15% | tr_air_rise.wav            | 0.84s | orbit pelan
+ 1663 |   55.43s | B29      | animasi 20%  | cardboard_boing.wav        | 0.98s | ternyata kardus tipis
+ 1722 |   57.40s | B30      | animasi 20%  | camera_shutter.wav         | 0.69s | shutter + kertas jurnal
+ 1833 |   61.10s | B31      | animasi 20%  | clock_fast.wav             | 2.46s | jam tik-tok dipercepat
+ 1925 |   64.17s | B32      | animasi 20%  | giant_step.wav             | 2.02s | langkah raksasa maskot
+ 1933 |   64.43s | B32      | transisi 15% | tr_push.wav                | 0.54s | zoom out lalu in
+ 1993 |   66.43s | B33      | animasi 20%  | wheel_grab.wav             | 0.91s | setir direbut paksa
+ 2048 |   68.27s | tembus   | transisi 15% | tr_door_light.wav          | 0.47s | pintu 3 -> cahaya merah -> jalan kota
+ 2050 |   68.33s | panel    | transisi 15% | neon_off.wav               | 0.94s | FASE 2 mati
+ 2056 |   68.53s | B34      | transisi 15% | neon_on.wav                | 0.92s | panel FASE 3 nyala
+ 2062 |   68.73s | B34      | animasi 20%  | car_wet.wav                | 2.19s | mobil lewat di jalan basah
+ 2102 |   70.07s | B35      | animasi 20%  | crown_ding.wav             | 1.80s | mahkota dipasang
+ 2138 |   71.27s | B36      | animasi 20%  | balloon_deflate.wav        | 1.30s | PFC menyusut (balon mengempis)
+ 2199 |   73.30s | B37      | animasi 20%  | switches_snap.wav          | 1.51s | lampu panel mati berurutan + pedal patah
+ 2261 |   75.37s | B38      | animasi 20%  | red_torrent.wav            | 3.20s | arus air deras
+ 2261 |   75.37s | B38      | transisi 15% | tr_air_rise.wav            | 0.86s | pan mengikuti arus
+ 2386 |   79.53s | B39      | animasi 20%  | rope_rewind.wav            | 1.30s | tali ditarik + rewind 1
+ 2422 |   80.73s | B39      | animasi 20%  | rope_rewind.wav            | 1.20s | rewind 2
+ 2456 |   81.87s | B39      | animasi 20%  | rope_rewind.wav            | 1.39s | rewind 3
+ 2498 |   83.27s | B40      | animasi 20%  | match_hiss.wav             | 1.20s | korek api + desis
+ 2612 |   87.07s | B41      | animasi 20%  | scale_fall.wav             | 1.63s | timbangan patah jatuh
+ 2639 |   87.97s | B42      | animasi 20%  | lamp_buzz.wav              | 1.40s | lampu jalan berdengung/berkedip
+ 2682 |   89.40s | B43      | animasi 20%  | dull_knife.wav             | 1.00s | pisau tumpul digesek
+ 2737 |   91.23s | B44      | animasi 20%  | papers_fly.wav             | 1.50s | kertas beterbangan
+ 2815 |   93.83s | B45      | animasi 20%  | paper_collapse.wav         | 1.28s | kertas sobek + tumpukan ambruk
+ 2893 |   96.43s | fade     | transisi 15% | tr_dark_fade.wav           | 1.08s | lewat gelap -> kantor
+ 2896 |   96.53s | panel    | transisi 15% | neon_off.wav               | 0.83s | FASE 3 mati
+ 2902 |   96.73s | B46      | transisi 15% | neon_broken.wav            | 1.20s | panel HANCURNYA MASA DEPAN nyala (rusak)
+ 3031 |  101.03s | B47      | animasi 20%  | book_slam.wav              | 0.68s | buku teori ditutup keras
+ 3106 |  103.53s | B48      | animasi 20%  | marker_down.wav            | 0.90s | spidol menggaris turun
+ 3199 |  106.63s | B49      | animasi 20%  | awkward_tick.wav           | 2.40s | hening canggung + tik-tok
+ 3268 |  108.93s | B50      | transisi 15% | tr_push.wav                | 0.47s | extreme zoom ke mata
+ 3272 |  109.07s | B50      | animasi 20%  | office_hum.wav             | 1.50s | dengung ruangan
+ 3317 |  110.57s | B51      | animasi 20%  | files_pen.wav              | 1.83s | berkas ditumpuk + pulpen nyoret
+ 3366 |  112.20s | B52      | animasi 20%  | lens_turn.wav              | 1.30s | ring lensa diputar
+ 3431 |  114.37s | B53      | animasi 20%  | rusty_gear.wav             | 2.08s | gear berkarat berderit
+ 3484 |  116.13s | dissolve | transisi 15% | tr_dissolve.wav            | 0.79s | -> jalan ke cakrawala
+ 3535 |  117.83s | B54      | animasi 20%  | sign_steps.wav             | 2.08s | rambu berdecit + langkah
+ 3631 |  121.03s | B55      | animasi 20%  | sand_flow.wav              | 2.20s | pasir mengalir
+ 3724 |  124.13s | B56      | animasi 20%  | candle_out.wav             | 0.95s | lilin POTENSI padam
+ 3793 |  126.43s | B57      | animasi 20%  | treadmill_steps.wav        | 2.00s | treadmill + langkah
+ 3793 |  126.43s | B57      | transisi 15% | tr_air_fall.wav            | 1.30s | pull-out ke wide
+ 3857 |  128.57s | B58      | transisi 15% | neon_off.wav               | 0.96s | panel neon flicker terakhir lalu mati

@@ -1,0 +1,72 @@
+# SFX video otak bodoh: SEMUA disintesis baru (scripts/make_sfx_ob.py -> public/sfx_ob/), tidak memakai SFX lama.
+# Tidak ada SFX yang hilang. Daftar (jenis | file | bunyi):
+transisi 15% | tr_snap_zoom.wav | snap zoom cepat: hembusan udara naik singkat
+transisi 15% | tr_whip.wav | whip pan: sapuan udara lebar kiri->kanan (filter bergerak)
+transisi 15% | tr_push.wav | push-in kamera: dorongan udara rendah + desis
+transisi 15% | tr_air_rise.wav | zoom pelan / tilt: udara lembut yang naik pelan
+transisi 15% | tr_air_fall.wav | pull-out / tilt turun: kebalikan tr_air_rise
+transisi 15% | tr_dark_fade.wav | fade lewat gelap: tarikan napas ruang rendah yang meredup
+transisi 15% | tr_door_light.wav | masuk lewat pintu bercahaya: udara mengembang + gema ruang (tanpa nada sci-fi)
+transisi 15% | tr_dissolve.wav | dissolve halus: desir kain/angin pendek
+transisi 15% | neon_on.wav | panel neon menyala: trafo berdengung + ketukan starter + kedip 3x
+transisi 15% | neon_off.wav | panel neon mati: kedip lalu dengung turun hilang
+transisi 15% | neon_broken.wav | neon rusak: dengung kasar + putus-sambung tak beraturan
+animasi 20% | stamp_paper.wav | cap stempel karet menghantam kertas di meja kayu
+animasi 20% | paper_slide.wav | kertas ujian diletakkan/bergeser
+animasi 20% | phone_ping.wav | notifikasi HP: dua ketukan marimba kecil (kayu, bukan beep)
+animasi 20% | screen_tap.wav | ketukan jari di kaca layar
+animasi 20% | key_lock.wav | anak kunci diputar: gesek logam + klik slot terkunci
+animasi 20% | chain_clank.wav | rantai berderak: mata rantai logam saling beradu
+animasi 20% | light_switch.wav | saklar dinding ditekan + relay lampu besar menyala (thunk ruang kosong)
+animasi 20% | room_hum.wav | dengung ruangan kosong pelan
+animasi 20% | cable_plug.wav | colokan kabel masuk soket: klik plastik + gesek
+animasi 20% | hum_down.wav | dengung listrik turun (energi terkuras) — trafo melambat
+animasi 20% | bulb_flicker.wav | lampu pijar berkedip & meredup: desis filamen terputus-putus
+animasi 20% | gears_soft.wav | roda gigi kecil berputar halus (tik-tik gigi + dengung poros)
+animasi 20% | pencil_scratch.wav | pensil menggores cepat di kertas
+animasi 20% | chess_knock.wav | bidak catur kayu diletakkan di papan
+animasi 20% | chalk_board.wav | kapur di papan tulis: gesekan kasar berirama + ketuk kapur
+animasi 20% | map_unfold.wav | kertas peta besar dibentangkan
+animasi 20% | brake_stomp.wav | pedal rem diinjak: hentakan karet-logam + desis hidrolik
+animasi 20% | wheel_squeak.wav | roda hamster logam berderit berirama
+animasi 20% | engine_slow.wav | mesin melambat + gear macet berderit
+animasi 20% | link_click.wav | klik tombol link (switch plastik kecil)
+animasi 20% | book_open.wav | buku dibuka + halaman dibalik
+animasi 20% | crystal_mend.wav | kristal/kaca menyatu lembut: dentingan tinggi halus berurutan + kilau
+animasi 20% | switch_off.wav | saklar mati + hening ruang (lampu panggung padam)
+animasi 20% | door_creak.wav | pintu kayu berderit terbuka pelan
+animasi 20% | night_owl.wav | burung malam (hu-hu lembut, siulan berformant) + jangkrik jauh
+animasi 20% | leaf_steps.wav | langkah di daun kering (4 langkah, kresek)
+animasi 20% | lizard_monkey.wav | desis kadal + celoteh monyet pelan (siulan pendek berformant)
+animasi 20% | twig_fire.wav | ranting dipatahkan + api unggun berkeretak
+animasi 20% | chew.wav | kunyah renyah lucu (3 gigitan)
+animasi 20% | chicks.wav | kicau anak burung (cuit-cuit tipis)
+animasi 20% | scratch_hmm.wav | garuk kepala + "hmm" pelan
+animasi 20% | cardboard_boing.wav | kardus tipis ditekuk + pegas "boing" lembut (resonansi kayu, bukan synth)
+animasi 20% | camera_shutter.wav | shutter kamera mekanis + kertas dibalik
+animasi 20% | clock_fast.wav | jam dinding tik-tok makin cepat
+animasi 20% | giant_step.wav | dentum langkah raksasa (tanah bergetar, ranting bergoyang)
+animasi 20% | wheel_grab.wav | setir direbut paksa: cengkeraman kulit berdecit + hentakan
+animasi 20% | car_wet.wav | mobil lewat di jalan basah: desis ban di air + mesin, doppler
+animasi 20% | crown_ding.wav | mahkota logam berdenting saat dipasang
+animasi 20% | balloon_deflate.wav | balon mengempis pelan (udara keluar dari mulut balon, nada turun)
+animasi 20% | switches_snap.wav | saklar mati berurutan (6x) + patah (snap)
+animasi 20% | red_torrent.wav | arus air deras di aspal
+animasi 20% | rope_rewind.wav | tali ditarik tegang (serat berderit) + rewind kaset (gulungan pita mekanis)
+animasi 20% | match_hiss.wav | korek api digores, menyala, lalu desis/asap
+animasi 20% | scale_fall.wav | timbangan logam patah & jatuh berdentang
+animasi 20% | lamp_buzz.wav | lampu jalan berdengung & berkedip
+animasi 20% | dull_knife.wav | pisau tumpul digesek (gesekan kasar tanpa dering tajam)
+animasi 20% | papers_fly.wav | kertas beterbangan tertiup angin
+animasi 20% | paper_collapse.wav | kertas disobek + tumpukan kertas ambruk
+animasi 20% | book_slam.wav | buku tebal ditutup keras
+animasi 20% | marker_down.wav | spidol menggaris turun di whiteboard (decit spidol)
+animasi 20% | awkward_tick.wav | hening canggung: jam tik-tok pelan + dengung AC
+animasi 20% | office_hum.wav | dengung ruangan kantor pelan (AC + lampu)
+animasi 20% | files_pen.wav | berkas ditumpuk (bertubi-tubi) + pulpen mencoret
+animasi 20% | lens_turn.wav | ring fokus lensa diputar (klik-klik halus + gesek)
+animasi 20% | rusty_gear.wav | gear berkarat berderit berat
+animasi 20% | sign_steps.wav | papan rambu logam berdecit + langkah di aspal
+animasi 20% | sand_flow.wav | pasir jam pasir mengalir halus
+animasi 20% | candle_out.wav | lilin ditiup padam: tiupan "fuh" + desis sumbu
+animasi 20% | treadmill_steps.wav | treadmill berputar + langkah di sabuk
