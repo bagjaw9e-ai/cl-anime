@@ -35,7 +35,8 @@ export const Appear: React.FC<{f: number; a: number; b?: number; x?: number; y?:
 
 // kamera: titik (x,y) dunia ke tengah frame (540, cy) dengan zoom s, rotasi r, shake
 export type Cam = {x: number; y: number; s: number; r?: number};
-export const camT = (c: Cam, cy = 860) => `translate(540,${cy}) rotate(${c.r ?? 0}) scale(${c.s}) translate(${-c.x},${-c.y})`;
+export const CY = 900; // titik tengah kamera di layar (pusat zona ilustrasi 560-1250)
+export const camT = (c: Cam, cy = CY) => `translate(540,${cy}) rotate(${c.r ?? 0}) scale(${c.s}) translate(${-c.x},${-c.y})`;
 export const camKeys = (f: number, keys: Array<[number, number, number, number]>): Cam => ({
   x: kp(f, keys.map((k) => [k[0], k[1]] as [number, number])),
   y: kp(f, keys.map((k) => [k[0], k[2]] as [number, number])),

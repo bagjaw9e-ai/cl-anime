@@ -33,6 +33,7 @@ export const TONES = {
   libPurple: {top: '#160C24', mid: '#33184A', floor: '#110A1C', glow: '#C77CFF'},
   stageNavy: {top: '#0E1320', mid: '#1B2233', floor: '#0A0E16', glow: '#8A9AC0'},
   stageAmber: {top: '#17120E', mid: '#2E2216', floor: '#120D09', glow: '#FFB23F'},
+  stageWarm: {top: '#22180E', mid: '#4A341C', floor: '#1A120A', glow: '#FFCF7A'},
   stageCold: {top: '#0A1018', mid: '#16222E', floor: '#080C12', glow: '#7FB7C9'},
   forest: {top: '#07141A', mid: '#12302E', floor: '#061012', glow: '#7FD8C0'},
   forestTeal: {top: '#061220', mid: '#0F2A3A', floor: '#050E16', glow: '#6FC8E8'},

@@ -19,7 +19,7 @@ const C: Array<[number, string[], string[], string, KeyStyle]> = [
   [7, ['HYPOFRONTALITY'], ['HYPOFRONTALITY'], '#F5FF3B', 'punch'],
   [8, ['PFC MENURUN'], ['MENURUN'], '#FF3B3B', 'slam'],
   [9, ['MESIN', 'KECERDASAN'], ['KECERDASAN'], '#F5FF3B', 'wipe'],
-  [15, ['SIKLUS PMO'], ['SIKLUS'], '#FF3B3B', 'punch'],
+  [15, ['SIKLUS PMO'], ['SIKLUS'], '#F5FF3B', 'punch'],
   [16, ['MAKIN MELEMAH'], ['MELEMAH'], '#FF3B3B', 'slam'],
   [18, ['NEUROPLASTICITY'], ['NEUROPLASTICITY'], '#F5FF3B', 'wipe'],
   [22, ['OTAK TENGAH'], ['TENGAH'], '#FF3B3B', 'punch'],

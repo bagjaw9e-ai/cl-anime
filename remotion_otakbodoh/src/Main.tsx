@@ -2,13 +2,13 @@ import React from 'react';
 import {AbsoluteFill, Audio, staticFile, useCurrentFrame} from 'remotion';
 import {SHOTS} from './scenes';
 import {ShotDef} from './scenes/types';
-import {Cam, camT, ramp, sm} from './kit';
+import {CY, Cam, camT, ramp, sm} from './kit';
 import {Dim} from './components/Places';
 import {CalloutView, Subtitle} from './components/UI';
+import {BatteryProgress, NeonPanelView} from './components/NeonPanel';
 import {Grain} from './components/Bg';
 import {TOTAL_FRAMES, VO_FRAMES, beatF} from './timeline';
 
-const CY = 860; // titik tengah kamera di layar (zona tengah 420-1250)
 
 // gaya transisi untuk shot yang sedang MASUK (k 0..1) dan yang KELUAR (k 0..1)
 const enterStyle = (s: ShotDef, f: number): React.CSSProperties => {
@@ -34,12 +34,11 @@ const exitStyle = (next: ShotDef | undefined, f: number): React.CSSProperties =>
   }
 };
 
-// jepit kamera: tidak keluar batas ruangan 1080x1920 & lantai (kaki) tetap di zona tengah (<= y 1260 layar)
-const clampCam = (c: Cam, floorY?: number): Cam => {
+// jepit kamera longgar: latar digambar melebar (-400..1480, -300..2220) -> fokus ilustrasi tetap bisa tepat di tengah frame
+const clampCam = (c: Cam): Cam => {
   const s = Math.max(1, c.s);
-  let x = Math.min(1080 - 540 / s, Math.max(540 / s, c.x));
-  let y = Math.min(1920 - (1920 - CY) / s, Math.max(CY / s, c.y));
-  if (floorY !== undefined) y = Math.max(y, floorY - 400 / s);
+  const x = Math.min(1080 - 540 / s + 380, Math.max(540 / s - 380, c.x));
+  const y = Math.min(1920 - (1920 - CY) / s + 280, Math.max(CY / s - 280, c.y));
   return {...c, s, x, y};
 };
 
@@ -47,10 +46,15 @@ const ShotView: React.FC<{s: ShotDef; next?: ShotDef}> = ({s, next}) => {
   const f = useCurrentFrame();
   const a = s.from - (s.trLen || 0) / 2, b = s.to + (next?.trLen || 0) / 2;
   if (f < a || f >= b) return null;
-  const raw: Cam = s.cam(f);
-  const cam: Cam = s.free?.(f) ? raw : clampCam(raw, s.floorY);
+  const camAt = (fr: number) => { const r = s.cam(fr); return s.free?.(fr) ? r : clampCam(r); };
+  const cam: Cam = camAt(f);
   const T = camT(cam, CY);
-  const st = {...exitStyle(next, f), ...enterStyle(s, f)};
+  // motion blur tipis saat gerakan kamera cepat (kecepatan layar px/frame)
+  const p0 = camAt(f - 1);
+  const v = Math.hypot((cam.x - p0.x) * cam.s, (cam.y - p0.y) * cam.s) + Math.abs(cam.s - p0.s) * 700 + Math.abs((cam.r ?? 0) - (p0.r ?? 0)) * 30;
+  const mb = v > 14 ? Math.min(7, (v - 14) * 0.18) : 0;
+  const st0 = {...exitStyle(next, f), ...enterStyle(s, f)};
+  const st = mb > 0.3 ? {...st0, filter: [st0.filter, `blur(${mb.toFixed(1)}px)`].filter(Boolean).join(' ')} : st0;
   const blur = s.bgBlur ? s.bgBlur(f) : 2;
   return (
     <AbsoluteFill style={st}>
@@ -83,6 +87,8 @@ export const Scene: React.FC = () => {
       <TransFlash />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse 82% 64% at 50% 45%, rgba(0,0,0,0) 52%, rgba(2,3,6,0.72) 100%)'}} />
       <Grain opacity={0.04} />
+      <NeonPanelView finalOff={sm(ramp(f, VO_FRAMES + 8, TOTAL_FRAMES - 8))} />
+      <BatteryProgress />
       <CalloutView />
       <Subtitle />
     </AbsoluteFill>

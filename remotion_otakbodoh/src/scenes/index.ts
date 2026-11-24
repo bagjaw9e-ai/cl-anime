@@ -1,9 +1,8 @@
 import {ShotDef} from './types';
-import {shotHook} from './hook';
-import {shotE1} from './efek1';
-import {shotMid} from './mid';
-import {shotE2} from './efek2';
-import {shotE3, shotClose} from './efek3';
-// 6 shot: HOOK+ONE SHOT (kamar ultah) -> EFEK 1 (ruang makan) -> MID-CTA (panggung) -> EFEK 2 (jalan+halte) -> EFEK 3 (kafe) -> PENUTUP 30 frame.
-// Transisi berat hanya saat ganti tempat/efek; di dalam tempat = camera move + rack focus.
-export const SHOTS: ShotDef[] = [shotHook, shotE1, shotMid, shotE2, shotE3, shotClose];
+import {HOOK_SHOTS} from './hook';
+import {shotF1, shotPmo} from './fase1';
+import {shotF2, shotF3} from './fase2';
+import {shotOffice, shotRoad} from './masaDepan';
+// HOOK (4 quick cut, tempat beda) -> ONE SHOT (ruang kosong) -> FASE 1 perpustakaan -> PMO SAVIOR panggung -> FASE 2 hutan
+// -> FASE 3 jalan basah -> kantor -> jalan ke cakrawala + penutup. Transisi besar hanya saat ganti fase/tempat.
+export const SHOTS: ShotDef[] = [...HOOK_SHOTS, shotF1, shotPmo, shotF2, shotF3, shotOffice, shotRoad];
