@@ -5,6 +5,7 @@ import {IllustrationSheet, ILL_H, ILL_W} from './IllustrationSheet';
 import {PlaceStills, PLACES} from './PlaceStills';
 import {Animatic, Main} from './Main';
 import {TOTAL_FRAMES} from './timeline';
+import {Thumbnail} from './Thumbnail';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -13,5 +14,6 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="CharacterSheet" component={CharacterSheet} durationInFrames={120} fps={30} width={SHEET_W} height={SHEET_H} />
     <Composition id="IllustrationSheet" component={IllustrationSheet} durationInFrames={120} fps={30} width={ILL_W} height={ILL_H} />
     <Composition id="PlaceStills" component={PlaceStills} durationInFrames={PLACES.length} fps={30} width={1080} height={1920} />
+    <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={30} width={1080} height={1920} />
   </>
 );
