@@ -13,8 +13,8 @@ export const Spotlight: React.FC<{x: number; y: number; rx: number; ry?: number;
           <stop offset="1" stopColor={color} stopOpacity={dark} />
         </radialGradient>
       </defs>
-      <rect x={-200} y={-200} width={1480} height={2320} fill={`url(#${id})`} />
-      <rect x={-200} y={-200} width={1480} height={2320} fill={color} opacity={0} />
+      <rect x={-500} y={-400} width={2920} height={1880} fill={`url(#${id})`} />
+      <rect x={-500} y={-400} width={2920} height={1880} fill={color} opacity={0} />
     </g>
   );
 };
