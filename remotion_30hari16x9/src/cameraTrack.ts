@@ -1,7 +1,7 @@
 // Track kamera + TONE background. Tiap key = [frame, x, y, zoom, tone?, rot?]: titik dunia (x,y) dibawa ke TENGAH frame
 // (540, CY). Gerakan ease-in-out (cubic). Tone background diinterpolasi dengan easing yang SAMA sepanjang durasi gerakan
 // -> setiap zoom in, warna latar bergeser halus (navy -> ungu -> maroon ...) sementara TEMPAT-nya tetap.
-import {Cam, ease} from './kit';
+import {CY, Cam, ease} from './kit';
 import {Tone, TONES, mixTone} from './components/Places30';
 import {bf} from './kit';
 
@@ -11,13 +11,13 @@ export type Key = [number, number, number, number, ToneName?, number?];
 export const K = (beat: number, off: number, x: number, y: number, s: number, tone?: ToneName, r?: number): Key => [bf(beat, off), x, y, s, tone, r];
 
 // head guard: bila karakter (x, y puncak kepala dunia) ada di frame, kamera dijaga supaya kepala tetap di bawah
-// panel neon + baterai (y layar >= 580).
+// panel neon + baterai (y layar >= 290 di 16:9).
 export type Guard = (f: number) => [number, number] | null;
 export const guardCam = (c: Cam, g: [number, number] | null): Cam => {
   if (!g) return c;
   const [gx, gy] = g;
-  if (Math.abs(gx - c.x) * c.s > 600) return c;
-  return {...c, y: Math.min(c.y, gy + 320 / c.s)};
+  if (Math.abs(gx - c.x) * c.s > 1000) return c;
+  return {...c, y: Math.min(c.y, gy + (CY - 290) / c.s)};
 };
 export const track = (f: number, keys: Key[]): {cam: Cam; tone: Tone} => {
   // tone yang berlaku di tiap key (diteruskan dari key sebelumnya bila kosong)

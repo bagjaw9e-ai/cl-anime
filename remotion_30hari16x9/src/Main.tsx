@@ -15,7 +15,7 @@ const enterStyle = (s: ShotDef, f: number): React.CSSProperties => {
   if (!s.trLen || f >= s.from + s.trLen / 2) return {};
   const k = sm(ramp(f, s.from - s.trLen / 2, s.from + s.trLen / 2));
   switch (s.enter) {
-    case 'whip': return {transform: `translateX(${(1 - k) * 1080}px)`, filter: `blur(${(1 - k) * 18}px)`};
+    case 'whip': return {transform: `translateX(${(1 - k) * 1920}px)`, filter: `blur(${(1 - k) * 18}px)`};
     case 'dissolve': return {opacity: k, filter: `blur(${(1 - k) * 14}px)`};
     case 'blend': return {opacity: k};
     case 'dark': { const k2 = ramp(f, s.from, s.from + s.trLen / 2); return {opacity: sm(k2)}; }
@@ -27,7 +27,7 @@ const exitStyle = (next: ShotDef | undefined, f: number): React.CSSProperties =>
   if (!next || !next.trLen || f < next.from - next.trLen / 2) return {};
   const k = sm(ramp(f, next.from - next.trLen / 2, next.from + next.trLen / 2));
   switch (next.enter) {
-    case 'whip': return {transform: `translateX(${-k * 1080}px)`, filter: `blur(${k * 18}px)`};
+    case 'whip': return {transform: `translateX(${-k * 1920}px)`, filter: `blur(${k * 18}px)`};
     case 'dissolve': return {filter: `blur(${k * 14}px)`};
     case 'dark': { const k2 = ramp(f, next.from - next.trLen / 2, next.from); return {opacity: 1 - sm(k2)}; }
     default: return {};
@@ -37,8 +37,8 @@ const exitStyle = (next: ShotDef | undefined, f: number): React.CSSProperties =>
 // jepit kamera longgar: latar digambar melebar (-400..1480, -300..2220) -> fokus ilustrasi tetap bisa tepat di tengah frame
 const clampCam = (c: Cam): Cam => {
   const s = Math.max(1, c.s);
-  const x = Math.min(1080 - 540 / s + 380, Math.max(540 / s - 380, c.x));
-  const y = Math.min(1920 - (1920 - CY) / s + 280, Math.max(CY / s - 280, c.y));
+  const x = Math.min(1920 - 960 / s + 380, Math.max(960 / s - 380, c.x));
+  const y = Math.min(1080 - (1080 - CY) / s + 280, Math.max(CY / s - 280, c.y));
   return {...c, s, x, y};
 };
 
@@ -59,9 +59,9 @@ const ShotView: React.FC<{s: ShotDef; next?: ShotDef}> = ({s, next}) => {
   return (
     <AbsoluteFill style={st}>
       <AbsoluteFill style={{filter: blur > 0.2 ? `blur(${blur.toFixed(1)}px)` : undefined}}>
-        <svg width={1080} height={1920}><g transform={T}>{s.bg(f)}</g>{s.dim && <Dim dim={s.dim(f)} />}</svg>
+        <svg width={1920} height={1080}><g transform={T}>{s.bg(f)}</g>{s.dim && <Dim dim={s.dim(f)} />}</svg>
       </AbsoluteFill>
-      <svg width={1080} height={1920} style={{position: 'absolute'}}><g transform={T}>{s.fg(f)}</g>{s.overlay?.(f)}</svg>
+      <svg width={1920} height={1080} style={{position: 'absolute'}}><g transform={T}>{s.fg(f)}</g>{s.overlay?.(f)}</svg>
     </AbsoluteFill>
   );
 };
@@ -85,7 +85,7 @@ export const Scene: React.FC = () => {
     <AbsoluteFill style={{background: '#000'}}>
       {SHOTS.map((s, i) => <ShotView key={s.id} s={s} next={SHOTS[i + 1]} />)}
       <TransFlash />
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse 82% 64% at 50% 45%, rgba(0,0,0,0) 52%, rgba(2,3,6,0.72) 100%)'}} />
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 72% 76% at 50% 50%, rgba(0,0,0,0) 52%, rgba(2,3,6,0.72) 100%)'}} />
       <Grain opacity={0.04} />
       <NeonPanelView />
       <BatteryProgress />
@@ -102,10 +102,10 @@ export const Main: React.FC<{audio?: 'vo' | 'mix'}> = ({audio = 'vo'}) => (
   </AbsoluteFill>
 );
 
-// animatic 540x960: dunia 1080x1920 diskalakan 0,5 (VO saja, tanpa SFX/BGM)
+// animatic 960x540: dunia 1920x1080 diskalakan 0,5 (VO saja, tanpa SFX/BGM)
 export const Animatic: React.FC = () => (
   <AbsoluteFill style={{background: '#000'}}>
-    <div style={{width: 1080, height: 1920, transform: 'scale(0.5)', transformOrigin: '0 0', position: 'absolute'}}><Scene /></div>
+    <div style={{width: 1920, height: 1080, transform: 'scale(0.5)', transformOrigin: '0 0', position: 'absolute'}}><Scene /></div>
     <Audio src={staticFile('voiceover.m4a')} />
   </AbsoluteFill>
 );

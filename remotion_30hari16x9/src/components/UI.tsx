@@ -16,7 +16,7 @@ const measure = (txt: string, size: number) => {
   return ctx!.measureText(txt).width;
 };
 
-/* Subtitle karaoke maks 3 kata, pusat y 1390. Putih + shadow + stroke tipis gelap; kata aktif kuning neon + glow + scale 1.08; pop kecil. */
+/* Subtitle karaoke maks 3 kata, pusat (960, 905), Poppins ExtraBold ±56 px. Putih + shadow + stroke tipis gelap; kata aktif kuning neon + glow + scale 1.08; pop kecil. */
 export const Subtitle: React.FC = () => {
   const f = useCurrentFrame();
   if (calloutAt(f)) return null;
@@ -26,14 +26,14 @@ export const Subtitle: React.FC = () => {
   const k = (f - ch.s * FPS_T) / 5;
   const sc = 0.82 + 0.18 * backOut(k);
   const txt = ch.words.map((wi) => WORDS[wi].w).join(' ');
-  const fs = Math.min(76, (900 / (measure(txt, 100) + 22 * (ch.words.length - 1) * 1.3)) * 100);
+  const fs = Math.min(56, (1500 / (measure(txt, 100) + 22 * (ch.words.length - 1) * 1.3)) * 100);
   let active = -1;
   ch.words.forEach((wi) => { if (WORDS[wi].s <= t + 0.02) active = wi; });
   if (t > WORDS[ch.words[ch.words.length - 1]].e + 0.15) active = -1;
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
-      <div style={{position: 'absolute', left: 80, right: 80, top: 1390 - 60, height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center',
-        gap: 22 * fs / 76, transform: `scale(${sc})`, opacity: clamp(k * 2), fontFamily: FONT, fontWeight: 800, fontSize: fs, letterSpacing: -0.5, whiteSpace: 'nowrap'}}>
+      <div style={{position: 'absolute', left: 80, right: 80, top: 905 - 45, height: 90, display: 'flex', justifyContent: 'center', alignItems: 'center',
+        gap: 16 * fs / 56, transform: `scale(${sc})`, opacity: clamp(k * 2), fontFamily: FONT, fontWeight: 800, fontSize: fs, letterSpacing: -0.5, whiteSpace: 'nowrap'}}>
         {ch.words.map((wi) => {
           const on = wi === active;
           return (
@@ -59,10 +59,10 @@ export const KeyPointTitle: React.FC<{c: Callout; cx: number; cy: number}> = ({c
   const f0 = Math.round(c.s * FPS_T), f1 = Math.round(c.e * FPS_T);
   const k = f - f0;
   const out = clamp((f1 - f) / OUT_F);
-  const size = Math.min(98, ...c.lines.map((l) => (880 / measure(l, 100)) * 100)); // MEDIUM 90-100 px
+  const size = Math.min(74, ...c.lines.map((l) => (1400 / measure(l, 100)) * 100)); // MEDIUM 68-76 px (16:9)
   const lh = size * 1.0, H = lh * c.lines.length;
-  cy = Math.max(cy, (f >= NEON_FROM ? 530 : 170) + H / 2); // jangan menabrak panel neon + baterai (y 300-500)
-  cy = Math.min(cy, 1300 - H / 2);
+  cy = Math.max(cy, (f >= NEON_FROM ? 262 : 100) + H / 2); // jangan menabrak panel neon + baterai (y 118-240)
+  cy = Math.min(cy, 990 - H / 2);
   let tr = '', op = clamp(k / 3), clip: string | undefined, extra: React.ReactNode = null, rot = 0;
   const outS = 0.85 + 0.15 * out;
   switch (c.style) {
@@ -77,7 +77,7 @@ export const KeyPointTitle: React.FC<{c: Callout; cx: number; cy: number}> = ({c
   }
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
-      <div style={{position: 'absolute', left: cx - 500, width: 1000, top: cy - H / 2, height: H, transform: `scale(${outS})`, opacity: out}}>
+      <div style={{position: 'absolute', left: cx - 800, width: 1600, top: cy - H / 2, height: H, transform: `scale(${outS})`, opacity: out}}>
         {extra && <div style={{position: 'absolute', left: 0, right: 0, top: -40, bottom: -40}}>{extra}</div>}
         <div style={{position: 'absolute', inset: 0, textAlign: 'center', fontFamily: FONT, fontWeight: 800, fontSize: size, lineHeight: `${lh}px`, letterSpacing: -1,
           transform: `${tr} rotate(${rot}deg)`, opacity: op, clipPath: clip, whiteSpace: 'nowrap'}}>
@@ -138,6 +138,6 @@ export const CalloutView: React.FC = () => {
   const f = useCurrentFrame();
   const c = calloutAt(f);
   if (!c) return null;
-  const [cx, cy] = KEY_POS[c.beat] ?? [540, 1180]; // default: overlay sedikit di bawah ilustrasi (pusat zona 900)
+  const [cx, cy] = KEY_POS[c.beat] ?? [960, 790]; // default: overlay sedikit di bawah ilustrasi (pusat zona 900)
   return <KeyPointTitle c={c} cx={cx} cy={cy} />;
 };
