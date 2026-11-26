@@ -1,0 +1,557 @@
+{
+"cues": [
+{
+"frame": 0,
+"file": "t30_snap",
+"cls": "trans",
+"dur": null,
+"note": "B1 snap zoom ke monitor MRI"
+},
+{
+"frame": 0,
+"file": "mri_knock",
+"cls": "anim",
+"dur": 1.35,
+"note": "B1 dengung MRI + ketukan magnet"
+},
+{
+"frame": 41,
+"file": "t30_whip",
+"cls": "trans",
+"dur": null,
+"note": "B2 hard cut + whip pan ke kamar"
+},
+{
+"frame": 43,
+"file": "drawer_lock",
+"cls": "anim",
+"dur": null,
+"note": "B2 laci ditutup + kunci diputar"
+},
+{
+"frame": 73,
+"file": "t30_snap",
+"cls": "trans",
+"dur": null,
+"note": "B3 push cepat ke jam flip"
+},
+{
+"frame": 75,
+"file": "flip_spin",
+"cls": "anim",
+"dur": null,
+"note": "B3 papan flip berputar, \"tak\" di 30"
+},
+{
+"frame": 102,
+"file": "t30_dark",
+"cls": "trans",
+"dur": null,
+"note": "fade lewat gelap -> apartemen"
+},
+{
+"frame": 109,
+"file": "t30_neon_swap",
+"cls": "trans",
+"dur": null,
+"note": "B4 panel neon HARI 1-3 nyala"
+},
+{
+"frame": 111,
+"file": "wall_scratch",
+"cls": "anim",
+"dur": null,
+"note": "B4 turus ke-1"
+},
+{
+"frame": 118,
+"file": "wall_scratch",
+"cls": "anim",
+"dur": null,
+"note": "B4 turus ke-2"
+},
+{
+"frame": 125,
+"file": "wall_scratch",
+"cls": "anim",
+"dur": null,
+"note": "B4 turus ke-3"
+},
+{
+"frame": 133,
+"file": "wind_room",
+"cls": "anim",
+"dur": null,
+"note": "B5 angin menderu + kertas terbang"
+},
+{
+"frame": 202,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.8,
+"note": "B6 zoom ke indikator"
+},
+{
+"frame": 208,
+"file": "gauge_click",
+"cls": "anim",
+"dur": null,
+"note": "B6 jarum naik ke FULL + klik"
+},
+{
+"frame": 248,
+"file": "dominoes",
+"cls": "anim",
+"dur": null,
+"note": "B7 domino jatuh berurutan"
+},
+{
+"frame": 320,
+"file": "ball_bounce",
+"cls": "anim",
+"dur": null,
+"note": "B8 bola tenis memantul"
+},
+{
+"frame": 334,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.8,
+"note": "B9 tilt ke jendela"
+},
+{
+"frame": 336,
+"file": "far_switches",
+"cls": "anim",
+"dur": null,
+"note": "B9 lampu tetangga mati satu-satu"
+},
+{
+"frame": 359,
+"file": "phone_buzz_slide",
+"cls": "anim",
+"dur": null,
+"note": "B10 HP getar & meluncur"
+},
+{
+"frame": 378,
+"file": "box_hinge_hum",
+"cls": "anim",
+"dur": null,
+"note": "B11 HP terbuka kayak kotak harta"
+},
+{
+"frame": 412,
+"file": "curtain_lamp",
+"cls": "anim",
+"dur": null,
+"note": "B12 tirai ditarik + lampu meja padam"
+},
+{
+"frame": 439,
+"file": "tick_reverse_breath",
+"cls": "anim",
+"dur": null,
+"note": "B13 jam mundur + napas gelisah"
+},
+{
+"frame": 505,
+"file": "pacing_heart",
+"cls": "anim",
+"dur": null,
+"note": "B14 mondar-mandir + detak jantung"
+},
+{
+"frame": 533,
+"file": "t30_whip",
+"cls": "trans",
+"dur": null,
+"note": "whip pan -> gym"
+},
+{
+"frame": 539,
+"file": "t30_neon_swap",
+"cls": "trans",
+"dur": null,
+"note": "B15 panel HARI KE-7"
+},
+{
+"frame": 545,
+"file": "scoreboard_flip",
+"cls": "anim",
+"dur": null,
+"note": "B15 papan skor DAY 7"
+},
+{
+"frame": 582,
+"file": "pages_flip",
+"cls": "anim",
+"dur": null,
+"note": "B16 halaman jurnal dibalik"
+},
+{
+"frame": 684,
+"file": "metal_ding",
+"cls": "anim",
+"dur": null,
+"note": "B17 molekul testosteron menyala"
+},
+{
+"frame": 721,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.8,
+"note": "B18 tilt naik ikut bandul"
+},
+{
+"frame": 727,
+"file": "striker_bell",
+"cls": "anim",
+"dur": null,
+"note": "B18 palu + bandul + bel 145%"
+},
+{
+"frame": 828,
+"file": "puck_slide",
+"cls": "anim",
+"dur": null,
+"note": "B19 bandul turun ke 100%"
+},
+{
+"frame": 868,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.9,
+"note": "B20 pull-out"
+},
+{
+"frame": 898,
+"file": "balloon_laugh",
+"cls": "anim",
+"dur": null,
+"note": "B20 barbel balon melayang + tawa teredam"
+},
+{
+"frame": 936,
+"file": "dial_clicks",
+"cls": "anim",
+"dur": null,
+"note": "B21 termostat diputar"
+},
+{
+"frame": 979,
+"file": "t30_dark",
+"cls": "trans",
+"dur": null,
+"note": "fade lewat gelap -> peron"
+},
+{
+"frame": 987,
+"file": "t30_neon_swap",
+"cls": "trans",
+"dur": null,
+"note": "B22 panel HARI KE-14"
+},
+{
+"frame": 991,
+"file": "rain_platform",
+"cls": "anim",
+"dur": null,
+"note": "B22 hujan di peron"
+},
+{
+"frame": 1082,
+"file": "umbrella_sigh",
+"cls": "anim",
+"dur": null,
+"note": "B23 payung ditutup + helaan napas"
+},
+{
+"frame": 1122,
+"file": "fizzle",
+"cls": "anim",
+"dur": null,
+"note": "B24 sumbu kembang api basah padam"
+},
+{
+"frame": 1152,
+"file": "splitflap",
+"cls": "anim",
+"dur": null,
+"note": "B25 papan split-flap berputar"
+},
+{
+"frame": 1177,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.9,
+"note": "B26 pan ikut kereta"
+},
+{
+"frame": 1181,
+"file": "train_pass",
+"cls": "anim",
+"dur": null,
+"note": "B26 kereta lewat"
+},
+{
+"frame": 1247,
+"file": "soft_hum",
+"cls": "anim",
+"dur": null,
+"note": "B27 amigdala menyala"
+},
+{
+"frame": 1297,
+"file": "fader_slide",
+"cls": "anim",
+"dur": null,
+"note": "B28 slider DOPAMIN turun"
+},
+{
+"frame": 1369,
+"file": "puddle_taps",
+"cls": "anim",
+"dur": null,
+"note": "B29 ketukan kaki di genangan"
+},
+{
+"frame": 1437,
+"file": "slot_coins",
+"cls": "anim",
+"dur": null,
+"note": "B30 mesin slot + koin"
+},
+{
+"frame": 1528,
+"file": "drip_bin",
+"cls": "anim",
+"dur": null,
+"note": "B31 tetesan infus + HP jatuh ke tong"
+},
+{
+"frame": 1628,
+"file": "t30_light",
+"cls": "trans",
+"dur": null,
+"note": "light reveal -> taman pagi"
+},
+{
+"frame": 1635,
+"file": "t30_neon_swap",
+"cls": "trans",
+"dur": null,
+"note": "B32 panel HARI 21-30"
+},
+{
+"frame": 1639,
+"file": "dawn_birds",
+"cls": "anim",
+"dur": null,
+"note": "B32 burung pagi"
+},
+{
+"frame": 1703,
+"file": "door_bolt",
+"cls": "anim",
+"dur": null,
+"note": "B33 pintu didorong + gerendel dikunci"
+},
+{
+"frame": 1783,
+"file": "sign_steps2",
+"cls": "anim",
+"dur": null,
+"note": "B34 otak berkaki melangkah + rambu berderit"
+},
+{
+"frame": 1846,
+"file": "watch_flutter",
+"cls": "anim",
+"dur": null,
+"note": "B35 jam saku dibuka + kegiatan terbang"
+},
+{
+"frame": 1939,
+"file": "bow_arrow",
+"cls": "anim",
+"dur": null,
+"note": "B36 busur ditarik, panah menancap"
+},
+{
+"frame": 1951,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.8,
+"note": "B36 pan ikut panah"
+},
+{
+"frame": 2002,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.8,
+"note": "B37 tilt ke layangan"
+},
+{
+"frame": 2004,
+"file": "kite_flutter",
+"cls": "anim",
+"dur": null,
+"note": "B37 layangan berkibar"
+},
+{
+"frame": 2123,
+"file": "cute_snore",
+"cls": "anim",
+"dur": null,
+"note": "B38 maskot otak tengah mendengkur"
+},
+{
+"frame": 2167,
+"file": "lighthouse_on",
+"cls": "anim",
+"dur": null,
+"note": "B39 mercusuar PFC menyala"
+},
+{
+"frame": 2236,
+"file": "t30_whip",
+"cls": "trans",
+"dur": null,
+"note": "whip pan -> stadion"
+},
+{
+"frame": 2242,
+"file": "t30_neon_swap",
+"cls": "trans",
+"dur": null,
+"note": "B40 panel BUTUH 66 HARI"
+},
+{
+"frame": 2256,
+"file": "soil_sprout",
+"cls": "anim",
+"dur": null,
+"note": "B40 tanah bergeser + tunas tumbuh"
+},
+{
+"frame": 2381,
+"file": "run_whistle",
+"cls": "anim",
+"dur": null,
+"note": "B41 lari + peluit kecil"
+},
+{
+"frame": 2385,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.9,
+"note": "B41 pan panjang lintasan"
+},
+{
+"frame": 2454,
+"file": "baton_catch",
+"cls": "anim",
+"dur": null,
+"note": "B42 tongkat estafet ditangkap"
+},
+{
+"frame": 2491,
+"file": "t30_dissolve",
+"cls": "trans",
+"dur": null,
+"note": "blur dissolve -> kamar subuh"
+},
+{
+"frame": 2500,
+"file": "alarm_blanket",
+"cls": "anim",
+"dur": null,
+"note": "B43 alarm lembut + selimut"
+},
+{
+"frame": 2638,
+"file": "dam_water",
+"cls": "anim",
+"dur": null,
+"note": "B44 pintu air terbuka, air mengalir"
+},
+{
+"frame": 2710,
+"file": "crank_scribble",
+"cls": "anim",
+"dur": null,
+"note": "B45 engkol dipaksa lalu dicoret"
+},
+{
+"frame": 2787,
+"file": "t30_dark",
+"cls": "trans",
+"dur": null,
+"note": "fade lewat gelap -> panggung"
+},
+{
+"frame": 2795,
+"file": "t30_neon_swap",
+"cls": "trans",
+"dur": null,
+"note": "B46 panel NEUROPLASTICITY"
+},
+{
+"frame": 2799,
+"file": "branch_grow",
+"cls": "anim",
+"dur": null,
+"note": "B46 neuron tumbuh bercabang"
+},
+{
+"frame": 2854,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.8,
+"note": "B47 pan ikut jejak"
+},
+{
+"frame": 2858,
+"file": "step_ting",
+"cls": "anim",
+"dur": null,
+"note": "B47 jejak kaki menyala"
+},
+{
+"frame": 2925,
+"file": "city_switches",
+"cls": "anim",
+"dur": null,
+"note": "B48 lampu otak-kota menyala"
+},
+{
+"frame": 3010,
+"file": "link_click2",
+"cls": "anim",
+"dur": null,
+"note": "B49 klik link"
+},
+{
+"frame": 3049,
+"file": "warm_swell2",
+"cls": "anim",
+"dur": null,
+"note": "B50 spotlight + partikel amber"
+},
+{
+"frame": 3051,
+"file": "t30_air",
+"cls": "trans",
+"dur": 0.9,
+"note": "B50 pull-out pelan"
+},
+{
+"frame": 3151,
+"file": "t30_charge_full",
+"cls": "trans",
+"dur": null,
+"note": "B51 baterai 100%, logo charge berkedip"
+}
+]
+}

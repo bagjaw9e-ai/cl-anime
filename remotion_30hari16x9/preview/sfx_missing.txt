@@ -1,0 +1,60 @@
+# SFX video 30 hari 16:9: SEMUA disintesis baru (scripts/make_sfx_30.py -> public/sfx30/), tidak memakai SFX yang sudah ada.
+# Tidak ada SFX yang hilang. Daftar (jenis | file | bunyi):
+transisi 15% | t30_snap.wav | snap zoom: tarikan udara pendek yang menajam
+transisi 15% | t30_whip.wav | whip pan horizontal: sapuan udara melebar kiri->kanan
+transisi 15% | t30_air.wav | gerakan kamera pelan (zoom/tilt/pan): desir udara lembut
+transisi 15% | t30_dark.wav | fade lewat gelap: hembusan ruang rendah meredup
+transisi 15% | t30_light.wav | light reveal pagi: udara mengembang hangat + kilau kaca tipis
+transisi 15% | t30_dissolve.wav | blur dissolve: desir kain lembut
+transisi 15% | t30_neon_swap.wav | panel neon ganti: dengung lama putus + starter klik + dengung baru kedip 3x lalu stabil
+transisi 15% | t30_charge_full.wav | penutup: "charge penuh" — denting kristal lembut 3 nada naik (bukan beep)
+animasi 20% | mri_knock.wav | mesin MRI: dengung dalam + ketukan magnet berirama
+animasi 20% | drawer_lock.wav | laci kayu ditutup (geser + bentur) lalu anak kunci diputar klik
+animasi 20% | flip_spin.wav | papan flip berputar cepat (klak-klak makin rapat) lalu "tak" berhenti di 30
+animasi 20% | wall_scratch.wav | kapur menggores tembok sekali (satu garis turus)
+animasi 20% | wind_room.wav | angin menderu di dalam ruangan + kertas berhamburan
+animasi 20% | gauge_click.wav | jarum indikator naik (desir halus) lalu klik mantap
+animasi 20% | dominoes.wav | barisan domino jatuh berurutan (ketukan kayu makin cepat)
+animasi 20% | ball_bounce.wav | bola tenis memantul berirama di tembok (2 pantulan)
+animasi 20% | far_switches.wav | saklar-saklar jauh mati satu-satu + angin malam
+animasi 20% | phone_buzz_slide.wav | HP bergetar di meja kayu lalu meluncur (gesekan)
+animasi 20% | box_hinge_hum.wav | engsel kotak terbuka (derit pendek) + dengung lembut cahaya
+animasi 20% | curtain_lamp.wav | tirai ditarik (cincin bergesek di rel) + saklar lampu meja
+animasi 20% | tick_reverse_breath.wav | jam berdetak terbalik (tok-tik) + napas gelisah
+animasi 20% | pacing_heart.wav | langkah mondar-mandir di keramik + detak jantung
+animasi 20% | scoreboard_flip.wav | papan skor elektromekanis: relai berderak menyusun "DAY 7"
+animasi 20% | pages_flip.wav | halaman jurnal dibalik cepat beruntun
+animasi 20% | metal_ding.wav | dentingan logam lembut (molekul menyala)
+animasi 20% | striker_bell.wav | palu menghantam pad, bandul melesat naik, bel berdenting di puncak
+animasi 20% | puck_slide.wav | bandul meluncur turun di rel logam
+animasi 20% | balloon_laugh.wav | balon melayang (gesek karet) + tawa kecil teredam "heh-heh"
+animasi 20% | dial_clicks.wav | putaran termostat (detent klik-klik)
+animasi 20% | rain_platform.wav | hujan di atap peron + tetesan ke genangan
+animasi 20% | umbrella_sigh.wav | payung ditutup (kain + jeprit) + helaan napas
+animasi 20% | fizzle.wav | sumbu kembang api mendesis lalu padam (desis menyurut + letup kecil basah)
+animasi 20% | splitflap.wav | papan split-flap berputar (cepat) lalu berhenti
+animasi 20% | train_pass.wav | kereta lewat cepat: gemuruh roda di rel + desir angin, doppler
+animasi 20% | soft_hum.wav | dengung lembut (amigdala menyala)
+animasi 20% | fader_slide.wav | slider mixer digeser turun (gesek plastik halus)
+animasi 20% | puddle_taps.wav | ketukan kaki di genangan (cipratan kecil berirama)
+animasi 20% | slot_coins.wav | gulungan mesin slot berputar (ratchet) + koin berjatuhan
+animasi 20% | drip_bin.wav | tetesan infus (plip lembut) + HP jatuh ke tong sampah logam
+animasi 20% | dawn_birds.wav | burung pagi berkicau (siulan bernada naik-turun)
+animasi 20% | door_bolt.wav | pintu didorong dari balik (dentum berulang) lalu gerendel digeser & dikunci
+animasi 20% | sign_steps2.wav | langkah kecil berderap + rambu kayu berderit
+animasi 20% | watch_flutter.wav | jam saku dibuka (klik pegas) + kepakan kertas kecil
+animasi 20% | bow_arrow.wav | tali busur ditarik (derit) -> dilepas (twang) -> anak panah menancap (thunk)
+animasi 20% | kite_flutter.wav | layangan berkibar (kain bergetar) + angin
+animasi 20% | cute_snore.wav | dengkur kecil lucu (tarik napas bergetar + siul hembus)
+animasi 20% | lighthouse_on.wav | lampu mercusuar menyala (relai berat + dengung) + swell hangat
+animasi 20% | soil_sprout.wav | tanah bergeser (butir) + tunas tumbuh (krek halus batang)
+animasi 20% | run_whistle.wav | langkah lari di lintasan karet + peluit kecil (tiupan, bukan beep)
+animasi 20% | baton_catch.wav | tongkat estafet ditangkap (tepuk telapak) + langkah cepat
+animasi 20% | alarm_blanket.wav | alarm lembut (marimba kayu 3 nada) + kain selimut bergeser
+animasi 20% | dam_water.wav | air mengalir lembut dari pintu air + daun bergoyang
+animasi 20% | crank_scribble.wav | engkol besi diputar paksa (derit berat berirama) lalu coretan spidol tegas
+animasi 20% | branch_grow.wav | cabang cahaya tumbuh: krepitasi halus menyebar + nada hangat pelan
+animasi 20% | step_ting.wav | langkah lembut + "ting" kaca kecil tiap jejak menyala
+animasi 20% | city_switches.wav | lampu-lampu kota menyala berurutan (klik saklar + dengung kecil)
+animasi 20% | link_click2.wav | klik link: tombol kaca halus dua tahap
+animasi 20% | warm_swell2.wav | swell hangat (paduan nada lembut + napas udara) untuk spotlight akhir

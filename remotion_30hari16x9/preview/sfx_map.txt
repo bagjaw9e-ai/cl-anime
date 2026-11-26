@@ -1,0 +1,83 @@
+# SFX MAP video 30 hari 16:9 | VO -14.9 LUFS (100%) | BGM -39.9 dB vs VO (≈1.0%), diputar utuh 0-106.03 dtk, fade in 1 dtk / fade out 1 dtk terakhir
+# master -13.3 LUFS, true-peak -3.06 dBFS (limit -1) | SFX terkeras saat narasi -14.8 dB = 18% VO (batas 20%) | maks barengan 3 (batas 3)
+# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.3 dB ≈ 19-20% VO | trans (transisi + camera move + panel neon) -16.8 dB ≈ 14-15% VO | semua SFX = sintesis baru (public/sfx30)
+# frame | detik | beat | jenis | SFX | durasi main
+    0 |    0.00s | B1       | transisi 15% | t30_snap.wav               | 0.31s | snap zoom ke monitor MRI
+    0 |    0.00s | B1       | animasi 20%  | mri_knock.wav              | 1.35s | dengung MRI + ketukan magnet
+   41 |    1.37s | B2       | transisi 15% | t30_whip.wav               | 0.49s | hard cut + whip pan ke kamar
+   43 |    1.43s | B2       | animasi 20%  | drawer_lock.wav            | 0.96s | laci ditutup + kunci diputar
+   73 |    2.43s | B3       | transisi 15% | t30_snap.wav               | 0.29s | push cepat ke jam flip
+   75 |    2.50s | B3       | animasi 20%  | flip_spin.wav              | 1.07s | papan flip berputar, "tak" di 30
+  102 |    3.40s | fade     | transisi 15% | t30_dark.wav               | 0.53s | lewat gelap -> apartemen
+  109 |    3.63s | B4       | transisi 15% | t30_neon_swap.wav          | 1.20s | panel neon HARI 1-3 nyala
+  111 |    3.70s | B4       | animasi 20%  | wall_scratch.wav           | 0.32s | turus ke-1
+  118 |    3.93s | B4       | animasi 20%  | wall_scratch.wav           | 0.29s | turus ke-2
+  125 |    4.17s | B4       | animasi 20%  | wall_scratch.wav           | 0.34s | turus ke-3
+  133 |    4.43s | B5       | animasi 20%  | wind_room.wav              | 2.20s | angin menderu + kertas terbang
+  202 |    6.73s | B6       | transisi 15% | t30_air.wav                | 0.80s | zoom ke indikator
+  208 |    6.93s | B6       | animasi 20%  | gauge_click.wav            | 0.44s | jarum naik ke FULL + klik
+  248 |    8.27s | B7       | animasi 20%  | dominoes.wav               | 1.29s | domino jatuh berurutan
+  320 |   10.67s | B8       | animasi 20%  | ball_bounce.wav            | 1.12s | bola tenis memantul
+  334 |   11.13s | B9       | transisi 15% | t30_air.wav                | 0.76s | tilt ke jendela
+  336 |   11.20s | B9       | animasi 20%  | far_switches.wav           | 2.32s | lampu tetangga mati satu-satu
+  359 |   11.97s | B10      | animasi 20%  | phone_buzz_slide.wav       | 0.65s | HP getar & meluncur
+  378 |   12.60s | B11      | animasi 20%  | box_hinge_hum.wav          | 1.35s | HP terbuka kayak kotak harta
+  412 |   13.73s | B12      | animasi 20%  | curtain_lamp.wav           | 0.64s | tirai ditarik + lampu meja padam
+  439 |   14.63s | B13      | animasi 20%  | tick_reverse_breath.wav    | 1.65s | jam mundur + napas gelisah
+  505 |   16.83s | B14      | animasi 20%  | pacing_heart.wav           | 1.35s | mondar-mandir + detak jantung
+  533 |   17.77s | whip     | transisi 15% | t30_whip.wav               | 0.40s | pan -> gym
+  539 |   17.97s | B15      | transisi 15% | t30_neon_swap.wav          | 1.13s | panel HARI KE-7
+  545 |   18.17s | B15      | animasi 20%  | scoreboard_flip.wav        | 0.86s | papan skor DAY 7
+  582 |   19.40s | B16      | animasi 20%  | pages_flip.wav             | 0.96s | halaman jurnal dibalik
+  684 |   22.80s | B17      | animasi 20%  | metal_ding.wav             | 1.78s | molekul testosteron menyala
+  721 |   24.03s | B18      | transisi 15% | t30_air.wav                | 0.86s | tilt naik ikut bandul
+  727 |   24.23s | B18      | animasi 20%  | striker_bell.wav           | 2.16s | palu + bandul + bel 145%
+  828 |   27.60s | B19      | animasi 20%  | puck_slide.wav             | 0.90s | bandul turun ke 100%
+  868 |   28.93s | B20      | transisi 15% | t30_air.wav                | 0.84s | pull-out
+  898 |   29.93s | B20      | animasi 20%  | balloon_laugh.wav          | 0.92s | barbel balon melayang + tawa teredam
+  936 |   31.20s | B21      | animasi 20%  | dial_clicks.wav            | 0.73s | termostat diputar
+  979 |   32.63s | fade     | transisi 15% | t30_dark.wav               | 0.91s | lewat gelap -> peron
+  987 |   32.90s | B22      | transisi 15% | t30_neon_swap.wav          | 1.31s | panel HARI KE-14
+  991 |   33.03s | B22      | animasi 20%  | rain_platform.wav          | 3.00s | hujan di peron
+ 1082 |   36.07s | B23      | animasi 20%  | umbrella_sigh.wav          | 1.30s | payung ditutup + helaan napas
+ 1122 |   37.40s | B24      | animasi 20%  | fizzle.wav                 | 1.00s | sumbu kembang api basah padam
+ 1152 |   38.40s | B25      | animasi 20%  | splitflap.wav              | 0.94s | papan split-flap berputar
+ 1177 |   39.23s | B26      | transisi 15% | t30_air.wav                | 0.95s | pan ikut kereta
+ 1181 |   39.37s | B26      | animasi 20%  | train_pass.wav             | 2.09s | kereta lewat
+ 1247 |   41.57s | B27      | animasi 20%  | soft_hum.wav               | 1.20s | amigdala menyala
+ 1297 |   43.23s | B28      | animasi 20%  | fader_slide.wav            | 0.80s | slider DOPAMIN turun
+ 1369 |   45.63s | B29      | animasi 20%  | puddle_taps.wav            | 1.34s | ketukan kaki di genangan
+ 1437 |   47.90s | B30      | animasi 20%  | slot_coins.wav             | 2.28s | mesin slot + koin
+ 1528 |   50.93s | B31      | animasi 20%  | drip_bin.wav               | 2.21s | tetesan infus + HP jatuh ke tong
+ 1628 |   54.27s | light    | transisi 15% | t30_light.wav              | 1.95s | reveal -> taman pagi
+ 1635 |   54.50s | B32      | transisi 15% | t30_neon_swap.wav          | 1.12s | panel HARI 21-30
+ 1639 |   54.63s | B32      | animasi 20%  | dawn_birds.wav             | 2.65s | burung pagi
+ 1703 |   56.77s | B33      | animasi 20%  | door_bolt.wav              | 1.88s | pintu didorong + gerendel dikunci
+ 1783 |   59.43s | B34      | animasi 20%  | sign_steps2.wav            | 1.25s | otak berkaki melangkah + rambu berderit
+ 1846 |   61.53s | B35      | animasi 20%  | watch_flutter.wav          | 1.05s | jam saku dibuka + kegiatan terbang
+ 1939 |   64.63s | B36      | animasi 20%  | bow_arrow.wav              | 1.52s | busur ditarik, panah menancap
+ 1951 |   65.03s | B36      | transisi 15% | t30_air.wav                | 0.76s | pan ikut panah
+ 2002 |   66.73s | B37      | transisi 15% | t30_air.wav                | 0.86s | tilt ke layangan
+ 2004 |   66.80s | B37      | animasi 20%  | kite_flutter.wav           | 2.00s | layangan berkibar
+ 2123 |   70.77s | B38      | animasi 20%  | cute_snore.wav             | 2.05s | maskot otak tengah mendengkur
+ 2167 |   72.23s | B39      | animasi 20%  | lighthouse_on.wav          | 1.70s | mercusuar PFC menyala
+ 2236 |   74.53s | whip     | transisi 15% | t30_whip.wav               | 0.54s | pan -> stadion
+ 2242 |   74.73s | B40      | transisi 15% | t30_neon_swap.wav          | 1.29s | panel BUTUH 66 HARI
+ 2256 |   75.20s | B40      | animasi 20%  | soil_sprout.wav            | 2.00s | tanah bergeser + tunas tumbuh
+ 2381 |   79.37s | B41      | animasi 20%  | run_whistle.wav            | 1.48s | lari + peluit kecil
+ 2385 |   79.50s | B41      | transisi 15% | t30_air.wav                | 0.86s | pan panjang lintasan
+ 2454 |   81.80s | B42      | animasi 20%  | baton_catch.wav            | 1.17s | tongkat estafet ditangkap
+ 2491 |   83.03s | blur     | transisi 15% | t30_dissolve.wav           | 0.89s | dissolve -> kamar subuh
+ 2500 |   83.33s | B43      | animasi 20%  | alarm_blanket.wav          | 2.06s | alarm lembut + selimut
+ 2638 |   87.93s | B44      | animasi 20%  | dam_water.wav              | 2.40s | pintu air terbuka, air mengalir
+ 2710 |   90.33s | B45      | animasi 20%  | crank_scribble.wav         | 1.80s | engkol dipaksa lalu dicoret
+ 2787 |   92.90s | fade     | transisi 15% | t30_dark.wav               | 1.09s | lewat gelap -> panggung
+ 2795 |   93.17s | B46      | transisi 15% | t30_neon_swap.wav          | 1.13s | panel NEUROPLASTICITY
+ 2799 |   93.30s | B46      | animasi 20%  | branch_grow.wav            | 2.59s | neuron tumbuh bercabang
+ 2854 |   95.13s | B47      | transisi 15% | t30_air.wav                | 0.88s | pan ikut jejak
+ 2858 |   95.27s | B47      | animasi 20%  | step_ting.wav              | 2.57s | jejak kaki menyala
+ 2925 |   97.50s | B48      | animasi 20%  | city_switches.wav          | 2.07s | lampu otak-kota menyala
+ 3010 |  100.33s | B49      | animasi 20%  | link_click2.wav            | 0.10s | klik link
+ 3049 |  101.63s | B50      | animasi 20%  | warm_swell2.wav            | 2.40s | spotlight + partikel amber
+ 3051 |  101.70s | B50      | transisi 15% | t30_air.wav                | 0.85s | pull-out pelan
+ 3151 |  105.03s | B51      | transisi 15% | t30_charge_full.wav        | 2.47s | baterai 100%, logo charge berkedip
