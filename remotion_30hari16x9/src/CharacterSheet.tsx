@@ -5,7 +5,7 @@ import {LitCharacter, Reflect} from './components/Lit';
 import {Stage} from './Stage';
 
 export const SHEET_W = 2400;
-export const SHEET_H = 2860;
+export const SHEET_H = 3500;
 
 // ekspresi yang dibutuhkan video 30 hari 16:9 (★ = baru dibuat untuk video ini)
 const NEW_E: Expression[] = ['sneaky', 'anxious', 'sweaty', 'embarrassed', 'peaceful'];
@@ -21,6 +21,7 @@ const POSES: Array<[PoseName, Expression, Ctx]> = [
   ['jogging_in', 'peaceful', 'none'], ['holding_door_shut', 'determined', 'door'], ['archery_draw', 'focused', 'none'],
   ['flying_kite', 'confident', 'none'], ['grabbing_relay_baton', 'confident', 'none'], ['waking_up_stretching', 'relieved', 'bed'],
   ['following_glowing_footsteps', 'curious', 'none'], ['standing_tall_chest_out', 'proud', 'none'], ['presenting_link_up', 'confident', 'none'],
+  ['idle_thumbs_in_pockets', 'lonely', 'none'], ['idle_hands_clasped_front', 'relieved', 'none'], ['listening_head_tilt', 'curious', 'none'],
 ];
 const T = (x: number, y: number, s: string) => <text x={x} y={y} fontFamily="Poppins" fontWeight={800} fontSize={30} fill="#F2EEE6">{s}</text>;
 const back = (ctx: Ctx, cx: number, fl: number) => {
@@ -47,7 +48,7 @@ export const CharacterSheet: React.FC = () => (
           <LitCharacter id={`e${i}`} x={125} y={680} scale={1.1} expression={e} blinkSeed={i * 5 + 50} />
         </Stage>
       ))}
-      {T(30, 700, '24 POSE BARU (semua belum pernah dipakai, cek preview/used_assets.md) · props otomatis: kapur, barbel balon, payung, busur+panah, tongkat estafet, kunci, benang layangan')}
+      {T(30, 700, '27 POSE BARU (semua belum pernah dipakai, cek preview/used_assets.md) · props otomatis: kapur, barbel balon, payung, busur+panah, tongkat estafet, kunci, benang layangan')}
       {POSES.map(([p, e, ctx], i) => {
         const col = i % 8, row = Math.floor(i / 8), w = 286, h = 560, fl = 500, cx = w / 2;
         const lying = p === 'sliding_into_mri';
@@ -65,8 +66,8 @@ export const CharacterSheet: React.FC = () => (
           </Stage>
         );
       })}
-      {T(30, 2650, 'Cek kontras di latar gelap kebiruan: tanpa rim (kiri) vs dengan rim + halo · tampak belakang (closing_curtain)')}
-      <Stage x={20} y={2670} w={2360} h={170} floor={165} label="">
+      {T(30, 3290, 'Cek kontras di latar gelap kebiruan: tanpa rim (kiri) vs dengan rim + halo · tampak belakang (closing_curtain)')}
+      <Stage x={20} y={3310} w={2360} h={170} floor={165} label="">
         <g transform="translate(300,162) scale(0.24)"><Character id="nr" x={0} y={0} expression="curious" /></g>
         <LitCharacter id="wr" x={620} y={162} scale={0.24} expression="curious" />
         <LitCharacter id="wb" x={940} y={162} scale={0.24} pose="closing_curtain" />

@@ -106,7 +106,7 @@ export const shotH13: ShotDef = {
         {f >= bf(14) && f < be(14) + 8 && <g>{shadowOf(x, 'pacing_shadow_double', f, 'sh1', 70, 0.35 * seg(f, bf(14), be(14)))}{shadowOf(x, 'pacing_shadow_double', f + 7, 'sh2', 130, 0.22 * seg(f, bf(14), be(14)))}</g>}
         <Reflect floor={FEET} op={0.22}>
           <LitCharacter id="m13" x={x} y={FEET} scale={SC} haloColor={f >= bf(11) && f < bf(12) ? '#FF5FA2' : '#E05AA8'} phoneColor="#FF5FA2"
-            pose={[[-100, 'tally_marks_on_wall'], [bf(5), 'walking_against_wind'], [bf(6), 'standing_relaxed'], [bf(8), 'bouncing_ball_on_wall'], [bf(9), 'standing_relaxed'],
+            pose={[[-100, 'tally_marks_on_wall'], [bf(5), 'walking_against_wind'], [bf(6), 'idle_hands_clasped_front'], [bf(8), 'bouncing_ball_on_wall'], [bf(9), 'idle_thumbs_in_pockets'],
               [bf(10), 'catching_sliding_phone'], [bf(12), 'closing_curtain'], [bf(13), 'hugging_self_scratching_arm'], [bf(14), 'pacing_shadow_double']]}
             expression={[[-100, 'focused'], [bf(5), 'sweaty'], [bf(6), 'relieved'], [bf(7), 'anxious'], [bf(8), 'bored'], [bf(9), 'lonely'], [bf(10), 'tempted'],
               [bf(13), 'anxious'], [bf(14), 'restless']]}
@@ -175,8 +175,8 @@ export const shotH7: ShotDef = {
         <Appear f={f} a={bf(21, 2)} b={be(21)} x={1170} y={430} s={0.5} kind="glow"><B.Thermostat t={f} turn={ramp(f, bf(21, 10), bf(21, 50))} /></Appear>
         <Reflect floor={FEET} op={0.26}>
           <LitCharacter id="m7" x={manX7(f)} y={FEET} scale={SC} haloColor="#4FA8FF"
-            pose={[[-100, 'jogging_in'], [bf(15, 30), 'standing_relaxed'], [bf(18), 'standing_tall_chest_out'], [bf(19), 'standing_relaxed'],
-              [bf(20), 'lifting_balloon_barbell'], [bf(20, 32), 'standing_relaxed'], [bf(21), 'adjusting_wall_thermostat']]}
+            pose={[[-100, 'jogging_in'], [bf(15, 30), 'idle_thumbs_in_pockets'], [bf(18), 'standing_tall_chest_out'], [bf(19), 'idle_hands_clasped_front'],
+              [bf(20), 'lifting_balloon_barbell'], [bf(20, 32), 'idle_thumbs_in_pockets'], [bf(21), 'adjusting_wall_thermostat']]}
             expression={[[-100, 'determined'], [bf(16), 'curious'], [bf(18), 'proud'], [bf(19), 'flat'], [bf(20), 'proud'], [bf(20, 26), 'embarrassed'], [bf(21), 'relieved']]}
             lookAt={f >= bf(20, 32) && f < bf(21) ? {x: 0, y: -0.9} : {x: 0.6, y: -0.2}} />
         </Reflect>

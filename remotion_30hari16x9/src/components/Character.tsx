@@ -59,7 +59,8 @@ export type PoseName =
   // thumbnail
   | 'holding_text_edges'
   // video 30 hari 16:9 (semua pose BARU)
-  | 'sliding_into_mri' | 'locking_drawer' | 'glancing_at_camera' | 'tally_marks_on_wall' | 'walking_against_wind' | 'bouncing_ball_on_wall' | 'catching_sliding_phone' | 'closing_curtain' | 'hugging_self_scratching_arm' | 'pacing_shadow_double' | 'lifting_balloon_barbell' | 'adjusting_wall_thermostat' | 'slumped_on_bench_with_umbrella' | 'tapping_foot_restless' | 'tossing_phone_in_bin' | 'jogging_in' | 'holding_door_shut' | 'archery_draw' | 'flying_kite' | 'grabbing_relay_baton' | 'waking_up_stretching' | 'following_glowing_footsteps' | 'standing_tall_chest_out' | 'presenting_link_up';
+  | 'sliding_into_mri' | 'locking_drawer' | 'glancing_at_camera' | 'tally_marks_on_wall' | 'walking_against_wind' | 'bouncing_ball_on_wall' | 'catching_sliding_phone' | 'closing_curtain' | 'hugging_self_scratching_arm' | 'pacing_shadow_double' | 'lifting_balloon_barbell' | 'adjusting_wall_thermostat' | 'slumped_on_bench_with_umbrella' | 'tapping_foot_restless' | 'tossing_phone_in_bin' | 'jogging_in' | 'holding_door_shut' | 'archery_draw' | 'flying_kite' | 'grabbing_relay_baton' | 'waking_up_stretching' | 'following_glowing_footsteps' | 'standing_tall_chest_out' | 'presenting_link_up'
+  | 'idle_thumbs_in_pockets' | 'idle_hands_clasped_front' | 'listening_head_tilt';
 
 type Limb = {a: number; b: number}; // a = sendi pangkal, b = sendi tengah (relatif)
 type Pose = {
@@ -286,6 +287,12 @@ export const POSES: Record<PoseName, Pose> = {
     headTilt: -6, pitch: -0.12, torsoSY: 1.03}),
   // menyajikan link: telunjuk kiri menunjuk ke atas-serong, tangan kanan terbuka menyajikan
   presenting_link_up: mk({armL: {a: 140, b: 2}, pointL: 1, armR: {a: 54, b: -64}, lean: -3, turn: 0.25, headTilt: -5}),
+  // pose DIAM baru (pengganti standing_relaxed lama): jempol di saku depan, berat badan bergeser
+  idle_thumbs_in_pockets: mk({armR: {a: 16, b: -42}, armL: {a: 16, b: -42}, shoulder: 0.15, headTilt: 3, legR: {a: 6, b: -3}, legL: {a: 2, b: -1}}),
+  // diam baru: kedua tangan bertaut rendah di depan perut
+  idle_hands_clasped_front: mk({armR: {a: 20, b: -72}, armL: {a: 20, b: -72}, headTilt: -2, pitch: 0.05, shoulder: 0.1}),
+  // diam baru: menyimak, kepala miring, satu tangan di saku belakang, satu menggantung santai
+  listening_head_tilt: mk({armR: {a: -6, b: 14}, armL: {a: 10, b: -16}, headTilt: 9, turn: 0.2, lean: -1, legR: {a: 3, b: -2}, legL: {a: 8, b: -6}}),
   // thumbnail: kedua tangan terentang ke samping-bawah memegang ujung teks judul
   holding_text_edges: mk({armR: {a: 44, b: 4}, armL: {a: 44, b: 4}, shoulder: 0.3, headTilt: 0, pitch: -0.04, headDY: -2}),
   head_down: mk({pitch: 0.9, headDY: 20, headTilt: 4, armR: {a: 2, b: -2}, armL: {a: 2, b: -2}, shoulder: 0.55, torsoSY: 0.96, pelvisY: 224}),

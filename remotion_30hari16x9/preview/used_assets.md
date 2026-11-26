@@ -17,6 +17,7 @@ Catatan pose dasar mirip → dibuat VARIASI BARU dengan nama & gestur/properti b
 - `tossing_phone` / `toss_windup` → **tossing_phone_in_bin** (lempar underhand ke bawah-samping ke tong sampah, badan agak membungkuk)
 - `pointing_up` → **presenting_link_up** (beat 49: satu tangan menunjuk ke atas-serong dengan jari telunjuk + tangan lain terbuka menyajikan, badan miring)
 - `pacing` → **pacing_shadow_double** (mondar-mandir sambil memeluk lengan sendiri + bayangan dobel di tembok)
+- `standing_relaxed` (pose diam bawaan rig) → **idle_thumbs_in_pockets**, **idle_hands_clasped_front**, **listening_head_tilt** (3 pose diam baru untuk jeda antar aksi)
 - `sitting_floor_bored` → **tally_marks_on_wall** (duduk menyamping di lantai, satu lengan terangkat menyoret tembok dengan kapur)
 - `slumped` / `sitting_bus_stop` → **slumped_on_bench_with_umbrella** (duduk merosot, payung tertutup bersandar di bahu, kepala miring)
 

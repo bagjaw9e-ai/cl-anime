@@ -94,8 +94,8 @@ export const shotH21: ShotDef = {
       <Appear f={f} a={bf(39, 1)} b={be(39)} x={1200} y={560} s={0.56} kind="glow"><C.PfcLighthouse t={f} on={ramp(f, bf(39, 4), bf(39, 20))} /></Appear>
       <Reflect floor={FEET} op={0.26}>
         <LitCharacter id="m21" x={manX21(f)} y={FEET} scale={SC} haloColor="#FFD26A"
-          pose={[[-100, 'jogging_in'], [bf(32, 40), 'standing_relaxed'], [bf(33), 'holding_door_shut'], [bf(34), 'standing_relaxed'], [bf(36), 'archery_draw'],
-            [bf(37), 'flying_kite'], [bf(38), 'standing_relaxed'], [bf(39), 'standing_tall_chest_out']]}
+          pose={[[-100, 'jogging_in'], [bf(32, 40), 'idle_hands_clasped_front'], [bf(33), 'holding_door_shut'], [bf(34), 'listening_head_tilt'], [bf(36), 'archery_draw'],
+            [bf(37), 'flying_kite'], [bf(38), 'idle_thumbs_in_pockets'], [bf(39), 'standing_tall_chest_out']]}
           expression={[[-100, 'peaceful'], [bf(33), 'determined'], [bf(34), 'focused'], [bf(35), 'relieved'], [bf(36), 'focused'], [bf(37), 'confident'], [bf(38), 'peaceful'], [bf(39), 'proud']]}
           lookAt={{x: 0.6, y: -0.2}} />
       </Reflect>
@@ -123,7 +123,7 @@ export const shotH66a: ShotDef = {
       {f >= bf(42) && f < be(42) && [0, 1, 2].map((i) => <line key={i} x1={manX66(f) - 120 - i * 40} y1={560 + i * 40} x2={manX66(f) - 300 - i * 60} y2={560 + i * 40} stroke="#FFF0C8" strokeWidth={4} opacity={0.4} />)}
       <Reflect floor={FEET} op={0.28}>
         <LitCharacter id="m66" x={manX66(f)} y={FEET} scale={SC} haloColor="#FFD6A0" walkSpeed={1.3}
-          pose={[[-100, 'standing_relaxed'], [bf(41), 'jogging_in'], [bf(42), 'grabbing_relay_baton']]}
+          pose={[[-100, 'listening_head_tilt'], [bf(41), 'jogging_in'], [bf(42), 'grabbing_relay_baton']]}
           expression={[[-100, 'curious'], [bf(41), 'determined'], [bf(42), 'confident']]} lookAt={{x: 0.6, y: -0.2}} />
       </Reflect>
     </g>
@@ -183,7 +183,7 @@ export const shotNeuro: ShotDef = {
       {f >= bf(50) && <Rise x={960} y={760} w={700} h={600} n={18} t={f} op={1 - 0.6 * ease(f, VO_FRAMES, TOTAL_FRAMES - 4)} />}
       <Reflect floor={FEET} op={0.3}>
         <LitCharacter id="mN" x={manXN(f)} y={FEET} scale={SC} halo={1 - 0.5 * ease(f, VO_FRAMES, TOTAL_FRAMES - 4)}
-          pose={[[-100, 'standing_relaxed'], [bf(47), 'following_glowing_footsteps'], [bf(48), 'standing_relaxed'], [bf(49), 'presenting_link_up'], [bf(50), 'standing_tall_chest_out']]}
+          pose={[[-100, 'idle_hands_clasped_front'], [bf(47), 'following_glowing_footsteps'], [bf(48), 'listening_head_tilt'], [bf(49), 'presenting_link_up'], [bf(50), 'standing_tall_chest_out']]}
           expression={[[-100, 'curious'], [bf(48), 'relieved'], [bf(49), 'confident'], [bf(50), 'confident']]} lookAt={{x: 0.5, y: -0.3}} />
       </Reflect>
     </g>
