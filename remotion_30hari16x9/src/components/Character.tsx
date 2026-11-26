@@ -521,13 +521,14 @@ export type CharacterProps = {
   id?: string;
   rimColor2?: string;
   chains?: number; // jumlah lilitan rantai yang masih utuh (0..3)
+  noShadow?: boolean; // tanpa bayangan lantai (mis. still green screen)
   outfit?: Outfit;
 };
 
 export const Character: React.FC<CharacterProps> = ({
   x = 540, y = 1500, scale = 1, expression = 'neutral', pose = 'standing_relaxed',
   lookAt = {x: 0, y: 0}, talking = false, rim = false, rimColor = '#FFF4E0', blinkSeed = 1,
-  walkSpeed = 1, phoneColor = C.red2, id = 'c', rimColor2 = '#FFB23F', chains = 0, outfit = 'bomber',
+  walkSpeed = 1, phoneColor = C.red2, id = 'c', rimColor2 = '#FFB23F', chains = 0, outfit = 'bomber', noShadow = false,
 }) => {
   const O = OUT[outfit];
   const frame = useCurrentFrame();
@@ -1259,7 +1260,7 @@ export const Character: React.FC<CharacterProps> = ({
         </filter>
       </defs>
       {/* bayangan di lantai */}
-      <ellipse cx={0} cy={6} rx={110} ry={16} fill="#000" opacity={0.28} />
+      {!noShadow && <ellipse cx={0} cy={6} rx={110} ry={16} fill="#000" opacity={0.28} />}
       <g filter={rim ? `url(#${fid}-rim)` : undefined}>{body}</g>
     </g>
   );
