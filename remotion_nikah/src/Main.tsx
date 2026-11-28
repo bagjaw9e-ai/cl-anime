@@ -87,7 +87,7 @@ export const Scene: React.FC = () => {
       <TransFlash />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse 82% 64% at 50% 45%, rgba(0,0,0,0) 52%, rgba(2,3,6,0.72) 100%)'}} />
       <Grain opacity={0.04} />
-      <NeonPanelView finalOff={sm(ramp(f, VO_FRAMES + 8, TOTAL_FRAMES - 8))} />
+      <NeonPanelView />
       <BatteryProgress />
       <CalloutView />
       <Subtitle />

@@ -115,6 +115,9 @@ export const CharacterSheet: React.FC = () => {
           <Silhouette x={230} y={440} scale={0.62} type="mother" pose="flinch" rim="#FFB3B8" fill="#3A3440" />
           <Silhouette x={480} y={440} scale={0.62} type="teen" pose="cover_mouth" rim="#FFB3B8" fill="#3A3440" />
         </Stage>
+        <Stage x={1700} y={4912} w={680} h={480} floor={440} label="★ flaunting_ring_hand (pose tambahan BARU, beat 2: cincin -> kabel -> HP 18+)">
+          <Reflect floor={440} op={0.15} depth={40}><LitCharacter id="fr" x={280} y={440} scale={0.6} pose="flaunting_ring_hand" expression="smug" haloColor="#FF3B4A" /></Reflect>
+        </Stage>
         {T(30, 5458, 'ANAK (rig BARU ★): laki-laki ±6 th, kepala besar, piyama kuning pucat bermotif bintang, boneka beruang — 7 ekspresi + 4 pose brief (+ berdiri)')}
         {C_EXPR.map((e, i) => (
           <Stage key={e} x={20 + i * 170} y={5482} w={160} h={220} floor={220} label={'★ ' + e}>

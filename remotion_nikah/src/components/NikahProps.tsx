@@ -13,7 +13,7 @@ const MALE_NEW = new Set([
   'wearing_thick_gloves', 'earphones_ignoring', 'ticking_checklist_blindly', 'comparing_two_lights', 'back_turned_frosty',
   'throwing_pebbles', 'sleeping_soundly_back_turned', 'sticking_sticker_on_warning_light', 'peering_through_binoculars',
   'chasing_fireflies', 'pressing_elevator_button_up', 'raising_huge_shield', 'slamming_door_shut', 'head_full_of_tangled_wires',
-  'storm_cloud_head',
+  'storm_cloud_head', 'flaunting_ring_hand',
 ]);
 export const isNikahPose = (p: string) => MALE_NEW.has(p);
 
@@ -175,6 +175,29 @@ export const nkFront = (g: NkGeo) => {
         <g opacity={0.7}>
           {[0, 1, 2].map((i) => <path key={i} d={`M ${AL.hand.x + 30} ${AL.hand.y - 40 + i * 34} l ${70 + i * 10} 0`} stroke="#F2EEE6" strokeWidth={5} strokeLinecap="round"
             opacity={Math.sin(((ph + i * 0.2) % 1) * Math.PI)} />)}
+        </g>
+      );
+    }
+    case 'flaunting_ring_hand': {
+      // cincin emas di jari -> kabel charger -> HP 18+ menyala merah tergeletak di lantai (kanan)
+      const r = {x: AL.hand.x + 4, y: AL.hand.y + 4}, ph = {x: 250, y: g.pelvisY - 40};
+      const cable = `M ${r.x} ${r.y} C ${r.x + 60} ${r.y + 140} ${ph.x - 160} ${ph.y + 40} ${ph.x - 40} ${ph.y + 10}`;
+      const ping = (t % 45) / 45;
+      return (
+        <g>
+          <path d={cable} stroke="#2A2A32" strokeWidth={9} fill="none" strokeLinecap="round" />
+          <path d={cable} stroke="#D9DDE6" strokeWidth={4.5} fill="none" strokeLinecap="round" />
+          <path d={cable} stroke="#FF3B4A" strokeWidth={2.5} fill="none" strokeDasharray="8 16" strokeDashoffset={-t * 1.5} opacity={0.9} />
+          <g transform={`translate(${ph.x},${ph.y}) rotate(-78)`}>
+            <circle r={150} fill="#FF2A3A" opacity={0.2} />
+            <HandsetNk t={t} w={62} h={116} color="#FF2A3A" />
+          </g>
+          <g transform={`translate(${ph.x},${ph.y - 80}) scale(${0.6 + ping * 0.6})`} opacity={1 - ping}><circle r={26} fill="none" stroke="#FF5A66" strokeWidth={5} /></g>
+          <g transform={`translate(${r.x},${r.y})`}>
+            <circle r={30} fill="#FFD166" opacity={0.3 + 0.2 * Math.sin(t * 0.3)} />
+            <ellipse rx={13} ry={7} fill="none" stroke="#F2C14E" strokeWidth={6} />
+            <path transform={`translate(14,-16) scale(${0.6 + 0.4 * Math.abs(Math.sin(t * 0.3))})`} d="M 0 -8 C 1 -2 2 -1 8 0 C 2 1 1 2 0 8 C -1 2 -2 1 -8 0 C -2 -1 -1 -2 0 -8 Z" fill="#FFFFFF" />
+          </g>
         </g>
       );
     }

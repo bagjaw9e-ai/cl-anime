@@ -69,7 +69,7 @@ export type PoseName =
   | 'wearing_thick_gloves' | 'earphones_ignoring' | 'ticking_checklist_blindly' | 'comparing_two_lights' | 'back_turned_frosty'
   | 'throwing_pebbles' | 'sleeping_soundly_back_turned' | 'sticking_sticker_on_warning_light' | 'peering_through_binoculars'
   | 'chasing_fireflies' | 'pressing_elevator_button_up' | 'raising_huge_shield' | 'slamming_door_shut' | 'head_full_of_tangled_wires'
-  | 'storm_cloud_head';
+  | 'storm_cloud_head' | 'flaunting_ring_hand';
 
 type Limb = {a: number; b: number}; // a = sendi pangkal, b = sendi tengah (relatif)
 type Pose = {
@@ -357,6 +357,8 @@ export const POSES: Record<PoseName, Pose> = {
   head_full_of_tangled_wires: mk({armR: {a: 133, b: 80}, armL: {a: 133, b: 80}, shoulder: 0.6, jitter: 0.5, pitch: 0.08, headDY: 4}),
   // berdiri kaku, kepalan di samping, awan badai kecil melayang di atas kepala (props)
   storm_cloud_head: mk({armR: {a: 10, b: -28}, armL: {a: 10, b: -28}, shoulder: 0.45, pelvisY: 224, pitch: 0.18, headDY: 4, tremble: 0.4}),
+  // pamer cincin: tangan kiri diangkat di depan dada (punggung tangan ke kamera), tangan kanan di saku, dagu naik (kabel charger dari cincin ke HP: props)
+  flaunting_ring_hand: mk({armL: {a: 38, b: -124}, armR: {a: 16, b: -42}, headTilt: -7, pitch: -0.08, turn: 0.22, lean: -2, legR: {a: 7, b: -3}, legL: {a: 2, b: -1}}),
   head_down: mk({pitch: 0.9, headDY: 20, headTilt: 4, armR: {a: 2, b: -2}, armL: {a: 2, b: -2}, shoulder: 0.55, torsoSY: 0.96, pelvisY: 224}),
 };
 

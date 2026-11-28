@@ -71,3 +71,11 @@ export const rand = (seed: number) => {
   const x = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
   return x - Math.floor(x);
 };
+
+// ---- video nikah: garis lantai dunia (kaki karakter) + sistem TONE background (berubah halus tiap zoom, tempat tetap) ----
+export const FLOOR_Y = 1250;
+export type Tone = {top: string; mid: string; floor: string; furn: string; furnHi: string; glow: string; accent: string};
+export const mixTone = (a: Tone, b: Tone, t: number): Tone => ({
+  top: mix(a.top, b.top, t), mid: mix(a.mid, b.mid, t), floor: mix(a.floor, b.floor, t), furn: mix(a.furn, b.furn, t),
+  furnHi: mix(a.furnHi, b.furnHi, t), glow: mix(a.glow, b.glow, t), accent: mix(a.accent, b.accent, t),
+});
