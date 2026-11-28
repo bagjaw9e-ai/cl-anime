@@ -11,4 +11,4 @@ import {shotF3} from './fase3';
 export const SHOTS: ShotDef[] = [...HOOK_SHOTS, shotOneShot, shotF1, shotF2, shotCta, shotF3];
 
 // posisi layar subtitle poin penting 💬 (default [540, 1250] = sedikit di bawah ilustrasi; digeser bila menutup wajah)
-setKeyPos({55: [640, 1270]});
+setKeyPos({54: [600, 650], 55: [640, 1270]});
