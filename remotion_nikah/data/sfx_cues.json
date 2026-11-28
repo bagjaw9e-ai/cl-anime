@@ -54,9 +54,7 @@
 "cls": "anim",
 "file": "ink_bottle_fall",
 "note": "B3 botol tinta jatuh",
-"dur": null,
-"missing": true,
-"fallback": "glass_clink"
+"dur": null
 },
 {
 "frame": 78,
@@ -161,9 +159,7 @@
 "cls": "anim",
 "file": "wood_plank_crack",
 "note": "B8 papan kayu patah",
-"dur": null,
-"missing": true,
-"fallback": "piece_fall"
+"dur": null
 },
 {
 "frame": 416,
@@ -254,9 +250,7 @@
 "cls": "anim",
 "file": "rubber_squeak",
 "note": "B13 sarung tangan karet berdecit",
-"dur": null,
-"missing": true,
-"fallback": "wheel_squeak"
+"dur": null
 },
 {
 "frame": 740,
@@ -270,9 +264,7 @@
 "cls": "anim",
 "file": "muffled_talk",
 "note": "B14 suara bicara istri teredam",
-"dur": null,
-"missing": true,
-"fallback": "muffle_down"
+"dur": null
 },
 {
 "frame": 812,
@@ -293,9 +285,7 @@
 "cls": "anim",
 "file": "fridge_door",
 "note": "B15 pintu kulkas",
-"dur": null,
-"missing": true,
-"fallback": "door_close_soft"
+"dur": null
 },
 {
 "frame": 897,
@@ -323,9 +313,7 @@
 "cls": "anim",
 "file": "cashier_beep",
 "note": "B16 label di-scan (kasir lembut)",
-"dur": null,
-"missing": true,
-"fallback": "monitor_beep"
+"dur": null
 },
 {
 "frame": 1058,
@@ -367,18 +355,14 @@
 "cls": "anim",
 "file": "kettle_whistle",
 "note": "B19 siulan ketel",
-"dur": null,
-"missing": true,
-"fallback": "whistle"
+"dur": null
 },
 {
 "frame": 1244,
 "cls": "anim",
 "file": "kettle_lid_pop",
 "note": "B19 tutup ketel meletup",
-"dur": null,
-"missing": true,
-"fallback": "pop_out"
+"dur": null
 },
 {
 "frame": 1268,
@@ -469,9 +453,7 @@
 "cls": "anim",
 "file": "pebble_glass_hit",
 "note": "B24 kerikil kena kaca #1",
-"dur": null,
-"missing": true,
-"fallback": "knock_tap"
+"dur": null
 },
 {
 "frame": 1588,
@@ -485,9 +467,7 @@
 "cls": "anim",
 "file": "pebble_glass_hit",
 "note": "B24 kerikil kena kaca #2",
-"dur": null,
-"missing": true,
-"fallback": "knock_tap"
+"dur": null
 },
 {
 "frame": 1631,
@@ -543,9 +523,7 @@
 "cls": "anim",
 "file": "garage_roller",
 "note": "B27 pintu garasi bergulir",
-"dur": null,
-"missing": true,
-"fallback": "chain_rattle"
+"dur": null
 },
 {
 "frame": 1852,
@@ -692,9 +670,7 @@
 "cls": "anim",
 "file": "metal_drawer",
 "note": "B35 laci besi ditarik",
-"dur": null,
-"missing": true,
-"fallback": "drawer_lock"
+"dur": null
 },
 {
 "frame": 2447,
@@ -771,9 +747,7 @@
 "cls": "anim",
 "file": "washer_spin",
 "note": "B37 mesin cuci berputar",
-"dur": 1.6,
-"missing": true,
-"fallback": "gear_spin"
+"dur": 1.6
 },
 {
 "frame": 2665,
@@ -864,9 +838,7 @@
 "cls": "anim",
 "file": "needle_sew",
 "note": "B41 jarum menjahit kain",
-"dur": null,
-"missing": true,
-"fallback": "string_zip"
+"dur": null
 },
 {
 "frame": 3039,
@@ -957,9 +929,7 @@
 "cls": "anim",
 "file": "floor_creak",
 "note": "B45 lantai kayu berderit",
-"dur": null,
-"missing": true,
-"fallback": "seesaw_creak"
+"dur": null
 },
 {
 "frame": 3298,
@@ -1001,9 +971,7 @@
 "cls": "anim",
 "file": "brick_place",
 "note": "B47 bata disusun #1",
-"dur": null,
-"missing": true,
-"fallback": "chess_knock"
+"dur": null
 },
 {
 "frame": 3515,
@@ -1017,27 +985,21 @@
 "cls": "anim",
 "file": "brick_place",
 "note": "B47 bata disusun #2",
-"dur": null,
-"missing": true,
-"fallback": "chess_knock"
+"dur": null
 },
 {
 "frame": 3540,
 "cls": "anim",
 "file": "brick_place",
 "note": "B47 bata disusun #3",
-"dur": null,
-"missing": true,
-"fallback": "chess_knock"
+"dur": null
 },
 {
 "frame": 3558,
 "cls": "anim",
 "file": "brick_place",
 "note": "B47 bata disusun #4",
-"dur": null,
-"missing": true,
-"fallback": "chess_knock"
+"dur": null
 },
 {
 "frame": 3590,
@@ -1065,9 +1027,7 @@
 "cls": "anim",
 "file": "door_slam",
 "note": "B49 pintu dibanting",
-"dur": null,
-"missing": true,
-"fallback": "desk_slam"
+"dur": null
 },
 {
 "frame": 3674,
@@ -1137,9 +1097,7 @@
 "cls": "anim",
 "file": "cloth_tear",
 "note": "B53 kain payung sobek",
-"dur": null,
-"missing": true,
-"fallback": "paper_tear"
+"dur": null
 },
 {
 "frame": 3952,
@@ -1174,9 +1132,7 @@
 "cls": "anim",
 "file": "wood_plank_crack",
 "note": "B55 robot kayu mainan patah",
-"dur": null,
-"missing": true,
-"fallback": "piece_fall"
+"dur": null
 },
 {
 "frame": 4033,

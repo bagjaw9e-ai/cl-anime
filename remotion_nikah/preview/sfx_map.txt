@@ -1,0 +1,174 @@
+# SFX MAP video nikah dengan pecandu | VO -14.8 LUFS (100%) | BGM -40.0 dB vs VO (≈1.0%), diputar utuh 0-142.57 dtk, fade in 1 dtk
+# master -13.1 LUFS, true-peak -3.06 dBFS (limit -1) | SFX terkeras (jendela 0,4 dtk) -14.6 dB = 19% volume VO (batas 20%) | maks barengan 3 (batas 3)
+# jenis: anim (animasi/ilustrasi/gerakan karakter) -14.3 dB ≈ 19-20% VO | trans (transisi + camera move + panel neon) -16.8 dB ≈ 14-15% VO | SFX foley natural (public/sfx), tanpa laser/zap
+# frame | detik | beat | jenis | SFX | durasi main | kejadian
+    0 |    0.00s | B1       | animasi 20%  | paper_page_turn.wav        | 0.50s | kertas buku nikah dibuka
+   11 |    0.37s | B1       | transisi 15% | tr_snap_zoom.wav           | 0.38s | snap zoom ke cincin
+   16 |    0.53s | B1       | animasi 20%  | crystal_ting.wav           | 1.26s | denting cincin dipasang
+   24 |    0.80s | B2       | transisi 15% | tr_whip.wav                | 0.44s | whip cepat ke kamar gelap
+   31 |    1.03s | B2       | animasi 20%  | cable_plug.wav             | 0.18s | colokan charger (cincin -> kabel)
+   41 |    1.37s | B2       | animasi 20%  | phone_notification_soft.wav | 0.66s | notifikasi HP 18+
+   68 |    2.27s | B3       | transisi 15% | tr_snap_zoom.wav           | 0.35s | snap push ke undangan
+   70 |    2.33s | B3       | animasi 20%  | ink_bottle_fall.wav        | 0.84s | botol tinta jatuh
+   78 |    2.60s | B3       | animasi 20%  | ink_spread.wav             | 1.60s | tinta merah menyebar
+  112 |    3.73s | B4       | transisi 15% | tr_dissolve.wav            | 0.79s | masuk one shot (dissolve)
+  118 |    3.93s | B4       | animasi 20%  | wind_room.wav              | 2.20s | angin berputar (pusaran khayalan)
+  132 |    4.40s | B4       | animasi 20%  | papers_fly.wav             | 1.50s | kertas rencana beterbangan
+  219 |    7.30s | B5       | animasi 20%  | paper_slide.wav            | 0.45s | rumah kartu berpindah tangan, kartu bergeser
+  257 |    8.57s | B5       | animasi 20%  | paper_collapse.wav         | 1.28s | rumah kartu runtuh pelan
+  277 |    9.23s | B6       | transisi 15% | sand_flow.wav              | 0.53s | debu rumah kartu -> reveal apartemen
+  287 |    9.57s | B6       | transisi 15% | neon_on.wav                | 1.00s | panel neon FASE 1 flicker nyala (buzz)
+  293 |    9.77s | B6       | transisi 15% | click_sharp.wav            | 0.28s | baterai terpasang (klik)
+  322 |   10.73s | B7       | animasi 20%  | screen_tap.wav             | 0.06s | tap layar HP 18+
+  324 |   10.80s | B7       | transisi 15% | tr_push.wav                | 0.50s | zoom ke HP (tone geser)
+  331 |   11.03s | B7       | animasi 20%  | fizzle.wav                 | 1.00s | desis lembut
+  374 |   12.47s | B8       | transisi 15% | whoosh_soft.wav            | 0.60s | pindah fokus ke jembatan
+  404 |   13.47s | B8       | transisi 15% | tr_air_fall.wav            | 1.40s | tilt turun ke jembatan
+  410 |   13.67s | B8       | animasi 20%  | wood_plank_crack.wav       | 0.65s | papan kayu patah
+  416 |   13.87s | B8       | animasi 20%  | piece_fall.wav             | 0.25s | papan jatuh ke jurang #1
+  425 |   14.17s | B8       | animasi 20%  | piece_fall.wav             | 0.23s | papan jatuh ke jurang #2
+  434 |   14.47s | B8       | animasi 20%  | piece_fall.wav             | 0.27s | papan jatuh ke jurang #3
+  443 |   14.77s | B8       | animasi 20%  | piece_fall.wav             | 0.24s | papan jatuh ke jurang #4
+  466 |   15.53s | B9       | animasi 20%  | reel.wav                   | 0.86s | proyektor HP berputar
+  474 |   15.80s | B9       | transisi 15% | tr_push.wav                | 0.46s | zoom ke hologram
+  548 |   18.27s | B10      | animasi 20%  | boing.wav                  | 0.80s | boneka per boing (angguk)
+  562 |   18.73s | B10      | animasi 20%  | boing.wav                  | 0.75s | boing kedua
+  576 |   19.20s | B11      | animasi 20%  | dial_clicks.wav            | 0.73s | roda putar tik-tik-tik
+  602 |   20.07s | B11      | animasi 20%  | wheel_squeak.wav           | 1.79s | roda berdecit melambat
+  649 |   21.63s | B12      | transisi 15% | whoosh_soft.wav            | 0.56s | pan istri -> suami
+  657 |   21.90s | B12      | animasi 20%  | hum_down.wav               | 1.60s | radar berdengung melemah
+  737 |   24.57s | B13      | animasi 20%  | rubber_squeak.wav          | 0.70s | sarung tangan karet berdecit
+  740 |   24.67s | B13      | transisi 15% | tr_push.wav                | 0.54s | zoom ke tangan
+  790 |   26.33s | B14      | animasi 20%  | muffled_talk.wav           | 1.22s | suara bicara istri teredam
+  812 |   27.07s | B14      | transisi 15% | whoosh_soft.wav            | 0.66s | pan ke suami
+  836 |   27.87s | B15      | transisi 15% | tr_whip.wav                | 0.40s | whip ke dapur
+  856 |   28.53s | B15      | animasi 20%  | fridge_door.wav            | 1.46s | pintu kulkas
+  897 |   29.90s | B15      | animasi 20%  | pen_check.wav              | 0.21s | spidol mencentang "ISTRI"
+  940 |   31.33s | B16      | transisi 15% | tr_whip.wav                | 0.46s | pindah ke dinding
+  960 |   32.00s | B16      | animasi 20%  | pop_soft.wav               | 0.08s | label harga menempel di bayangan
+ 1021 |   34.03s | B16      | animasi 20%  | cashier_beep.wav           | 0.32s | label di-scan (kasir lembut)
+ 1058 |   35.27s | B17      | transisi 15% | tr_push.wav                | 0.46s | push-in ke istri
+ 1060 |   35.33s | B17      | animasi 20%  | fire_crackle.wav           | 1.80s | label harga terbakar
+ 1125 |   37.50s | B18      | transisi 15% | whoosh_trans.wav           | 0.38s | pan (blend) ke kamar
+ 1144 |   38.13s | B18      | animasi 20%  | light_switch.wav           | 1.35s | saklar lampu tidur
+ 1221 |   40.70s | B19      | transisi 15% | tr_whip.wav                | 0.41s | whip ke ketel
+ 1223 |   40.77s | B19      | animasi 20%  | kettle_whistle.wav         | 1.60s | siulan ketel
+ 1244 |   41.47s | B19      | animasi 20%  | kettle_lid_pop.wav         | 1.23s | tutup ketel meletup
+ 1268 |   42.27s | B20      | transisi 15% | whoosh_soft.wav            | 0.55s | pan ke istri
+ 1286 |   42.87s | B20      | animasi 20%  | whoosh_throw.wav           | 0.50s | duri kaktus melesat (whoosh kecil)
+ 1316 |   43.87s | B21      | transisi 15% | tr_whip.wav                | 0.48s | pindah ke pintu kamar
+ 1334 |   44.47s | B21      | animasi 20%  | knob_turn.wav              | 0.90s | gagang pintu diputar paksa
+ 1346 |   44.87s | B21      | animasi 20%  | heartbeat.wav              | 1.91s | detak jantung pelan
+ 1385 |   46.17s | B21      | animasi 20%  | knob_turn.wav              | 0.84s | gagang diputar paksa lagi
+ 1450 |   48.33s | B22      | transisi 15% | tr_air_rise.wav            | 1.39s | tilt naik ke punggung beku
+ 1452 |   48.40s | B22      | animasi 20%  | wind_soft.wav              | 1.30s | angin dingin pelan
+ 1499 |   49.97s | B23      | transisi 15% | whoosh_soft.wav            | 0.63s | pindah ke tanaman
+ 1525 |   50.83s | B23      | animasi 20%  | water_pour.wav             | 1.40s | cairan racun dituang
+ 1537 |   51.23s | B23      | animasi 20%  | steam_hiss.wav             | 1.40s | desis tanaman layu
+ 1568 |   52.27s | B24      | transisi 15% | whoosh_soft.wav            | 0.55s | push ke kaca
+ 1584 |   52.80s | B24      | animasi 20%  | pebble_glass_hit.wav       | 0.48s | kerikil kena kaca #1
+ 1588 |   52.93s | B24      | animasi 20%  | crack_creep.wav            | 1.17s | kaca retak menjalar
+ 1620 |   54.00s | B24      | animasi 20%  | pebble_glass_hit.wav       | 0.45s | kerikil kena kaca #2
+ 1631 |   54.37s | B25      | transisi 15% | whoosh_soft.wav            | 0.65s | tilt ke jam dinding
+ 1639 |   54.63s | B25      | animasi 20%  | clock_tick.wav             | 1.76s | detak jam dinding
+ 1685 |   56.17s | B25      | animasi 20%  | snore_soft.wav             | 2.52s | dengkur pelan suami
+ 1743 |   58.10s | B26      | transisi 15% | tr_push.wav                | 0.53s | zoom ke pensil
+ 1775 |   59.17s | B26      | animasi 20%  | dull_knife.wav             | 1.00s | pensil diraut tapi seret
+ 1796 |   59.87s | B27      | transisi 15% | tr_dark_fade.wav           | 1.00s | fade lewat gelap ke garasi
+ 1806 |   60.20s | B27      | transisi 15% | neon_on.wav                | 0.93s | panel neon FASE 2 (buzz)
+ 1810 |   60.33s | B27      | animasi 20%  | garage_roller.wav          | 2.42s | pintu garasi bergulir
+ 1852 |   61.73s | B28      | transisi 15% | tr_push.wav                | 0.46s | zoom ke menara kontrol
+ 1877 |   62.57s | B28      | animasi 20%  | elec_flicker.wav           | 0.71s | lampu menara korslet #1
+ 1925 |   64.17s | B28      | animasi 20%  | elec_flicker.wav           | 0.67s | korslet #2
+ 1964 |   65.47s | B29      | animasi 20%  | click_sharp.wav            | 0.26s | klik senter
+ 1977 |   65.90s | B29      | transisi 15% | whoosh_soft.wav            | 0.56s | tilt ikut sinar
+ 1978 |   65.93s | B29      | animasi 20%  | hum_down.wav               | 1.52s | dengung senter melemah
+ 2016 |   67.20s | B30      | transisi 15% | tr_whip.wav                | 0.41s | pindah ke pabrik mini
+ 2020 |   67.33s | B30      | animasi 20%  | gears_soft.wav             | 1.59s | ban berjalan
+ 2053 |   68.43s | B30      | animasi 20%  | thud.wav                   | 1.00s | kotak jatuh
+ 2100 |   70.00s | B30      | animasi 20%  | heavy_sack_thud.wav        | 0.60s | kotak bertumpuk & tumpah
+ 2118 |   70.60s | B31      | transisi 15% | whoosh_soft.wav            | 0.65s | zoom ke sarung tangan
+ 2143 |   71.43s | B31      | animasi 20%  | ball_bounce.wav            | 1.12s | bola mental keras
+ 2168 |   72.27s | B31      | animasi 20%  | ball_bounce.wav            | 1.02s | bola mental lagi
+ 2192 |   73.07s | B32      | transisi 15% | tr_whip.wav                | 0.48s | pan ke pintu rumah
+ 2198 |   73.27s | B32      | animasi 20%  | door_open.wav              | 0.88s | pintu dibuka pelan
+ 2243 |   74.77s | B33      | animasi 20%  | shimmer_rise.wav           | 1.90s | dengung fatamorgana halus
+ 2245 |   74.83s | B33      | transisi 15% | tr_push.wav                | 0.54s | push ke HP
+ 2323 |   77.43s | B34      | transisi 15% | tr_push.wav                | 0.46s | zoom ke dasbor
+ 2354 |   78.47s | B34      | animasi 20%  | tape_pull.wav              | 0.57s | stiker dikelupas
+ 2365 |   78.83s | B34      | animasi 20%  | pop_soft.wav               | 0.07s | stiker ditempel
+ 2445 |   81.50s | B35      | animasi 20%  | metal_drawer.wav           | 1.19s | laci besi ditarik
+ 2447 |   81.57s | B35      | transisi 15% | tr_push.wav                | 0.55s | zoom ke laci arsip
+ 2507 |   83.57s | B35      | animasi 20%  | stamp_thud.wav             | 0.35s | stempel JAMA PSYCHIATRY 2014
+ 2552 |   85.07s | B36      | transisi 15% | whoosh_soft.wav            | 0.55s | pan horizontal ke rak tabung
+ 2558 |   85.27s | B36      | animasi 20%  | water_pour.wav             | 0.38s | cairan dituang ke gelas #1
+ 2571 |   85.70s | B36      | animasi 20%  | water_pour.wav             | 0.45s | cairan dituang ke gelas #2
+ 2585 |   86.17s | B36      | animasi 20%  | water_pour.wav             | 0.38s | cairan dituang ke gelas #3
+ 2598 |   86.60s | B36      | animasi 20%  | water_pour.wav             | 0.46s | cairan dituang ke gelas #4
+ 2612 |   87.07s | B36      | animasi 20%  | water_pour.wav             | 0.39s | cairan dituang ke gelas #5
+ 2625 |   87.50s | B36      | animasi 20%  | water_pour.wav             | 0.45s | cairan dituang ke gelas #6
+ 2638 |   87.93s | B36      | animasi 20%  | water_pour.wav             | 0.38s | cairan dituang ke gelas #7
+ 2661 |   88.70s | B37      | animasi 20%  | washer_spin.wav            | 1.60s | mesin cuci berputar
+ 2665 |   88.83s | B37      | transisi 15% | tr_push.wav                | 0.46s | zoom ke mesin cuci
+ 2688 |   89.60s | B37      | animasi 20%  | ting_short.wav             | 0.35s | "ding" cucian selesai
+ 2751 |   91.70s | B38      | transisi 15% | tr_air_rise.wav            | 1.30s | tilt ke ilmuwan
+ 2763 |   92.10s | B38      | animasi 20%  | tap_tap.wav                | 1.90s | pulpen mengetuk papan jepit
+ 2856 |   95.20s | B39      | transisi 15% | whoosh_soft.wav            | 0.63s | pan ke cabai terpedas
+ 2897 |   96.57s | B39      | animasi 20%  | chew.wav                   | 0.57s | kunyah cabai
+ 2907 |   96.90s | B39      | animasi 20%  | fire_crackle.wav           | 1.12s | desis api cabai
+ 2912 |   97.07s | B40      | animasi 20%  | footsteps_short.wav        | 0.90s | langkah lari
+ 2914 |   97.13s | B40      | transisi 15% | whoosh_soft.wav            | 0.56s | tracking ikut suami lari
+ 2936 |   97.87s | B40      | animasi 20%  | paper_flap.wav             | 0.36s | kepakan kecil kunang-kunang
+ 2972 |   99.07s | B41      | transisi 15% | tr_dark_fade.wav           | 0.95s | fade lewat gelap ke panggung
+ 2982 |   99.40s | B41      | transisi 15% | neon_on.wav                | 1.05s | panel neon PMO SAVIOR (buzz)
+ 3008 |  100.27s | B41      | animasi 20%  | needle_sew.wav             | 1.56s | jarum menjahit kain
+ 3039 |  101.30s | B42      | transisi 15% | whoosh_soft.wav            | 0.66s | pindah ke tombol lift
+ 3063 |  102.10s | B42      | animasi 20%  | click_sharp.wav            | 0.30s | tombol lift ditekan
+ 3077 |  102.57s | B42      | animasi 20%  | metal_ding.wav             | 1.78s | "ting" lift
+ 3086 |  102.87s | B42      | transisi 15% | tr_air_rise.wav            | 0.97s | tilt naik ikut cahaya
+ 3111 |  103.70s | B43      | transisi 15% | tr_push.wav                | 0.54s | zoom ke kain kepala
+ 3115 |  103.83s | B43      | animasi 20%  | string_zip.wav             | 0.35s | benang emas ditarik kencang
+ 3140 |  104.67s | B43      | animasi 20%  | sparkle.wav                | 1.04s | kilau lembut kain utuh
+ 3166 |  105.53s | B44      | animasi 20%  | far_switches.wav           | 2.32s | lampu panggung padam berurutan
+ 3202 |  106.73s | B44      | animasi 20%  | door_creak.wav             | 2.18s | pintu rumah berderit
+ 3212 |  107.07s | B44      | transisi 15% | tr_push.wav                | 0.47s | zoom ke pintu merah
+ 3232 |  107.73s | B45      | transisi 15% | tr_door_light.wav          | 0.60s | zoom tembus pintu -> lorong
+ 3242 |  108.07s | B45      | transisi 15% | neon_broken.wav            | 1.20s | panel neon FASE 3 (buzz, flicker)
+ 3250 |  108.33s | B45      | animasi 20%  | floor_creak.wav            | 1.30s | lantai kayu berderit
+ 3298 |  109.93s | B45      | transisi 15% | tr_push.wav                | 0.55s | push ke bayangan monster
+ 3342 |  111.40s | B45      | transisi 15% | whoosh_soft.wav            | 0.57s | pan ke anak
+ 3387 |  112.90s | B46      | animasi 20%  | spoon_clink.wav            | 0.58s | kaleng berdenting
+ 3423 |  114.10s | B46      | transisi 15% | whoosh_soft.wav            | 0.63s | pan ke suami
+ 3424 |  114.13s | B46      | animasi 20%  | string_drop.wav            | 0.42s | tali kaleng kendor
+ 3504 |  116.80s | B47      | animasi 20%  | brick_place.wav            | 0.61s | bata disusun #1
+ 3515 |  117.17s | B47      | transisi 15% | tr_air_rise.wav            | 1.28s | tilt naik ikut tembok
+ 3522 |  117.40s | B47      | animasi 20%  | brick_place.wav            | 0.57s | bata disusun #2
+ 3540 |  118.00s | B47      | animasi 20%  | brick_place.wav            | 0.64s | bata disusun #3
+ 3558 |  118.60s | B47      | animasi 20%  | brick_place.wav            | 0.56s | bata disusun #4
+ 3590 |  119.67s | B48      | animasi 20%  | shield_clang.wav           | 1.36s | perisai logam diangkat
+ 3592 |  119.73s | B48      | transisi 15% | tr_push.wav                | 0.46s | zoom ke perisai
+ 3641 |  121.37s | B49      | transisi 15% | tr_whip.wav                | 0.41s | whip ikut suami ke pintu
+ 3650 |  121.67s | B49      | animasi 20%  | door_slam.wav              | 1.39s | pintu dibanting
+ 3674 |  122.47s | B50      | transisi 15% | tr_push.wav                | 0.53s | push ke istri
+ 3676 |  122.53s | B50      | animasi 20%  | bass_hit.wav               | 1.60s | dentum pelan (lalu hening)
+ 3747 |  124.90s | B51      | transisi 15% | tr_push.wav                | 0.45s | zoom ke kepala
+ 3749 |  124.97s | B51      | animasi 20%  | elec_flicker.wav           | 0.76s | percikan listrik kabel kusut
+ 3798 |  126.60s | B52      | animasi 20%  | low_rumble.wav             | 2.00s | guruh pelan
+ 3808 |  126.93s | B52      | animasi 20%  | wind_room.wav              | 1.64s | angin
+ 3810 |  127.00s | B52      | transisi 15% | whoosh_soft.wav            | 0.54s | pull-out
+ 3865 |  128.83s | B53      | animasi 20%  | rain_loop.wav              | 2.40s | hujan dari awan petir
+ 3879 |  129.30s | B53      | transisi 15% | tr_air_fall.wav            | 1.30s | tilt ke istri & anak
+ 3914 |  130.47s | B53      | animasi 20%  | cloth_tear.wav             | 0.98s | kain payung sobek
+ 3952 |  131.73s | B54      | transisi 15% | tr_push.wav                | 0.55s | shake + zoom (tone merah)
+ 3968 |  132.27s | B54      | animasi 20%  | muffled_shout.wav          | 1.07s | dentum bentakan teredam (tanpa kata)
+ 3998 |  133.27s | B54      | animasi 20%  | muffled_shout.wav          | 1.00s | bentakan teredam kedua
+ 4002 |  133.40s | B54      | animasi 20%  | frame_fall.wav             | 0.73s | mainan jatuh dari rak
+ 4025 |  134.17s | B55      | animasi 20%  | wood_plank_crack.wav       | 0.61s | robot kayu mainan patah
+ 4033 |  134.43s | B55      | transisi 15% | tr_push.wav                | 0.47s | slow push ke mainan patah
+ 4063 |  135.43s | B55      | animasi 20%  | heavy_breath.wav           | 2.08s | napas tertahan
+ 4108 |  136.93s | B56      | animasi 20%  | soft_hum.wav               | 1.20s | lampu hangat berdengung lembut
+ 4112 |  137.07s | B56      | transisi 15% | whoosh_soft.wav            | 0.64s | pull-out
+ 4199 |  139.97s | B57      | animasi 20%  | switch_off.wav             | 0.93s | saklar lampu jendela mati #1
+ 4213 |  140.43s | B57      | animasi 20%  | switch_off.wav             | 1.26s | saklar lampu jendela mati #2
+ 4219 |  140.63s | B57      | animasi 20%  | wind_soft.wav              | 1.19s | angin malam
+ 4227 |  140.90s | B57      | animasi 20%  | switch_off.wav             | 1.46s | saklar lampu jendela mati #3

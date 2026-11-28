@@ -1,19 +1,19 @@
 # SFX yang BELUM ADA filenya di public/sfx (library foley project sebelumnya, 355 file). Perlu disintesis / dikirim / pakai fallback.
 # nama_file | dipakai di (beat@frame) | deskripsi bunyi | fallback terdekat dari library
-ink_bottle_fall.wav | B3@70 | botol tinta kaca kecil terguling & jatuh di meja kayu | glass_clink.wav
-wood_plank_crack.wav | B8@410, B55@4025 | papan/kayu kering patah (krak) — jembatan papan & robot kayu mainan | piece_fall.wav
-rubber_squeak.wav | B13@737 | sarung tangan karet tebal berdecit saat digenggam | wheel_squeak.wav
-muffled_talk.wav | B14@790 | suara bicara teredam (gumam tanpa kata, seperti dari balik earphone) | muffle_down.wav
-fridge_door.wav | B15@856 | pintu kulkas dibuka-tutup (hisap seal + tutup empuk) | door_close_soft.wav
-cashier_beep.wav | B16@1021 | bunyi scan kasir lembut (bip pendek, bukan laser) | monitor_beep.wav
-kettle_whistle.wav | B19@1223 | ketel mendidih bersiul (uap naik nada) | whistle.wav
-kettle_lid_pop.wav | B19@1244 | tutup ketel logam meletup terangkat lalu jatuh berdenting | pop_out.wav
-pebble_glass_hit.wav | B24@1584, B24@1620 | kerikil kecil kena kaca jendela (tik keras) | knock_tap.wav
-garage_roller.wav | B27@1810 | pintu garasi gulung (rolling door) bergulir naik | chain_rattle.wav
-metal_drawer.wav | B35@2445 | laci lemari arsip besi ditarik di rel logam | drawer_lock.wav
-washer_spin.wav | B37@2661 | mesin cuci: drum berputar + air berkecipak | gear_spin.wav
-needle_sew.wav | B41@3008 | jarum menembus kain + benang ditarik (menjahit) | string_zip.wav
-floor_creak.wav | B45@3250 | lantai kayu rumah berderit diinjak | seesaw_creak.wav
-brick_place.wav | B47@3504, B47@3522, B47@3540, B47@3558 | batu bata disusun satu-satu (klak bata + gesek semen) | chess_knock.wav
-door_slam.wav | B49@3650 | pintu kayu kamar dibanting keras | desk_slam.wav
-cloth_tear.wav | B53@3914 | kain payung sobek (robekan kain, bukan kertas) | paper_tear.wav
+ink_bottle_fall.wav |  | botol tinta kaca kecil terguling & jatuh di meja kayu | glass_clink.wav
+wood_plank_crack.wav |  | papan/kayu kering patah (krak) — jembatan papan & robot kayu mainan | piece_fall.wav
+rubber_squeak.wav |  | sarung tangan karet tebal berdecit saat digenggam | wheel_squeak.wav
+muffled_talk.wav |  | suara bicara teredam (gumam tanpa kata, seperti dari balik earphone) | muffle_down.wav
+fridge_door.wav |  | pintu kulkas dibuka-tutup (hisap seal + tutup empuk) | door_close_soft.wav
+cashier_beep.wav |  | bunyi scan kasir lembut (bip pendek, bukan laser) | monitor_beep.wav
+kettle_whistle.wav |  | ketel mendidih bersiul (uap naik nada) | whistle.wav
+kettle_lid_pop.wav |  | tutup ketel logam meletup terangkat lalu jatuh berdenting | pop_out.wav
+pebble_glass_hit.wav |  | kerikil kecil kena kaca jendela (tik keras) | knock_tap.wav
+garage_roller.wav |  | pintu garasi gulung (rolling door) bergulir naik | chain_rattle.wav
+metal_drawer.wav |  | laci lemari arsip besi ditarik di rel logam | drawer_lock.wav
+washer_spin.wav |  | mesin cuci: drum berputar + air berkecipak | gear_spin.wav
+needle_sew.wav |  | jarum menembus kain + benang ditarik (menjahit) | string_zip.wav
+floor_creak.wav |  | lantai kayu rumah berderit diinjak | seesaw_creak.wav
+brick_place.wav |  | batu bata disusun satu-satu (klak bata + gesek semen) | chess_knock.wav
+door_slam.wav |  | pintu kayu kamar dibanting keras | desk_slam.wav
+cloth_tear.wav |  | kain payung sobek (robekan kain, bukan kertas) | paper_tear.wav
