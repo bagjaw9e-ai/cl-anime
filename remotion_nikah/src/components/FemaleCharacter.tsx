@@ -20,7 +20,8 @@ export type FPoseName = 'standing_smile' | 'bringing_tea' | 'hugging_husband' | 
   | 'sitting_bed_edge_hugging_knees' | 'shielding_self' | 'crying_in_corner' | 'standing_still'
   // video nikah dengan pecandu (semua BARU)
   | 'offering_model_house' | 'waving_unnoticed' | 'holding_husband_hand_warm' | 'talking_soundwave' | 'shielding_heart_glow'
-  | 'leaning_against_door' | 'lying_awake_in_bed' | 'standing_in_doorway_light' | 'holding_tin_can_phone' | 'holding_torn_umbrella_over_child';
+  | 'leaning_against_door' | 'lying_awake_in_bed' | 'standing_in_doorway_light' | 'holding_tin_can_phone' | 'holding_torn_umbrella_over_child'
+  | 'hands_folded_front' | 'recoiling_hands_up';
 export type FOutfit = 'daily' | 'bride' | 'kebaya';
 
 type Limb = {a: number; b: number};
@@ -60,6 +61,10 @@ export const FPOSES: Record<FPoseName, Pose> = {
   // telepon kaleng: tangan kanan menempelkan kaleng ke mulut/telinga, tangan kiri memegang tali
   holding_tin_can_phone: mk({armR: {a: 144, b: 88}, armL: {a: 30, b: -70}, turn: -0.35, headTilt: -8, lean: -2}),
   // tangan kiri mengangkat payung (sobek) tinggi, tangan kanan merangkul anak di depan-bawah, kuda-kuda melindungi
+  // diam menunggu (pose netral BARU): tangan kiri memegang pergelangan kanan di depan perut
+  hands_folded_front: mk({armR: {a: 10, b: -70}, armL: {a: 22, b: -100}, headTilt: 4, turn: -0.1}),
+  // mundur kaget: dua telapak terangkat di depan dada, badan condong menjauh, gemetar
+  recoiling_hands_up: mk({armR: {a: 60, b: -120}, armL: {a: 64, b: -110}, lean: 8, headTilt: 9, tremble: 0.6, step: 1, turn: -0.3}),
   holding_torn_umbrella_over_child: mk({armL: {a: 158, b: 12}, armR: {a: 44, b: -24}, lean: 4, headTilt: -6, pitch: -0.1, turn: 0.3, step: 1}),
 };
 

@@ -280,7 +280,9 @@ export const ScientistSil: React.FC<{t: number}> = ({t}) => {
   const tap = Math.max(0, Math.sin(t * 0.5)) * 10;
   return (
     <g>
-      <circle cx={0} cy={-300} r={70} fill="#2B3446" />
+      <circle cx={0} cy={-300} r={74} fill="#9FB2CC" opacity={0.35} />
+      <circle cx={0} cy={-300} r={70} fill="#5A6A84" />
+      <path d="M -50 -330 Q 0 -380 50 -330" stroke="#DFF8FF" strokeWidth={6} fill="none" opacity={0.6} />
       <path d="M -110 -200 Q -130 60 -100 230 L 100 230 Q 130 60 110 -200 Q 0 -240 -110 -200 Z" fill="#DDE6F2" opacity={0.92} />
       <path d="M -30 -214 L 0 -150 L 30 -214" stroke="#9AA8BC" strokeWidth={6} fill="none" />
       <rect x={-16} y={230} width={34} height={70} fill="#2B3446" /><rect x={-60} y={230} width={34} height={70} fill="#2B3446" transform="translate(84,0)" />

@@ -1,19 +1,21 @@
 import React from 'react';
 import {Cam} from '../kit';
+import {Tone} from '../theme';
 
-// Transisi masuk shot: cut, dissolve (blur dissolve), dark (fade lewat gelap ala ref_1), light (light sweep/bloom),
-// whip (whip slide horizontal + motion blur ala ref_2), blend (match cut: dissolve singkat + kilat)
-export type Trans = 'cut' | 'dissolve' | 'dark' | 'light' | 'whip' | 'blend';
+// Transisi masuk shot (dipakai saat GANTI TEMPAT/FASE):
+// cut = hard cut (hook), whip = slide horizontal + motion blur, dark = fade lewat gelap (ref_1), dissolve = blur dissolve,
+// zoomThrough = zoom tembus objek (pintu) -> tempat baru, dust = rumah kartu jadi debu -> reveal (pull-out)
+export type Trans = 'cut' | 'whip' | 'dark' | 'dissolve' | 'zoomThrough' | 'dust';
 export type ShotDef = {
   id: string;
   from: number; to: number;
-  enter: Trans; trLen: number; trColor?: string;
+  enter: Trans; trLen: number;
   cam: (f: number) => Cam;
-  bg: (f: number) => React.ReactNode;      // ruangan (diblur tipis = depth of field)
-  bgBlur?: (f: number) => number;
-  dim?: (f: number) => number;              // redupkan ruangan
-  fg: (f: number) => React.ReactNode;      // karakter + ilustrasi (koordinat dunia, ikut kamera)
-  overlay?: (f: number) => React.ReactNode; // koordinat layar (tidak ikut kamera), mis. kilatan blitz
-  floorY?: number;   // kaki karakter: kamera dijepit supaya lantai ini tampil maks y≈1260 di layar (zona tengah)
-  free?: (f: number) => boolean; // true = kamera bebas (one shot zoom)
+  tone: (f: number) => Tone;                               // tone latar: berubah halus tiap zoom, tempat tetap
+  bg: (f: number, tone: Tone) => React.ReactNode;          // tempat (diblur DOF + diredupkan)
+  blur?: (f: number) => number;
+  dim?: (f: number) => number;
+  fg: (f: number, tone: Tone) => React.ReactNode;          // karakter + ilustrasi (koordinat dunia, ikut kamera, dipantulkan lantai)
+  front?: (f: number, tone: Tone) => React.ReactNode;      // elemen dunia paling depan (tidak dipantulkan)
+  overlay?: (f: number) => React.ReactNode;                // koordinat layar
 };

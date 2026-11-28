@@ -293,14 +293,15 @@ export const PlaceApartment: React.FC<{tone: Tone; t: number; doorRed?: number}>
 
 /* ================= FASE 2: GARASI MALAM — beton basah, mobil samar, rak perkakas, mesin cuci, pintu ke rumah ================= */
 export const GAR = {car: -380, door: 1880, rack: 900, washer: 1380, cabinet: 360, shelf: -980};
-export const PlaceGarage: React.FC<{tone: Tone; t: number; doorOpen?: number; houseLight?: number}> = ({tone, t, doorOpen = 1, houseLight = 0.6}) => {
+export const PlaceGarage: React.FC<{tone: Tone; t: number; doorOpen?: number; houseLight?: number; roll?: number}> = ({tone, t, doorOpen = 1, houseLight = 0.6, roll = 1}) => {
   const hi = (k: number) => mix(tone.furn, tone.furnHi, k);
   return (
     <g>
       <Wall tone={tone} x0={-1700} x1={2700} gx={540} gy={760} gr={900} gop={0.3} />
       {/* pintu garasi gulung (tengah belakang) */}
-      <rect x={-60} y={160 + (1 - doorOpen) * 0} width={760} height={(1090) * Math.max(0.12, 1 - doorOpen * 0.55)} fill={hi(0.22)} />
-      {Array.from({length: 14}).map((_, i) => <rect key={i} x={-60} y={170 + i * 44} width={760} height={6} fill={tone.top} opacity={(170 + i * 44) < 160 + 1090 * Math.max(0.12, 1 - doorOpen * 0.55) ? 0.6 : 0} />)}
+      <rect x={-60} y={160} width={760} height={1090} fill={mix(tone.top, '#02040A', 0.5)} />
+      <rect x={-60} y={160} width={760} height={1090 * Math.max(0.12, 1 - roll * 0.55)} fill={hi(0.22)} />
+      {Array.from({length: 24}).map((_, i) => <rect key={i} x={-60} y={170 + i * 44} width={760} height={6} fill={tone.top} opacity={(170 + i * 44) < 160 + 1090 * Math.max(0.12, 1 - roll * 0.55) ? 0.6 : 0} />)}
       <rect x={-80} y={140} width={800} height={30} fill={tone.furn} />
       {/* lampu neon tabung di plafon */}
       {[-700, 340, 1400].map((x, i) => <g key={i}><rect x={x - 120} y={40} width={240} height={14} rx={7} fill={tone.furnHi} opacity={0.85 + 0.15 * Math.sin(t * 0.3 + i * 2)} /><ellipse cx={x} cy={60} rx={260} ry={60} fill={tone.glow} opacity={0.12} /></g>)}

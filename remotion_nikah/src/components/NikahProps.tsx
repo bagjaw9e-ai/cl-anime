@@ -6,7 +6,7 @@ import {CardHouse, HandsetNk, Pebble} from '../illustrations/nk/shared';
 
 type Pt = {x: number; y: number};
 type Arm = {sh: Pt; el: Pt; hand: Pt; a2: number};
-export type NkGeo = {cur: string; t: number; f: number; AR: Arm; AL: Arm; torsoH: number; headY: number; tx: number; pitchDY: number; noProps?: boolean; pelvisY: number};
+export type NkGeo = {cur: string; t: number; f: number; AR: Arm; AL: Arm; torsoH: number; headY: number; tx: number; pitchDY: number; noProps?: boolean; pelvisY: number; k?: number};
 
 const MALE_NEW = new Set([
   'shaking_hands_akad', 'slipping_ring', 'standing_in_fantasy_swirl', 'holding_house_of_cards', 'lounging_on_armrest_phone',
@@ -78,7 +78,7 @@ export const nkFront = (g: NkGeo) => {
     case 'holding_house_of_cards':
       return (
         <g>
-          <g transform={`translate(${AR.hand.x - 10},${AR.hand.y - 14}) rotate(${Math.sin(t * 0.21) * 3})`}><CardHouse t={t} s={0.62} wob={1} glow={0.5} /></g>
+          {(g.k ?? 0) >= 0 && <g transform={`translate(${AR.hand.x - 10},${AR.hand.y - 14}) rotate(${Math.sin(t * 0.21) * 3})`}><CardHouse t={t} s={0.62} wob={1} glow={0.5} /></g>}
           <g transform={`translate(${AL.hand.x + 2},${AL.hand.y - 30}) rotate(-12)`}><HandsetNk t={t} w={46} h={86} badge={0} /></g>
         </g>
       );

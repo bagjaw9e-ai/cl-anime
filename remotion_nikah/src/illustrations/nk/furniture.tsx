@@ -16,11 +16,11 @@ export const SofaFg: React.FC<{tone: Tone; w?: number}> = ({tone, w = 820}) => {
     </g>
   );
 };
-export const BedFg: React.FC<{tone: Tone; w?: number; head?: 'left' | 'right'}> = ({tone, w = 900, head = 'left'}) => {
+export const BedFg: React.FC<{tone: Tone; w?: number; head?: 'left' | 'right'; h?: number}> = ({tone, w = 900, head = 'left', h = 1}) => {
   const c = mix(tone.furn, tone.furnHi, 0.5), d = tone.furn;
   const hx = head === 'left' ? -w / 2 - 30 : w / 2 - 30;
   return (
-    <g>
+    <g transform={`scale(1,${h})`}>
       <rect x={hx} y={-520} width={60} height={520} rx={18} fill={mix(d, tone.furnHi, 0.2)} />
       <rect x={-w / 2} y={-170} width={w} height={130} rx={16} fill={d} />
       <rect x={-w / 2 + 10} y={-210} width={w - 20} height={60} rx={24} fill={c} />

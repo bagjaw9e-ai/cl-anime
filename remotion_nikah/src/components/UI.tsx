@@ -62,7 +62,7 @@ export const KeyPointTitle: React.FC<{c: Callout; cx: number; cy: number}> = ({c
   const size = Math.min(98, ...c.lines.map((l) => (880 / measure(l, 100)) * 100)); // MEDIUM 90-100 px
   const lh = size * 1.0, H = lh * c.lines.length;
   cy = Math.max(cy, (f >= NEON_FROM ? 530 : 170) + H / 2); // jangan menabrak panel neon + baterai (y 300-500)
-  cy = Math.min(cy, 1300 - H / 2);
+  cy = Math.min(cy, 1345 - H / 2);
   let tr = '', op = clamp(k / 3), clip: string | undefined, extra: React.ReactNode = null, rot = 0;
   const outS = 0.85 + 0.15 * out;
   switch (c.style) {
@@ -138,6 +138,6 @@ export const CalloutView: React.FC = () => {
   const f = useCurrentFrame();
   const c = calloutAt(f);
   if (!c) return null;
-  const [cx, cy] = KEY_POS[c.beat] ?? [540, 1180]; // default: overlay sedikit di bawah ilustrasi (pusat zona 900)
+  const [cx, cy] = KEY_POS[c.beat] ?? [540, 1250]; // default: overlay sedikit di bawah ilustrasi (pusat zona 900)
   return <KeyPointTitle c={c} cx={cx} cy={cy} />;
 };

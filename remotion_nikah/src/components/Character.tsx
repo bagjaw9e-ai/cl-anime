@@ -69,7 +69,7 @@ export type PoseName =
   | 'wearing_thick_gloves' | 'earphones_ignoring' | 'ticking_checklist_blindly' | 'comparing_two_lights' | 'back_turned_frosty'
   | 'throwing_pebbles' | 'sleeping_soundly_back_turned' | 'sticking_sticker_on_warning_light' | 'peering_through_binoculars'
   | 'chasing_fireflies' | 'pressing_elevator_button_up' | 'raising_huge_shield' | 'slamming_door_shut' | 'head_full_of_tangled_wires'
-  | 'storm_cloud_head' | 'flaunting_ring_hand';
+  | 'storm_cloud_head' | 'flaunting_ring_hand' | 'pockets_shoulders_up' | 'fists_up_shouting' | 'pouring_from_bottle';
 
 type Limb = {a: number; b: number}; // a = sendi pangkal, b = sendi tengah (relatif)
 type Pose = {
@@ -359,6 +359,12 @@ export const POSES: Record<PoseName, Pose> = {
   storm_cloud_head: mk({armR: {a: 10, b: -28}, armL: {a: 10, b: -28}, shoulder: 0.45, pelvisY: 224, pitch: 0.18, headDY: 4, tremble: 0.4}),
   // pamer cincin: tangan kiri diangkat di depan dada (punggung tangan ke kamera), tangan kanan di saku, dagu naik (kabel charger dari cincin ke HP: props)
   flaunting_ring_hand: mk({armL: {a: 38, b: -124}, armR: {a: 16, b: -42}, headTilt: -7, pitch: -0.08, turn: 0.22, lean: -2, legR: {a: 7, b: -3}, legL: {a: 2, b: -1}}),
+  // diam kedinginan/cuek: tangan di saku pinggang, bahu terangkat, dagu turun (pose netral BARU)
+  pockets_shoulders_up: mk({armR: {a: 8, b: -34}, armL: {a: 8, b: -34}, shoulder: 0.65, pitch: 0.16, headTilt: -4, lean: -2, legR: {a: 6, b: -2}, legL: {a: 3, b: -1}}),
+  // meledak: dua kepalan terangkat di depan dada, siku terbuka, condong maju, gemetar
+  fists_up_shouting: mk({armR: {a: 42, b: -96}, armL: {a: 42, b: -96}, lean: 7, shoulder: 0.4, pitch: -0.06, tremble: 0.8, jitter: 0.3, legR: {a: 13, b: -8}, legL: {a: 9, b: -4}}),
+  // menuang botol: lengan kanan terangkat ke depan-kiri (botol digambar ilustrasi), tangan kiri di saku
+  pouring_from_bottle: mk({armR: {a: 100, b: -20}, armL: {a: 14, b: -40}, turn: -0.4, headTilt: 6, pitch: 0.2, lean: -3}),
   head_down: mk({pitch: 0.9, headDY: 20, headTilt: 4, armR: {a: 2, b: -2}, armL: {a: 2, b: -2}, shoulder: 0.55, torsoSY: 0.96, pelvisY: 224}),
 };
 
@@ -581,6 +587,7 @@ const OUT = {
 
 /* ---------------- komponen ---------------- */
 export type CharacterProps = {
+  propK?: number; // progres props (-1 = sembunyikan props utama, mis. rumah kartu)
   noProps?: boolean; // sembunyikan props pose (dipakai bila scene menggambar props-nya sendiri)
   x?: number; y?: number; scale?: number;
   expression?: KF<Expression>;
@@ -603,7 +610,7 @@ export type CharacterProps = {
 export const Character: React.FC<CharacterProps> = ({
   x = 540, y = 1500, scale = 1, expression = 'neutral', pose = 'standing_relaxed',
   lookAt = {x: 0, y: 0}, talking = false, rim = false, rimColor = '#FFF4E0', blinkSeed = 1,
-  walkSpeed = 1, phoneColor = C.red2, id = 'c', rimColor2 = '#FFB23F', chains = 0, outfit = 'bomber', noShadow = false, noProps = false,
+  walkSpeed = 1, phoneColor = C.red2, id = 'c', rimColor2 = '#FFB23F', chains = 0, outfit = 'bomber', noShadow = false, noProps = false, propK = 0,
 }) => {
   const O = OUT[outfit];
   const frame = useCurrentFrame();
@@ -860,7 +867,7 @@ export const Character: React.FC<CharacterProps> = ({
   const headY = -torsoH - 22 - 96 + P.headDY + bob * 0.5;
   const faceGlowOp = P.faceGlow * (0.55 + 0.1 * Math.sin(t * 9) + 0.05 * Math.sin(t * 23));
 
-  const geo = {cur: pk.cur as string, t: frame, f: frame, AR, AL, torsoH, headY, tx, pitchDY, noProps, pelvisY: P.pelvisY};
+  const geo = {cur: pk.cur as string, t: frame, f: frame, AR, AL, torsoH, headY, tx, pitchDY, noProps, pelvisY: P.pelvisY, k: propK};
   const head = (
     <g transform={`translate(${X.jit * Math.sin(t * 47) * 2.5},${-torsoH}) rotate(${P.headTilt + Math.sin(t * 1.7) * 0.8 + X.jit * Math.sin(t * 39) * 1.5}) translate(0,${headY + torsoH})`}>
       {/* telinga */}
