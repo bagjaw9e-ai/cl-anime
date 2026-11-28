@@ -1,0 +1,24 @@
+{
+  "name": "remotion-nikah",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "sfx": "python3 scripts/make_sfx.py && node scripts/export_cues.mjs && python3 scripts/mix_sfx.py",
+    "render": "npm run sfx && remotion render src/index.ts Main out/video_v2.mp4 --codec=h264 --audio-codec=aac --crf=18"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^5.1.0",
+    "@remotion/cli": "^4.0.300",
+    "@remotion/media-utils": "^4.0.300",
+    "flubber": "^0.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.300"
+  },
+  "devDependencies": {
+    "@types/flubber": "^0.4.0",
+    "@types/react": "^18.3.12",
+    "typescript": "^5.6.3"
+  }
+}
