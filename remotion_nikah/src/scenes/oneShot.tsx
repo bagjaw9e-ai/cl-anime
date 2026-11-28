@@ -25,7 +25,7 @@ export const shotOneShot: ShotDef = {
   id: 'oneShot', from: A, to: B, enter: 'dissolve', trLen: 8,
   cam: (f) => {
     const u = U(f), e = EIO(u);
-    return {x: 560 + (563 - 560) * e, y: 860 + (955 - 860) * e, s: Math.exp(Math.log(3) * u)};
+    return {x: 560 + (512 - 560) * e, y: 860 + (948 - 860) * e, s: Math.exp(Math.log(3) * u)};
   },
   tone: (f) => { const u = U(f); return u < 0.5 ? mixTone(TONES.osCream, TONES.osPurple, u / 0.5) : mixTone(TONES.osPurple, TONES.osRed, (u - 0.5) / 0.5); },
   blur: (f) => 6 + U(f) * 4, dim: (f) => 0.28 + U(f) * 0.18,
