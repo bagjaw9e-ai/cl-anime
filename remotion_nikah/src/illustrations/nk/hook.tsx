@@ -77,7 +77,7 @@ export const InviteInk: React.FC<{t: number; k?: number}> = ({t, k = 1}) => {
     return 'M ' + pts.map((p, i) => {
       const n = pts[(i + 1) % pts.length];
       return `${p[0]} ${p[1]} Q ${(p[0] + n[0]) / 2 + (rand(i) - 0.5) * r * 0.3} ${(p[1] + n[1]) / 2 + (rand(i * 2) - 0.5) * r * 0.3}`;
-    }).join(' ') + ' Z';
+    }).join(' ') + ` ${pts[0][0]} ${pts[0][1]} Z`;
   };
   return (
     <g>
