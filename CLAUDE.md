@@ -114,3 +114,12 @@ Pakai versi terbaru di `remotion_30hari/` (copy ke project baru, jangan bikin ul
 
 ## Video 3 fase (Remotion, `remotion_3fase/`, `out/video_3fase.mp4`) — dipanggil ulang dengan `/style3`
 - Skill project `.claude/skills/style3/SKILL.md` berisi resep lengkap gaya ini (kit, layout, subtitle/callout, audio, alur ⏸, render per potongan).
+
+## Video nikah dengan pecandu (Remotion, `remotion_nikah/`, `out/video_nikah_pecandu.mp4`)
+- Brief "serba baru": semua pose/ilustrasi baru (daftar aset lama: `remotion_nikah/preview/used_assets.md`). Rig dipakai ulang: `Character`
+  (+ outfit `koko`), `FemaleCharacter` (+ outfit `kebaya`), rig anak BARU `ChildCharacter`; props pose baru di `src/components/NikahProps.tsx`.
+- Tempat samar + tone per zoom: `src/components/PlacesNikah.tsx` (`TONES`), kamera+tone `src/scenes/track.ts` (`makeTrack`), renderer `src/Main.tsx`
+  (transisi cut/whip/dark/dissolve/zoomThrough/dust), scene per bagian `src/scenes/*.tsx`, ilustrasi `src/illustrations/nk/*`.
+- Panel neon 9:16 + ikon + baterai charge: `src/components/NeonPanel.tsx`, jadwal `src/neonPanel.ts`; poin penting 💬 `src/subtitles.ts` (muncul di kata kunci).
+- Audio: library foley gabungan `public/sfx` + sintesis `scripts/make_sfx_nikah.py`, cue `scripts/sfx_cues_nikah.py`, mix `scripts/mix_audio.py`
+  (VO 100%, BGM 1% utuh, SFX ≤20% volume VO per jendela 0,4 dtk). Render per part `scripts/render_part.sh`, QA `scripts/check_final.py`.

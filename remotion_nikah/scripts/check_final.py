@@ -33,7 +33,7 @@ seg = [(6, 'FASE 1 : IKATAN BATIN HANCUR'), (27, 'FASE 2 : LOGIKA DIGEROGOTI'), 
 print('4) panel neon: ' + ' | '.join(f'{t} @ frame {round(bt[b]["start"] * FR)} ("{W[bt[b]["w0"]]["w"]} ...")' for b, t in seg) + ' | tidak tampil di HOOK & ONE SHOT')
 # 5. subtitle vs poin penting (logika sama dengan src/subtitles.ts)
 src = open(os.path.join(ROOT, 'src/subtitles.ts')).read()
-CALL = [(int(b), k) for b, k in re.findall(r"\[(\d+), \[[^\]]*\], \[[^\]]*\], \w+, '\w+', '([^']+)'\]", src)]
+CALL = [(int(b), k) for b, k in re.findall(r"\[(\d+), \[[^\]]*\], \[[^\]]*\], (?:\w+|'[^']*'), '\w+', '([^']+)'\]", src)]
 norm = lambda s: re.sub(r'[^\w]', '', s).lower()
 ends = {b['id']: (B[i + 1]['start'] if i + 1 < len(B) else n / FR) for i, b in enumerate(B)}
 win = []
